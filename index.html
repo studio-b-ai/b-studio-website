@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio B — AI-Powered Managed IT & DevOps</title>
+<meta name="description" content="Studio B delivers AI-powered managed IT, DevOps, and ERP integration for mid-market companies. Transform your operations with intelligent automation.">
+<meta property="og:title" content="Studio B — AI-Powered Managed IT & DevOps">
+<meta property="og:description" content="Transform your operations with intelligent automation. Studio B delivers AI-powered managed IT, DevOps, and ERP integration for mid-market companies.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://b.studio">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- HubSpot Tracking Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49070660.js"></script>
+
+<style>
+  :root {
+    --bg: #04060B;
+    --surface: #0C1017;
+    --surface-2: #141A24;
+    --border: #1E2A3A;
+    --text: #E8ECF1;
+    --text-muted: #8A95A5;
+    --text-dim: #566174;
+    --accent: #22D3EE;
+    --accent-deep: #0891B2;
+    --accent-glow: rgba(34, 211, 238, 0.10);
+    --accent-glow-strong: rgba(34, 211, 238, 0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(4, 6, 11, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(30, 42, 58, 0.5);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+  }
+
+  .nav-logo svg { width: 28px; height: auto; }
+
+  .nav-logo .wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo .wordmark .s {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 0.5rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .nav-logo .wordmark .b {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--text);
+    margin-top: -0.05rem;
+  }
+
+  .nav-cta {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid rgba(34, 211, 238, 0.3);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-cta:hover {
+    background: rgba(34, 211, 238, 0.08);
+    border-color: var(--accent);
+  }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 6rem;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero > * { position: relative; z-index: 1; }
+
+  .hero-mark {
+    animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .hero-mark svg {
+    width: 80px;
+    height: auto;
+    filter: drop-shadow(0 0 60px rgba(34, 211, 238, 0.06));
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.15;
+    margin-top: 2rem;
+    max-width: 700px;
+    animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin-top: 1.4rem;
+    animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  }
+
+  .hero-form {
+    margin-top: 2.5rem;
+    animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 0.6rem;
+    max-width: 440px;
+  }
+
+  .form-row input[type="email"] {
+    flex: 1;
+    padding: 0.85rem 1.2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .form-row input[type="email"]::placeholder {
+    color: var(--text-dim);
+  }
+
+  .form-row input[type="email"]:focus {
+    border-color: var(--accent-deep);
+  }
+
+  .form-row button {
+    padding: 0.85rem 1.6rem;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+
+  .form-row button:hover {
+    background: #06b6d4;
+    transform: translateY(-1px);
+  }
+
+  .form-row button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-note {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    margin-top: 0.7rem;
+  }
+
+  .form-success {
+    display: none;
+    padding: 1rem 1.6rem;
+    background: rgba(34, 211, 238, 0.08);
+    border: 1px solid rgba(34, 211, 238, 0.25);
+    border-radius: 8px;
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+
+  .form-success.visible { display: block; }
+
+  /* ── Capabilities ── */
+  .capabilities {
+    padding: 6rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 0.6rem;
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 3.5rem;
+  }
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+
+  .cap-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 1.8rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .cap-card:hover {
+    border-color: rgba(34, 211, 238, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .cap-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-glow-strong);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .cap-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .cap-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── Proof ── */
+  .proof {
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .proof-stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .proof-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .proof-stat .number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .proof-stat .label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.4rem;
+    letter-spacing: 0.04em;
+  }
+
+  .proof-quote {
+    margin-top: 3rem;
+    padding: 2rem 2.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .proof-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .proof-quote cite {
+    display: block;
+    margin-top: 0.8rem;
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Divider ── */
+  .divider {
+    width: 100%;
+    max-width: 1000px;
+    height: 1px;
+    background: var(--border);
+    margin: 0 auto;
+  }
+
+  /* ── CTA Section ── */
+  .cta-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-section > * { position: relative; z-index: 1; }
+
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 460px;
+    margin: 0 auto 2rem;
+  }
+
+  .cta-form { max-width: 440px; margin: 0 auto; }
+
+  /* ── Footer ── */
+  footer {
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .footer-logo svg { width: 20px; height: auto; }
+
+  .footer-logo .wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .footer-logo .wordmark .s {
+    font-size: 0.4rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .footer-logo .wordmark .b {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-muted);
+  }
+
+  footer p {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .cap-grid { grid-template-columns: 1fr; }
+    .form-row { flex-direction: column; }
+    .form-row button { width: 100%; }
+    .proof-stat-row { gap: 2rem; }
+    nav { padding: 1rem 1.2rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 7rem 1.2rem 4rem; }
+    .capabilities { padding: 4rem 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+      <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+    </svg>
+    <div class="wordmark">
+      <span class="s">Studio</span>
+      <span class="b">B</span>
+    </div>
+  </a>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-mark">
+    <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+      <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+    </svg>
+  </div>
+  <h1>Intelligent infrastructure for <em>growing companies</em></h1>
+  <p class="hero-sub">Studio B delivers AI-powered managed IT, DevOps, and ERP integration — so your team can focus on what matters.</p>
+  <div class="hero-form">
+    <form id="hero-form" class="form-row" onsubmit="return handleSubmit(event, this)">
+      <input type="email" name="email" placeholder="you@company.com" required autocomplete="email">
+      <button type="submit">Get Started</button>
+    </form>
+    <div id="hero-success" class="form-success">We'll be in touch shortly.</div>
+    <p class="form-note">Free consultation. No commitment.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CAPABILITIES ═══ -->
+<section class="capabilities">
+  <p class="section-label">What We Do</p>
+  <h2 class="section-heading">End-to-end operations, automated</h2>
+
+  <div class="cap-grid">
+    <div class="cap-card">
+      <div class="cap-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>ERP Integration</h3>
+      <p>Acumatica, NetSuite, and HubSpot connected through real-time APIs — not fragile middleware.</p>
+    </div>
+
+    <div class="cap-card">
+      <div class="cap-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+      </div>
+      <h3>CI/CD Pipelines</h3>
+      <p>Automated build, test, and deploy for ERP customizations. No more manual promotions or broken weekends.</p>
+    </div>
+
+    <div class="cap-card">
+      <div class="cap-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      </div>
+      <h3>AI Ops</h3>
+      <p>Intelligent monitoring, anomaly detection, and automated remediation — your operations get smarter over time.</p>
+    </div>
+
+    <div class="cap-card">
+      <div class="cap-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h3>Employee Provisioning</h3>
+      <p>One-click onboarding across 8+ systems — Entra ID, ERP, phone, Slack, GitHub, and CRM in under a minute.</p>
+    </div>
+
+    <div class="cap-card">
+      <div class="cap-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+      </div>
+      <h3>EDI & E-Commerce</h3>
+      <p>API-first EDI for Walmart, Wayfair, Target. Native connectors for Amazon and Shopify. All orders in one ERP.</p>
+    </div>
+
+    <div class="cap-card">
+      <div class="cap-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Compliance & Drift</h3>
+      <p>Continuous schema monitoring, config-as-code, and automated drift detection across every system.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PROOF ═══ -->
+<section class="proof">
+  <p class="section-label">Results</p>
+  <h2 class="section-heading">Proven at production scale</h2>
+
+  <div class="proof-stat-row">
+    <div class="proof-stat">
+      <span class="number">150+</span>
+      <span class="label">API Tools Deployed</span>
+    </div>
+    <div class="proof-stat">
+      <span class="number">10</span>
+      <span class="label">Systems Integrated</span>
+    </div>
+    <div class="proof-stat">
+      <span class="number">6k+</span>
+      <span class="label">Orders Synced</span>
+    </div>
+    <div class="proof-stat">
+      <span class="number">60%</span>
+      <span class="label">Cost Reduction</span>
+    </div>
+  </div>
+
+  <div class="proof-quote">
+    <p>Studio B replaced our middleware stack and five manual processes with a single automated pipeline — in three months.</p>
+    <cite>Mid-market textile manufacturer, 50+ employees</cite>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section" id="contact">
+  <p class="section-label">Let's Talk</p>
+  <h2>Ready to modernize your operations?</h2>
+  <p>Tell us where you are today. We'll show you what's possible.</p>
+  <div class="cta-form">
+    <form id="cta-form" class="form-row" onsubmit="return handleSubmit(event, this)">
+      <input type="email" name="email" placeholder="you@company.com" required autocomplete="email">
+      <button type="submit">Get Started</button>
+    </form>
+    <div id="cta-success" class="form-success">We'll be in touch shortly.</div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <a href="#" class="footer-logo">
+    <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#566174"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#566174"/>
+      <circle cx="54" cy="61" r="3.5" fill="#0891B2"/>
+    </svg>
+    <div class="wordmark">
+      <span class="s">Studio</span>
+      <span class="b">B</span>
+    </div>
+  </a>
+  <p>&copy; 2026 Studio B. All rights reserved.</p>
+</footer>
+
+<script>
+function handleSubmit(e, form) {
+  e.preventDefault();
+  const email = form.querySelector('input[name="email"]').value;
+  const btn = form.querySelector('button');
+  const formId = form.id;
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  // Push to HubSpot tracking
+  var _hsq = window._hsq = window._hsq || [];
+  _hsq.push(['identify', { email: email }]);
+  _hsq.push(['trackPageView']);
+
+  // Show success after brief delay
+  setTimeout(function() {
+    form.style.display = 'none';
+    var successEl = document.getElementById(formId.replace('-form', '-success'));
+    if (successEl) successEl.classList.add('visible');
+    // Hide the form note if present
+    var note = form.nextElementSibling;
+    while (note && !note.classList.contains('form-note')) note = note.nextElementSibling;
+    if (note && note.classList.contains('form-note')) note.style.display = 'none';
+  }, 600);
+
+  return false;
+}
+</script>
+
+</body>
+</html>
