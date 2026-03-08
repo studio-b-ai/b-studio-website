@@ -655,28 +655,42 @@
 <script>
 function handleSubmit(e, form) {
   e.preventDefault();
-  const email = form.querySelector('input[name="email"]').value;
-  const btn = form.querySelector('button');
-  const formId = form.id;
+  var email = form.querySelector('input[name="email"]').value;
+  var btn = form.querySelector('button');
+  var formId = form.id;
 
   btn.disabled = true;
   btn.textContent = 'Sending...';
 
-  // Push to HubSpot tracking
-  var _hsq = window._hsq = window._hsq || [];
-  _hsq.push(['identify', { email: email }]);
-  _hsq.push(['trackPageView']);
+  // Submit to HubSpot Forms API (creates contact + shows in Forms dashboard)
+  var portalId = '49070660';
+  var hsFormId = '33f8b8b9-1bd7-4c8b-b526-2dffb7eab7aa';
+  var url = 'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + hsFormId;
 
-  // Show success after brief delay
-  setTimeout(function() {
+  fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      fields: [{ name: 'email', value: email }],
+      context: {
+        hutk: document.cookie.match(/hubspotutk=([^;]*)/)?.[1] || '',
+        pageUri: window.location.href,
+        pageName: document.title
+      }
+    })
+  }).then(function(res) {
+    if (!res.ok) throw new Error('Form submission failed');
     form.style.display = 'none';
     var successEl = document.getElementById(formId.replace('-form', '-success'));
     if (successEl) successEl.classList.add('visible');
-    // Hide the form note if present
     var note = form.nextElementSibling;
     while (note && !note.classList.contains('form-note')) note = note.nextElementSibling;
     if (note && note.classList.contains('form-note')) note.style.display = 'none';
-  }, 600);
+  }).catch(function() {
+    btn.disabled = false;
+    btn.textContent = 'Get Started';
+    form.querySelector('input[name="email"]').style.borderColor = '#ef4444';
+  });
 
   return false;
 }
