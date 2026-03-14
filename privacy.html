@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Studio B</title>
+<meta name="description" content="Privacy policy for Studio B products including AcuDocs Capture Chrome extension and AcuOps platform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+<!-- HubSpot Tracking Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49070660.js"></script>
+
+<style>
+  :root {
+    --bg: #04060B;
+    --surface: #0C1017;
+    --surface-2: #141A24;
+    --border: #1E2A3A;
+    --text: #E8ECF1;
+    --text-muted: #8A95A5;
+    --text-dim: #566174;
+    --accent: #22D3EE;
+    --accent-deep: #0891B2;
+    --accent-glow: rgba(34, 211, 238, 0.10);
+    --accent-glow-strong: rgba(34, 211, 238, 0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(4, 6, 11, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(30, 42, 58, 0.5);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+  }
+
+  .nav-logo svg { width: 28px; height: auto; }
+
+  .nav-logo .wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo .wordmark .s {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    color: var(--text-muted);
+  }
+
+  .nav-logo .wordmark .b {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--text);
+  }
+
+  .nav-back {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--accent); }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 8rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 400px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    color: var(--text);
+    margin-bottom: 0.6rem;
+    position: relative;
+  }
+
+  .hero .effective {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    position: relative;
+  }
+
+  .hero .effective span { color: var(--accent); }
+
+  /* ── Content ── */
+  .content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+    position: relative;
+  }
+
+  .section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: border-color 0.3s;
+  }
+
+  .section:hover {
+    border-color: rgba(34, 211, 238, 0.2);
+  }
+
+  .section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section h2 .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    background: var(--accent-glow);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid rgba(34, 211, 238, 0.15);
+  }
+
+  .section h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text);
+    margin: 1.4rem 0 0.6rem;
+  }
+
+  .section p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.75;
+  }
+
+  .section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.6rem 0;
+  }
+
+  .section li {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    padding: 0.35rem 0 0.35rem 1.4rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .section li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+
+  .section a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+    transition: border-color 0.2s;
+  }
+
+  .section a:hover {
+    border-color: var(--accent);
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    background: var(--accent-glow);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid rgba(34, 211, 238, 0.15);
+    margin-right: 0.3rem;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+  }
+
+  .data-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .data-table td {
+    color: var(--text-muted);
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid rgba(30, 42, 58, 0.4);
+    vertical-align: top;
+  }
+
+  .data-table tr:last-child td { border-bottom: none; }
+
+  .data-table td:first-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* ── Animations ── */
+  .section {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+  .section:nth-child(1) { animation-delay: 0.05s; }
+  .section:nth-child(2) { animation-delay: 0.1s; }
+  .section:nth-child(3) { animation-delay: 0.15s; }
+  .section:nth-child(4) { animation-delay: 0.2s; }
+  .section:nth-child(5) { animation-delay: 0.25s; }
+  .section:nth-child(6) { animation-delay: 0.3s; }
+  .section:nth-child(7) { animation-delay: 0.35s; }
+  .section:nth-child(8) { animation-delay: 0.4s; }
+  .section:nth-child(9) { animation-delay: 0.45s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 640px) {
+    .content { padding: 1.5rem 1rem 4rem; }
+    .section { padding: 1.4rem; }
+    .data-table { font-size: 0.78rem; }
+    .data-table td:first-child { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://b.studio" class="nav-logo">
+    <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+      <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+    </svg>
+    <div class="wordmark">
+      <span class="s">Studio</span>
+      <span class="b">B</span>
+    </div>
+  </a>
+  <a href="https://b.studio" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Back to b.studio
+  </a>
+</nav>
+
+<div class="hero">
+  <h1>Privacy Policy</h1>
+  <p class="effective">Effective <span>March 14, 2026</span></p>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <h2><span class="num">01</span> Introduction</h2>
+    <p>Studio B ("we", "us", "our") operates the AcuOps platform, the AcuDocs Capture Chrome extension, and related services. This policy describes how we collect, use, and protect information when you use our products.</p>
+    <p>We are committed to protecting your privacy and handling your data transparently. We collect only what is necessary to deliver our services and never sell your data to third parties.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">02</span> Products Covered</h2>
+    <p>This policy covers the following Studio B products and services:</p>
+    <ul>
+      <li><span class="badge">Extension</span> <strong>AcuDocs Capture</strong> — Chrome extension for generating training documentation from screen recordings</li>
+      <li><span class="badge">Platform</span> <strong>AcuOps</strong> — ERP environment management, monitoring, and CI/CD for Acumatica</li>
+      <li><span class="badge">Service</span> <strong>Doc Generator</strong> — Backend service for AI-powered guide generation and knowledge base publishing</li>
+      <li><span class="badge">Portal</span> <strong>Enhancement Portal</strong> — Customer-facing portal for feature requests and training documentation</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">03</span> AcuDocs Capture — Chrome Extension</h2>
+    <p>The AcuDocs Capture extension records browser actions during user-initiated recording sessions to generate training documentation. Below is a complete description of what data is collected and how it is used.</p>
+
+    <h3>Data collected during active recording</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>Data Type</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Screenshots</td><td>Visible tab screenshots captured at each user action to illustrate guide steps</td></tr>
+        <tr><td>Click coordinates</td><td>X/Y position of clicks to annotate screenshots with visual indicators</td></tr>
+        <tr><td>Element metadata</td><td>HTML tag, text label, aria-label, and CSS selector of interacted elements</td></tr>
+        <tr><td>Page URL</td><td>Current page URL to provide navigation context in guides</td></tr>
+        <tr><td>ERP context</td><td>Acumatica screen ID, field name, and grid column (when on Acumatica pages)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Data NOT collected</h3>
+    <ul>
+      <li>Passwords or authentication credentials (password fields are explicitly excluded)</li>
+      <li>Data entered in form fields (only the field label and element metadata are captured, not values)</li>
+      <li>Browsing history or activity outside of active recording sessions</li>
+      <li>Personal identification information (name, email, address)</li>
+      <li>Financial or payment information</li>
+      <li>Health information</li>
+      <li>Location data</li>
+    </ul>
+
+    <h3>When data is collected</h3>
+    <p>Data is collected <strong>only during active recording sessions</strong> that the user explicitly starts and stops. When not recording, the extension does not observe, capture, or transmit any data. The content script listens for DOM events only while the recording flag is active.</p>
+
+    <h3>Where data is sent</h3>
+    <p>Captured data is transmitted via HTTPS to the AcuDocs processing service hosted on Railway (doc-generator-production.up.railway.app). Data is processed server-side by Claude AI to generate step-by-step documentation and is then published to the customer's HubSpot Knowledge Base.</p>
+
+    <h3>Remote code</h3>
+    <p>This extension does not load or execute any remotely hosted code. All JavaScript is bundled within the extension package. The extension communicates with the AcuDocs API exclusively via <code>fetch()</code> requests and receives JSON responses.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">04</span> AcuOps Platform</h2>
+    <p>The AcuOps platform connects to your Acumatica ERP instance via the Acumatica REST API to provide environment monitoring, schema drift detection, and CI/CD services.</p>
+    <ul>
+      <li>API credentials are stored encrypted in Railway environment variables, never in source code</li>
+      <li>Read-only API access is used for monitoring and validation; write access is used only for CI/CD deployments with explicit authorization</li>
+      <li>Schema snapshots are cached in Redis for drift comparison and automatically expire</li>
+      <li>Health check data is retained for 30 days for trend analysis</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">05</span> Data Storage &amp; Security</h2>
+    <ul>
+      <li>All data is transmitted over HTTPS/TLS encrypted connections</li>
+      <li>Backend services are hosted on Railway with infrastructure-level encryption at rest</li>
+      <li>API credentials and secrets are stored in Railway environment variables, never committed to source control</li>
+      <li>Redis-cached data (guide drafts, session state) expires automatically with configurable TTLs</li>
+      <li>Vector embeddings in Qdrant are used for knowledge base search and do not contain raw user data</li>
+      <li>We conduct periodic security audits including credential rotation and permission scoping</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">06</span> Third-Party Services</h2>
+    <p>Our products integrate with the following third-party services to deliver functionality:</p>
+    <table class="data-table">
+      <thead>
+        <tr><th>Service</th><th>Purpose</th><th>Data Shared</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Anthropic (Claude)</td><td>AI-powered guide generation</td><td>Screenshots and element metadata for documentation generation</td></tr>
+        <tr><td>HubSpot</td><td>Knowledge base publishing, CRM</td><td>Generated guide content and article metadata</td></tr>
+        <tr><td>Voyage AI</td><td>Vector embeddings for search</td><td>Guide text for embedding generation (no images)</td></tr>
+        <tr><td>Railway</td><td>Infrastructure hosting</td><td>Application logs and metrics</td></tr>
+        <tr><td>Slack</td><td>Notifications and video intake</td><td>Guide review messages and status notifications</td></tr>
+      </tbody>
+    </table>
+    <p>We do not sell, rent, or trade any user data to third parties. Data shared with the services above is used solely to deliver Studio B product functionality.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">07</span> Data Retention</h2>
+    <ul>
+      <li>Guide drafts pending review are stored in Redis for 7 days, then automatically deleted</li>
+      <li>Published guides are retained in HubSpot Knowledge Base until the customer removes them</li>
+      <li>Vector embeddings persist in Qdrant until the guide is deleted or the collection is cleared</li>
+      <li>Temporary video files are deleted immediately after processing</li>
+      <li>Application logs are retained for 30 days</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">08</span> Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Request access to any data we hold about you or your organization</li>
+      <li>Request deletion of your data from our systems</li>
+      <li>Opt out of data collection by uninstalling the Chrome extension or disconnecting API access</li>
+      <li>Request a copy of your data in a portable format</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:kevin@b.studio">kevin@b.studio</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">09</span> Changes to This Policy</h2>
+    <p>We may update this privacy policy from time to time. Material changes will be communicated via the Enhancement Portal or email. The effective date at the top of this page reflects the most recent revision.</p>
+    <p>For questions about this policy, contact <a href="mailto:kevin@b.studio">kevin@b.studio</a>.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Studio B. All rights reserved. &nbsp;|&nbsp; <a href="https://b.studio">b.studio</a></p>
+</footer>
+
+</body>
+</html>
