@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AcuDocs — Auto-Generated Acumatica Training Docs | Studio B</title>
+<meta name="description" content="AcuDocs generates Acumatica training documentation automatically. Record your screen, get a formatted guide. Chrome extension + AI-powered doc generator.">
+<meta property="og:title" content="AcuDocs — Auto-Generated Acumatica Training Docs | Studio B">
+<meta property="og:description" content="AcuDocs generates Acumatica training documentation automatically. Record your screen, get a formatted guide. Chrome extension + AI-powered doc generator.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://b.studio/acudocs.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<!-- HubSpot Tracking Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49070660.js"></script>
+
+<style>
+  /* ── Active nav state ── */
+  .nav-links a[href="acudocs.html"] {
+    color: var(--accent) !important;
+  }
+
+  /* ── Problem Section ── */
+  .problem {
+    padding: 6rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .problem h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    line-height: 1.2;
+    margin-bottom: 1.4rem;
+  }
+
+  .problem p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  /* ── Features Grid (2x2) ── */
+  .features {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+  }
+
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+
+  .feature-card:hover {
+    border-color: rgba(34, 211, 238, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--accent-glow-strong);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+  }
+
+  .feature-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ── How It Works (3 steps) ── */
+  .how-it-works {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+    margin-top: 3.5rem;
+  }
+
+  .step-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 3.2rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    opacity: 0.4;
+  }
+
+  .step-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+  }
+
+  .step-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ── Pricing Section ── */
+  .pricing {
+    padding: 6rem 2rem;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .price-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 3.5rem 3rem;
+    margin-top: 2.5rem;
+    transition: border-color 0.3s;
+  }
+
+  .price-card:hover {
+    border-color: rgba(34, 211, 238, 0.25);
+  }
+
+  .price-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(3rem, 6vw, 4rem);
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .price-unit {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .price-requires {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .price-pitch {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .price-volume {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+
+  /* ── CTA / Demo Section ── */
+  .cta-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-section > * { position: relative; z-index: 1; }
+
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .cta-form {
+    max-width: 540px;
+    margin: 0 auto;
+    min-height: 400px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+      <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+    </svg>
+    <div class="wordmark">
+      <span class="s">Studio</span>
+      <span class="b">B</span>
+    </div>
+  </a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="acudev.html">AcuDev</a>
+    <a href="acuops.html">AcuOps</a>
+    <a href="acudocs.html">AcuDocs</a>
+    <a href="partners.html">Partners</a>
+    <a href="#demo" class="nav-cta">Request Demo</a>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="section-label" style="animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;">ACUDOCS</div>
+  <h1 style="margin-top: 0.8rem;">Documentation you love<br>(because a <span style="font-style: normal;">&#129302;</span> did it for you)</h1>
+  <p class="hero-sub">Record your screen walking through any Acumatica process. AcuDocs watches every click, extracts the steps, and generates a formatted training guide. No writing required.</p>
+  <div class="hero-actions">
+    <a href="#demo" class="btn-primary">
+      Request a Demo
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#pricing" class="btn-secondary">See Pricing</a>
+  </div>
+  <p class="hero-trust">Chrome Extension + AI-Powered Doc Generator</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Problem ── -->
+<section class="problem fade-in">
+  <h2>Nobody writes documentation.<br>You know this.</h2>
+  <p>Your team knows the processes. They just never write them down. And when they do, the docs are outdated by next quarter. AcuDocs solves both problems &mdash; documentation that generates itself and stays current because re-recording takes 5 minutes.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Features ── -->
+<section class="features fade-in">
+  <div class="section-label">Features</div>
+  <h2 class="section-heading">What AcuDocs does</h2>
+
+  <div class="features-grid">
+
+    <!-- Chrome Extension -->
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="4"/>
+          <line x1="21.17" y1="8" x2="12" y2="8"/>
+          <line x1="3.95" y1="6.06" x2="8.54" y2="14"/>
+          <line x1="10.88" y1="21.94" x2="15.46" y2="14"/>
+        </svg>
+      </div>
+      <h3>Chrome Extension</h3>
+      <p>One click to start recording. Captures every click, field entry, and navigation in Acumatica. No setup, no configuration.</p>
+    </div>
+
+    <!-- AI-Powered Extraction -->
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/>
+          <path d="M16 14h.01"/>
+          <path d="M8 14h.01"/>
+          <path d="M6 18a6 6 0 0 1 12 0"/>
+          <path d="M12 14v4"/>
+          <circle cx="12" cy="6" r="1" fill="var(--accent)"/>
+        </svg>
+      </div>
+      <h3>AI-Powered Extraction</h3>
+      <p>Claude analyzes your recording and identifies the meaningful steps &mdash; what was clicked, what was entered, what the user was trying to accomplish.</p>
+    </div>
+
+    <!-- Formatted Training Guides -->
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <line x1="10" y1="9" x2="8" y2="9"/>
+        </svg>
+      </div>
+      <h3>Formatted Training Guides</h3>
+      <p>Professional, step-by-step documentation with annotated screenshots. Ready to hand to a new hire on day one.</p>
+    </div>
+
+    <!-- Slack & PDF Delivery -->
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22 6 12 13 2 6"/>
+        </svg>
+      </div>
+      <h3>Slack & PDF Delivery</h3>
+      <p>Publish guides directly to Slack channels for the team, or export as PDF for formal training materials.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── How It Works ── -->
+<section class="how-it-works fade-in">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-heading">Three steps. Zero writing.</h2>
+
+  <div class="steps-grid">
+
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <h3>Record</h3>
+      <p>Click the Chrome extension and walk through any Acumatica process normally.</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <h3>Generate</h3>
+      <p>AcuDocs extracts steps, annotates screenshots, and writes the guide.</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <h3>Publish</h3>
+      <p>Share to Slack, export as PDF, or save to your documentation library.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Pricing ── -->
+<section class="pricing fade-in" id="pricing">
+  <div class="section-label">Pricing</div>
+  <h2 class="section-heading">Documentation shouldn't cost more than a consultant hour</h2>
+
+  <div class="price-card">
+    <div class="price-big">$149</div>
+    <div class="price-unit">per client, per month</div>
+    <div class="price-requires">Requires AcuOps (any tier)</div>
+    <p class="price-pitch">Less than one hour of a consultant's time. Covers unlimited documentation for one client.</p>
+    <p class="price-volume">15% off at 10+ clients &middot; 25% off at 25+</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CTA / Demo Form ── -->
+<section class="cta-section fade-in" id="demo">
+  <h2>See AcuDocs in action</h2>
+  <p>Watch a training guide write itself in under 3 minutes.</p>
+  <div class="cta-form">
+    <div id="demo-form"></div>
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+        region: "na1",
+        portalId: "49070660",
+        formId: "PLACEHOLDER_DEMO_FORM",
+        target: "#demo-form",
+        css: "",
+        cssClass: "hs-form-dark"
+      });
+    </script>
+    <style>
+      .hs-form-dark .hs-input {
+        background: var(--surface) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 8px !important;
+        color: var(--text) !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.9rem !important;
+        font-weight: 300 !important;
+        padding: 0.85rem 1.2rem !important;
+        width: 100% !important;
+      }
+      .hs-form-dark .hs-input:focus {
+        border-color: var(--accent-deep) !important;
+        outline: none !important;
+      }
+      .hs-form-dark .hs-input::placeholder {
+        color: var(--text-dim) !important;
+      }
+      .hs-form-dark label {
+        color: var(--text-muted) !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.82rem !important;
+        font-weight: 400 !important;
+        margin-bottom: 0.3rem !important;
+      }
+      .hs-form-dark .hs-button {
+        background: var(--accent) !important;
+        color: var(--bg) !important;
+        border: none !important;
+        border-radius: 8px !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.95rem !important;
+        font-weight: 500 !important;
+        padding: 0.85rem 2rem !important;
+        cursor: pointer !important;
+        transition: all 0.3s !important;
+        width: 100% !important;
+        margin-top: 0.5rem !important;
+      }
+      .hs-form-dark .hs-button:hover {
+        background: #06b6d4 !important;
+        transform: translateY(-1px) !important;
+      }
+      .hs-form-dark .hs-form-field {
+        margin-bottom: 1rem !important;
+      }
+      .hs-form-dark .hs-error-msg {
+        color: #ef4444 !important;
+        font-size: 0.78rem !important;
+      }
+      .hs-form-dark select.hs-input {
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A95A5' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 1rem center !important;
+      }
+      .hs-form-dark textarea.hs-input {
+        min-height: 100px !important;
+        resize: vertical !important;
+      }
+    </style>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo">
+        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+        </svg>
+        <div class="wordmark">
+          <span class="s">Studio</span>
+          <span class="b">B</span>
+        </div>
+      </a>
+      <p>AI-powered tools for Acumatica VARs.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="acudev.html">AcuDev</a>
+      <a href="acuops.html">AcuOps</a>
+      <a href="acudocs.html">AcuDocs</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="partners.html">Partners</a>
+      <a href="https://docs.b.studio" target="_blank" rel="noopener">Documentation</a>
+      <a href="/privacy">Privacy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copyright">&copy; 2026 Studio B</div>
+  </div>
+</footer>
+
+<!-- ── Scroll Fade-In ── -->
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
