@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partner Program — New Recurring Revenue for Acumatica VARs | Studio B</title>
+<meta name="description" content="Add $1,347/mo per client to your practice. AcuOps monitors, AcuDev builds, AcuDocs documents. You take the credit. Studio B Partner Program.">
+<meta property="og:title" content="Partner Program — New Recurring Revenue for Acumatica VARs | Studio B">
+<meta property="og:description" content="Add $1,347/mo per client to your practice. AcuOps monitors, AcuDev builds, AcuDocs documents. You take the credit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://b.studio/partners">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<!-- HubSpot Tracking Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49070660.js"></script>
+
+<style>
+  /* ── Nav active state ── */
+  .nav-links a[href="partners.html"] {
+    color: var(--accent) !important;
+  }
+
+  /* ── Before/After Comparison ── */
+  .comparison {
+    padding: 6rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .comparison-table {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    gap: 0;
+    margin-top: 0.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .comp-header {
+    background: var(--surface-2);
+    padding: 1.2rem 1.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .comp-header:nth-child(2) {
+    color: var(--text-dim);
+    border-left: 1px solid var(--border);
+  }
+
+  .comp-header:nth-child(3) {
+    color: var(--accent);
+    border-left: 1px solid var(--border);
+    background: rgba(34, 211, 238, 0.04);
+  }
+
+  .comp-row-label {
+    padding: 1.2rem 1.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+
+  .comp-cell {
+    padding: 1.2rem 1.5rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+
+  .comp-cell.before {
+    color: var(--text-dim);
+    background: var(--bg);
+  }
+
+  .comp-cell.after {
+    color: var(--text);
+    background: rgba(34, 211, 238, 0.02);
+  }
+
+  .comp-cell.after strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .comp-row-label.highlight,
+  .comp-cell.highlight {
+    border-bottom: none;
+    background: var(--surface);
+  }
+
+  .comp-cell.highlight.before {
+    color: var(--text-dim);
+    font-weight: 400;
+    font-style: italic;
+    background: var(--surface);
+  }
+
+  .comp-cell.highlight.after {
+    color: var(--accent);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    background: rgba(34, 211, 238, 0.06);
+  }
+
+  .comp-row-label.highlight {
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  /* ── Pricing Cards ── */
+  .pricing {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  .pricing-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.2rem 1.8rem;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card:hover {
+    border-color: rgba(34, 211, 238, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+
+  .pricing-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+
+  .pricing-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 2.4rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.2rem;
+  }
+
+  .pricing-unit {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+  }
+
+  .pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+
+  .pricing-card ul li {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    line-height: 1.5;
+  }
+
+  .pricing-card ul li:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pricing-card ul li .check {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .pricing-req {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .volume-banner {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding: 1.2rem 2rem;
+    background: var(--surface);
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    border-radius: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .volume-banner strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ── Full Stack Example ── */
+  .stack-example {
+    padding: 6rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .stack-box {
+    background: var(--surface);
+    border: 1px solid rgba(34, 211, 238, 0.25);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 0 50px var(--accent-glow);
+  }
+
+  .stack-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .stack-table th {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: left;
+    padding: 0 0 1rem 0;
+  }
+
+  .stack-table th:nth-child(2),
+  .stack-table th:nth-child(3) {
+    text-align: right;
+  }
+
+  .stack-table td {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .stack-table td:nth-child(2),
+  .stack-table td:nth-child(3) {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+  }
+
+  .stack-table tr.total td {
+    color: var(--text);
+    font-weight: 500;
+    border-top: 2px solid var(--accent);
+    padding-top: 1rem;
+    font-size: 1rem;
+  }
+
+  .stack-table tr.total td:nth-child(2),
+  .stack-table tr.total td:nth-child(3) {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .stack-kicker {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .stack-kicker em {
+    color: var(--text);
+    font-style: italic;
+  }
+
+  /* ── Onboarding Steps ── */
+  .onboarding {
+    padding: 6rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .onboarding-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 0.5rem;
+  }
+
+  .ob-step {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .ob-step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 3rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .ob-step h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+    color: var(--text);
+  }
+
+  .ob-step p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ── CTA Section ── */
+  .cta-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-section > * { position: relative; z-index: 1; }
+
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .cta-form {
+    max-width: 540px;
+    margin: 0 auto;
+    min-height: 400px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .comparison-table {
+      grid-template-columns: 1fr;
+    }
+
+    .comp-header:nth-child(1) { display: none; }
+    .comp-row-label { display: none; }
+
+    .comp-cell {
+      border-left: none;
+      padding: 1rem 1.5rem;
+    }
+
+    .comp-cell::before {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .comp-cell.before::before {
+      content: "Before Studio B";
+      color: var(--text-dim);
+    }
+
+    .comp-cell.after::before {
+      content: "With Studio B";
+      color: var(--accent);
+    }
+
+    .comp-cell {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .pricing-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .onboarding-steps {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stack-table th:nth-child(2),
+    .stack-table td:nth-child(2) {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+      <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+    </svg>
+    <div class="wordmark">
+      <span class="s">Studio</span>
+      <span class="b">B</span>
+    </div>
+  </a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="acudev.html">AcuDev</a>
+    <a href="acuops.html">AcuOps</a>
+    <a href="acudocs.html">AcuDocs</a>
+    <a href="partners.html">Partners</a>
+    <a href="#partner-form" class="nav-cta">Become a Partner</a>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="section-label" style="animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;">PARTNER PROGRAM</div>
+  <h1>Stop selling hours. Start selling <em>outcomes.</em></h1>
+  <p class="hero-sub">Add $1,347/mo per client to your practice without hiring a single developer. AcuOps monitors their environment. AcuDev builds their customizations. AcuDocs writes their training guides. You take the credit.</p>
+  <div class="hero-actions">
+    <a href="#partner-form" class="btn-primary">
+      Become a Partner
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#pricing" class="btn-secondary">See Pricing</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Before/After Comparison ── -->
+<section class="comparison fade-in">
+  <div class="section-label">The Math</div>
+  <h2 class="section-heading">Your practice, before and after</h2>
+
+  <div class="comparison-table">
+    <!-- Header row -->
+    <div class="comp-header">&nbsp;</div>
+    <div class="comp-header">Before Studio B</div>
+    <div class="comp-header">With Studio B</div>
+
+    <!-- Row 1: Customization delivery -->
+    <div class="comp-row-label">Customization delivery</div>
+    <div class="comp-cell before">Your developer, 40 hrs @ $175/hr = $7,000</div>
+    <div class="comp-cell after">AcuDev, <strong>$749/mo</strong></div>
+
+    <!-- Row 2: Environment monitoring -->
+    <div class="comp-row-label">Environment monitoring</div>
+    <div class="comp-cell before">Reactive &mdash; client calls you</div>
+    <div class="comp-cell after">AcuOps, <strong>$449/mo</strong></div>
+
+    <!-- Row 3: Training docs -->
+    <div class="comp-row-label">Training docs</div>
+    <div class="comp-cell before">"We'll get to that" (you won't)</div>
+    <div class="comp-cell after">AcuDocs, <strong>$149/mo</strong></div>
+
+    <!-- Row 4: Margin highlight -->
+    <div class="comp-row-label highlight">Your margin on 10 clients</div>
+    <div class="comp-cell before highlight">Thin, unpredictable</div>
+    <div class="comp-cell after highlight">$13,470/mo recurring</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Pricing ── -->
+<section class="pricing fade-in" id="pricing">
+  <div class="section-label">Pricing</div>
+  <h2 class="section-heading">Transparent pricing. No surprises.</h2>
+
+  <div class="pricing-grid">
+
+    <!-- AcuOps Monitor -->
+    <div class="pricing-card">
+      <h3>AcuOps Monitor</h3>
+      <div class="pricing-amount">$249</div>
+      <div class="pricing-unit">per client / month</div>
+      <ul>
+        <li><span class="check">&#10003;</span> Health monitoring (12 probes)</li>
+        <li><span class="check">&#10003;</span> Schema drift detection</li>
+        <li><span class="check">&#10003;</span> Slack alerting</li>
+      </ul>
+    </div>
+
+    <!-- AcuOps Validate -->
+    <div class="pricing-card">
+      <h3>AcuOps Validate</h3>
+      <div class="pricing-amount">$449</div>
+      <div class="pricing-unit">per client / month</div>
+      <ul>
+        <li><span class="check">&#10003;</span> Everything in Monitor, plus:</li>
+        <li><span class="check">&#10003;</span> CI/CD deploy pipeline</li>
+        <li><span class="check">&#10003;</span> Post-publish validation (66 tests)</li>
+        <li><span class="check">&#10003;</span> Pre-upgrade testing</li>
+        <li><span class="check">&#10003;</span> AcuDev eligible</li>
+      </ul>
+    </div>
+
+    <!-- AcuDev -->
+    <div class="pricing-card">
+      <h3>AcuDev</h3>
+      <div class="pricing-amount">$749</div>
+      <div class="pricing-unit">per client / month</div>
+      <ul>
+        <li><span class="check">&#10003;</span> AI autonomous Acumatica developer</li>
+        <li><span class="check">&#10003;</span> 460 automated tests</li>
+        <li><span class="check">&#10003;</span> 10 template types</li>
+      </ul>
+      <div class="pricing-req">Requires AcuOps Validate</div>
+    </div>
+
+    <!-- AcuDocs -->
+    <div class="pricing-card">
+      <h3>AcuDocs</h3>
+      <div class="pricing-amount">$149</div>
+      <div class="pricing-unit">per client / month</div>
+      <ul>
+        <li><span class="check">&#10003;</span> Chrome extension capture</li>
+        <li><span class="check">&#10003;</span> AI-generated training guides</li>
+        <li><span class="check">&#10003;</span> Slack &amp; PDF delivery</li>
+      </ul>
+      <div class="pricing-req">Requires AcuOps (any tier)</div>
+    </div>
+
+  </div>
+
+  <div class="volume-banner">
+    <strong>15% off</strong> at 10+ clients &nbsp;&middot;&nbsp; <strong>25% off</strong> at 25+ clients
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Full Stack Example ── -->
+<section class="stack-example fade-in">
+  <div class="section-label">The Full Stack</div>
+  <h2 class="section-heading">10-client breakdown</h2>
+  <p class="section-sub">What your practice looks like with the full platform.</p>
+
+  <div class="stack-box">
+    <table class="stack-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Per Client</th>
+          <th>10 Clients</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AcuOps Validate</td>
+          <td>$449</td>
+          <td>$4,490</td>
+        </tr>
+        <tr>
+          <td>AcuDev</td>
+          <td>$749</td>
+          <td>$7,490</td>
+        </tr>
+        <tr>
+          <td>AcuDocs</td>
+          <td>$149</td>
+          <td>$1,490</td>
+        </tr>
+        <tr class="total">
+          <td>Total</td>
+          <td>$1,347</td>
+          <td>$13,470/mo</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="stack-kicker">That's less than one senior Acumatica developer's salary. <em>And it scales.</em></p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Onboarding ── -->
+<section class="onboarding fade-in">
+  <div class="section-label">Get Started</div>
+  <h2 class="section-heading">Three steps. No red tape.</h2>
+
+  <div class="onboarding-steps">
+    <div class="ob-step">
+      <div class="ob-step-number">1</div>
+      <h3>Book a demo</h3>
+      <p>30 minutes. We show you the platform, you ask hard questions.</p>
+    </div>
+    <div class="ob-step">
+      <div class="ob-step-number">2</div>
+      <h3>Connect your first client</h3>
+      <p>We help you onboard one Acumatica instance. See it work in your own environment.</p>
+    </div>
+    <div class="ob-step">
+      <div class="ob-step-number">3</div>
+      <h3>Start billing</h3>
+      <p>AcuOps starts monitoring. AcuDev starts building. You start invoicing.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CTA / Partner Form ── -->
+<section class="cta-section fade-in" id="partner-form">
+  <h2>Become a Partner</h2>
+  <p>Fill out the form. We'll schedule a demo within 48 hours.</p>
+  <div class="cta-form">
+    <div id="partner-form-container"></div>
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+        region: "na1",
+        portalId: "49070660",
+        formId: "PLACEHOLDER_PARTNER_FORM",
+        target: "#partner-form-container",
+        css: "",
+        cssClass: "hs-form-dark"
+      });
+    </script>
+    <style>
+      .hs-form-dark .hs-input {
+        background: var(--surface) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 8px !important;
+        color: var(--text) !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.9rem !important;
+        font-weight: 300 !important;
+        padding: 0.85rem 1.2rem !important;
+        width: 100% !important;
+      }
+      .hs-form-dark .hs-input:focus {
+        border-color: var(--accent-deep) !important;
+        outline: none !important;
+      }
+      .hs-form-dark .hs-input::placeholder {
+        color: var(--text-dim) !important;
+      }
+      .hs-form-dark label {
+        color: var(--text-muted) !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.82rem !important;
+        font-weight: 400 !important;
+        margin-bottom: 0.3rem !important;
+      }
+      .hs-form-dark .hs-button {
+        background: var(--accent) !important;
+        color: var(--bg) !important;
+        border: none !important;
+        border-radius: 8px !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.95rem !important;
+        font-weight: 500 !important;
+        padding: 0.85rem 2rem !important;
+        cursor: pointer !important;
+        transition: all 0.3s !important;
+        width: 100% !important;
+        margin-top: 0.5rem !important;
+      }
+      .hs-form-dark .hs-button:hover {
+        background: #06b6d4 !important;
+        transform: translateY(-1px) !important;
+      }
+      .hs-form-dark .hs-form-field {
+        margin-bottom: 1rem !important;
+      }
+      .hs-form-dark .hs-error-msg {
+        color: #ef4444 !important;
+        font-size: 0.78rem !important;
+      }
+      .hs-form-dark select.hs-input {
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A95A5' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 1rem center !important;
+      }
+      .hs-form-dark textarea.hs-input {
+        min-height: 100px !important;
+        resize: vertical !important;
+      }
+    </style>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo">
+        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+        </svg>
+        <div class="wordmark">
+          <span class="s">Studio</span>
+          <span class="b">B</span>
+        </div>
+      </a>
+      <p>AI-powered tools for Acumatica VARs.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="acudev.html">AcuDev</a>
+      <a href="acuops.html">AcuOps</a>
+      <a href="acudocs.html">AcuDocs</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="partners.html">Partners</a>
+      <a href="https://docs.b.studio" target="_blank" rel="noopener">Documentation</a>
+      <a href="/privacy">Privacy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copyright">&copy; 2026 Studio B</div>
+  </div>
+</footer>
+
+<!-- ── Scroll Fade-In ── -->
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
