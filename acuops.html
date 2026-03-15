@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AcuOps — ERP Environment Management for Acumatica | Studio B</title>
+<meta name="description" content="AcuOps gives Acumatica VARs health monitoring, schema drift detection, CI/CD for customizations, and 66 post-publish validation tests. Monitor from $249/mo.">
+<meta property="og:title" content="AcuOps — ERP Environment Management for Acumatica | Studio B">
+<meta property="og:description" content="AcuOps gives Acumatica VARs health monitoring, schema drift detection, CI/CD for customizations, and 66 post-publish validation tests. Monitor from $249/mo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://b.studio/acuops">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<!-- HubSpot Tracking Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49070660.js"></script>
+
+<style>
+  /* ── Nav active state ── */
+  .nav-links a[href="acuops.html"] {
+    color: var(--accent) !important;
+  }
+
+  /* ── Problem Section ── */
+  .problem {
+    padding: 6rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .problem h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    line-height: 1.2;
+    margin-bottom: 1.4rem;
+  }
+
+  .problem p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  /* ── Features Grid ── */
+  .features {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.2rem 1.8rem;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+
+  .feature-card:hover {
+    border-color: rgba(34, 211, 238, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-glow-strong);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.4rem;
+  }
+
+  .feature-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+    color: var(--text);
+  }
+
+  .feature-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ── How It Works ── */
+  .how-it-works {
+    padding: 6rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 0.5rem;
+  }
+
+  .step {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 3rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .step h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+    color: var(--text);
+  }
+
+  .step p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ── Pricing Table ── */
+  .pricing {
+    padding: 6rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .pricing-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .pricing-col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    position: relative;
+  }
+
+  .pricing-col.recommended {
+    border-color: rgba(34, 211, 238, 0.35);
+    box-shadow: 0 0 40px var(--accent-glow);
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--bg);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .pricing-tier {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 2.8rem;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .pricing-price span {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+  }
+
+  .pricing-unit {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+  }
+
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pricing-features li {
+    font-size: 0.85rem;
+    padding: 0.6rem 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .pricing-features li:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .check {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .dash {
+    color: var(--text-dim);
+    font-weight: 300;
+    font-size: 0.95rem;
+  }
+
+  .pricing-features li .feature-label {
+    color: var(--text-muted);
+  }
+
+  .pricing-features li .feature-label.disabled {
+    color: var(--text-dim);
+  }
+
+  .pricing-volume {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+  }
+
+  /* ── CTA Section ── */
+  .cta-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-section > * { position: relative; z-index: 1; }
+
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .cta-form {
+    max-width: 540px;
+    margin: 0 auto;
+    min-height: 400px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .steps {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .pricing-table {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+      <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+    </svg>
+    <div class="wordmark">
+      <span class="s">Studio</span>
+      <span class="b">B</span>
+    </div>
+  </a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="acudev.html">AcuDev</a>
+    <a href="acuops.html">AcuOps</a>
+    <a href="acudocs.html">AcuDocs</a>
+    <a href="partners.html">Partners</a>
+    <a href="#demo" class="nav-cta">Request Demo</a>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="section-label" style="animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;">ACUOPS</div>
+  <h1>You're reactive. Start fixing problems <em>before the client calls.</em></h1>
+  <p class="hero-sub">ERP environment management for Acumatica VARs. Health monitoring, schema drift detection, CI/CD for customizations. Know about problems before your clients do.</p>
+  <div class="hero-actions">
+    <a href="#demo" class="btn-primary">
+      Request a Demo
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#pricing" class="btn-secondary">See Pricing</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Problem ── -->
+<section class="problem fade-in">
+  <h2>Upgrades break customizations. You find out last.</h2>
+  <p>Schema changes go unnoticed. Customization publishes fail silently. Your client calls, furious, and you spend the next 48 hours in damage control. AcuOps gives you early warning &mdash; and the tools to ship safely.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Features ── -->
+<section class="features fade-in">
+  <div class="section-label">Capabilities</div>
+  <h2 class="section-heading">What you get</h2>
+  <p class="section-sub">Monitoring, testing, and deployment tooling purpose-built for Acumatica environments.</p>
+
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <h3>12 Health Probes</h3>
+      <p>Continuous monitoring across Acumatica, HubSpot, MCP servers, and infrastructure. Know when something's wrong before anyone notices.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16v16H4z"/>
+          <path d="M4 10h16"/>
+          <path d="M10 4v16"/>
+          <path d="M14 14l2 2"/>
+          <circle cx="17" cy="17" r="3"/>
+        </svg>
+      </div>
+      <h3>Schema Drift Detection</h3>
+      <p>Acumatica and HubSpot field changes detected automatically. Get Slack alerts when your client's environment changes unexpectedly.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M8 12l2 2 4-4"/>
+        </svg>
+      </div>
+      <h3>CI/CD for Customizations</h3>
+      <p>Push to GitHub, deploy to Acumatica. Automated import, publish, and co-publish through the Customization API. No manual uploads.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+      </div>
+      <h3>66 Post-Publish Validations</h3>
+      <p>Playwright-based test suite runs after every deployment. Schema checks, custom field verification, pipeline validation &mdash; automatically.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+          <line x1="4" y1="22" x2="4" y2="15"/>
+        </svg>
+      </div>
+      <h3>Pre-Upgrade Testing</h3>
+      <p>Run your test suite against an upgrade candidate before it hits production. Know what breaks before your client does.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 18l6-6-6-6"/>
+          <path d="M8 6l-6 6 6 6"/>
+          <path d="M14.5 4l-5 16"/>
+        </svg>
+      </div>
+      <h3>Config-as-Code</h3>
+      <p>Every configuration versioned in GitHub. Branch protection, PR gates, automated testing. No more "who changed that field?"</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── How It Works ── -->
+<section class="how-it-works fade-in">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-heading">Three steps. Full visibility.</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-number">1</div>
+      <h3>Connect</h3>
+      <p>Point AcuOps at your client's Acumatica instance. Read-only API access, session-gated.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">2</div>
+      <h3>Monitor</h3>
+      <p>AcuOps runs health probes, watches for schema drift, and validates every deployment.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">3</div>
+      <h3>Alert</h3>
+      <p>Get Slack notifications before your client calls. Drill into dashboards for details.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Pricing ── -->
+<section class="pricing fade-in" id="pricing">
+  <div class="section-label">Pricing</div>
+  <h2 class="section-heading">Pick your tier</h2>
+  <p class="section-sub">Per-client, per-month. No setup fees. No contracts.</p>
+
+  <div class="pricing-table">
+
+    <!-- Monitor -->
+    <div class="pricing-col">
+      <div class="pricing-tier">Monitor</div>
+      <div class="pricing-price">$249 <span>/mo</span></div>
+      <div class="pricing-unit">per client</div>
+      <ul class="pricing-features">
+        <li><span class="check">&#10003;</span> <span class="feature-label">Health monitoring (12 probes)</span></li>
+        <li><span class="check">&#10003;</span> <span class="feature-label">Schema drift detection</span></li>
+        <li><span class="check">&#10003;</span> <span class="feature-label">Slack alerting</span></li>
+        <li><span class="dash">&mdash;</span> <span class="feature-label disabled">CI/CD deploy pipeline</span></li>
+        <li><span class="dash">&mdash;</span> <span class="feature-label disabled">Post-publish validation (66 tests)</span></li>
+        <li><span class="dash">&mdash;</span> <span class="feature-label disabled">Pre-upgrade testing</span></li>
+        <li><span class="dash">&mdash;</span> <span class="feature-label disabled">AcuDev eligible</span></li>
+      </ul>
+    </div>
+
+    <!-- Validate -->
+    <div class="pricing-col recommended">
+      <div class="pricing-badge">Recommended</div>
+      <div class="pricing-tier">Validate</div>
+      <div class="pricing-price">$449 <span>/mo</span></div>
+      <div class="pricing-unit">per client</div>
+      <ul class="pricing-features">
+        <li><span class="check">&#10003;</span> <span class="feature-label">Health monitoring (12 probes)</span></li>
+        <li><span class="check">&#10003;</span> <span class="feature-label">Schema drift detection</span></li>
+        <li><span class="check">&#10003;</span> <span class="feature-label">Slack alerting</span></li>
+        <li><span class="check">&#10003;</span> <span class="feature-label">CI/CD deploy pipeline</span></li>
+        <li><span class="check">&#10003;</span> <span class="feature-label">Post-publish validation (66 tests)</span></li>
+        <li><span class="check">&#10003;</span> <span class="feature-label">Pre-upgrade testing</span></li>
+        <li><span class="check">&#10003;</span> <span class="feature-label">AcuDev eligible</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <p class="pricing-volume">Volume pricing: 15% off at 10+ clients &middot; 25% off at 25+ clients</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CTA / Demo Form ── -->
+<section class="cta-section fade-in" id="demo">
+  <h2>See AcuOps in action</h2>
+  <p>30-minute demo. We'll show you what's happening in your client's Acumatica environment right now.</p>
+  <div class="cta-form">
+    <div id="demo-form"></div>
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+        region: "na1",
+        portalId: "49070660",
+        formId: "PLACEHOLDER_DEMO_FORM",
+        target: "#demo-form",
+        css: "",
+        cssClass: "hs-form-dark"
+      });
+    </script>
+    <style>
+      .hs-form-dark .hs-input {
+        background: var(--surface) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 8px !important;
+        color: var(--text) !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.9rem !important;
+        font-weight: 300 !important;
+        padding: 0.85rem 1.2rem !important;
+        width: 100% !important;
+      }
+      .hs-form-dark .hs-input:focus {
+        border-color: var(--accent-deep) !important;
+        outline: none !important;
+      }
+      .hs-form-dark .hs-input::placeholder {
+        color: var(--text-dim) !important;
+      }
+      .hs-form-dark label {
+        color: var(--text-muted) !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.82rem !important;
+        font-weight: 400 !important;
+        margin-bottom: 0.3rem !important;
+      }
+      .hs-form-dark .hs-button {
+        background: var(--accent) !important;
+        color: var(--bg) !important;
+        border: none !important;
+        border-radius: 8px !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.95rem !important;
+        font-weight: 500 !important;
+        padding: 0.85rem 2rem !important;
+        cursor: pointer !important;
+        transition: all 0.3s !important;
+        width: 100% !important;
+        margin-top: 0.5rem !important;
+      }
+      .hs-form-dark .hs-button:hover {
+        background: #06b6d4 !important;
+        transform: translateY(-1px) !important;
+      }
+      .hs-form-dark .hs-form-field {
+        margin-bottom: 1rem !important;
+      }
+      .hs-form-dark .hs-error-msg {
+        color: #ef4444 !important;
+        font-size: 0.78rem !important;
+      }
+      .hs-form-dark select.hs-input {
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A95A5' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 1rem center !important;
+      }
+      .hs-form-dark textarea.hs-input {
+        min-height: 100px !important;
+        resize: vertical !important;
+      }
+    </style>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo">
+        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+        </svg>
+        <div class="wordmark">
+          <span class="s">Studio</span>
+          <span class="b">B</span>
+        </div>
+      </a>
+      <p>AI-powered tools for Acumatica VARs.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="acudev.html">AcuDev</a>
+      <a href="acuops.html">AcuOps</a>
+      <a href="acudocs.html">AcuDocs</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="partners.html">Partners</a>
+      <a href="https://docs.b.studio" target="_blank" rel="noopener">Documentation</a>
+      <a href="/privacy">Privacy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copyright">&copy; 2026 Studio B</div>
+  </div>
+</footer>
+
+<!-- ── Scroll Fade-In ── -->
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
