@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio B — Ad Mockups (VAR-Targeting)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #04060B;
+    --surface: #0C1017;
+    --surface-2: #141A24;
+    --border: #1E2A3A;
+    --text: #E8ECF1;
+    --text-muted: #8A95A5;
+    --text-dim: #566174;
+    --accent: #22D3EE;
+    --accent-deep: #0891B2;
+    --accent-glow: rgba(34, 211, 238, 0.10);
+    --accent-glow-strong: rgba(34, 211, 238, 0.18);
+    --red-dim: #F87171;
+    --red-bg: rgba(248, 113, 113, 0.08);
+    --green-dim: #34D399;
+    --green-bg: rgba(52, 211, 153, 0.08);
+    --sans: 'Outfit', system-ui, sans-serif;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    padding: 40px;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+    font-size: 0.95rem;
+    font-weight: 300;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    margin-top: 64px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ad-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(540px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ad-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .ad-card .label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 16px 24px 0;
+  }
+
+  /* LinkedIn Ad (1200x627 aspect ratio) */
+  .linkedin-ad {
+    aspect-ratio: 1200 / 627;
+    background: var(--bg);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 56px;
+    overflow: hidden;
+  }
+
+  .linkedin-ad::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .linkedin-ad .logo {
+    position: absolute;
+    top: 24px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .linkedin-ad .logo svg { width: 22px; height: auto; }
+
+  .linkedin-ad .logo .wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .linkedin-ad .logo .wordmark .s {
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 0.4rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .linkedin-ad .logo .wordmark .b {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text);
+    margin-top: -0.05rem;
+  }
+
+  .linkedin-ad h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    max-width: 560px;
+  }
+
+  .linkedin-ad h2 em {
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .linkedin-ad p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 480px;
+    margin-bottom: 24px;
+  }
+
+  .linkedin-ad .cta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    padding: 10px 24px;
+    border-radius: 6px;
+  }
+
+  .linkedin-ad .cta-pill svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .linkedin-ad .stats-row {
+    position: absolute;
+    bottom: 28px;
+    right: 40px;
+    display: flex;
+    gap: 32px;
+  }
+
+  .linkedin-ad .stat {
+    text-align: right;
+  }
+
+  .linkedin-ad .stat .num {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+
+  .linkedin-ad .stat .lbl {
+    font-family: var(--sans);
+    font-size: 0.55rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* Code block aesthetic for AcuDev ad */
+  .code-lines {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    bottom: 20px;
+    width: 340px;
+    opacity: 0.12;
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    line-height: 1.8;
+    color: var(--accent);
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* Alert pulse for AcuOps ad */
+  .alert-icon {
+    position: absolute;
+    top: 24px;
+    right: 40px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(248, 113, 113, 0.12);
+    border: 1px solid rgba(248, 113, 113, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .alert-icon::after {
+    content: '!';
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--red-dim);
+  }
+
+  /* Square Ad (1080x1080 for Meta/Instagram) */
+  .square-ad {
+    aspect-ratio: 1;
+    background: var(--bg);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px;
+    overflow: hidden;
+  }
+
+  .square-ad::before {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .square-ad .logo {
+    position: absolute;
+    top: 24px;
+    left: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .square-ad .logo svg { width: 20px; height: auto; }
+
+  .square-ad .logo .wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .square-ad .logo .wordmark .s {
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 0.38rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .square-ad .logo .wordmark .b {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-top: -0.05rem;
+  }
+
+  .square-ad h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.7rem;
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
+
+  .square-ad h2 em {
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .square-ad p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .square-ad .cta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    padding: 10px 24px;
+    border-radius: 6px;
+    width: fit-content;
+  }
+
+  .square-ad .bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 32px;
+    background: var(--accent-glow);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .square-ad .bottom-bar .tagline {
+    font-size: 0.68rem;
+    font-weight: 300;
+    color: var(--text-muted);
+  }
+
+  .square-ad .bottom-bar .url {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--accent);
+  }
+
+  /* Stats grid inside square ad */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .stats-grid .stat-box {
+    background: var(--accent-glow);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .stats-grid .stat-box .num {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--accent);
+  }
+
+  .stats-grid .stat-box .lbl {
+    font-size: 0.55rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* Before/After split */
+  .split-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-bottom: 28px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .split-before {
+    background: var(--red-bg);
+    border: 1px solid rgba(248, 113, 113, 0.15);
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    padding: 28px 24px;
+  }
+
+  .split-after {
+    background: var(--green-bg);
+    border: 1px solid rgba(52, 211, 153, 0.15);
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    padding: 28px 24px;
+  }
+
+  .split-label {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .split-before .split-label { color: var(--red-dim); }
+  .split-after .split-label { color: var(--green-dim); }
+
+  .split-value {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .split-before .split-value { color: var(--text-muted); }
+  .split-after .split-value { color: var(--text); }
+
+  .split-detail {
+    font-size: 0.7rem;
+    font-weight: 300;
+  }
+
+  .split-before .split-detail { color: var(--text-dim); }
+  .split-after .split-detail { color: var(--text-muted); }
+
+  /* Big number hero */
+  .big-number {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 3.2rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .big-number-label {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  /* Flow steps */
+  .flow-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 28px;
+  }
+
+  .flow-step {
+    background: var(--accent-glow);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 20px;
+    text-align: center;
+    flex: 1;
+  }
+
+  .flow-step .step-text {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.82rem;
+    color: var(--text);
+  }
+
+  .flow-arrow {
+    font-family: var(--mono);
+    color: var(--accent);
+    font-size: 1rem;
+    padding: 0 6px;
+    flex-shrink: 0;
+  }
+
+  /* Ad post context (LinkedIn body text simulation) */
+  .ad-context {
+    padding: 20px 24px;
+  }
+
+  .ad-context .platform {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .ad-context .body-text {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .ad-context .headline {
+    font-weight: 500;
+    color: var(--text);
+    font-size: 0.82rem;
+    margin-bottom: 4px;
+  }
+
+  .ad-context .description {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    font-weight: 300;
+  }
+</style>
+</head>
+<body>
+
+<h1>Studio B Ad Mockups</h1>
+<p class="subtitle">VAR-targeting creatives. Screenshot at native resolution for LinkedIn Campaign Manager and Meta Business Suite.</p>
+
+<!-- LINKEDIN ADS -->
+<p class="section-label">LinkedIn Ads (1200 x 627)</p>
+
+<div class="ad-grid">
+
+  <!-- LinkedIn Ad 1: AcuDev Lead -->
+  <div class="ad-card">
+    <div class="label">LinkedIn Ad 1 — AcuDev Lead (Attention-Grabber)</div>
+    <div class="linkedin-ad">
+      <div class="code-lines">
+const result = await acudev.deploy({<br>
+&nbsp;&nbsp;template: 'dac_extension',<br>
+&nbsp;&nbsp;entity: 'SOOrder',<br>
+&nbsp;&nbsp;fields: ['UsrTrackingStatus'],<br>
+&nbsp;&nbsp;tests: 460,<br>
+&nbsp;&nbsp;ci_cd: true,<br>
+});<br>
+<br>
+// Published to production<br>
+// 0 compilation errors<br>
+// 0 runtime exceptions<br>
+// 460 tests passed<br>
+<br>
+await slack.notify({<br>
+&nbsp;&nbsp;channel: '#deployments',<br>
+&nbsp;&nbsp;status: 'SUCCESS',<br>
+});<br>
+      </div>
+      <div class="logo">
+        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+        </svg>
+        <div class="wordmark"><span class="s">Studio</span><span class="b">B</span></div>
+      </div>
+      <h2>Developers require food, water, <em>and moderate sunlight.</em></h2>
+      <p>Meet AcuDev -- the AI that writes, tests, and deploys Acumatica customizations. Autonomously.</p>
+      <div class="cta-pill">
+        Learn More
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><div class="num">460</div><div class="lbl">Tests</div></div>
+        <div class="stat"><div class="num">10</div><div class="lbl">Templates</div></div>
+        <div class="stat"><div class="num">$749</div><div class="lbl">Per Month</div></div>
+      </div>
+    </div>
+    <div class="ad-context">
+      <div class="platform">LinkedIn -- Sponsored Content</div>
+      <div class="body-text">Your Acumatica developer costs $175/hr and needs 40 hours per customization. AcuDev costs $749/mo, runs 460 tests on every deploy, and doesn't take PTO. It's the AI developer agent built specifically for Acumatica VARs.</div>
+      <div class="headline">Meet AcuDev -- Your AI Acumatica Developer</div>
+      <div class="description">b.studio -- AI-powered Acumatica development for VARs</div>
+    </div>
+  </div>
+
+  <!-- LinkedIn Ad 2: Revenue Angle -->
+  <div class="ad-card">
+    <div class="label">LinkedIn Ad 2 — Revenue Angle (Business Case)</div>
+    <div class="linkedin-ad">
+      <div class="logo">
+        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+        </svg>
+        <div class="wordmark"><span class="s">Studio</span><span class="b">B</span></div>
+      </div>
+      <h2>Stop selling hours. <em>Start selling outcomes.</em></h2>
+      <p>$13,470/mo recurring revenue from 10 clients. No new headcount required.</p>
+      <div class="cta-pill">
+        Request Demo
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><div class="num">$13.5K</div><div class="lbl">Monthly Recurring</div></div>
+        <div class="stat"><div class="num">85%</div><div class="lbl">Margin</div></div>
+        <div class="stat"><div class="num">10</div><div class="lbl">Clients</div></div>
+      </div>
+    </div>
+    <div class="ad-context">
+      <div class="platform">LinkedIn -- Sponsored Content</div>
+      <div class="body-text">Most Acumatica VARs live project to project. AcuOps Partner Platform converts your existing client base into predictable monthly recurring revenue. Monitor at $249, Validate at $449, Managed at $749 -- per client, per month. Volume discounts at 10+ and 25+ clients.</div>
+      <div class="headline">AcuOps Partner Platform -- Recurring Revenue for VARs</div>
+      <div class="description">b.studio/partners -- Turn your Acumatica clients into MRR</div>
+    </div>
+  </div>
+
+  <!-- LinkedIn Ad 3: AcuOps Lead -->
+  <div class="ad-card">
+    <div class="label">LinkedIn Ad 3 — AcuOps Lead (Pain Point)</div>
+    <div class="linkedin-ad">
+      <div class="alert-icon"></div>
+      <div class="logo">
+        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+        </svg>
+        <div class="wordmark"><span class="s">Studio</span><span class="b">B</span></div>
+      </div>
+      <h2>Your client's upgrade just broke <em>3 customizations.</em></h2>
+      <p>AcuOps catches it before they call you. Health monitoring, schema drift detection, CI/CD. Starting at $249/mo.</p>
+      <div class="cta-pill">
+        Learn More
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><div class="num">12</div><div class="lbl">Health Probes</div></div>
+        <div class="stat"><div class="num">66</div><div class="lbl">Automated Tests</div></div>
+        <div class="stat"><div class="num">$249</div><div class="lbl">Starting Price</div></div>
+      </div>
+    </div>
+    <div class="ad-context">
+      <div class="platform">LinkedIn -- Sponsored Content</div>
+      <div class="body-text">Schema drift. Broken customizations. Midnight support calls. AcuOps monitors your clients' Acumatica environments 24/7 so you know about problems before your clients do. 12 health probes, 66 automated tests, CI/CD for customization deploys. White-label it under your brand.</div>
+      <div class="headline">AcuOps -- ERP Environment Management for Acumatica VARs</div>
+      <div class="description">b.studio -- Catch upgrade failures before your clients do</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- META / INSTAGRAM ADS -->
+<p class="section-label">Meta / Instagram Ads (1080 x 1080)</p>
+
+<div class="ad-grid">
+
+  <!-- Meta Ad 1: AcuDev Hero -->
+  <div class="ad-card">
+    <div class="label">Meta Ad 1 — AcuDev Hero</div>
+    <div class="square-ad">
+      <div class="logo">
+        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+        </svg>
+        <div class="wordmark"><span class="s">Studio</span><span class="b">B</span></div>
+      </div>
+      <h2 style="margin-top: 32px; font-size: 2.2rem;">Your AI <em>Acumatica Developer</em></h2>
+      <p style="font-size: 1.05rem; margin-bottom: 32px;">Writes. Tests. Deploys. Autonomously.</p>
+      <div class="stats-grid">
+        <div class="stat-box"><div class="num">460</div><div class="lbl">Tests</div></div>
+        <div class="stat-box"><div class="num">10</div><div class="lbl">Templates</div></div>
+        <div class="stat-box"><div class="num">$749</div><div class="lbl">Per Month</div></div>
+      </div>
+      <div class="cta-pill">Learn More</div>
+      <div class="bottom-bar">
+        <div class="tagline">AI-powered Acumatica development for VARs</div>
+        <div class="url">b.studio</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meta Ad 2: Before/After -->
+  <div class="ad-card">
+    <div class="label">Meta Ad 2 — Before / After</div>
+    <div class="square-ad">
+      <div class="logo">
+        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+        </svg>
+        <div class="wordmark"><span class="s">Studio</span><span class="b">B</span></div>
+      </div>
+      <h2 style="margin-top: 32px; font-size: 1.5rem; margin-bottom: 28px;">The math is <em>embarrassing.</em></h2>
+      <div class="split-container">
+        <div class="split-before">
+          <div class="split-label">Before</div>
+          <div class="split-value">40 hrs @ $175/hr</div>
+          <div class="split-detail" style="font-size: 0.82rem; margin-top: 8px; color: var(--red-dim);">= $7,000 per project</div>
+        </div>
+        <div class="split-after">
+          <div class="split-label">After</div>
+          <div class="split-value">AcuDev</div>
+          <div class="split-detail" style="font-size: 0.82rem; margin-top: 8px; color: var(--green-dim);">$749/mo. Unlimited.</div>
+        </div>
+      </div>
+      <div class="cta-pill">Request Demo</div>
+      <div class="bottom-bar">
+        <div class="tagline">AI Acumatica developer agent for VARs</div>
+        <div class="url">b.studio</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meta Ad 3: Stats-Driven -->
+  <div class="ad-card">
+    <div class="label">Meta Ad 3 — Stats-Driven</div>
+    <div class="square-ad">
+      <div class="logo">
+        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+        </svg>
+        <div class="wordmark"><span class="s">Studio</span><span class="b">B</span></div>
+      </div>
+      <div style="margin-top: 32px; margin-bottom: 16px;">
+        <div style="font-family: var(--serif); font-weight: 400; font-size: 2.8rem; color: var(--accent); line-height: 1.1;">460 tests.</div>
+        <div style="font-family: var(--serif); font-weight: 400; font-size: 2.8rem; color: var(--accent); line-height: 1.1;">12 probes.</div>
+        <div style="font-family: var(--serif); font-weight: 400; font-size: 2.8rem; color: var(--accent); line-height: 1.1;">66 validations.</div>
+      </div>
+      <h2 style="font-size: 2rem; margin-bottom: 32px;"><em>0 surprises.</em></h2>
+      <p>AcuOps monitors your clients' Acumatica environments so you know about problems before they do.</p>
+      <div class="cta-pill">Learn More</div>
+      <div class="bottom-bar">
+        <div class="tagline">ERP environment management for Acumatica VARs</div>
+        <div class="url">b.studio</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meta Ad 4: AcuDocs -->
+  <div class="ad-card">
+    <div class="label">Meta Ad 4 — AcuDocs</div>
+    <div class="square-ad">
+      <div class="logo">
+        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+        </svg>
+        <div class="wordmark"><span class="s">Studio</span><span class="b">B</span></div>
+      </div>
+      <h2 style="margin-top: 32px; font-size: 2rem;">Documentation <em>you love</em></h2>
+      <p style="font-size: 1rem; margin-bottom: 32px;">(because a robot did it for you)</p>
+      <div class="flow-steps">
+        <div class="flow-step"><div class="step-text">Record</div></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step"><div class="step-text">Generate</div></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step"><div class="step-text">Publish</div></div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div style="font-family: var(--serif); font-weight: 400; font-size: 1.8rem; color: var(--accent);">$149<span style="font-size: 0.9rem; color: var(--text-dim);">/client/mo</span></div>
+      </div>
+      <div class="cta-pill">Learn More</div>
+      <div class="bottom-bar">
+        <div class="tagline">Auto-generated Acumatica training guides</div>
+        <div class="url">b.studio</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="height: 80px;"></div>
+
+</body>
+</html>
