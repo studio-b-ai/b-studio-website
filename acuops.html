@@ -139,6 +139,123 @@
     line-height: 1.65;
   }
 
+  /* ── Slack Integration ── */
+  .slack-integration {
+    padding: 6rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .slack-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .slack-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.2rem 1.8rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .slack-panel:hover {
+    border-color: rgba(34, 211, 238, 0.2);
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+
+  .slack-panel-label {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  .slack-panel h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .slack-panel p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .slack-channel {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .slack-channel:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .slack-channel-icon {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .slack-channel-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text);
+  }
+
+  .slack-channel-desc {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-left: auto;
+  }
+
+  .slack-onboard-steps {
+    margin-top: 1.5rem;
+  }
+
+  .slack-onboard-step {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    padding: 0.5rem 0;
+  }
+
+  .slack-onboard-step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .slack-onboard-step p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 900px) {
+    .slack-panels {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* ── Pricing Table ── */
   .pricing {
     padding: 6rem 2rem;
@@ -472,6 +589,74 @@
       <div class="step-number">3</div>
       <h3>Alert</h3>
       <p>Get Slack notifications before your client calls. Drill into dashboards for details.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Slack Integration ── -->
+<section class="slack-integration fade-in">
+  <div class="section-label">Slack Integration</div>
+  <h2 class="section-heading">Your workspace. Your alerts.</h2>
+  <p class="section-sub">AcuOps installs directly into your client's Slack workspace. They see their alerts. You see everyone's.</p>
+
+  <div class="slack-panels">
+
+    <div class="slack-panel">
+      <div class="slack-panel-label">Your Client Sees</div>
+      <h3>Their own workspace</h3>
+      <p>AcuOps drops into your client's existing Slack. No shared channels, no cross-workspace noise. Just two dedicated channels:</p>
+      <div class="slack-channel">
+        <span class="slack-channel-icon">#</span>
+        <span class="slack-channel-name">acuops-alerts</span>
+        <span class="slack-channel-desc">Deploy results, health warnings, sync errors</span>
+      </div>
+      <div class="slack-channel">
+        <span class="slack-channel-icon">#</span>
+        <span class="slack-channel-name">acuops-intake</span>
+        <span class="slack-channel-desc">Submit requests that route to HubSpot tickets</span>
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.8rem; color: var(--text-dim);">Each client's data stays in their workspace. They never see your other clients or internal channels.</p>
+    </div>
+
+    <div class="slack-panel">
+      <div class="slack-panel-label">You See</div>
+      <h3>All clients, one view</h3>
+      <p>Every AcuOps notification also posts to your operator workspace. All clients, all alerts, one place:</p>
+      <div class="slack-channel">
+        <span class="slack-channel-icon">#</span>
+        <span class="slack-channel-name">deployments</span>
+        <span class="slack-channel-desc">All deploy results across all clients</span>
+      </div>
+      <div class="slack-channel">
+        <span class="slack-channel-icon">#</span>
+        <span class="slack-channel-name">system-health</span>
+        <span class="slack-channel-desc">Health probe alerts across all clients</span>
+      </div>
+      <div class="slack-channel">
+        <span class="slack-channel-icon">#</span>
+        <span class="slack-channel-name">integration-issues</span>
+        <span class="slack-channel-desc">Sync and integration failures</span>
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.8rem; color: var(--text-dim);">One event, two audiences. Zero manual forwarding.</p>
+    </div>
+
+  </div>
+
+  <div class="slack-onboard-steps" style="max-width: 600px; margin: 2.5rem auto 0;">
+    <div class="section-label" style="margin-bottom: 1rem;">Setup</div>
+    <div class="slack-onboard-step">
+      <span class="slack-onboard-step-num">1</span>
+      <p>We send your client a one-click install link during onboarding.</p>
+    </div>
+    <div class="slack-onboard-step">
+      <span class="slack-onboard-step-num">2</span>
+      <p>They approve AcuOps in their Slack workspace. Takes 10 seconds.</p>
+    </div>
+    <div class="slack-onboard-step">
+      <span class="slack-onboard-step-num">3</span>
+      <p>Channels are created automatically. Alerts start flowing immediately.</p>
     </div>
   </div>
 </section>
