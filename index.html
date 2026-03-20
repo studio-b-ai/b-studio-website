@@ -16,8 +16,473 @@
 
 <!-- HubSpot Tracking Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49070660.js"></script>
+
+<style>
+  /* ── Page-specific: Products Grid ── */
+  .products {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+
+  .product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card:hover {
+    border-color: rgba(34, 211, 238, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+
+  .product-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--accent-glow-strong);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+
+  .product-tagline {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .product-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .product-footer {
+    margin-top: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .product-price {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+  }
+
+  .product-price strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .product-link {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+
+  .product-link:hover {
+    opacity: 0.8;
+  }
+
+  /* ── Page-specific: Proof Stats ── */
+  .proof {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.4rem;
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 3.2rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  /* ── Page-specific: CTA / Demo Section ── */
+  .cta-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-section > * { position: relative; z-index: 1; }
+
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .cta-form {
+    max-width: 540px;
+    margin: 0 auto;
+    min-height: 400px;
+  }
+
+  /* ── Page-specific: Responsive ── */
+  @media (max-width: 900px) {
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 </head>
 <body>
-<!-- Content unchanged except for test count updates -->
+
+<!-- ── Nav ── -->
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+      <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+    </svg>
+    <div class="wordmark">
+      <span class="s">Studio</span>
+      <span class="b">B</span>
+    </div>
+  </a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="acudev.html">AcuDev</a>
+    <a href="acuops.html">AcuOps</a>
+    <a href="acudocs.html">AcuDocs</a>
+    <a href="partners.html">Partners</a>
+    <a href="#demo" class="nav-cta">Request Demo</a>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <h1>The AI Platform for <em>Acumatica</em></h1>
+  <p class="hero-sub">Three products. One platform. New recurring revenue for your practice.</p>
+  <div class="hero-actions">
+    <a href="#demo" class="btn-primary">
+      Request a Demo
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#products" class="btn-secondary">See Products</a>
+  </div>
+  <p class="hero-trust">Built for Acumatica VARs</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Products ── -->
+<section class="products fade-in" id="products">
+  <div class="section-label">Products</div>
+  <h2 class="section-heading">Everything your practice needs</h2>
+
+  <div class="products-grid">
+
+    <!-- AcuDev -->
+    <div class="product-card">
+      <div class="product-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 8l-4 4 4 4"/>
+          <path d="M17 8l4 4-4 4"/>
+          <path d="M14 4l-4 16"/>
+          <path d="M20 2l-2 2 2 2" stroke-width="1" opacity="0.5"/>
+        </svg>
+      </div>
+      <h3>AcuDev</h3>
+      <div class="product-tagline">Developers require food, water, and moderate sunlight.</div>
+      <p>An AI agent that writes, tests, and deploys Acumatica customizations autonomously. 460 automated tests. 10 template types. Your dev team's new best friend.</p>
+      <div class="product-footer">
+        <div class="product-price">Starting at <strong>$749</strong>/client/mo</div>
+        <a href="acudev.html" class="product-link">Learn more &rarr;</a>
+      </div>
+    </div>
+
+    <!-- AcuOps -->
+    <div class="product-card">
+      <div class="product-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M12 8v4"/>
+          <circle cx="12" cy="16" r="0.5" fill="var(--accent)"/>
+        </svg>
+      </div>
+      <h3>AcuOps</h3>
+      <div class="product-tagline">You're reactive. Start fixing problems before the client calls.</div>
+      <p>ERP environment management &mdash; health monitoring, schema drift detection, CI/CD for customizations, and 105 post-publish validation tests.</p>
+      <div class="product-footer">
+        <div class="product-price">Starting at <strong>$249</strong>/client/mo</div>
+        <a href="acuops.html" class="product-link">Learn more &rarr;</a>
+      </div>
+    </div>
+
+    <!-- AcuDocs -->
+    <div class="product-card">
+      <div class="product-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <line x1="10" y1="9" x2="8" y2="9"/>
+        </svg>
+      </div>
+      <h3>AcuDocs</h3>
+      <div class="product-tagline">Documentation you love (because a robot did it for you)</div>
+      <p>Record your screen. Get a formatted training guide. Chrome extension captures every click, AcuDocs writes the docs.</p>
+      <div class="product-footer">
+        <div class="product-price">Starting at <strong>$149</strong>/client/mo</div>
+        <a href="acudocs.html" class="product-link">Learn more &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── Proof Stats ── -->
+<section class="proof fade-in">
+  <div class="section-label">Battle-Tested</div>
+  <h2 class="section-heading">Built for VARs. Proven on production Acumatica.</h2>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">460</div>
+      <div class="stat-label">automated tests</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">10</div>
+      <div class="stat-label">template types</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">12</div>
+      <div class="stat-label">health probes</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">105</div>
+      <div class="stat-label">post-publish validations</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CTA / Demo Form ── -->
+<section class="cta-section fade-in" id="demo">
+  <h2>See it in action</h2>
+  <p>30-minute demo. No commitment. See what AcuDev, AcuOps, and AcuDocs can do for your practice.</p>
+  <div class="cta-form">
+    <div id="demo-form"></div>
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+        region: "na1",
+        portalId: "49070660",
+        formId: "ea2c2f4a-4e71-4dd5-8747-814c87634f5c",
+        target: "#demo-form",
+        css: "",
+        cssClass: "hs-form-dark"
+      });
+    </script>
+    <style>
+      .hs-form-dark .hs-input {
+        background: var(--surface) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 8px !important;
+        color: var(--text) !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.9rem !important;
+        font-weight: 300 !important;
+        padding: 0.85rem 1.2rem !important;
+        width: 100% !important;
+      }
+      .hs-form-dark .hs-input:focus {
+        border-color: var(--accent-deep) !important;
+        outline: none !important;
+      }
+      .hs-form-dark .hs-input::placeholder {
+        color: var(--text-dim) !important;
+      }
+      .hs-form-dark label {
+        color: var(--text-muted) !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.82rem !important;
+        font-weight: 400 !important;
+        margin-bottom: 0.3rem !important;
+      }
+      .hs-form-dark .hs-button {
+        background: var(--accent) !important;
+        color: var(--bg) !important;
+        border: none !important;
+        border-radius: 8px !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.95rem !important;
+        font-weight: 500 !important;
+        padding: 0.85rem 2rem !important;
+        cursor: pointer !important;
+        transition: all 0.3s !important;
+        width: 100% !important;
+        margin-top: 0.5rem !important;
+      }
+      .hs-form-dark .hs-button:hover {
+        background: #06b6d4 !important;
+        transform: translateY(-1px) !important;
+      }
+      .hs-form-dark .hs-form-field {
+        margin-bottom: 1rem !important;
+      }
+      .hs-form-dark .hs-error-msg {
+        color: #ef4444 !important;
+        font-size: 0.78rem !important;
+      }
+      .hs-form-dark select.hs-input {
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A95A5' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 1rem center !important;
+      }
+      .hs-form-dark textarea.hs-input {
+        min-height: 100px !important;
+        resize: vertical !important;
+      }
+    </style>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo">
+        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
+          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
+        </svg>
+        <div class="wordmark">
+          <span class="s">Studio</span>
+          <span class="b">B</span>
+        </div>
+      </a>
+      <p>AI-powered tools for Acumatica VARs.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="acudev.html">AcuDev</a>
+      <a href="acuops.html">AcuOps</a>
+      <a href="acudocs.html">AcuDocs</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="partners.html">Partners</a>
+      <a href="https://docs.b.studio" target="_blank" rel="noopener">Documentation</a>
+      <a href="/privacy">Privacy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copyright">&copy; 2026 Studio B</div>
+  </div>
+</footer>
+
+<!-- ── Scroll Fade-In ── -->
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+
 </body>
 </html>
