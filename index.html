@@ -341,11 +341,27 @@
       <div class="stat-label">health probes</div>
     </div>
     <div class="stat-card">
-      <div class="stat-number">105</div>
+      <div class="stat-number" id="ci-check-count">105</div>
       <div class="stat-label">post-publish validations</div>
+      <div class="stat-date" id="ci-check-date" style="font-size:0.65rem;color:rgba(255,255,255,0.4);margin-top:0.2rem;"></div>
     </div>
   </div>
 </section>
+
+<script>
+(function() {
+  fetch('https://webhook-router-production-e161.up.railway.app/api/ci-metrics')
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (d.total_checks) {
+        document.getElementById('ci-check-count').textContent = d.total_checks;
+        var date = new Date(d.as_of);
+        document.getElementById('ci-check-date').textContent = 'as of ' + date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+    })
+    .catch(function() {});
+})();
+</script>
 
 <div class="divider"></div>
 
