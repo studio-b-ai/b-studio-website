@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bolt by Studio B — Continuous Goods WMS</title>
+<meta name="description" content="Warehouse management for distributors who sell by the foot, not the box. Cut-to-order, lot traceability, LTL rate shopping, AI demand planning. Acumatica native. In production.">
+<meta property="og:title" content="Bolt by Studio B — Continuous Goods WMS">
+<meta property="og:description" content="Warehouse management for distributors who sell by the foot, not the box. In production. Starting at $800/mo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bolt.b.studio">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   Bolt by Studio B — "Cut Sheet"
+   Industrial spec-sheet aesthetic for continuous goods WMS.
+   Navy authority, Signal Blue action, Warehouse Yellow warning.
+   Inter everywhere. JetBrains Mono for data that matters.
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Brand tokens — from docs/brand/identity.md */
+  --navy: #1B2B4A;
+  --navy-90: rgba(27, 43, 74, 0.9);
+  --navy-70: rgba(27, 43, 74, 0.7);
+  --navy-40: rgba(27, 43, 74, 0.4);
+  --navy-15: rgba(27, 43, 74, 0.15);
+  --navy-08: rgba(27, 43, 74, 0.08);
+
+  --signal: #2E6FBA;
+  --signal-hover: #245791;
+  --signal-15: rgba(46, 111, 186, 0.15);
+  --signal-06: rgba(46, 111, 186, 0.06);
+
+  --yellow: #E8A838;
+  --yellow-hover: #D49925;
+  --yellow-15: rgba(232, 168, 56, 0.15);
+
+  --steel: #4A5568;
+  --steel-dim: #6B7280;
+
+  --concrete: #F7F8FA;
+  --dock-gray: #E2E8F0;
+  --hairline: #D4DAE3;
+  --midnight: #0F1A2E;
+  --white: #FFFFFF;
+
+  /* Typography */
+  --f-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--f-sans);
+  font-weight: 400;
+  line-height: 1.55;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--yellow); color: var(--navy); }
+
+/* Utilities */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.mono {
+  font-family: var(--f-mono);
+  font-feature-settings: "ss01" on, "cv11" on;
+}
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+.eyebrow-yellow {
+  color: var(--yellow-hover);
+}
+.eyebrow-on-dark {
+  color: var(--yellow);
+}
+
+/* ── NAV ────────────────────────────────────────────────────── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--hairline);
+}
+nav .nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--navy);
+}
+.brand-mark {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.brand-word {
+  font-family: var(--f-sans);
+  font-weight: 900;
+  font-size: 1.05rem;
+  letter-spacing: 0.28em;
+  color: var(--navy);
+}
+.brand-sub {
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--steel-dim);
+  margin-left: 0.4rem;
+  transform: translateY(-1px);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-links a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--steel);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--navy); }
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--navy);
+  color: var(--white) !important;
+  padding: 0.6rem 1.1rem !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  transition: background 0.2s !important;
+  border-radius: 2px;
+}
+.nav-cta:hover { background: var(--signal); color: var(--white) !important; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--navy);
+  margin: 4px 0;
+}
+
+/* ── HERO ───────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  padding: 5rem 0 4.5rem;
+  overflow: hidden;
+  background: var(--white);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--navy-08) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--navy-08) 1px, transparent 1px);
+  background-size: 80px 80px;
+  background-position: -1px -1px;
+  opacity: 0.4;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at top left, rgba(0,0,0,0.6), transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse at top left, rgba(0,0,0,0.6), transparent 65%);
+}
+.hero-inner {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.hero-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel-dim);
+}
+.hero-meta-left span { color: var(--signal); font-weight: 500; }
+.hero-meta-right { text-align: right; }
+.hero-meta-right strong { color: var(--navy); font-weight: 600; }
+
+.hero h1 {
+  font-family: var(--f-sans);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 6.5vw, 5.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--navy);
+  max-width: 18ch;
+  margin-bottom: 2.2rem;
+}
+.hero h1 .mark {
+  position: relative;
+  display: inline;
+  z-index: 1;
+}
+.hero h1 .mark::after {
+  content: '';
+  position: absolute;
+  left: -0.05em;
+  right: -0.05em;
+  bottom: 0.12em;
+  height: 0.32em;
+  background: var(--yellow);
+  z-index: -1;
+  transform: skewX(-8deg);
+}
+
+.hero-lead {
+  max-width: 58ch;
+  font-size: 1.18rem;
+  line-height: 1.58;
+  color: var(--steel);
+  margin-bottom: 2.5rem;
+}
+.hero-lead span.mono {
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.9em;
+  padding: 0.08em 0.45em;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 4.5rem;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.95rem 1.55rem;
+  font-family: var(--f-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+.btn-primary {
+  background: var(--navy);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--signal);
+}
+.btn-yellow {
+  background: var(--yellow);
+  color: var(--navy);
+  font-weight: 700;
+}
+.btn-yellow:hover {
+  background: var(--yellow-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--navy);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+}
+.btn-ghost:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+.btn-arrow {
+  transition: transform 0.2s;
+  display: inline-block;
+}
+.btn:hover .btn-arrow { transform: translateX(3px); }
+
+/* Hero diagram: the cut transaction */
+.cut-diagram {
+  background: var(--concrete);
+  border: 1px solid var(--hairline);
+  padding: 2rem 2.5rem;
+  position: relative;
+  max-width: 980px;
+}
+.cut-diagram-tag {
+  position: absolute;
+  top: -0.75rem;
+  left: 2rem;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.3rem 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.cut-diagram-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--hairline);
+}
+.cut-diagram-header h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
+.cut-diagram-ts {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  color: var(--steel-dim);
+}
+.cut-diagram-ts .user {
+  color: var(--signal);
+  font-weight: 500;
+}
+
+.cut-flow {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+.reel {
+  padding: 1.5rem 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  position: relative;
+}
+.reel-label {
+  font-family: var(--f-mono);
+  font-size: 0.62rem;
+  color: var(--steel-dim);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.reel-id {
+  font-family: var(--f-mono);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.1rem;
+}
+.reel-qty {
+  font-family: var(--f-sans);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.reel-qty small {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--steel-dim);
+  letter-spacing: 0.08em;
+  margin-left: 0.2rem;
+  text-transform: uppercase;
+}
+.reel-lot {
+  margin-top: 0.75rem;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  color: var(--steel);
+}
+.reel-lot strong { color: var(--navy); font-weight: 500; }
+
+.reel-before { border-top: 3px solid var(--steel); }
+.reel-cut-sent { border-top: 3px solid var(--signal); }
+.reel-cut-left { border-top: 3px solid var(--yellow); }
+
+.cut-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.cut-arrow-label {
+  font-family: var(--f-mono);
+  font-size: 0.6rem;
+  color: var(--steel-dim);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.cut-arrow svg { color: var(--navy); }
+
+.cut-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.cut-caption {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--hairline);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.cut-caption-text {
+  font-size: 0.86rem;
+  color: var(--steel);
+  line-height: 1.55;
+  max-width: 56ch;
+}
+.cut-caption-text strong { color: var(--navy); font-weight: 600; }
+.cut-caption-spec {
+  font-family: var(--f-mono);
+  font-size: 0.62rem;
+  color: var(--steel-dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── SECTION COMMONS ────────────────────────────────────────── */
+.section {
+  padding: 6rem 0;
+  position: relative;
+}
+.section-concrete { background: var(--concrete); }
+.section-navy { background: var(--navy); color: var(--white); }
+
+.section-intro {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+  align-items: end;
+}
+@media (max-width: 820px) { .section-intro { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; } }
+
+.section-intro-left .eyebrow { margin-bottom: 1rem; display: block; }
+.section-intro-left h2 {
+  font-family: var(--f-sans);
+  font-weight: 800;
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.028em;
+  color: var(--navy);
+}
+.section-navy .section-intro-left h2 { color: var(--white); }
+.section-intro-right {
+  font-size: 1.05rem;
+  color: var(--steel);
+  line-height: 1.65;
+  max-width: 56ch;
+}
+.section-navy .section-intro-right { color: rgba(255,255,255,0.72); }
+
+/* ── WHAT IS BOLT ───────────────────────────────────────────── */
+.what-is {
+  padding: 5rem 0 5.5rem;
+}
+.what-is-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 820px) { .what-is-inner { grid-template-columns: 1fr; gap: 2rem; } }
+
+.what-is-tag {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  color: var(--signal);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-top: 2px solid var(--navy);
+  padding-top: 0.85rem;
+  font-weight: 500;
+}
+.what-is-body p {
+  font-size: 1.28rem;
+  line-height: 1.45;
+  color: var(--navy);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.3rem;
+}
+.what-is-body p:last-child { margin-bottom: 0; color: var(--steel); font-weight: 400; font-size: 1.05rem; line-height: 1.65; }
+.what-is-body a {
+  color: var(--signal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--signal-15);
+  transition: border-color 0.2s;
+}
+.what-is-body a:hover { border-bottom-color: var(--signal); }
+
+/* ── PROBLEM / SOLUTION ─────────────────────────────────────── */
+.problem-solution {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+@media (max-width: 820px) { .problem-solution { grid-template-columns: 1fr; } }
+
+.ps-col {
+  padding: 2.25rem 2rem 2.5rem;
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  position: relative;
+}
+.ps-col-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--hairline);
+}
+.ps-col-mark {
+  width: 30px; height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-mono);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0;
+}
+.ps-problem .ps-col-mark { background: var(--steel); color: var(--white); }
+.ps-solution .ps-col-mark { background: var(--signal); color: var(--white); }
+.ps-col-title {
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.ps-problem .ps-col-title { color: var(--steel); }
+.ps-solution .ps-col-title { color: var(--signal); }
+
+.ps-col h3 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  color: var(--navy);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+.ps-col p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--steel);
+  margin-bottom: 0.9rem;
+}
+.ps-col p:last-child { margin-bottom: 0; }
+.ps-col strong { color: var(--navy); font-weight: 600; }
+.ps-col .ps-data {
+  font-family: var(--f-mono);
+  font-size: 0.88em;
+  color: var(--navy);
+  background: var(--concrete);
+  padding: 0.05em 0.4em;
+  letter-spacing: -0.01em;
+}
+
+/* ── MODULES ────────────────────────────────────────────────── */
+.modules-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--hairline);
+  border-left: 1px solid var(--hairline);
+}
+@media (max-width: 1100px) { .modules-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .modules-grid { grid-template-columns: 1fr; } }
+
+.module {
+  padding: 2.2rem 1.7rem;
+  border-right: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  background: var(--white);
+  position: relative;
+  transition: background 0.2s;
+}
+.module:hover { background: var(--concrete); }
+.module:hover::before {
+  background: var(--signal);
+  transform: scaleX(1);
+}
+.module::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--hairline);
+  transform-origin: left;
+  transition: transform 0.3s, background 0.3s;
+}
+.module-id {
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--signal);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  display: block;
+}
+.module h3 {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: 0.7rem;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+.module p {
+  font-size: 0.9rem;
+  color: var(--steel);
+  line-height: 1.6;
+}
+
+/* ── VERTICALS ─────────────────────────────────────────────── */
+.verticals-list {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  border-top: 2px solid var(--navy);
+}
+.vertical-row {
+  display: grid;
+  grid-template-columns: 0.45fr 2.2fr 1fr;
+  gap: 2rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--hairline);
+  align-items: baseline;
+  transition: padding 0.2s;
+}
+.vertical-row:hover {
+  padding-left: 1rem;
+  background: var(--signal-06);
+  margin: 0 -1rem;
+  padding-right: 1rem;
+}
+@media (max-width: 760px) {
+  .vertical-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem 0; }
+}
+
+.vertical-name {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+.vertical-desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--steel);
+}
+.vertical-meta {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--steel-dim);
+  text-align: right;
+}
+@media (max-width: 760px) {
+  .vertical-meta { text-align: left; }
+}
+.vertical-meta strong {
+  color: var(--navy);
+  font-weight: 500;
+  display: block;
+}
+.vertical-meta .replace {
+  display: block;
+  color: var(--signal);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+/* ── COMPETITIVE ───────────────────────────────────────────── */
+.compete-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) { .compete-grid { grid-template-columns: 1fr; } }
+
+.compete-card {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  padding: 2.25rem 1.9rem;
+  position: relative;
+}
+.compete-head {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.4rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--yellow);
+}
+.compete-vs {
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--f-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  font-weight: 600;
+}
+.compete-against {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  color: var(--steel);
+  letter-spacing: 0.04em;
+}
+.compete-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+.compete-card p {
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--steel);
+}
+.compete-card p + p { margin-top: 0.8rem; }
+
+/* ── API CALLOUT ───────────────────────────────────────────── */
+.api-callout {
+  background: var(--midnight);
+  color: var(--white);
+  padding: 5.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.api-callout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at right, rgba(0,0,0,0.8), transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at right, rgba(0,0,0,0.8), transparent 75%);
+}
+.api-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+}
+@media (max-width: 920px) { .api-inner { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+.api-ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--yellow);
+  color: var(--navy);
+  padding: 0.35rem 0.8rem;
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.api-callout h2 {
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  max-width: 20ch;
+}
+.api-callout p {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 1rem;
+  max-width: 54ch;
+}
+.api-callout p strong { color: var(--white); font-weight: 600; }
+.api-callout .api-price {
+  font-family: var(--f-mono);
+  font-size: 0.92rem;
+  color: var(--yellow);
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.code-panel {
+  background: #060C17;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0;
+  font-family: var(--f-mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #C9D5EA;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.code-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.1rem;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+.code-panel-header .code-method {
+  color: var(--yellow);
+  font-weight: 600;
+}
+.code-panel-body {
+  padding: 1.3rem 1.4rem;
+  overflow-x: auto;
+}
+.code-panel-body .c-k { color: #7FB3E3; }
+.code-panel-body .c-s { color: #E8A838; }
+.code-panel-body .c-n { color: #C9D5EA; }
+.code-panel-body .c-comment { color: rgba(255,255,255,0.35); }
+.code-panel-body .c-punct { color: rgba(255,255,255,0.55); }
+
+/* ── PRICING PREVIEW ───────────────────────────────────────── */
+.pricing-preview {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--hairline);
+  background: var(--hairline);
+}
+@media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+.tier {
+  background: var(--white);
+  padding: 2.5rem 2rem 2.2rem;
+  position: relative;
+}
+.tier-featured {
+  background: var(--concrete);
+  border-top: 3px solid var(--signal);
+  padding-top: 2.3rem;
+}
+.tier-enterprise {
+  background: var(--navy);
+  color: var(--white);
+  border-top: 3px solid var(--yellow);
+  padding-top: 2.3rem;
+}
+.tier-name {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.tier-enterprise .tier-name { color: var(--yellow); }
+.tier-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 0.3rem;
+}
+.tier-price .price-n {
+  font-family: var(--f-sans);
+  font-weight: 800;
+  font-size: 2.8rem;
+  letter-spacing: -0.025em;
+  color: var(--navy);
+  line-height: 1;
+}
+.tier-enterprise .tier-price .price-n { color: var(--white); }
+.tier-price .price-unit {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  color: var(--steel);
+}
+.tier-enterprise .tier-price .price-unit { color: rgba(255,255,255,0.5); }
+.tier-tag {
+  font-size: 0.85rem;
+  color: var(--steel);
+  margin-bottom: 1.5rem;
+}
+.tier-enterprise .tier-tag { color: rgba(255,255,255,0.65); }
+
+.tier-features {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+.tier-features li {
+  font-size: 0.86rem;
+  color: var(--steel);
+  padding: 0.42rem 0;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.tier-features li:first-child { border-top: none; padding-top: 0.1rem; }
+.tier-enterprise .tier-features li {
+  color: rgba(255,255,255,0.82);
+  border-top-color: rgba(255,255,255,0.1);
+}
+.tier-features li::before {
+  content: '+';
+  color: var(--signal);
+  font-family: var(--f-mono);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.tier-enterprise .tier-features li::before { color: var(--yellow); }
+
+.pricing-cta {
+  margin-top: 2rem;
+  text-align: center;
+}
+.pricing-cta a {
+  color: var(--signal);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+  font-size: 1rem;
+}
+.pricing-cta a:hover { border-bottom-color: var(--signal); }
+.pricing-cta a::after { content: ' →'; transition: transform 0.2s; display: inline-block; }
+.pricing-cta a:hover::after { transform: translateX(3px); }
+
+/* ── HERITAGE REFERENCE ────────────────────────────────────── */
+.proof-band {
+  background: var(--navy);
+  color: var(--white);
+  padding: 6rem 0 5.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.proof-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 3px,
+    rgba(255,255,255,0.03) 3px,
+    rgba(255,255,255,0.03) 4px
+  );
+  pointer-events: none;
+}
+.proof-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+.proof-inner .eyebrow { color: var(--yellow); margin-bottom: 1.5rem; display: block; }
+
+.proof-quote {
+  font-family: var(--f-sans);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  max-width: 42ch;
+  margin-bottom: 1.6rem;
+  color: var(--white);
+}
+.proof-quote em {
+  font-style: normal;
+  background: linear-gradient(180deg, transparent 58%, var(--yellow) 58%, var(--yellow) 92%, transparent 92%);
+  padding: 0 0.1em;
+  color: var(--navy);
+  font-weight: 700;
+}
+.proof-attr {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+.proof-attr strong { color: var(--white); font-weight: 500; }
+
+.proof-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+@media (max-width: 820px) { .proof-stats { grid-template-columns: repeat(2, 1fr); } }
+
+.proof-stat-n {
+  font-family: var(--f-sans);
+  font-weight: 800;
+  font-size: 2.6rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.proof-stat-l {
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+
+.proof-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--yellow);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+.proof-link:hover { border-bottom-color: var(--yellow); }
+.proof-link::after { content: ' →'; display: inline-block; transition: transform 0.2s; }
+.proof-link:hover::after { transform: translateX(4px); }
+
+/* ── CLOSING CTA ───────────────────────────────────────────── */
+.closing {
+  padding: 7rem 0 8rem;
+  background: var(--white);
+  position: relative;
+}
+.closing-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.closing h2 {
+  font-family: var(--f-sans);
+  font-weight: 900;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--navy);
+  margin-bottom: 1.75rem;
+  max-width: 18ch;
+}
+.closing h2 em {
+  font-style: normal;
+  background: var(--yellow);
+  padding: 0 0.15em;
+  margin: 0 -0.05em;
+}
+.closing-body {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--steel);
+  max-width: 62ch;
+  margin-bottom: 2.5rem;
+}
+.closing-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.closing-meta {
+  margin-top: 3rem;
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  color: var(--steel-dim);
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+.closing-meta a {
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hairline);
+  transition: border-color 0.2s;
+}
+.closing-meta a:hover { border-bottom-color: var(--navy); }
+
+/* ── FOOTER ────────────────────────────────────────────────── */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.65);
+  padding: 3.5rem 0 2rem;
+}
+.footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+@media (max-width: 820px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+@media (max-width: 500px) { .footer-top { grid-template-columns: 1fr; } }
+
+.footer-brand .brand { color: var(--white); }
+.footer-brand .brand-word { color: var(--white); }
+.footer-brand .brand-sub { color: rgba(255,255,255,0.5); }
+.footer-brand p {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  max-width: 28ch;
+  color: rgba(255,255,255,0.6);
+}
+
+.footer-col h4 {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 1rem;
+}
+.footer-col a {
+  display: block;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  padding: 0.3rem 0;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--white); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.4);
+}
+.footer-bottom a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-bottom a:hover { color: var(--yellow); }
+.footer-bottom .footer-powered a { color: var(--yellow); border-bottom: 1px solid rgba(232,168,56,0.3); padding-bottom: 1px; }
+.footer-bottom .footer-powered a:hover { border-bottom-color: var(--yellow); }
+
+/* ── FADE IN ───────────────────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 920px) {
+  .cut-flow { grid-template-columns: 1fr; gap: 1rem; }
+  .cut-results { grid-template-columns: 1fr 1fr; }
+  .cut-arrow { flex-direction: row; padding: 0.5rem 0; }
+  .cut-arrow svg { transform: rotate(90deg); }
+}
+@media (max-width: 680px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--white);
+    padding: 1rem 2rem 1.5rem;
+    border-bottom: 1px solid var(--hairline);
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+  .nav-links.open a { padding: 0.75rem 0; border-bottom: 1px solid var(--hairline); }
+  .nav-links.open .nav-cta { text-align: center; margin-top: 0.5rem; }
+  .nav-toggle { display: block; }
+
+  .hero { padding: 3rem 0 3rem; }
+  .hero-inner { padding: 0 1.5rem; }
+  .hero-meta { flex-direction: column; gap: 0.5rem; }
+  .hero-meta-right { text-align: left; }
+  .cut-diagram { padding: 1.5rem 1.25rem; }
+  .cut-caption { flex-direction: column; gap: 0.75rem; }
+  .cut-results { grid-template-columns: 1fr; }
+
+  .section { padding: 4rem 0; }
+  .section-intro { padding: 0 1.5rem; }
+  .what-is-inner, .problem-solution, .modules-grid, .verticals-list, .compete-grid,
+  .api-inner, .pricing-preview, .proof-inner, .closing-inner, .footer-inner { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .container { padding: 0 1.5rem; }
+  .closing { padding: 4.5rem 0 5rem; }
+  .proof-band { padding: 4.5rem 0 4rem; }
+  .api-callout { padding: 4.5rem 0; }
+  .tier-price .price-n { font-size: 2.3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="brand" aria-label="Bolt by Studio B">
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M14 2L4 13h7l-3 9 12-14h-8l2-6z" fill="#2E6FBA" stroke="#1B2B4A" stroke-width="1.2" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-word">B O L T</span>
+      <span class="brand-sub">by Studio&nbsp;B</span>
+    </a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="#modules">Modules</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/customers/heritage.html">Customers</a>
+      <a href="https://b.studio" target="_blank" rel="noopener">Studio&nbsp;B</a>
+      <a href="mailto:kevin@b.studio?subject=Bolt%20demo%20request" class="nav-cta">Request demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <div class="hero-meta-left">
+        <span>BOLT&nbsp;/&nbsp;CONTINUOUS&nbsp;GOODS&nbsp;WMS</span>
+      </div>
+      <div class="hero-meta-right">
+        <strong>v24.10</strong>&nbsp;·&nbsp;Acumatica Marketplace
+      </div>
+    </div>
+
+    <h1>Your warehouse runs on <span class="mark">feet</span>.<br>Your WMS should count them.</h1>
+
+    <p class="hero-lead">Generic WMS counts boxes. Your inventory is a <span class="mono">1,000-foot reel</span> that gets <span class="mono">347 feet cut</span> at 8:42 AM, leaving <span class="mono">653 feet of lot MC-2024-0891</span> available for the next order. Bolt tracks that. No spreadsheets. No manual adjustments. No fifteen-year-old desktop software.</p>
+
+    <div class="hero-actions">
+      <a href="mailto:kevin@b.studio?subject=Bolt%20demo%20request" class="btn btn-yellow">Request a demo <span class="btn-arrow">→</span></a>
+      <a href="/pricing.html" class="btn btn-ghost">See pricing</a>
+    </div>
+
+    <!-- Cut transaction diagram -->
+    <div class="cut-diagram">
+      <span class="cut-diagram-tag">Live transaction</span>
+      <div class="cut-diagram-header">
+        <h3>Cut-to-order: SO-7742 / Line 01</h3>
+        <div class="cut-diagram-ts mono">
+          <span class="user">user&nbsp;42</span> &middot; 08:42:17&nbsp;CT &middot; 2026-04-16
+        </div>
+      </div>
+
+      <div class="cut-flow">
+        <div class="reel reel-before">
+          <div class="reel-label">Master reel (before)</div>
+          <div class="reel-id mono">R-4471</div>
+          <div class="reel-qty">1,000<small>FT</small></div>
+          <div class="reel-lot mono">LOT&nbsp;<strong>MC-2024-0891</strong> &middot; RCVD&nbsp;03-14</div>
+        </div>
+
+        <div class="cut-arrow" aria-hidden="true">
+          <div class="cut-arrow-label">Cut 347 ft</div>
+          <svg width="44" height="24" viewBox="0 0 44 24" fill="none">
+            <path d="M2 12h38m0 0l-8-8m8 8l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+          </svg>
+          <div class="cut-arrow-label">Same lot</div>
+        </div>
+
+        <div class="cut-results">
+          <div class="reel reel-cut-sent">
+            <div class="reel-label">Shipped</div>
+            <div class="reel-id mono">SO-7742</div>
+            <div class="reel-qty">347<small>FT</small></div>
+            <div class="reel-lot mono">LOT&nbsp;<strong>MC-2024-0891</strong></div>
+          </div>
+          <div class="reel reel-cut-left">
+            <div class="reel-label">Remainder</div>
+            <div class="reel-id mono">R-4471.1</div>
+            <div class="reel-qty">653<small>FT</small></div>
+            <div class="reel-lot mono">LOT&nbsp;<strong>MC-2024-0891</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cut-caption">
+        <p class="cut-caption-text">
+          <strong>One transaction. Three records.</strong> Bolt creates the remainder automatically, with the same lot identity, the same receipt date, and the same warehouse location. It&apos;s on the next pick list within seconds.
+        </p>
+        <div class="cut-caption-spec">SPEC&nbsp;/&nbsp;M-01&nbsp;·&nbsp;CUT-TO-ORDER</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT IS BOLT ───────────────────────────────────────── -->
+<section class="what-is fade-in">
+  <div class="what-is-inner">
+    <div class="what-is-tag">§01 &nbsp;·&nbsp; WHAT IS BOLT</div>
+    <div class="what-is-body">
+      <p>Bolt is a warehouse management system for distributors who sell by linear measurement.</p>
+      <p>It handles receiving, cut-to-order fulfillment, quality inspection, picking, packing, and LTL shipping for goods measured in feet, yards, or meters — with full lot traceability through every subdivision and bidirectional Acumatica sync with no middleware.</p>
+      <p>It&apos;s in production at <a href="/customers/heritage.html">Heritage Fabrics</a>, it&apos;s on the Acumatica Marketplace, and it&apos;s built by <a href="https://b.studio" target="_blank" rel="noopener">Studio&nbsp;B</a> — the same team that runs Heritage. Same software. Same builders. Same warehouse.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEM / SOLUTION ─────────────────────────────────── -->
+<section class="section section-concrete fade-in">
+  <div class="section-intro">
+    <div class="section-intro-left">
+      <span class="eyebrow">§02 &nbsp;·&nbsp; The Problem</span>
+      <h2>Generic WMS counts the wrong things.</h2>
+    </div>
+    <div class="section-intro-right">
+      Every continuous goods distributor we've met runs a shadow inventory system — a spreadsheet, a whiteboard, a pile of sticky notes on the warehouse supervisor's monitor. The shadow system exists because the real system can't model the warehouse.
+    </div>
+  </div>
+
+  <div class="problem-solution">
+    <div class="ps-col ps-problem">
+      <div class="ps-col-head">
+        <div class="ps-col-mark">✕</div>
+        <div class="ps-col-title">Without&nbsp;Bolt</div>
+      </div>
+      <h3>Your WMS says you have 47 reels of 10&nbsp;AWG. That&apos;s correct. It&apos;s also useless.</h3>
+      <p>Reel <span class="ps-data">R-4471</span> has 653 feet remaining from a cut this morning. Reel <span class="ps-data">R-4472</span> has 1,000 feet, untouched. Reel <span class="ps-data">R-4478</span> is on quality hold. Your WMS treats them as three equivalent units of inventory. They aren&apos;t.</p>
+      <p>Your team <strong>knows</strong>. The supervisor knows which reels are partial. The shipping clerk knows which lots go together. The customer service agent knows to call Mike on the floor before promising a date.</p>
+      <p>That knowledge walks out the door at 5pm, into retirement at 65, and with turnover every eighteen months.</p>
+    </div>
+
+    <div class="ps-col ps-solution">
+      <div class="ps-col-head">
+        <div class="ps-col-mark">✓</div>
+        <div class="ps-col-title">With&nbsp;Bolt</div>
+      </div>
+      <h3>Bolt tracks inventory the way your team already thinks about it.</h3>
+      <p>Master reel. Lot. Cut. Remainder. Hold. Same lot identity through every transaction, on every device, for every user.</p>
+      <p>A cut-to-order transaction takes <span class="ps-data">347&nbsp;ft</span> from <span class="ps-data">R-4471</span> and Bolt automatically creates a <span class="ps-data">653&nbsp;ft</span> remainder with the same lot identity, the same receipt date, the same warehouse location. It&apos;s on the next pick list within seconds.</p>
+      <p>The tribal knowledge doesn&apos;t walk out at 5pm. <strong>Your team supervises. Bolt remembers.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ── MODULES ───────────────────────────────────────────── -->
+<section class="section fade-in" id="modules">
+  <div class="section-intro">
+    <div class="section-intro-left">
+      <span class="eyebrow">§03 &nbsp;·&nbsp; What Bolt does</span>
+      <h2>Eight modules.<br>Every one used every day.</h2>
+    </div>
+    <div class="section-intro-right">
+      Bolt isn&apos;t a framework you configure. It&apos;s a product with opinions. These eight modules are what you get out of the box — no custom development, no professional services hours, no separate "add-on marketplace" to navigate.
+    </div>
+  </div>
+
+  <div class="modules-grid">
+    <div class="module">
+      <span class="module-id">M-01&nbsp;·&nbsp;CUT-TO-ORDER</span>
+      <h3>Cut-to-order with remainders</h3>
+      <p>Subdivide master units. Bolt tracks the remainder automatically — same lot, updated footage, ready for the next order. No manual adjustments, no spreadsheet reconciliation.</p>
+    </div>
+    <div class="module">
+      <span class="module-id">M-02&nbsp;·&nbsp;LOT</span>
+      <h3>Full lot traceability</h3>
+      <p>Every foot carries its identity: manufacturing lot, dye lot, heat number, production run. Trace from receiving through every cut and shipment in seconds, not hours.</p>
+    </div>
+    <div class="module">
+      <span class="module-id">M-03&nbsp;·&nbsp;QUALITY</span>
+      <h3>Quality inspection</h3>
+      <p>Visual defect taxonomy — jacket damage, shade variance, braid exposure. Photo capture, pass/fail/quarantine disposition, vendor scorecards that track who sends you problems.</p>
+    </div>
+    <div class="module">
+      <span class="module-id">M-04&nbsp;·&nbsp;MOBILE</span>
+      <h3>Offline mobile app</h3>
+      <p>Twelve screens covering receiving, putaway, picking, packing, inspection, and cycle counting. Keyence barcode scanners. Works in warehouses with dead spots. English and Spanish.</p>
+    </div>
+    <div class="module">
+      <span class="module-id">M-05&nbsp;·&nbsp;LTL</span>
+      <h3>LTL + parcel shipping</h3>
+      <p>Eight LTL carriers with real-time rate shopping, freight class calculation, and BOL generation. ShipEngine for parcel. All on the same screen as the shipment confirmation.</p>
+    </div>
+    <div class="module">
+      <span class="module-id">M-06&nbsp;·&nbsp;RMA</span>
+      <h3>Returns &amp; RMA</h3>
+      <p>Multi-reason returns with disposition: rework, return to vendor, scrap, downgrade. Track why products come back and which vendors are responsible.</p>
+    </div>
+    <div class="module">
+      <span class="module-id">M-07&nbsp;·&nbsp;INTELLIGENCE</span>
+      <h3>AI demand planning</h3>
+      <p>ABC inventory classification. Vendor lead time learning from actual delivery dates. Seasonal forecasting and safety stock optimization. Reorder signals weeks before stockout.</p>
+    </div>
+    <div class="module">
+      <span class="module-id">M-08&nbsp;·&nbsp;ACUMATICA</span>
+      <h3>Acumatica integration</h3>
+      <p>Bidirectional REST API. Customers, inventory, orders, shipments, POs. Custom DAC fields via CI/CD. No middleware. No iPaaS. No manual re-entry.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── VERTICALS ─────────────────────────────────────────── -->
+<section class="section section-concrete fade-in">
+  <div class="section-intro">
+    <div class="section-intro-left">
+      <span class="eyebrow">§04 &nbsp;·&nbsp; Verticals</span>
+      <h2>Five industries.<br>One operational model.</h2>
+    </div>
+    <div class="section-intro-right">
+      Buy master units. Cut to order. Track lot identity. Ship heavy freight. The vocabulary changes — reels in wire, rolls in carpet, coils in hose — but the operations are the same. That&apos;s why one product can serve all of them.
+    </div>
+  </div>
+
+  <div class="verticals-list">
+    <div class="vertical-row">
+      <div class="vertical-name">Wire &amp; Cable</div>
+      <p class="vertical-desc">Reels, spools, partial reels. UL/CSA lot traceability. Copper commodity lead times that move weekly.</p>
+      <div class="vertical-meta">
+        <strong>~900</strong>&nbsp;mid-market distributors
+        <span class="replace">Replacing &nbsp;Epicor P21</span>
+      </div>
+    </div>
+    <div class="vertical-row">
+      <div class="vertical-name">Carpet &amp; Flooring</div>
+      <p class="vertical-desc">Rolls, remnants, dye-lot matching. Identical operational vocabulary to textiles — because the operations are identical.</p>
+      <div class="vertical-meta">
+        <strong>~400</strong>&nbsp;distributors
+        <span class="replace">Replacing &nbsp;FLIMO, QFloors</span>
+      </div>
+    </div>
+    <div class="vertical-row">
+      <div class="vertical-name">Industrial Hose &amp; Rubber</div>
+      <p class="vertical-desc">Coils, assemblies, pressure-test records. NAHAD safety traceability. Cut-crimp-test fabrication workflows.</p>
+      <div class="vertical-meta">
+        <strong>~500</strong>&nbsp;distributor-fabricators
+        <span class="replace">Replacing &nbsp;Tribute TrulinX</span>
+      </div>
+    </div>
+    <div class="vertical-row">
+      <div class="vertical-name">Paper &amp; Packaging</div>
+      <p class="vertical-desc">Master rolls, slitting, sheeting. Mill lot identity through subdivision. Long lead times on mill orders.</p>
+      <div class="vertical-meta">
+        <strong>~400</strong>&nbsp;distributors
+        <span class="replace">Replacing &nbsp;Accolent ERP</span>
+      </div>
+    </div>
+    <div class="vertical-row">
+      <div class="vertical-name">Vinyl &amp; Film</div>
+      <p class="vertical-desc">Rolls, cores, resin-lot traceability. FDA food-contact compliance. Automotive wrap film (22% CAGR).</p>
+      <div class="vertical-meta">
+        <strong>~300</strong>&nbsp;distributors
+        <span class="replace">Greenfield</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPETITIVE ───────────────────────────────────────── -->
+<section class="section fade-in">
+  <div class="section-intro">
+    <div class="section-intro-left">
+      <span class="eyebrow">§05 &nbsp;·&nbsp; Bolt vs. Generic WMS</span>
+      <h2>Three things Bolt does that generic WMS can&apos;t.</h2>
+    </div>
+    <div class="section-intro-right">
+      Generic WMS products — NetSuite WMS, Fishbowl, Cin7, Infor WMS — are built for boxes on shelves. When you bring them into a continuous-goods warehouse, these are the three places they fail. Every time.
+    </div>
+  </div>
+
+  <div class="compete-grid">
+    <div class="compete-card">
+      <div class="compete-head">
+        <span class="compete-vs">VS</span>
+        <span class="compete-against">Generic WMS</span>
+      </div>
+      <h3>Partial-unit tracking</h3>
+      <p>A standard WMS decrements inventory by integer units. Cut 347 feet from a 1,000-foot reel and it either (a) decrements the reel count by 1 and demands a manual adjustment for the 653-foot remainder, or (b) asks you to pre-split reels at receiving, guessing at future cuts. Neither works.</p>
+      <p><strong>Bolt creates the remainder as a first-class inventory record with the same lot identity — automatically, at cut time.</strong></p>
+    </div>
+
+    <div class="compete-card">
+      <div class="compete-head">
+        <span class="compete-vs">VS</span>
+        <span class="compete-against">Manual cross-references</span>
+      </div>
+      <h3>Lot identity through subdivision</h3>
+      <p>Most WMS products track lot identity on the master unit. Subdivide it and the link breaks — or you pay for a "reel genealogy" bolt-on that requires manual cross-reference at every split.</p>
+      <p><strong>Bolt preserves lot identity through every subdivision without a separate module. Dye-lot matching during allocation is automatic, not a step the picker has to remember.</strong></p>
+    </div>
+
+    <div class="compete-card">
+      <div class="compete-head">
+        <span class="compete-vs">VS</span>
+        <span class="compete-against">Separate shipping tab</span>
+      </div>
+      <h3>LTL rate shopping in the workflow</h3>
+      <p>A standard WMS assumes parcel. LTL rate shopping happens in a separate carrier portal, a separate browser tab, a separate software package. Freight class requires a side trip to NMFC codes. BOLs get generated in yet another system.</p>
+      <p><strong>Bolt integrates eight LTL carriers directly into pick-pack. Rate shopping, freight class, BOL — one screen, one workflow.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CUSTOMER STOCK API CALLOUT ────────────────────────── -->
+<section class="api-callout fade-in">
+  <div class="api-inner">
+    <div>
+      <div class="api-ribbon">Enterprise&nbsp;·&nbsp;M-09</div>
+      <h2>Your enterprise customers don&apos;t want to log into your portal.</h2>
+      <p>If you sell private-label into enterprise accounts — Home Depot stocking your branded wire, a GC stocking your branded carpet — they want an API. They want to check stock, place orders, and reconcile receipts programmatically from their own systems. Nobody in procurement is logging into a vendor portal at 2 AM.</p>
+      <p>The <strong>Customer Stock API</strong> exposes each customer&apos;s private-label SKUs through a scoped, keyed endpoint. Ten million requests per month per tenant, included. Metered at <span class="mono">$0.50&nbsp;/&nbsp;1&nbsp;000&nbsp;requests</span> on overage — cheap at the base, predictable at the edge, no surprise bills.</p>
+      <div class="api-price">Included in Enterprise — $1,800/mo</div>
+    </div>
+
+    <div class="code-panel" aria-label="API example">
+      <div class="code-panel-header">
+        <span><span class="code-method">GET</span>&nbsp;/api/v1/stock</span>
+        <span>200 &middot; JSON</span>
+      </div>
+<pre class="code-panel-body">{
+  <span class="c-s">"customer"</span>: <span class="c-s">"homedepot"</span>,
+  <span class="c-s">"sku"</span>:      <span class="c-s">"HD-WIRE-10AWG-THHN"</span>,
+  <span class="c-s">"available_ft"</span>: <span class="c-k">9854</span>,
+  <span class="c-s">"on_order_ft"</span>: <span class="c-k">12000</span>,
+  <span class="c-s">"lots"</span>: [
+    { <span class="c-s">"lot"</span>: <span class="c-s">"MC-2024-0891"</span>, <span class="c-s">"ft"</span>: <span class="c-k">653</span> },
+    { <span class="c-s">"lot"</span>: <span class="c-s">"MC-2024-0892"</span>, <span class="c-s">"ft"</span>: <span class="c-k">1000</span> },
+    { <span class="c-s">"lot"</span>: <span class="c-s">"MC-2024-0897"</span>, <span class="c-s">"ft"</span>: <span class="c-k">8201</span> }
+  ],
+  <span class="c-s">"warehouse"</span>:    <span class="c-s">"DALLAS-01"</span>,
+  <span class="c-s">"updated_at"</span>:   <span class="c-s">"2026-04-16T14:42:17Z"</span>
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING PREVIEW ───────────────────────────────────── -->
+<section class="section fade-in">
+  <div class="section-intro">
+    <div class="section-intro-left">
+      <span class="eyebrow">§06 &nbsp;·&nbsp; Pricing</span>
+      <h2>Per tenant.<br>Unlimited warehouses.</h2>
+    </div>
+    <div class="section-intro-right">
+      No per-user fees. No per-transaction fees. No quote-to-close sales dance. Three tiers, three prices, one of which fits. Annual contracts are fine if you want them; month-to-month is also fine.
+    </div>
+  </div>
+
+  <div class="pricing-preview">
+    <div class="pricing-grid">
+      <div class="tier">
+        <div class="tier-name">Core</div>
+        <div class="tier-price">
+          <span class="price-n">$800</span>
+          <span class="price-unit">/&nbsp;tenant&nbsp;/&nbsp;month</span>
+        </div>
+        <div class="tier-tag">The warehouse runs on this.</div>
+        <ul class="tier-features">
+          <li>Receiving &amp; putaway</li>
+          <li>Cut-to-order with remainders</li>
+          <li>Pick, pack, ship</li>
+          <li>Full lot traceability</li>
+          <li>Offline mobile app</li>
+          <li>Acumatica + HubSpot sync</li>
+        </ul>
+      </div>
+
+      <div class="tier tier-featured">
+        <div class="tier-name">Pro</div>
+        <div class="tier-price">
+          <span class="price-n">$1,200</span>
+          <span class="price-unit">/&nbsp;tenant&nbsp;/&nbsp;month</span>
+        </div>
+        <div class="tier-tag">Everything in Core, plus the floor.</div>
+        <ul class="tier-features">
+          <li>Quality inspection &amp; quarantine</li>
+          <li>Returns &amp; RMA</li>
+          <li>Vendor scorecards</li>
+          <li>Eight LTL carriers + parcel</li>
+          <li>Rate shopping &amp; BOL</li>
+          <li>Order entry portal</li>
+        </ul>
+      </div>
+
+      <div class="tier tier-enterprise">
+        <div class="tier-name">Enterprise</div>
+        <div class="tier-price">
+          <span class="price-n">$1,800</span>
+          <span class="price-unit">/&nbsp;tenant&nbsp;/&nbsp;month</span>
+        </div>
+        <div class="tier-tag">Everything in Pro, plus the intelligence layer.</div>
+        <ul class="tier-features">
+          <li>AI demand planning</li>
+          <li>ABC classification</li>
+          <li>Lead-time learning</li>
+          <li>Safety stock optimization</li>
+          <li>Customer Stock API (10M&nbsp;req/mo)</li>
+          <li>Full REST API access</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pricing-cta">
+      <a href="/pricing.html">See the full comparison, FAQs, and VAR white-label pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── HERITAGE REFERENCE ────────────────────────────────── -->
+<section class="proof-band fade-in">
+  <div class="proof-inner">
+    <span class="eyebrow eyebrow-on-dark">§07 &nbsp;·&nbsp; In production</span>
+    <p class="proof-quote">
+      We tracked partial reels with sticky notes for fifteen years. <em>The Sunday afternoon allocation session is gone.</em>
+    </p>
+    <p class="proof-attr">
+      <strong>Heritage Fabrics</strong>&nbsp;·&nbsp;Textile distribution&nbsp;·&nbsp;Running Bolt in production since late 2025
+    </p>
+
+    <div class="proof-stats">
+      <div>
+        <div class="proof-stat-n">1,700+</div>
+        <div class="proof-stat-l">SKUs under<br>management</div>
+      </div>
+      <div>
+        <div class="proof-stat-n">8</div>
+        <div class="proof-stat-l">LTL carriers<br>live rate shop</div>
+      </div>
+      <div>
+        <div class="proof-stat-n">12</div>
+        <div class="proof-stat-l">Mobile screens<br>in production</div>
+      </div>
+      <div>
+        <div class="proof-stat-n">15 min</div>
+        <div class="proof-stat-l">Max latency<br>Acumatica sync</div>
+      </div>
+    </div>
+
+    <a href="/customers/heritage.html" class="proof-link">Read the full Heritage case study</a>
+  </div>
+</section>
+
+<!-- ── CLOSING CTA ───────────────────────────────────────── -->
+<section class="closing fade-in">
+  <div class="closing-inner">
+    <h2>See Bolt with <em>your</em> inventory.</h2>
+    <p class="closing-body">Thirty minutes. No slides. We&apos;ll load a demo environment with your products, your measurement units, and your typical order patterns. You ask questions. We show the product. If it&apos;s a fit, we talk about onboarding. If it&apos;s not, we tell you.</p>
+    <div class="closing-actions">
+      <a href="mailto:kevin@b.studio?subject=Bolt%20demo%20request&amp;body=Hi%20Kevin%20%E2%80%94%20I%27d%20like%20to%20see%20a%20Bolt%20demo.%20My%20vertical%20is%20___%20and%20we%20currently%20run%20___." class="btn btn-yellow">Request a demo <span class="btn-arrow">→</span></a>
+      <a href="/pricing.html" class="btn btn-ghost">See pricing</a>
+    </div>
+    <div class="closing-meta">
+      Or reply to this directly: <a href="mailto:kevin@b.studio">kevin@b.studio</a><br>
+      Kevin Bibelhausen, Principal &middot; Studio B &middot; <a href="https://b.studio" target="_blank" rel="noopener">b.studio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="brand">
+          <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M14 2L4 13h7l-3 9 12-14h-8l2-6z" fill="#E8A838" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+          <span class="brand-word">B O L T</span>
+          <span class="brand-sub">by Studio&nbsp;B</span>
+        </a>
+        <p>Continuous goods WMS. Built by Studio B. In production at Heritage Fabrics.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#modules">Modules</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/customers/heritage.html">Heritage case study</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="https://b.studio" target="_blank" rel="noopener">Studio&nbsp;B</a>
+        <a href="mailto:kevin@b.studio">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <a href="mailto:kevin@b.studio?subject=Bolt%20VAR%20partner%20inquiry">VAR program</a>
+        <a href="mailto:kevin@b.studio?subject=Bolt%20Acumatica%20Marketplace">Marketplace</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Studio B AI. All rights reserved.</div>
+      <div class="footer-powered">Powered by <a href="https://b.studio" target="_blank" rel="noopener">Studio&nbsp;B</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+</body>
+</html>
