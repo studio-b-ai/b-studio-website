@@ -475,9 +475,9 @@
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links">
-    <a href="acudev.html">AcuDev</a>
+    <a href="/">Studio&nbsp;B</a>
+    <a href="https://bolt.b.studio">Bolt</a>
     <a href="acuops.html">AcuOps</a>
-    <a href="acudocs.html">AcuDocs</a>
     <a href="partners.html">Partners</a>
     <a href="#partner-form" class="nav-cta">Become a Partner</a>
   </div>
@@ -486,9 +486,8 @@
 <!-- ── Hero ── -->
 <section class="hero">
   <div class="section-label" style="animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;">PARTNER PROGRAM</div>
-  <h1>Stop selling hours. Start selling <em>outcomes.</em></h1>
-  <p class="hero-sub" style="color: #F87171;">This page is undergoing a refresh. AcuOps is now $300/mo per Acumatica instance, flat &mdash; no tiers. The pricing and product lineup below is out of date.</p>
-  <p class="hero-sub">Studio B equips Acumatica VARs with AcuOps &mdash; our Acumatica DevOps platform &mdash; plus resale access to Bolt, our continuous-goods WMS, for your distributor clients. You keep the relationship. We keep the software running.</p>
+  <h1>Add recurring revenue without adding <em>headcount.</em></h1>
+  <p class="hero-sub">Studio B ships two products Acumatica VARs can put into their practice on day one: <strong>AcuOps</strong>, our Acumatica DevOps platform, and <strong>Bolt</strong>, our continuous-goods WMS. AcuOps runs on every Acumatica tenant you manage. Bolt resells to your distributor clients. You keep the relationship. We keep the software running.</p>
   <div class="hero-actions">
     <a href="#partner-form" class="btn-primary">
       Become a Partner
@@ -502,34 +501,39 @@
 
 <!-- ── Before/After Comparison ── -->
 <section class="comparison fade-in">
-  <div class="section-label">The Math</div>
-  <h2 class="section-heading">Your practice, before and after</h2>
+  <div class="section-label">The Shift</div>
+  <h2 class="section-heading">Your practice, before and after.</h2>
 
   <div class="comparison-table">
     <!-- Header row -->
     <div class="comp-header">&nbsp;</div>
-    <div class="comp-header">Before Studio B</div>
-    <div class="comp-header">With Studio B</div>
+    <div class="comp-header">Before</div>
+    <div class="comp-header">With Studio&nbsp;B</div>
 
-    <!-- Row 1: Customization delivery -->
-    <div class="comp-row-label">Customization delivery</div>
-    <div class="comp-cell before">Your developer, 40 hrs @ $175/hr = $7,000</div>
-    <div class="comp-cell after">AcuDev, <strong>$749/mo</strong></div>
-
-    <!-- Row 2: Environment monitoring -->
+    <!-- Row 1: Environment monitoring -->
     <div class="comp-row-label">Environment monitoring</div>
-    <div class="comp-cell before">Reactive &mdash; client calls you</div>
-    <div class="comp-cell after">AcuOps, <strong>$449/mo</strong></div>
+    <div class="comp-cell before">Reactive &mdash; the client calls, then you look</div>
+    <div class="comp-cell after">AcuOps watches every tenant 24/7</div>
 
-    <!-- Row 3: Training docs -->
-    <div class="comp-row-label">Training docs</div>
-    <div class="comp-cell before">"We'll get to that" (you won't)</div>
-    <div class="comp-cell after">AcuDocs, <strong>$149/mo</strong></div>
+    <!-- Row 2: Customization delivery -->
+    <div class="comp-row-label">Customization delivery</div>
+    <div class="comp-cell before">ZIP uploads, manual publish, "test in prod"</div>
+    <div class="comp-cell after">CI/CD pipeline with post-publish validation</div>
 
-    <!-- Row 4: Margin highlight -->
-    <div class="comp-row-label highlight">Your margin on 10 clients</div>
-    <div class="comp-cell before highlight">Thin, unpredictable</div>
-    <div class="comp-cell after highlight">$13,470/mo recurring</div>
+    <!-- Row 3: Upgrades -->
+    <div class="comp-row-label">Acumatica upgrades</div>
+    <div class="comp-cell before">Hope nothing broke. Bill the recovery.</div>
+    <div class="comp-cell after">Test suite runs against the upgrade candidate first</div>
+
+    <!-- Row 4: Continuous-goods clients -->
+    <div class="comp-row-label">Continuous-goods clients</div>
+    <div class="comp-cell before">No WMS fits. They kludge it in Excel.</div>
+    <div class="comp-cell after">Resell Bolt. They pay you for it.</div>
+
+    <!-- Row 5: Revenue -->
+    <div class="comp-row-label highlight">Per-tenant recurring revenue</div>
+    <div class="comp-cell before highlight">Hours, billed after the fact</div>
+    <div class="comp-cell after highlight">$300/mo&nbsp;AcuOps + Bolt resale</div>
   </div>
 </section>
 
@@ -537,67 +541,46 @@
 
 <!-- ── Pricing ── -->
 <section class="pricing fade-in" id="pricing">
-  <div class="section-label">Pricing</div>
-  <h2 class="section-heading">Transparent pricing. No surprises.</h2>
+  <div class="section-label">Products</div>
+  <h2 class="section-heading">Two products. Plain pricing.</h2>
+  <p class="section-sub">Everything in the Studio B practice ships as one of these. No upsell ladder, no "starter editions" we hope you outgrow.</p>
 
-  <div class="pricing-grid">
+  <div class="pricing-grid" style="grid-template-columns: 1fr 1fr; max-width: 900px; margin-left: auto; margin-right: auto;">
 
-    <!-- AcuOps Monitor -->
+    <!-- AcuOps -->
     <div class="pricing-card">
-      <h3>AcuOps Monitor</h3>
-      <div class="pricing-amount">$249</div>
-      <div class="pricing-unit">per client / month</div>
+      <h3>AcuOps</h3>
+      <div class="pricing-amount">$300</div>
+      <div class="pricing-unit">per Acumatica instance / month &middot; flat</div>
       <ul>
-        <li><span class="check">&#10003;</span> Health monitoring (12 probes)</li>
+        <li><span class="check">&#10003;</span> 12 health probes, Slack-alerted</li>
         <li><span class="check">&#10003;</span> Schema drift detection</li>
-        <li><span class="check">&#10003;</span> Slack alerting</li>
-      </ul>
-    </div>
-
-    <!-- AcuOps Validate -->
-    <div class="pricing-card">
-      <h3>AcuOps Validate</h3>
-      <div class="pricing-amount">$449</div>
-      <div class="pricing-unit">per client / month</div>
-      <ul>
-        <li><span class="check">&#10003;</span> Everything in Monitor, plus:</li>
-        <li><span class="check">&#10003;</span> CI/CD deploy pipeline</li>
-        <li><span class="check">&#10003;</span> Post-publish validation (105 tests)</li>
+        <li><span class="check">&#10003;</span> CI/CD for customizations</li>
+        <li><span class="check">&#10003;</span> Post-publish validation</li>
         <li><span class="check">&#10003;</span> Pre-upgrade testing</li>
-        <li><span class="check">&#10003;</span> AcuDev eligible</li>
+        <li><span class="check">&#10003;</span> Config-as-code in GitHub</li>
+        <li><span class="check">&#10003;</span> Every capability, every instance</li>
       </ul>
+      <div class="pricing-req">For every Acumatica tenant you manage</div>
     </div>
 
-    <!-- AcuDev -->
+    <!-- Bolt -->
     <div class="pricing-card">
-      <h3>AcuDev</h3>
-      <div class="pricing-amount">$749</div>
-      <div class="pricing-unit">per client / month</div>
+      <h3>Bolt</h3>
+      <div class="pricing-amount">$800&ndash;$1,800</div>
+      <div class="pricing-unit">per tenant / month &middot; 3 tiers</div>
       <ul>
-        <li><span class="check">&#10003;</span> AI autonomous Acumatica developer</li>
-        <li><span class="check">&#10003;</span> 826 automated tests</li>
-        <li><span class="check">&#10003;</span> 10 template types</li>
+        <li><span class="check">&#10003;</span> Continuous-goods WMS</li>
+        <li><span class="check">&#10003;</span> Cut-to-order + remainders</li>
+        <li><span class="check">&#10003;</span> Lot traceability, LTL, offline mobile</li>
+        <li><span class="check">&#10003;</span> Bidirectional Acumatica sync</li>
+        <li><span class="check">&#10003;</span> Unlimited warehouses, unlimited users</li>
+        <li><span class="check">&#10003;</span> White-label add-on for partners ($500&ndash;1,000/mo)</li>
+        <li><span class="check">&#10003;</span> Referral commissions on resale</li>
       </ul>
-      <div class="pricing-req">Requires AcuOps Validate</div>
+      <div class="pricing-req">For your distributor clients selling wire, carpet, hose, paper, vinyl, textile &mdash; <a href="https://bolt.b.studio" style="color: var(--accent);">bolt.b.studio</a></div>
     </div>
 
-    <!-- AcuDocs -->
-    <div class="pricing-card">
-      <h3>AcuDocs</h3>
-      <div class="pricing-amount">$149</div>
-      <div class="pricing-unit">per client / month</div>
-      <ul>
-        <li><span class="check">&#10003;</span> Chrome extension capture</li>
-        <li><span class="check">&#10003;</span> AI-generated training guides</li>
-        <li><span class="check">&#10003;</span> Slack &amp; PDF delivery</li>
-      </ul>
-      <div class="pricing-req">Requires AcuOps (any tier)</div>
-    </div>
-
-  </div>
-
-  <div class="volume-banner">
-    <strong>15% off</strong> at 10+ clients &nbsp;&middot;&nbsp; <strong>25% off</strong> at 25+ clients
   </div>
 </section>
 
@@ -605,45 +588,45 @@
 
 <!-- ── Full Stack Example ── -->
 <section class="stack-example fade-in">
-  <div class="section-label">The Full Stack</div>
-  <h2 class="section-heading">10-client breakdown</h2>
-  <p class="section-sub">What your practice looks like with the full platform.</p>
+  <div class="section-label">The Math</div>
+  <h2 class="section-heading">Ten clients, honest numbers.</h2>
+  <p class="section-sub">Imagine a VAR practice with ten Acumatica clients, three of whom sell continuous goods. Here's what Studio B adds to that practice, at our pricing, before you mark it up.</p>
 
   <div class="stack-box">
     <table class="stack-table">
       <thead>
         <tr>
-          <th>Product</th>
-          <th>Per Client</th>
-          <th>10 Clients</th>
+          <th>Line item</th>
+          <th>Unit price</th>
+          <th>Monthly</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>AcuOps Validate</td>
-          <td>$449</td>
-          <td>$4,490</td>
+          <td>AcuOps on ten Acumatica tenants</td>
+          <td>$300</td>
+          <td>$3,000</td>
         </tr>
         <tr>
-          <td>AcuDev</td>
-          <td>$749</td>
-          <td>$7,490</td>
+          <td>Bolt resale &mdash; three continuous-goods clients on Pro</td>
+          <td>$1,200</td>
+          <td>$3,600</td>
         </tr>
         <tr>
-          <td>AcuDocs</td>
-          <td>$149</td>
-          <td>$1,490</td>
+          <td>White-label add-on across the three Bolt tenants</td>
+          <td>$500</td>
+          <td>$1,500</td>
         </tr>
         <tr class="total">
-          <td>Total</td>
-          <td>$1,347</td>
-          <td>$13,470/mo</td>
+          <td>Recurring software you're delivering</td>
+          <td>&mdash;</td>
+          <td>$8,100/mo</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <p class="stack-kicker">That's less than one senior Acumatica developer's salary. <em>And it scales.</em></p>
+  <p class="stack-kicker">Mark it up the way you mark up any other recurring SaaS in your practice. <em>That margin is yours.</em> Studio B isn't in the seat between you and your client &mdash; we ship the software, you own the relationship.</p>
 </section>
 
 <div class="divider"></div>
@@ -651,23 +634,23 @@
 <!-- ── Onboarding ── -->
 <section class="onboarding fade-in">
   <div class="section-label">Get Started</div>
-  <h2 class="section-heading">Three steps. No red tape.</h2>
+  <h2 class="section-heading">Three steps. No dance.</h2>
 
   <div class="onboarding-steps">
     <div class="ob-step">
       <div class="ob-step-number">1</div>
       <h3>Book a demo</h3>
-      <p>30 minutes. We show you the platform, you ask hard questions.</p>
+      <p>Thirty minutes against a real tenant. You ask hard questions. Kevin answers them directly.</p>
     </div>
     <div class="ob-step">
       <div class="ob-step-number">2</div>
       <h3>Connect your first client</h3>
-      <p>We help you onboard one Acumatica instance. See it work in your own environment.</p>
+      <p>We onboard one Acumatica tenant into AcuOps, together, on a screenshare. You see every step. If it's for a continuous-goods distributor, we walk through Bolt the same way.</p>
     </div>
     <div class="ob-step">
       <div class="ob-step-number">3</div>
       <h3>Start billing</h3>
-      <p>AcuOps starts monitoring. AcuDev starts building. You start invoicing.</p>
+      <p>AcuOps is watching. Bolt is running. You invoice your client for managed Acumatica plus WMS on the next cycle.</p>
     </div>
   </div>
 </section>
@@ -676,8 +659,8 @@
 
 <!-- ── CTA / Partner Form ── -->
 <section class="cta-section fade-in" id="partner-form">
-  <h2>Become a Partner</h2>
-  <p>Fill out the form. We'll schedule a demo within 48 hours.</p>
+  <h2>Become a partner.</h2>
+  <p>Tell us about your practice. Kevin replies within 48 hours &mdash; no SDR, no "pipeline enrichment," no scripted first call.</p>
   <div class="cta-form">
     <div id="partner-form-container"></div>
     <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
@@ -772,16 +755,16 @@
           <span class="b">B</span>
         </div>
       </a>
-      <p>AI-powered tools for Acumatica VARs.</p>
+      <p>Two products. Both running in production. Both built by the team that uses them.</p>
     </div>
     <div class="footer-col">
       <h4>Products</h4>
-      <a href="acudev.html">AcuDev</a>
+      <a href="https://bolt.b.studio">Bolt</a>
       <a href="acuops.html">AcuOps</a>
-      <a href="acudocs.html">AcuDocs</a>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
+      <a href="/">Studio&nbsp;B</a>
       <a href="partners.html">Partners</a>
       <a href="https://docs.b.studio" target="_blank" rel="noopener">Documentation</a>
       <a href="/privacy">Privacy</a>
