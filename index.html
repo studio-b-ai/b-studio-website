@@ -581,8 +581,14 @@ nav::after {
 .cta-btn svg { transition: transform 0.25s; }
 .cta-btn:hover svg { transform: translateX(3px); }
 
+.cta-form {
+  max-width: 540px;
+  margin: 2rem 0;
+  min-height: 350px;
+}
+
 .cta-alt {
-  margin-top: 1rem;
+  margin-top: 0;
   font-size: 0.82rem;
   color: var(--text-tertiary);
 }
@@ -814,10 +820,61 @@ footer .f-links a:hover { color: var(--forest); }
 <section class="cta-section fade-in" id="contact">
   <div class="cta-title">Start a conversation.</div>
   <p class="cta-sub">No pitch deck. No 12-slide process diagram. Tell us what you're working on and we'll tell you if we can help.</p>
-  <a href="mailto:kevin@b.studio" class="cta-btn">
-    Get in Touch
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-  </a>
+  <div class="cta-form">
+    <div id="demo-form"></div>
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+        region: "na1",
+        portalId: "49070660",
+        formId: "ea2c2f4a-4e71-4dd5-8747-814c87634f5c",
+        target: "#demo-form",
+        css: "",
+        cssClass: "hs-form-verde"
+      });
+    </script>
+    <style>
+      .hs-form-verde .hs-input {
+        background: var(--surface) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 3px !important;
+        color: var(--text) !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 0.9rem !important;
+        font-weight: 400 !important;
+        padding: 0.85rem 1.2rem !important;
+        width: 100% !important;
+      }
+      .hs-form-verde .hs-input:focus { border-color: var(--forest) !important; outline: none !important; }
+      .hs-form-verde .hs-input::placeholder { color: var(--text-tertiary) !important; }
+      .hs-form-verde label {
+        color: var(--text-secondary) !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 0.82rem !important; font-weight: 500 !important;
+        margin-bottom: 0.3rem !important;
+      }
+      .hs-form-verde .hs-button {
+        background: var(--vermillion) !important;
+        color: #fff !important;
+        border: none !important; border-radius: 3px !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 0.95rem !important; font-weight: 600 !important;
+        padding: 0.85rem 2rem !important;
+        cursor: pointer !important;
+        transition: all 0.25s !important;
+        width: 100% !important; margin-top: 0.5rem !important;
+      }
+      .hs-form-verde .hs-button:hover { background: var(--vermillion-hover) !important; transform: translateY(-1px) !important; }
+      .hs-form-verde .hs-form-field { margin-bottom: 1rem !important; }
+      .hs-form-verde .hs-error-msg { color: #dc2626 !important; font-size: 0.78rem !important; }
+      .hs-form-verde select.hs-input {
+        appearance: none !important; -webkit-appearance: none !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A9790' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important; background-position: right 1rem center !important;
+      }
+      .hs-form-verde textarea.hs-input { min-height: 100px !important; resize: vertical !important; }
+    </style>
+  </div>
   <div class="cta-alt">Or email directly: <a href="mailto:kevin@b.studio">kevin@b.studio</a></div>
 </section>
 
