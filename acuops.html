@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AcuOps — ERP Environment Management for Acumatica | Studio B</title>
-<meta name="description" content="AcuOps gives Acumatica VARs health monitoring, schema drift detection, CI/CD for customizations, and 105 post-publish validation tests. Monitor from $249/mo.">
-<meta property="og:title" content="AcuOps — ERP Environment Management for Acumatica | Studio B">
-<meta property="og:description" content="AcuOps gives Acumatica VARs health monitoring, schema drift detection, CI/CD for customizations, and 105 post-publish validation tests. Monitor from $249/mo.">
+<title>AcuOps — Acumatica DevOps Platform | Studio B</title>
+<meta name="description" content="AcuOps gives Acumatica VARs health monitoring, schema drift detection, CI/CD for customizations, and post-publish validation. $300/mo per Acumatica instance, flat.">
+<meta property="og:title" content="AcuOps — Acumatica DevOps Platform | Studio B">
+<meta property="og:description" content="AcuOps gives Acumatica VARs health monitoring, schema drift detection, CI/CD for customizations, and post-publish validation. $300/mo per instance, flat.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://b.studio/acuops">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -455,9 +455,9 @@
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links">
-    <a href="acudev.html">AcuDev</a>
+    <a href="/">Studio&nbsp;B</a>
+    <a href="https://bolt.b.studio">Bolt</a>
     <a href="acuops.html">AcuOps</a>
-    <a href="acudocs.html">AcuDocs</a>
     <a href="partners.html">Partners</a>
     <a href="#demo" class="nav-cta">Request Demo</a>
   </div>
@@ -466,8 +466,8 @@
 <!-- ── Hero ── -->
 <section class="hero">
   <div class="section-label" style="animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;">ACUOPS</div>
-  <h1>You're reactive. Start fixing problems <em>before the client calls.</em></h1>
-  <p class="hero-sub">ERP environment management for Acumatica VARs. Health monitoring, schema drift detection, CI/CD for customizations. Know about problems before your clients do.</p>
+  <h1>Your client's Acumatica breaks in production. You hear about it from <em>them.</em></h1>
+  <p class="hero-sub">AcuOps is an Acumatica DevOps platform for VARs. Health probes, schema-drift detection, CI/CD for customizations, post-publish validation. <strong>$300/mo per Acumatica instance. Flat. Everything included.</strong> No tiers, no per-user fees, no "talk to sales."</p>
   <div class="hero-actions">
     <a href="#demo" class="btn-primary">
       Request a Demo
@@ -482,7 +482,8 @@
 <!-- ── Problem ── -->
 <section class="problem fade-in">
   <h2>Upgrades break customizations. You find out last.</h2>
-  <p>Schema changes go unnoticed. Customization publishes fail silently. Your client calls, furious, and you spend the next 48 hours in damage control. AcuOps gives you early warning &mdash; and the tools to ship safely.</p>
+  <p>A schema change slips in on Friday. A customization publish fails silently on Saturday. On Monday the client&apos;s AR team can&apos;t cut invoices. By Tuesday you&apos;ve cleared your week for damage control. You bill the recovery hours, hopefully. Nobody&apos;s thrilled about it.</p>
+  <p>AcuOps watches the environment so you don&apos;t have to. Health probes flag drift before it breaks a screen. The CI/CD pipeline won&apos;t publish a customization that fails its post-publish tests. You find out first. The client doesn&apos;t find out at all.</p>
 </section>
 
 <div class="divider"></div>
@@ -490,8 +491,8 @@
 <!-- ── Features ── -->
 <section class="features fade-in">
   <div class="section-label">Capabilities</div>
-  <h2 class="section-heading">What you get</h2>
-  <p class="section-sub">Monitoring, testing, and deployment tooling purpose-built for Acumatica environments.</p>
+  <h2 class="section-heading">Six things AcuOps does that your hand-rolled scripts don't.</h2>
+  <p class="section-sub">Every VAR we talk to has the beginnings of this — a couple of cron jobs, a Slack webhook, a spreadsheet of client environments. AcuOps is what those scripts become after three years of production use.</p>
 
   <div class="features-grid">
 
@@ -501,8 +502,8 @@
           <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
         </svg>
       </div>
-      <h3>12 Health Probes</h3>
-      <p>Continuous monitoring across Acumatica, HubSpot, MCP servers, and infrastructure. Know when something's wrong before anyone notices.</p>
+      <h3>12 health probes, running always</h3>
+      <p>Acumatica API, session gate, HubSpot sync, MCP servers, database connections, webhook queues. We already ran the inventory of what breaks. You get the list.</p>
     </div>
 
     <div class="feature-card">
@@ -515,8 +516,8 @@
           <circle cx="17" cy="17" r="3"/>
         </svg>
       </div>
-      <h3>Schema Drift Detection</h3>
-      <p>Acumatica and HubSpot field changes detected automatically. Get Slack alerts when your client's environment changes unexpectedly.</p>
+      <h3>Schema drift detection</h3>
+      <p>Somebody adds a custom field in Acumatica, or a Salesforce/HubSpot admin renames a property. AcuOps notices. You get a Slack alert before a sync job tries to write to it and fails.</p>
     </div>
 
     <div class="feature-card">
@@ -526,8 +527,8 @@
           <path d="M8 12l2 2 4-4"/>
         </svg>
       </div>
-      <h3>CI/CD for Customizations</h3>
-      <p>Push to GitHub, deploy to Acumatica. Automated import, publish, and co-publish through the Customization API. No manual uploads.</p>
+      <h3>CI/CD for customizations</h3>
+      <p>Push to GitHub, AcuOps imports the project into the target tenant, runs publishBegin/publishEnd through the Customization API, co-publishes dependencies, and posts the log to Slack. No manual ZIP uploads. No forgetting which tenant is which.</p>
     </div>
 
     <div class="feature-card">
@@ -537,8 +538,8 @@
           <path d="M9 12l2 2 4-4"/>
         </svg>
       </div>
-      <h3>105 Post-Publish Validations</h3>
-      <p>Playwright-based test suite runs after every deployment. Schema checks, custom field verification, pipeline validation &mdash; automatically.</p>
+      <h3>Post-publish validation</h3>
+      <p>A Playwright test suite runs against the live tenant every time a customization publishes. Schema checks. Custom-field assertions. Pipeline and GI validations. If the page broke, AcuOps opens a ticket before your client opens their laptop.</p>
     </div>
 
     <div class="feature-card">
@@ -548,8 +549,8 @@
           <line x1="4" y1="22" x2="4" y2="15"/>
         </svg>
       </div>
-      <h3>Pre-Upgrade Testing</h3>
-      <p>Run your test suite against an upgrade candidate before it hits production. Know what breaks before your client does.</p>
+      <h3>Pre-upgrade testing</h3>
+      <p>Acumatica 2024&nbsp;R2 drops. You run the same AcuOps test suite against the upgrade candidate a week before the client's go-live. Whatever breaks, breaks in a staging tenant on a Tuesday afternoon, not in production on a Monday morning.</p>
     </div>
 
     <div class="feature-card">
@@ -560,8 +561,8 @@
           <path d="M14.5 4l-5 16"/>
         </svg>
       </div>
-      <h3>Config-as-Code</h3>
-      <p>Every configuration versioned in GitHub. Branch protection, PR gates, automated testing. No more "who changed that field?"</p>
+      <h3>Config-as-code</h3>
+      <p>Every customization project, every sync config, every deploy parameter lives in a GitHub repo. Branch protection. PR review. Audit trail on every change. The answer to "who edited that screen?" is in the git log, not in everyone's memory.</p>
     </div>
 
   </div>
@@ -572,23 +573,23 @@
 <!-- ── How It Works ── -->
 <section class="how-it-works fade-in">
   <div class="section-label">How It Works</div>
-  <h2 class="section-heading">Three steps. Full visibility.</h2>
+  <h2 class="section-heading">Point it at the client. Wait for it to tell you something.</h2>
 
   <div class="steps">
     <div class="step">
       <div class="step-number">1</div>
       <h3>Connect</h3>
-      <p>Point AcuOps at your client's Acumatica instance. Read-only API access, session-gated.</p>
+      <p>A dedicated <code>api-bot</code> user on your client&apos;s Acumatica. Session-gated, read-only where it can be. Ten minutes, not a week.</p>
     </div>
     <div class="step">
       <div class="step-number">2</div>
-      <h3>Monitor</h3>
-      <p>AcuOps runs health probes, watches for schema drift, and validates every deployment.</p>
+      <h3>Observe</h3>
+      <p>Health probes run continuously. CI/CD publishes customizations. Post-publish tests run against the live tenant. The dashboard shows you every client side by side.</p>
     </div>
     <div class="step">
       <div class="step-number">3</div>
-      <h3>Alert</h3>
-      <p>Get Slack notifications before your client calls. Drill into dashboards for details.</p>
+      <h3>Hear about it first</h3>
+      <p>Slack notifications into a channel you already read. If something broke, you know before your client calls. If nothing broke, the dashboard is quiet.</p>
     </div>
   </div>
 </section>
@@ -666,55 +667,36 @@
 <!-- ── Pricing ── -->
 <section class="pricing fade-in" id="pricing">
   <div class="section-label">Pricing</div>
-  <h2 class="section-heading">Pick your tier</h2>
-  <p class="section-sub">Per-client, per-month. No setup fees. No contracts.</p>
+  <h2 class="section-heading">$300 per Acumatica instance. Flat.</h2>
+  <p class="section-sub">No tiers. No per-user fees. No quote-to-close negotiation. Every AcuOps-covered tenant gets every capability on this page, and every new capability we ship to it. One instance, one price.</p>
 
-  <div class="pricing-table">
+  <div class="pricing-table" style="grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto;">
 
-    <!-- Monitor -->
-    <div class="pricing-col">
-      <div class="pricing-tier">Monitor</div>
-      <div class="pricing-price">$249 <span>/mo</span></div>
-      <div class="pricing-unit">per client</div>
-      <ul class="pricing-features">
-        <li><span class="check">&#10003;</span> <span class="feature-label">Health monitoring (12 probes)</span></li>
-        <li><span class="check">&#10003;</span> <span class="feature-label">Schema drift detection</span></li>
-        <li><span class="check">&#10003;</span> <span class="feature-label">Slack alerting</span></li>
-        <li><span class="dash">&mdash;</span> <span class="feature-label disabled">CI/CD deploy pipeline</span></li>
-        <li><span class="dash">&mdash;</span> <span class="feature-label disabled">Post-publish validation (105 tests)</span></li>
-        <li><span class="dash">&mdash;</span> <span class="feature-label disabled">Pre-upgrade testing</span></li>
-        <li><span class="dash">&mdash;</span> <span class="feature-label disabled">AcuDev eligible</span></li>
-      </ul>
-    </div>
-
-    <!-- Validate -->
     <div class="pricing-col recommended">
-      <div class="pricing-badge">Recommended</div>
-      <div class="pricing-tier">Validate</div>
-      <div class="pricing-price">$449 <span>/mo</span></div>
-      <div class="pricing-unit">per client</div>
+      <div class="pricing-badge">Flat Rate</div>
+      <div class="pricing-tier">AcuOps</div>
+      <div class="pricing-price">$300 <span>/mo</span></div>
+      <div class="pricing-unit">per Acumatica instance</div>
       <ul class="pricing-features">
-        <li><span class="check">&#10003;</span> <span class="feature-label">Health monitoring (12 probes)</span></li>
+        <li><span class="check">&#10003;</span> <span class="feature-label">Health monitoring</span></li>
         <li><span class="check">&#10003;</span> <span class="feature-label">Schema drift detection</span></li>
-        <li><span class="check">&#10003;</span> <span class="feature-label">Slack alerting</span></li>
+        <li><span class="check">&#10003;</span> <span class="feature-label">Slack alerting (your workspace + client's)</span></li>
         <li><span class="check">&#10003;</span> <span class="feature-label">CI/CD deploy pipeline</span></li>
-        <li><span class="check">&#10003;</span> <span class="feature-label">Post-publish validation (105 tests)</span></li>
+        <li><span class="check">&#10003;</span> <span class="feature-label">Post-publish validation</span></li>
         <li><span class="check">&#10003;</span> <span class="feature-label">Pre-upgrade testing</span></li>
-        <li><span class="check">&#10003;</span> <span class="feature-label">AcuDev eligible</span></li>
+        <li><span class="check">&#10003;</span> <span class="feature-label">Config-as-code (GitHub)</span></li>
       </ul>
     </div>
 
   </div>
-
-  <p class="pricing-volume">Volume pricing: 15% off at 10+ clients &middot; 25% off at 25+ clients</p>
 </section>
 
 <div class="divider"></div>
 
 <!-- ── CTA / Demo Form ── -->
 <section class="cta-section fade-in" id="demo">
-  <h2>See AcuOps in action</h2>
-  <p>30-minute demo. We'll show you what's happening in your client's Acumatica environment right now.</p>
+  <h2>See AcuOps against a real tenant.</h2>
+  <p>Thirty minutes. No slides. We'll connect AcuOps to the Heritage Fabrics production tenant and walk through whatever's on the dashboard that morning &mdash; the good, the drifting, and the broken.</p>
   <div class="cta-form">
     <div id="demo-form"></div>
     <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
@@ -809,16 +791,16 @@
           <span class="b">B</span>
         </div>
       </a>
-      <p>AI-powered tools for Acumatica VARs.</p>
+      <p>Two products. Both running in production. Both built by the team that uses them.</p>
     </div>
     <div class="footer-col">
       <h4>Products</h4>
-      <a href="acudev.html">AcuDev</a>
+      <a href="https://bolt.b.studio">Bolt</a>
       <a href="acuops.html">AcuOps</a>
-      <a href="acudocs.html">AcuDocs</a>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
+      <a href="/">Studio&nbsp;B</a>
       <a href="partners.html">Partners</a>
       <a href="https://docs.b.studio" target="_blank" rel="noopener">Documentation</a>
       <a href="/privacy">Privacy</a>
