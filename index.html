@@ -293,6 +293,9 @@ nav::after {
 }
 
 .product-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   background: var(--surface);
   border: 1px solid var(--border-light);
   border-radius: 2px;
@@ -350,6 +353,25 @@ nav::after {
   color: var(--forest);
   font-weight: 600;
   font-size: 0.88rem;
+}
+.product-card .pc-visit {
+  margin-top: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.product-card .pc-visit span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.product-card:hover .pc-visit {
+  color: var(--vermillion);
+}
+.product-card:hover .pc-visit span {
+  transform: translateX(4px);
 }
 
 /* ── Services: editorial numbered list ── */
@@ -715,18 +737,20 @@ footer .f-links a:hover { color: var(--forest); }
   <p class="section-intro">Bolt and AcuOps are sold independently. A VAR can buy AcuOps without selling Bolt, and a distributor can use Bolt without their VAR being on AcuOps.</p>
 
   <div class="products-grid">
-    <div class="product-card">
+    <a class="product-card" href="https://bolt.b.studio">
       <div class="pc-name">Bolt</div>
       <div class="pc-type">Continuous Goods WMS</div>
       <p class="pc-desc">Standard warehouse systems count boxes. Your inventory is measured in yards. Bolt handles receiving, cut-to-length, put-away, pick, pack, and ship for goods sold by the yard, foot, or meter — with direct-carrier LTL rate shopping, parcel labels, cloud printing, and full Acumatica write-back. No middleware. No manual steps.</p>
       <div class="pc-price">Starting at <strong>$800</strong>/month &middot; 3 tiers</div>
-    </div>
-    <div class="product-card">
+      <div class="pc-visit">Visit bolt.b.studio <span aria-hidden="true">→</span></div>
+    </a>
+    <a class="product-card" href="https://acuops.com">
       <div class="pc-name">AcuOps</div>
       <div class="pc-type">Acumatica DevOps Platform</div>
       <p class="pc-desc">Your end users submit an enhancement request. An AI agent writes the customization, tests it, opens a PR, and deploys it — with CI/CD, post-publish validation, and health monitoring built into the pipeline. AcuOps turns your Acumatica backlog into shipped code without waiting on a developer's calendar.</p>
       <div class="pc-price"><strong>$300</strong>/month per Acumatica instance &middot; flat</div>
-    </div>
+      <div class="pc-visit">Visit acuops.com <span aria-hidden="true">→</span></div>
+    </a>
   </div>
 </section>
 
