@@ -1,0 +1,22 @@
+name: Voice check
+
+on:
+  pull_request:
+    paths:
+      - "**/*.html"
+      - "**/*.md"
+      - "scripts/voice-check.sh"
+
+permissions:
+  contents: read
+
+jobs:
+  voice-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run voice-check.sh
+        run: bash scripts/voice-check.sh "origin/${{ github.base_ref }}"
