@@ -284,22 +284,26 @@ nav::after {
   transform: translateY(0);
 }
 
-/* ── Products: asymmetric grid ── */
+/* ── Products: three-tile grid ── */
 .products-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
   margin-top: 3rem;
+}
+@media (max-width: 900px) {
+  .products-grid { grid-template-columns: 1fr; }
 }
 
 .product-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   color: inherit;
   background: var(--surface);
   border: 1px solid var(--border-light);
   border-radius: 2px;
-  padding: 3rem 2.5rem;
+  padding: 2.4rem 2rem 2rem;
   position: relative;
   overflow: hidden;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s;
@@ -323,11 +327,12 @@ nav::after {
 
 .product-card .pc-name {
   font-family: 'Newsreader', serif;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 500;
   letter-spacing: -0.02em;
   margin-bottom: 0.15rem;
 }
+.product-card .pc-desc { flex: 1; }
 .product-card .pc-type {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.6rem;
@@ -718,7 +723,7 @@ footer .f-links a:hover { color: var(--forest); }
       </div>
       <div class="hero-aside-item">
         <div class="ha-label">Products</div>
-        <div class="ha-value">Bolt &middot; AcuOps</div>
+        <div class="ha-value">Bolt &middot; AcuOps &middot; Amplify</div>
       </div>
       <div class="hero-aside-item">
         <div class="ha-label">Engagement floor</div>
@@ -733,23 +738,30 @@ footer .f-links a:hover { color: var(--forest); }
 <!-- ── Products ── -->
 <section class="section fade-in" id="products">
   <div class="section-eyebrow">Products</div>
-  <div class="section-title">Two products. Both deployed.<br>Both used every day.</div>
-  <p class="section-intro">Bolt and AcuOps are sold independently. A VAR can buy AcuOps without selling Bolt, and a distributor can use Bolt without their VAR being on AcuOps.</p>
+  <div class="section-title">Three products. Each deployed.<br>Each used every day.</div>
+  <p class="section-intro">Sold independently. A VAR can buy AcuOps without selling Bolt. A distributor can run Bolt without their VAR being on AcuOps. A fund GP can run Amplify without touching either.</p>
 
   <div class="products-grid">
     <a class="product-card" href="https://bolt.b.studio">
       <div class="pc-name">Bolt</div>
       <div class="pc-type">Continuous Goods WMS</div>
-      <p class="pc-desc">Standard warehouse systems count boxes. Your inventory is measured in yards. Bolt handles receiving, cut-to-length, put-away, pick, pack, and ship for goods sold by the yard, foot, or meter — with direct-carrier LTL rate shopping, parcel labels, cloud printing, and full Acumatica write-back. No middleware. No manual steps.</p>
+      <p class="pc-desc">Standard warehouse systems count boxes. Your inventory is measured in yards. Bolt handles receiving, cut-to-length, put-away, pick, pack, and ship for goods sold by the yard, foot, or meter — with direct-carrier LTL rate shopping, parcel labels, cloud printing, and full Acumatica write-back.</p>
       <div class="pc-price">Starting at <strong>$800</strong>/month &middot; 3 tiers</div>
       <div class="pc-visit">Visit bolt.b.studio <span aria-hidden="true">→</span></div>
     </a>
     <a class="product-card" href="https://acuops.com">
       <div class="pc-name">AcuOps</div>
       <div class="pc-type">Acumatica DevOps Platform</div>
-      <p class="pc-desc">Your end users submit an enhancement request. An AI agent writes the customization, tests it, opens a PR, and deploys it — with CI/CD, post-publish validation, and health monitoring built into the pipeline. AcuOps turns your Acumatica backlog into shipped code without waiting on a developer's calendar.</p>
+      <p class="pc-desc">Twelve health probes, 146 post-publish tests, and a CI/CD pipeline that pushes customizations through the Acumatica Customization API. VAR-facing, read-only, session-gated — the DevOps layer Acumatica doesn't ship.</p>
       <div class="pc-price"><strong>$300</strong>/month per Acumatica instance &middot; flat</div>
       <div class="pc-visit">Visit acuops.com <span aria-hidden="true">→</span></div>
+    </a>
+    <a class="product-card" href="https://amplify.b.studio">
+      <div class="pc-name">Amplify</div>
+      <div class="pc-type">LinkedIn Platform for 506(c) GPs</div>
+      <p class="pc-desc">Claude drafts, you approve in Slack, every action lands in an audit ledger your CCO can sign off on. Built for 506(c) fund managers' personal brands — not fund marketing. Dripify and Taplio don't leave a paper trail a compliance officer can defend. This does.</p>
+      <div class="pc-price">From <strong>$1,200</strong>/seat/month &middot; private beta</div>
+      <div class="pc-visit">Visit amplify.b.studio <span aria-hidden="true">→</span></div>
     </a>
   </div>
 </section>
@@ -832,7 +844,7 @@ footer .f-links a:hover { color: var(--forest); }
       <div class="bio-name">Kevin Bibelhausen</div>
       <div class="bio-role">Founder &amp; Principal</div>
       <p class="bio-text"><strong>Kevin is the Founder and Creative Director of Ästhetik</strong>, a textile holding company whose brands include Heritage Fabrics — a mid-market distributor that operates on Studio B's own tooling every day. That operator experience is the foundation: Studio B ships what Kevin uses, and clients get the benefit of software that has already survived contact with real inventory, real customers, and real deadlines.</p>
-      <p class="bio-text" style="margin-top: 1rem;">Studio B ships two products — <strong>Bolt</strong>, a continuous-goods WMS, and <strong>AcuOps</strong>, an Acumatica DevOps platform — and takes engagements in fractional CTO work, AI operations transformation, Acumatica strategy, rapid prototyping, and tech diligence.</p>
+      <p class="bio-text" style="margin-top: 1rem;">Studio B ships three products — <strong>Bolt</strong>, a continuous-goods WMS; <strong>AcuOps</strong>, an Acumatica DevOps platform for VARs; and <strong>Amplify</strong>, a LinkedIn platform built for 506(c) fund managers' personal brands — and takes engagements in fractional CTO work, AI operations transformation, Acumatica strategy, rapid prototyping, and tech diligence.</p>
       <div class="bio-contact"><a href="mailto:kevin@b.studio">kevin@b.studio</a> &middot; Founder & Principal, Studio B</div>
     </div>
   </div>
