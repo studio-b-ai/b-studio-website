@@ -169,47 +169,13 @@ nav::after {
   color: var(--vermillion);
 }
 
-.hero-lower {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-top: 3.5rem;
-  animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
-}
-
 .hero-body {
-  font-size: 1.02rem;
-  line-height: 1.85;
+  font-size: 1.1rem;
+  line-height: 1.8;
   color: var(--text-secondary);
-}
-
-.hero-aside {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-left: 1px solid var(--border);
-  padding-left: 2.5rem;
-}
-.hero-aside-item {
-  padding: 0.7rem 0;
-}
-.hero-aside-item:not(:last-child) {
-  border-bottom: 1px solid var(--border-light);
-}
-.hero-aside-item .ha-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  font-weight: 300;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  margin-bottom: 0.15rem;
-}
-.hero-aside-item .ha-value {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--forest);
+  max-width: 640px;
+  margin-top: 2.5rem;
+  animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
 }
 
 /* ── Section utility ── */
@@ -720,8 +686,6 @@ footer .f-links a:hover { color: var(--forest); }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .hero-lower { grid-template-columns: 1fr; gap: 2.5rem; }
-  .hero-aside { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 1.5rem; }
   .products-grid { grid-template-columns: 1fr; }
   .svc-item { grid-template-columns: 2rem 1fr; }
   .svc-item .svc-price { grid-column: 2; }
@@ -780,27 +744,7 @@ footer .f-links a:hover { color: var(--forest); }
 <!-- ── Hero ── -->
 <section class="hero">
   <h1>We don't sell software we wouldn't <em>run ourselves.</em></h1>
-  <div class="hero-lower">
-    <p class="hero-body">Our software runs our own portfolio. The same engineers who ship features on a Tuesday are dealing with real inventory, real orders, and real deadlines on Wednesday. When you hire us, you get the people who live with the consequences — not a vendor who handed off the keys.</p>
-    <aside class="hero-aside">
-      <div class="hero-aside-item">
-        <div class="ha-label">Principal</div>
-        <div class="ha-value">Kevin Bibelhausen</div>
-      </div>
-      <div class="hero-aside-item">
-        <div class="ha-label">Type</div>
-        <div class="ha-value">Principal-Led Technology Studio</div>
-      </div>
-      <div class="hero-aside-item">
-        <div class="ha-label">Products</div>
-        <div class="ha-value">Bolt &middot; AcuOps &middot; Amplify &middot; Relay</div>
-      </div>
-      <div class="hero-aside-item">
-        <div class="ha-label">Engagement floor</div>
-        <div class="ha-value">$250K / year</div>
-      </div>
-    </aside>
-  </div>
+  <p class="hero-body">Our software runs our own portfolio. The same engineers who ship features on a Tuesday are dealing with real inventory, real orders, and real deadlines on Wednesday. When you hire us, you get the people who live with the consequences — not a vendor who handed off the keys.</p>
 </section>
 
 <div class="section-rule"><hr></div>
