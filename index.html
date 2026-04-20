@@ -331,63 +331,6 @@ nav::after {
   transform: translateX(4px);
 }
 
-/* ── Services: editorial numbered list ── */
-.services-list {
-  margin-top: 3rem;
-  counter-reset: svc;
-}
-
-.svc-item {
-  display: grid;
-  grid-template-columns: 2.8rem 1fr auto;
-  gap: 1.2rem;
-  padding: 1.6rem 0;
-  border-bottom: 1px solid var(--border-light);
-  align-items: baseline;
-  transition: background 0.25s;
-}
-.svc-item:first-child {
-  border-top: 2px solid var(--forest);
-}
-.svc-item:hover {
-  background: var(--forest-06);
-  margin: 0 -1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.svc-item::before {
-  counter-increment: svc;
-  content: counter(svc, decimal-leading-zero);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  font-weight: 300;
-  color: var(--text-tertiary);
-  padding-top: 0.25rem;
-}
-
-.svc-item .svc-content {}
-.svc-item .svc-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.3rem;
-}
-.svc-item .svc-desc {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-  max-width: 460px;
-}
-
-.svc-item .svc-price {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  color: var(--text-tertiary);
-  white-space: nowrap;
-  padding-top: 0.25rem;
-}
 
 /* ── Proof: inverted green band ── */
 .proof-band {
@@ -687,8 +630,6 @@ footer .f-links a:hover { color: var(--forest); }
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .products-grid { grid-template-columns: 1fr; }
-  .svc-item { grid-template-columns: 2rem 1fr; }
-  .svc-item .svc-price { grid-column: 2; }
   .proof-stats { gap: 2rem; }
   .bio-inner { grid-template-columns: 1fr; }
   .bio-dropcap { display: none; }
@@ -728,7 +669,7 @@ footer .f-links a:hover { color: var(--forest); }
            M 8.5 5.5 L 13 5.5 C 15 5.5 15 9.5 13 9.5 L 8.5 9.5 Z
            M 8.5 14.5 L 13.5 14.5 C 16.5 14.5 16.5 18.5 13.5 18.5 L 8.5 18.5 Z"
         fill="#D94425" stroke="#1F3B2E" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
-    </svg>Studio B <span>Est. 2025</span></a>
+    </svg>Studio B</a>
   <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -825,32 +766,13 @@ footer .f-links a:hover { color: var(--forest); }
 
 <!-- ── Services ── -->
 <section class="section fade-in" id="services">
-  <div class="section-eyebrow">Services</div>
-  <div class="section-title">When we engage, we come as the team that built it.</div>
-  <p class="section-intro">Senior by default. No account managers between you and the engineer. Engagements start at $250K / year.</p>
-
-  <div class="services-list">
-    <div class="svc-item">
-      <div class="svc-content">
-        <div class="svc-name">Embedded Tech Leadership</div>
-        <p class="svc-desc">Kevin embeds as your technology principal. Architecture, vendor decisions, board briefings, code reviews. The same person who built the software, sitting next to your team.</p>
-      </div>
-      <div class="svc-price">$15K–$30K/mo</div>
-    </div>
-    <div class="svc-item">
-      <div class="svc-content">
-        <div class="svc-name">AI Operations Build</div>
-        <p class="svc-desc">Discovery through deployment. We map your operational workflows, identify where AI compounds value, and ship working systems — not strategy decks. Every engagement ends with software in production.</p>
-      </div>
-      <div class="svc-price">$50K–$150K</div>
-    </div>
-    <div class="svc-item">
-      <div class="svc-content">
-        <div class="svc-name">Technical Diligence</div>
-        <p class="svc-desc">Independent assessment of a target's stack, team, and technical debt. Delivered as a diligence report with risk ratings and remediation estimates — written for the board, not just the CTO.</p>
-      </div>
-      <div class="svc-price">$15K–$30K</div>
-    </div>
+  <div class="section-eyebrow">Work with us</div>
+  <div class="section-title">AI digital transformation for SMBs and LMM PE-backed companies.</div>
+  <p class="section-intro">We ran this playbook on our own portfolio first — ERP, WMS, CRM, outbound intelligence, CI/CD — end to end, in production. We take a small number of engagements each year helping PE sponsors and their portcos do the same. If that's you, start a conversation.</p>
+  <div style="margin-top: 2.5rem;">
+    <a href="#contact" class="cta-btn">Start a conversation
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </div>
 </section>
 
