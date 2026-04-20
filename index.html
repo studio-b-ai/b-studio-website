@@ -6,7 +6,7 @@
 <title>Studio B — Principal-Led Technology Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- HubSpot Tracking Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49070660.js"></script>
@@ -15,7 +15,7 @@
 /* ══════════════════════════════════════════════════
    Studio B — "Broadsheet Verde"
    Deep forest green + warm paper + vermillion flash.
-   Editorial authority. Principal-led. Unhurried.
+   Inter 900. Product company confidence. No hedging.
    ══════════════════════════════════════════════════ */
 
 :root {
@@ -45,24 +45,10 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  position: relative;
-}
-
-/* ── Subtle paper grain ── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.35;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
 }
 
 /* ── Animations ── */
@@ -100,13 +86,12 @@ nav::after {
 }
 
 .nav-name {
-  font-family: 'Newsreader', serif;
-  font-size: 1.4rem;
-  font-weight: 500;
-  font-optical-sizing: auto;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
   color: var(--forest);
   text-decoration: none;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 .nav-name span {
   font-weight: 300;
@@ -171,18 +156,17 @@ nav::after {
 }
 
 .hero h1 {
-  font-family: 'Newsreader', serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-size: clamp(3.2rem, 6.5vw, 5.2rem);
-  line-height: 1.06;
-  letter-spacing: -0.03em;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  line-height: 1.0;
+  letter-spacing: -0.04em;
   max-width: 900px;
   animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
 }
 .hero h1 em {
-  font-style: italic;
-  font-weight: 300;
+  font-style: normal;
+  color: var(--vermillion);
 }
 
 .hero-lower {
@@ -222,9 +206,9 @@ nav::after {
   margin-bottom: 0.15rem;
 }
 .hero-aside-item .ha-value {
-  font-family: 'Newsreader', serif;
-  font-size: 1rem;
-  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--forest);
 }
 
@@ -257,12 +241,11 @@ nav::after {
 }
 
 .section-title {
-  font-family: 'Newsreader', serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
   font-size: clamp(2rem, 3.5vw, 2.8rem);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
   margin-bottom: 0.6rem;
 }
 
@@ -329,10 +312,10 @@ nav::after {
 .product-card:hover::before { transform: scaleX(1); }
 
 .product-card .pc-name {
-  font-family: 'Newsreader', serif;
-  font-size: 1.7rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   margin-bottom: 0.15rem;
 }
 .product-card .pc-desc { flex: 1; }
@@ -419,10 +402,10 @@ nav::after {
 
 .svc-item .svc-content {}
 .svc-item .svc-name {
-  font-family: 'Newsreader', serif;
-  font-size: 1.15rem;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   margin-bottom: 0.3rem;
 }
 .svc-item .svc-desc {
@@ -471,11 +454,11 @@ nav::after {
 }
 
 .proof-quote {
-  font-family: 'Newsreader', serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  line-height: 1.3;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
   max-width: 720px;
   margin-bottom: 2rem;
 }
@@ -495,10 +478,11 @@ nav::after {
 }
 .ps-item {}
 .ps-item .ps-n {
-  font-family: 'Newsreader', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 2.6rem;
-  font-weight: 600;
+  font-weight: 900;
   line-height: 1;
+  letter-spacing: -0.04em;
   color: #F4F1EB;
 }
 .ps-item .ps-l {
@@ -521,21 +505,22 @@ nav::after {
 }
 
 .bio-dropcap {
-  font-family: 'Newsreader', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 8rem;
-  font-weight: 300;
+  font-weight: 900;
   line-height: 0.8;
   color: var(--forest-15);
+  letter-spacing: -0.05em;
   user-select: none;
   margin-top: -0.5rem;
 }
 
 .bio-content {}
 .bio-name {
-  font-family: 'Newsreader', serif;
-  font-size: 1.8rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   margin-bottom: 0.2rem;
 }
 .bio-role {
@@ -574,10 +559,10 @@ nav::after {
   padding: 5.5rem 2.5rem 6.5rem;
 }
 .cta-title {
-  font-family: 'Newsreader', serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(2rem, 3.5vw, 2.8rem);
-  font-weight: 400;
-  letter-spacing: -0.025em;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   margin-bottom: 0.8rem;
 }
 .cta-sub {
@@ -867,7 +852,7 @@ footer .f-links a:hover { color: var(--forest); }
       </div>
       <div class="pc-name">Amplify</div>
       <div class="pc-type">LinkedIn Marketing Engine</div>
-      <p class="pc-desc">PhantomBuster gives you raw LinkedIn engagement signals. Amplify adds intent scoring, per-operator voice calibration, Claude-drafted content, and Slack approval routing before anything publishes. Every action lands in a tamper-evident audit ledger.</p>
+      <p class="pc-desc">LinkedIn engagement signals, scored for intent, drafted in your calibrated voice, and routed through Slack for approval before anything publishes. Built for agencies managing multiple brands and operators who want the full outbound loop without the guesswork.</p>
       <div class="pc-price">From <strong>$1,200</strong>/seat/month &middot; beta</div>
       <div class="pc-visit">Visit amplify.b.studio <span aria-hidden="true">→</span></div>
     </a>
@@ -897,51 +882,30 @@ footer .f-links a:hover { color: var(--forest); }
 <!-- ── Services ── -->
 <section class="section fade-in" id="services">
   <div class="section-eyebrow">Services</div>
-  <div class="section-title">Six ways to work with us.</div>
-  <p class="section-intro">Compact by design, senior by default, honest about scope. We don't do Acumatica implementations — we partner with VARs.</p>
+  <div class="section-title">When we engage, we come as the team that built it.</div>
+  <p class="section-intro">Senior by default. No account managers between you and the engineer. Engagements start at $250K / year.</p>
 
   <div class="services-list">
     <div class="svc-item">
       <div class="svc-content">
-        <div class="svc-name">Fractional CTO / Tech Advisory</div>
-        <p class="svc-desc">Kevin embeds as your technology leader. Architecture, vendor decisions, team coaching, board-ready briefings. Hands-on — writes code, reviews PRs.</p>
+        <div class="svc-name">Embedded Tech Leadership</div>
+        <p class="svc-desc">Kevin embeds as your technology principal. Architecture, vendor decisions, board briefings, code reviews. The same person who built the software, sitting next to your team.</p>
       </div>
       <div class="svc-price">$15K–$30K/mo</div>
     </div>
     <div class="svc-item">
       <div class="svc-content">
-        <div class="svc-name">AI Operations Transformation</div>
-        <p class="svc-desc">End-to-end: discovery through deployed, running systems. Not strategy decks — working software in production.</p>
+        <div class="svc-name">AI Operations Build</div>
+        <p class="svc-desc">Discovery through deployment. We map your operational workflows, identify where AI compounds value, and ship working systems — not strategy decks. Every engagement ends with software in production.</p>
       </div>
       <div class="svc-price">$50K–$150K</div>
     </div>
     <div class="svc-item">
       <div class="svc-content">
-        <div class="svc-name">Acumatica Strategy &amp; Roadmap</div>
-        <p class="svc-desc">Independent technical assessment. Current-state audit, gap analysis, prioritized roadmap. Not an implementation — a plan your VAR executes.</p>
-      </div>
-      <div class="svc-price">$25K–$50K</div>
-    </div>
-    <div class="svc-item">
-      <div class="svc-content">
-        <div class="svc-name">Rapid Prototyping / MVP Build</div>
-        <p class="svc-desc">Idea to working prototype in 6–12 weeks. We design, build, and ship — then hand off or continue as managed service.</p>
-      </div>
-      <div class="svc-price">$50K–$250K</div>
-    </div>
-    <div class="svc-item">
-      <div class="svc-content">
-        <div class="svc-name">Tech Diligence for PE / Investors</div>
-        <p class="svc-desc">Technical assessment of a target's stack, team, and debt. Delivered as a diligence report with risk ratings and remediation estimates.</p>
+        <div class="svc-name">Technical Diligence</div>
+        <p class="svc-desc">Independent assessment of a target's stack, team, and technical debt. Delivered as a diligence report with risk ratings and remediation estimates — written for the board, not just the CTO.</p>
       </div>
       <div class="svc-price">$15K–$30K</div>
-    </div>
-    <div class="svc-item">
-      <div class="svc-content">
-        <div class="svc-name">Post-Implementation Managed Services</div>
-        <p class="svc-desc">Ongoing technical operations. Monitoring, incident response, feature development, quarterly architecture review.</p>
-      </div>
-      <div class="svc-price">$10K–$20K/mo</div>
     </div>
   </div>
 </section>
@@ -954,9 +918,8 @@ footer .f-links a:hover { color: var(--forest); }
     <p class="proof-context">Ästhetik is a multi-brand textile holding company — wholesale distribution, curated collections, and direct-to-consumer — each with different fulfillment workflows, customer bases, and operational demands. Studio B built and runs the entire technology layer across all of them.</p>
     <div class="proof-stats">
       <div class="ps-item"><div class="ps-n">3</div><div class="ps-l">Brands operated</div></div>
-      <div class="ps-item"><div class="ps-n">7</div><div class="ps-l">Systems integrated</div></div>
-      <div class="ps-item"><div class="ps-n">1,748</div><div class="ps-l">Products synced</div></div>
-      <div class="ps-item"><div class="ps-n">7</div><div class="ps-l">LTL carriers live</div></div>
+      <div class="ps-item"><div class="ps-n">4</div><div class="ps-l">Products in production</div></div>
+      <div class="ps-item"><div class="ps-n">Daily</div><div class="ps-l">Real orders, real deadlines</div></div>
     </div>
   </div>
 </section>
@@ -970,7 +933,7 @@ footer .f-links a:hover { color: var(--forest); }
       <div class="bio-name">Kevin Bibelhausen</div>
       <div class="bio-role">Founder &amp; Principal</div>
       <p class="bio-text"><strong>Kevin is the Founder and Creative Director of Ästhetik</strong>, a textile holding company whose brands include Heritage Fabrics — a mid-market distributor that operates on Studio B's own tooling every day. That operator experience is the foundation: Studio B ships what Kevin uses, and clients get the benefit of software that has already survived contact with real inventory, real customers, and real deadlines.</p>
-      <p class="bio-text" style="margin-top: 1rem;">Studio B ships four products — <strong>Bolt</strong>, a continuous-goods WMS; <strong>AcuOps</strong>, an Acumatica DevOps platform for VARs; <strong>Amplify</strong>, a LinkedIn marketing engine; and <strong>Relay</strong>, a unified bridge across Slack, Teams, Zoom Chat, and Google Chat — and takes engagements in fractional CTO work, AI operations transformation, Acumatica strategy, rapid prototyping, and tech diligence.</p>
+      <p class="bio-text" style="margin-top: 1rem;">Studio B ships four products — <strong>Bolt</strong>, a continuous-goods WMS; <strong>AcuOps</strong>, an Acumatica DevOps platform for VARs; <strong>Amplify</strong>, a LinkedIn intelligence engine for agencies; and <strong>Relay</strong>, a cross-platform context engine — and takes a small number of direct engagements each year in embedded tech leadership, AI operations builds, and technical diligence.</p>
       <div class="bio-contact"><a href="mailto:kevin@b.studio">kevin@b.studio</a> &middot; Founder & Principal, Studio B</div>
     </div>
   </div>
