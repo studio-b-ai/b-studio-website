@@ -134,7 +134,7 @@ nav::after {
   color: var(--bg) !important;
   background: var(--forest);
   padding: 0.5rem 1.3rem;
-  border-radius: 3px;
+  border-radius: 0;
   transition: all 0.25s !important;
 }
 .nav-cta:hover {
@@ -173,7 +173,7 @@ nav::after {
 .hero h1 {
   font-family: 'Newsreader', serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 600;
   font-size: clamp(3.2rem, 6.5vw, 5.2rem);
   line-height: 1.06;
   letter-spacing: -0.03em;
@@ -302,7 +302,7 @@ nav::after {
   color: inherit;
   background: var(--surface);
   border: 1px solid var(--border-light);
-  border-radius: 2px;
+  border-radius: 0;
   padding: 2.4rem 2rem 2rem;
   position: relative;
   overflow: hidden;
@@ -592,7 +592,7 @@ nav::after {
   background: var(--vermillion);
   color: #fff;
   border: none;
-  border-radius: 3px;
+  border-radius: 0;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
@@ -655,6 +655,66 @@ footer .f-links a {
 }
 footer .f-links a:hover { color: var(--forest); }
 
+/* ── Per-brand product cards ── */
+.product-card.card-bolt {
+  background: #1B2B4A;
+  border-color: #253B64;
+  color: #E8ECF4;
+}
+.card-bolt .pc-name { color: #E8ECF4; }
+.card-bolt .pc-type { color: #E8A838; }
+.card-bolt .pc-desc { color: rgba(232,236,244,0.72); }
+.card-bolt .pc-price { border-top-color: rgba(255,255,255,0.12); color: rgba(232,236,244,0.55); }
+.card-bolt .pc-price strong { color: #E8ECF4; }
+.card-bolt .pc-visit { color: rgba(232,236,244,0.45); }
+.card-bolt:hover .pc-visit { color: #E8A838; }
+.card-bolt::before { background: #E8A838; }
+.card-bolt:hover { box-shadow: 0 12px 40px rgba(27,43,74,0.5); }
+
+.product-card.card-acuops {
+  background: #0D1117;
+  border-color: #1C242E;
+  color: #E6EDF3;
+}
+.card-acuops .pc-name { color: #E6EDF3; }
+.card-acuops .pc-type { color: #10B981; }
+.card-acuops .pc-desc { color: rgba(230,237,243,0.65); }
+.card-acuops .pc-price { border-top-color: rgba(255,255,255,0.1); color: rgba(230,237,243,0.5); }
+.card-acuops .pc-price strong { color: #E6EDF3; }
+.card-acuops .pc-visit { color: rgba(230,237,243,0.4); }
+.card-acuops:hover .pc-visit { color: #10B981; }
+.card-acuops::before { background: #10B981; }
+.card-acuops:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.6); }
+
+.product-card.card-amplify {
+  background: #EEEBE1;
+  border: 2px solid #6B1824;
+}
+.card-amplify .pc-type { color: #6B1824; }
+.card-amplify::before { background: #6B1824; }
+.card-amplify:hover .pc-visit { color: #6B1824; }
+.card-amplify:hover { box-shadow: 0 12px 40px rgba(107,24,36,0.15); }
+
+/* ── Card mark (product SVG logo) ── */
+.pc-mark {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  width: 34px;
+  height: 34px;
+  opacity: 0.92;
+}
+
+/* ── Nav mark ── */
+.nav-mark {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.55rem;
+  position: relative;
+  top: -1px;
+  flex-shrink: 0;
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .hero-lower { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -694,7 +754,14 @@ footer .f-links a:hover { color: var(--forest); }
 
 <!-- ── Nav ── -->
 <nav>
-  <a href="/" class="nav-name">Studio B <span>Est. 2025</span></a>
+  <a href="/" class="nav-name">
+    <svg class="nav-mark" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd"
+        d="M 5 3 L 14 3 C 18.5 3 18.5 11.25 15 11.25 L 15 12.75 C 19.5 12.75 19.5 21 14 21 L 5 21 Z
+           M 8.5 5.5 L 13 5.5 C 15 5.5 15 9.5 13 9.5 L 8.5 9.5 Z
+           M 8.5 14.5 L 13.5 14.5 C 16.5 14.5 16.5 18.5 13.5 18.5 L 8.5 18.5 Z"
+        fill="#D94425" stroke="#1F3B2E" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
+    </svg>Studio B <span>Est. 2025</span></a>
   <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -739,27 +806,50 @@ footer .f-links a:hover { color: var(--forest); }
 <section class="section fade-in" id="products">
   <div class="section-eyebrow">Products</div>
   <div class="section-title">Three products. Each deployed.<br>Each used every day.</div>
-  <p class="section-intro">Sold independently. A VAR can buy AcuOps without selling Bolt. A distributor can run Bolt without their VAR being on AcuOps. A fund GP can run Amplify without touching either.</p>
+  <p class="section-intro">Sold independently. A VAR can buy AcuOps without selling Bolt. A distributor can run Bolt without their VAR being on AcuOps. An operator can run Amplify without touching either.</p>
 
   <div class="products-grid">
-    <a class="product-card" href="https://bolt.b.studio">
+    <a class="product-card card-bolt" href="https://bolt.b.studio">
+      <div class="pc-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2L4 13h7l-3 9 12-14h-8l2-6z"
+            fill="#E8A838" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div class="pc-name">Bolt</div>
       <div class="pc-type">Continuous Goods WMS</div>
       <p class="pc-desc">Standard warehouse systems count boxes. Your inventory is measured in yards. Bolt handles receiving, cut-to-length, put-away, pick, pack, and ship for goods sold by the yard, foot, or meter — with direct-carrier LTL rate shopping, parcel labels, cloud printing, and full Acumatica write-back.</p>
       <div class="pc-price">Starting at <strong>$800</strong>/month &middot; 3 tiers</div>
       <div class="pc-visit">Visit bolt.b.studio <span aria-hidden="true">→</span></div>
     </a>
-    <a class="product-card" href="https://acuops.com">
+    <a class="product-card card-acuops" href="https://acuops.com">
+      <div class="pc-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 7 L2 12 L5 17" stroke="#10B981" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19 7 L22 12 L19 17" stroke="#10B981" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="2.5" fill="#10B981" stroke="#065F46" stroke-width="1.2"/>
+          <path d="M9 12 H7 M17 12 H15" stroke="#10B981" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div class="pc-name">AcuOps</div>
       <div class="pc-type">Acumatica DevOps Platform</div>
       <p class="pc-desc">Twelve health probes, 146 post-publish tests, and a CI/CD pipeline that pushes customizations through the Acumatica Customization API. VAR-facing, read-only, session-gated — the DevOps layer Acumatica doesn't ship.</p>
       <div class="pc-price"><strong>$300</strong>/month per Acumatica instance &middot; flat</div>
       <div class="pc-visit">Visit acuops.com <span aria-hidden="true">→</span></div>
     </a>
-    <a class="product-card" href="https://amplify.b.studio">
+    <a class="product-card card-amplify" href="https://amplify.b.studio">
+      <div class="pc-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M 3 10 L 7 12 L 3 14 L 4.5 12 Z
+               M 8.5 8 L 13.5 12 L 8.5 16 L 10.5 12 Z
+               M 15 6 L 21 12 L 15 18 L 17.5 12 Z"
+            fill="#1F3B2E" stroke="#6B1824" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div class="pc-name">Amplify</div>
-      <div class="pc-type">LinkedIn Platform for 506(c) GPs</div>
-      <p class="pc-desc">Claude drafts, you approve in Slack, every action lands in an audit ledger your CCO can sign off on. Built for 506(c) fund managers' personal brands — not fund marketing. Dripify and Taplio don't leave a paper trail a compliance officer can defend. This does.</p>
+      <div class="pc-type">LinkedIn Marketing Engine</div>
+      <p class="pc-desc">PhantomBuster gives you raw LinkedIn engagement signals. Amplify adds intent scoring, per-operator voice calibration, Claude-drafted content, and Slack approval routing before anything publishes. Every action lands in a tamper-evident audit ledger.</p>
       <div class="pc-price">From <strong>$1,200</strong>/seat/month &middot; private beta</div>
       <div class="pc-visit">Visit amplify.b.studio <span aria-hidden="true">→</span></div>
     </a>
@@ -844,7 +934,7 @@ footer .f-links a:hover { color: var(--forest); }
       <div class="bio-name">Kevin Bibelhausen</div>
       <div class="bio-role">Founder &amp; Principal</div>
       <p class="bio-text"><strong>Kevin is the Founder and Creative Director of Ästhetik</strong>, a textile holding company whose brands include Heritage Fabrics — a mid-market distributor that operates on Studio B's own tooling every day. That operator experience is the foundation: Studio B ships what Kevin uses, and clients get the benefit of software that has already survived contact with real inventory, real customers, and real deadlines.</p>
-      <p class="bio-text" style="margin-top: 1rem;">Studio B ships three products — <strong>Bolt</strong>, a continuous-goods WMS; <strong>AcuOps</strong>, an Acumatica DevOps platform for VARs; and <strong>Amplify</strong>, a LinkedIn platform built for 506(c) fund managers' personal brands — and takes engagements in fractional CTO work, AI operations transformation, Acumatica strategy, rapid prototyping, and tech diligence.</p>
+      <p class="bio-text" style="margin-top: 1rem;">Studio B ships three products — <strong>Bolt</strong>, a continuous-goods WMS; <strong>AcuOps</strong>, an Acumatica DevOps platform for VARs; and <strong>Amplify</strong>, a LinkedIn marketing engine for operators who want the full outbound loop — and takes engagements in fractional CTO work, AI operations transformation, Acumatica strategy, rapid prototyping, and tech diligence.</p>
       <div class="bio-contact"><a href="mailto:kevin@b.studio">kevin@b.studio</a> &middot; Founder & Principal, Studio B</div>
     </div>
   </div>
@@ -873,7 +963,7 @@ footer .f-links a:hover { color: var(--forest); }
       .hs-form-verde .hs-input {
         background: var(--surface) !important;
         border: 1px solid var(--border) !important;
-        border-radius: 3px !important;
+        border-radius: 0 !important;
         color: var(--text) !important;
         font-family: 'Plus Jakarta Sans', sans-serif !important;
         font-size: 0.9rem !important;
@@ -892,7 +982,7 @@ footer .f-links a:hover { color: var(--forest); }
       .hs-form-verde .hs-button {
         background: var(--vermillion) !important;
         color: #fff !important;
-        border: none !important; border-radius: 3px !important;
+        border: none !important; border-radius: 0 !important;
         font-family: 'Plus Jakarta Sans', sans-serif !important;
         font-size: 0.95rem !important; font-weight: 600 !important;
         padding: 0.85rem 2rem !important;
