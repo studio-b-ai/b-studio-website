@@ -32,7 +32,6 @@
   --vermillion: #D94425;
   --forest:     #1A3328;
   --forest-70:  rgba(26,51,40,0.70);
-  --cobalt:     #2E6FBA;
   --hotpink:    #EB4A8A;
   --snow:       #FFFFFF;
 }
@@ -332,7 +331,7 @@ nav {
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
 }
 .p-block {
@@ -353,7 +352,6 @@ nav {
 .p-block.bolt    { background: var(--yolk); color: var(--ink); }
 .p-block.acuops  { background: var(--forest); color: var(--paper); }
 .p-block.amplify { background: var(--hotpink); color: var(--snow); }
-.p-block.relay   { background: var(--cobalt); color: var(--snow); }
 
 .pb-number {
   font-family: 'Fraunces', serif;
@@ -368,7 +366,6 @@ nav {
 .p-block.bolt .pb-number    { color: var(--vermillion); }
 .p-block.acuops .pb-number  { color: var(--yolk); }
 .p-block.amplify .pb-number { color: var(--ink); }
-.p-block.relay .pb-number   { color: var(--yolk); }
 
 .pb-name {
   font-family: 'Fraunces', serif;
@@ -430,7 +427,6 @@ nav {
 }
 .p-block.acuops .pb-sticker  { background: var(--yolk); color: var(--ink); border-color: var(--ink); }
 .p-block.amplify .pb-sticker { background: var(--yolk); color: var(--ink); border-color: var(--ink); }
-.p-block.relay .pb-sticker   { background: var(--vermillion); color: var(--snow); border-color: var(--snow); }
 
 /* ── SERVICES band ── */
 .services {
@@ -1003,20 +999,6 @@ footer {
       <div class="pb-foot">
         <span class="pb-price">$1,200/seat</span>
         <span class="pb-link">amplify.b.studio →</span>
-      </div>
-    </a>
-
-    <a class="p-block relay" href="https://relay.b.studio">
-      <div class="pb-sticker">Early Access</div>
-      <div>
-        <div class="pb-number">04</div>
-        <div class="pb-name">Relay</div>
-        <div class="pb-tag">Messaging Bridge</div>
-      </div>
-      <p class="pb-desc">Slack, Teams, Zoom Chat, and Google Chat — one bridge, bidirectional. Route messages across platforms without copy-paste. Relay keeps every conversation connected regardless of which side of the deal is on which tool.</p>
-      <div class="pb-foot">
-        <span class="pb-price">Request invite</span>
-        <span class="pb-link">relay.b.studio →</span>
       </div>
     </a>
   </div>
