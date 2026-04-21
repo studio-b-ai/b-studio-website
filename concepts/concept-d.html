@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio B — Concept D: The Two-Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,700;1,9..144,900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════
+   CONCEPT D — The Two-Panel
+   Kevin's call: a vertical split hero.
+   Left: forest #1A3328 · Right: warm paper #F4F1EB.
+   The headline runs across both, bisected by the seam.
+   Vermillion b. mark pins the join.
+   Fraunces optical-size serif — soft corners, high
+   personality. Neither corporate nor boutique.
+   It says: we live on both sides.
+   ══════════════════════════════════════════════════ */
+
+:root {
+  --forest:     #1A3328;
+  --paper:      #F4F1EB;
+  --vermillion: #D94425;
+  --verm-hover: #C33B1F;
+  --ink:        #0D0D0D;
+  --f70:        rgba(26,51,40,0.70);
+  --f40:        rgba(26,51,40,0.40);
+  --f12:        rgba(26,51,40,0.12);
+  --p70:        rgba(244,241,235,0.70);
+  --p40:        rgba(244,241,235,0.40);
+  --p12:        rgba(244,241,235,0.12);
+  --border:     #D6D0C4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--forest);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes splitReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+@keyframes drawLine {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ── Nav: transparent, floats over both panels ── */
+nav {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 1.6rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* The mark floats centered — oversized */
+.nav-brand {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+/* Fraunces "b." — weight 900 optical-size large */
+.brand-b {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--paper);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.brand-b .dot {
+  color: var(--vermillion);
+}
+
+.brand-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--p40);
+  border-left: 1px solid var(--p12);
+  padding-left: 0.8rem;
+  margin-left: 0.1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--p70);
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--paper); }
+.nav-cta {
+  background: var(--vermillion) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  margin-left: 0.5rem;
+  padding: 0.45rem 1.2rem !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--verm-hover) !important; }
+
+/* ── SPLIT HERO ── */
+.hero {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Left panel: forest */
+.hero-left {
+  flex: 0 0 58%;
+  background: var(--forest);
+  padding: 9rem 3rem 5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* Subtle fine lines on forest panel */
+.hero-left::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--vermillion);
+}
+
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 2rem;
+  animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) 0.3s both;
+}
+
+/* The headline in Fraunces — large optical size, warm personality */
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  animation: rise 1s cubic-bezier(0.16,1,0.3,1) 0.2s both;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--vermillion);
+  font-weight: 700;
+}
+
+/* Right panel: warm paper */
+.hero-right {
+  flex: 1;
+  background: var(--paper);
+  padding: 9rem 2.5rem 5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-right-inner {
+  max-width: 380px;
+  animation: rise 1s cubic-bezier(0.16,1,0.3,1) 0.4s both;
+}
+
+.hero-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--f70);
+  margin-bottom: 2.5rem;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  background: var(--forest);
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background 0.2s;
+}
+.hero-cta:hover { background: var(--vermillion); }
+.hero-cta svg { transition: transform 0.2s; }
+.hero-cta:hover svg { transform: translateX(3px); }
+
+/* Stats strip at bottom of right panel */
+.hero-stats {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 2.5rem;
+}
+.stat-item {}
+.stat-n {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--forest);
+}
+.stat-l {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--f40);
+  margin-top: 0.3rem;
+}
+
+/* ── Section divider ── */
+.s-divider {
+  border-top: 2px solid var(--forest);
+}
+
+/* ── Products: asymmetric layout ── */
+.products {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem;
+}
+
+.prod-header {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem;
+  margin-bottom: 3.5rem;
+  align-items: baseline;
+}
+
+.prod-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 1rem;
+}
+
+.prod-title {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.prod-title em { font-style: italic; color: var(--vermillion); }
+
+/* Products in a 2-column asymmetric list:
+   left col = name/type (sticky label),
+   right col = description + price */
+.prod-list {}
+
+.prod-item {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem;
+  padding: 2.4rem 0;
+  border-top: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--forest);
+  position: relative;
+  transition: background 0.15s;
+}
+.prod-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+/* Vermillion left edge bar on hover */
+.prod-item::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem;
+  top: 0; bottom: 0;
+  width: 3px;
+  background: var(--vermillion);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.prod-item:hover::before { transform: scaleY(1); }
+
+.item-left {}
+
+.item-name {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+  transition: color 0.2s;
+}
+.prod-item:hover .item-name { color: var(--vermillion); }
+
+.item-type {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--f40);
+}
+
+.item-right {}
+
+.item-desc {
+  font-size: 0.9rem;
+  color: var(--f70);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.item-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.item-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--f40);
+}
+.item-price strong { color: var(--forest); }
+.item-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--f40);
+  transition: color 0.2s;
+}
+.prod-item:hover .item-link { color: var(--vermillion); }
+
+@media (max-width: 900px) {
+  .hero { flex-direction: column; min-height: auto; }
+  .hero-left { flex: none; padding: 8rem 1.5rem 3rem; }
+  .hero-left::after { display: none; }
+  .hero-right { padding: 3rem 1.5rem; }
+  .hero-right-inner { max-width: 100%; }
+  .prod-header { grid-template-columns: 1fr; gap: 0.8rem; }
+  .prod-item { grid-template-columns: 1fr; gap: 1rem; }
+  .prod-item::before { left: -1.5rem; }
+  .products { padding: 4rem 1.5rem; }
+}
+@media (max-width: 640px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero-stats { gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav floats over the split — transparent, anchored to forest panel -->
+<nav>
+  <a class="nav-brand" href="/">
+    <span class="brand-b">b<span class="dot">.</span></span>
+    <span class="brand-label">Studio B</span>
+  </a>
+  <div class="nav-links">
+    <a href="#products">Products</a>
+    <a href="#services">Services</a>
+    <a href="#proof">Proof</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- The split hero -->
+<section class="hero">
+  <!-- Forest left panel: the headline -->
+  <div class="hero-left">
+    <div class="hero-eyebrow">Principal-Led Technology Studio</div>
+    <h1>We don't sell software we wouldn't <em>run ourselves.</em></h1>
+  </div>
+
+  <!-- Paper right panel: the body + proof -->
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <p class="hero-body">Our software runs our own portfolio. The same engineers who ship features on a Tuesday are dealing with real inventory, real orders, and real deadlines on Wednesday. When you hire us, you get the people who live with the consequences — not a vendor who handed off the keys.</p>
+      <a class="hero-cta" href="#contact">
+        Start a conversation
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-n">7</div>
+          <div class="stat-l">Companies in portfolio</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n">4</div>
+          <div class="stat-l">Products shipping</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-n">0</div>
+          <div class="stat-l">Demo environments</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="s-divider"></div>
+
+<!-- Products: asymmetric label + description layout -->
+<section class="products" id="products">
+  <div class="prod-header">
+    <div></div>
+    <div>
+      <div class="prod-eyebrow">Products</div>
+      <div class="prod-title">Four products. Each one built because <em>we needed it.</em></div>
+    </div>
+  </div>
+
+  <div class="prod-list">
+    <a class="prod-item" href="https://bolt.b.studio">
+      <div class="item-left">
+        <div class="item-name">Bolt</div>
+        <div class="item-type">Continuous Goods WMS</div>
+      </div>
+      <div class="item-right">
+        <p class="item-desc">Standard warehouse systems count boxes. Your inventory is measured in yards. Bolt handles receiving, cut-to-length, put-away, pick, pack, and ship for goods sold by the yard, foot, or meter — with direct-carrier LTL rate shopping, parcel labels, cloud printing, and full ERP write-back.</p>
+        <div class="item-footer">
+          <span class="item-price">From <strong>$800</strong>/month · 3 tiers</span>
+          <span class="item-link">bolt.b.studio →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="prod-item" href="https://acuops.com">
+      <div class="item-left">
+        <div class="item-name">AcuOps</div>
+        <div class="item-type">Acumatica DevOps</div>
+      </div>
+      <div class="item-right">
+        <p class="item-desc">Twelve health probes, a post-publish test suite, and a CI/CD pipeline that pushes customizations through the Acumatica Customization API. VAR-facing, read-only, session-gated — the DevOps layer Acumatica doesn't ship.</p>
+        <div class="item-footer">
+          <span class="item-price"><strong>$300</strong>/month per instance · flat</span>
+          <span class="item-link">acuops.com →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="prod-item" href="https://amplify.b.studio">
+      <div class="item-left">
+        <div class="item-name">Amplify</div>
+        <div class="item-type">LinkedIn Engine</div>
+      </div>
+      <div class="item-right">
+        <p class="item-desc">LinkedIn engagement signals, scored for intent, drafted in your calibrated voice, and routed through Slack for approval before anything publishes. Built for agencies managing multiple brands and operators who want the full outbound loop without the guesswork.</p>
+        <div class="item-footer">
+          <span class="item-price">From <strong>$1,200</strong>/seat/month · beta</span>
+          <span class="item-link">amplify.b.studio →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="prod-item" href="https://relay.b.studio">
+      <div class="item-left">
+        <div class="item-name">Relay</div>
+        <div class="item-type">Messaging Bridge</div>
+      </div>
+      <div class="item-right">
+        <p class="item-desc">Slack, Teams, Zoom Chat, and Google Chat — one bridge, bidirectional. Route messages across platforms without copy-paste. Relay keeps every conversation connected regardless of which side of the deal is on which tool.</p>
+        <div class="item-footer">
+          <span class="item-price"><strong>Early access</strong> · relay.b.studio</span>
+          <span class="item-link">relay.b.studio →</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+</body>
+</html>

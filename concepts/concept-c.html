@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio B — Concept C: Ink + Grid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════
+   CONCEPT C — Ink + Grid
+   Pure black / white base. Vermillion = single accent.
+   Comic book panel borders divide everything.
+   Hard geometric mark in the hero.
+   No warmth, no texture — just ink on paper.
+   ══════════════════════════════════════════════════ */
+
+:root {
+  --ink:        #0D0D0D;
+  --ink-70:     rgba(13,13,13,0.70);
+  --ink-40:     rgba(13,13,13,0.40);
+  --ink-15:     rgba(13,13,13,0.15);
+  --ink-06:     rgba(13,13,13,0.06);
+  --paper:      #FAFAFA;
+  --vermillion: #D94425;
+  --verm-dim:   rgba(217,68,37,0.12);
+  --border:     #0D0D0D; /* comic book = solid ink borders */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+@keyframes drawLine {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Nav: ink border bottom, 2px solid ── */
+.nav-wrap {
+  border-bottom: 2px solid var(--border);
+}
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.4rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Mark: large wordmark Studio B with the dot huge and vermillion */
+.nav-brand {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.brand-wordmark {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 1.15rem;
+  color: var(--ink);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.brand-wordmark .dot {
+  color: var(--vermillion);
+  font-size: 1.4rem;
+}
+.brand-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--ink-15);
+}
+.brand-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-40);
+}
+
+.nav-links { display: flex; gap: 0; align-items: center; }
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink-70);
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  border-left: 1px solid var(--ink-15);
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links a:first-child { border-left: 1px solid var(--ink-15); }
+.nav-links a:hover { color: var(--ink); background: var(--ink-06); }
+.nav-cta {
+  background: var(--vermillion) !important;
+  color: #fff !important;
+  border-left: 1px solid var(--vermillion) !important;
+  font-weight: 600 !important;
+  padding: 0.5rem 1.2rem !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: #C33B1F !important; }
+
+/* ── Hero: full-width black panel, white text ── */
+.hero {
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 2px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* The giant `b.` behind the headline */
+.hero-bg-mark {
+  position: absolute;
+  right: -0.05em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: clamp(18rem, 32vw, 28rem);
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2.5rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-left {}
+
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 2rem;
+  animation: rise 0.6s cubic-bezier(0.16,1,0.3,1) 0.15s both;
+}
+
+.hero h1 {
+  font-weight: 900;
+  font-size: clamp(2.6rem, 5vw, 4.6rem);
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--paper);
+  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s both;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--vermillion);
+}
+
+/* Right side: a bold statement block, bordered */
+.hero-right {
+  border: 2px solid rgba(255,255,255,0.15);
+  padding: 2.4rem;
+  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.35s both;
+}
+.hero-right-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1.2rem;
+}
+.hero-body {
+  font-size: 1rem;
+  line-height: 1.82;
+  color: rgba(250,250,250,0.78);
+}
+
+/* Vermillion horizontal bar below hero heading */
+.hero-accent-bar {
+  height: 3px;
+  background: var(--vermillion);
+  width: 48px;
+  margin-top: 2rem;
+  animation: rise 0.6s cubic-bezier(0.16,1,0.3,1) 0.5s both;
+}
+
+/* ── Panel grid system ── Comic book panels = 2px black borders ── */
+.panel-section {
+  border-bottom: 2px solid var(--border);
+}
+
+/* Products: 2-column, left side has section header */
+.products-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Products header panel */
+.products-header-panel {
+  border-bottom: 2px solid var(--border);
+  padding: 2.5rem 2.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 3rem;
+}
+
+.ph-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  flex-shrink: 0;
+}
+
+.ph-title {
+  font-weight: 900;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+.ph-title em { font-style: normal; color: var(--vermillion); }
+
+/* Grid: 4 panels in a row, separated by 2px borders */
+.products-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.prod-panel {
+  border-right: 2px solid var(--border);
+  padding: 2.4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s;
+  min-height: 340px;
+}
+.prod-panel:last-child { border-right: none; }
+.prod-panel:hover { background: var(--ink-06); }
+
+/* On hover, vermillion fills the tag and top bar */
+.prod-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--vermillion);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.prod-panel:hover::before { transform: scaleX(1); }
+
+.panel-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-40);
+  margin-bottom: 1rem;
+  transition: color 0.2s;
+}
+.prod-panel:hover .panel-tag { color: var(--vermillion); }
+
+.panel-name {
+  font-weight: 900;
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+
+/* Vermillion rule under name */
+.panel-rule {
+  height: 2px;
+  background: var(--vermillion);
+  width: 24px;
+  margin-bottom: 1.2rem;
+  transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.prod-panel:hover .panel-rule { width: 100%; }
+
+.panel-desc {
+  font-size: 0.82rem;
+  color: var(--ink-70);
+  line-height: 1.75;
+  flex: 1;
+}
+
+.panel-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ink-15);
+}
+.panel-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--ink-40);
+  margin-bottom: 0.5rem;
+}
+.panel-price strong { color: var(--ink); }
+.panel-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-40);
+  transition: color 0.2s;
+}
+.prod-panel:hover .panel-link { color: var(--vermillion); }
+
+@media (max-width: 1000px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-bg-mark { display: none; }
+  .products-panel-grid { grid-template-columns: repeat(2, 1fr); }
+  .prod-panel { border-bottom: 2px solid var(--border); }
+  .prod-panel:nth-child(even) { border-right: none; }
+}
+@media (max-width: 600px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero-inner { padding: 4rem 1.5rem; }
+  .products-header-panel { padding: 2rem 1.5rem; flex-direction: column; gap: 0.8rem; }
+  .products-panel-grid { grid-template-columns: 1fr; }
+  .prod-panel { border-right: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <nav>
+    <a class="nav-brand" href="/">
+      <span class="brand-wordmark">Studio B<span class="dot">.</span></span>
+      <span class="brand-divider"></span>
+      <span class="brand-sub">Technology Studio</span>
+    </a>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#services">Services</a>
+      <a href="#proof">Proof</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Get in Touch</a>
+    </div>
+  </nav>
+</div>
+
+<!-- Full-width black hero panel -->
+<section class="hero panel-section">
+  <div class="hero-bg-mark" aria-hidden="true">b.</div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Principal-Led Technology Studio</div>
+      <h1>We don't sell software we wouldn't <em>run ourselves.</em></h1>
+      <div class="hero-accent-bar"></div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-right-label">The brief</div>
+      <p class="hero-body">Our software runs our own portfolio. The same engineers who ship features on a Tuesday are dealing with real inventory, real orders, and real deadlines on Wednesday. When you hire us, you get the people who live with the consequences — not a vendor who handed off the keys.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Products: comic-book panel layout -->
+<section class="panel-section" id="products">
+  <div class="products-wrap">
+    <div class="products-header-panel">
+      <span class="ph-eyebrow">Products</span>
+      <div class="ph-title">Four products. Each one built because <em>we needed it.</em></div>
+    </div>
+
+    <div class="products-panel-grid">
+      <a class="prod-panel" href="https://bolt.b.studio">
+        <div class="panel-tag">Continuous Goods WMS</div>
+        <div class="panel-name">Bolt</div>
+        <div class="panel-rule"></div>
+        <p class="panel-desc">Standard warehouse systems count boxes. Your inventory is measured in yards. Bolt handles receiving, cut-to-length, put-away, pick, pack, and ship for goods sold by the yard, foot, or meter — with direct-carrier LTL rate shopping, parcel labels, cloud printing, and full ERP write-back.</p>
+        <div class="panel-footer">
+          <div class="panel-price">From <strong>$800</strong>/month · 3 tiers</div>
+          <div class="panel-link">bolt.b.studio →</div>
+        </div>
+      </a>
+
+      <a class="prod-panel" href="https://acuops.com">
+        <div class="panel-tag">Acumatica DevOps Platform</div>
+        <div class="panel-name">AcuOps</div>
+        <div class="panel-rule"></div>
+        <p class="panel-desc">Twelve health probes, a post-publish test suite, and a CI/CD pipeline that pushes customizations through the Acumatica Customization API. VAR-facing, read-only, session-gated — the DevOps layer Acumatica doesn't ship.</p>
+        <div class="panel-footer">
+          <div class="panel-price"><strong>$300</strong>/month per instance · flat</div>
+          <div class="panel-link">acuops.com →</div>
+        </div>
+      </a>
+
+      <a class="prod-panel" href="https://amplify.b.studio">
+        <div class="panel-tag">LinkedIn Marketing Engine</div>
+        <div class="panel-name">Amplify</div>
+        <div class="panel-rule"></div>
+        <p class="panel-desc">LinkedIn engagement signals, scored for intent, drafted in your calibrated voice, and routed through Slack for approval before anything publishes. Built for agencies managing multiple brands and operators who want the full outbound loop without the guesswork.</p>
+        <div class="panel-footer">
+          <div class="panel-price">From <strong>$1,200</strong>/seat/month · beta</div>
+          <div class="panel-link">amplify.b.studio →</div>
+        </div>
+      </a>
+
+      <a class="prod-panel" href="https://relay.b.studio">
+        <div class="panel-tag">Unified Messaging Bridge</div>
+        <div class="panel-name">Relay</div>
+        <div class="panel-rule"></div>
+        <p class="panel-desc">Slack, Teams, Zoom Chat, and Google Chat — one bridge, bidirectional. Route messages across platforms without copy-paste. Relay keeps every conversation connected regardless of which side of the deal is on which tool.</p>
+        <div class="panel-footer">
+          <div class="panel-price"><strong>Early access</strong> · relay.b.studio</div>
+          <div class="panel-link">relay.b.studio →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
