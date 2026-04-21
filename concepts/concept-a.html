@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio B — Concept A: The Manifesto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,600;1,6..72,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════
+   CONCEPT A — THE MANIFESTO
+   Shape Up pamphlet energy. Editorial maximalism.
+   Yellow highlighter. Hand-drawn arrows. Margin notes.
+   Multi-color: forest + vermillion + mustard + teal.
+   Kevin's signature at the bottom. 37signals book cover,
+   printed on warm paper, annotated by the author.
+   ══════════════════════════════════════════════════ */
+
+:root {
+  --paper:      #F4F1EB;
+  --paper-dark: #EAE4D4;
+  --ink:        #121A17;
+  --forest:     #1A3328;
+  --forest-70:  rgba(26,51,40,0.70);
+  --forest-40:  rgba(26,51,40,0.40);
+  --forest-12:  rgba(26,51,40,0.12);
+  --vermillion: #D94425;
+  --mustard:    #E8A838;
+  --mustard-hi: #FFD666;   /* highlighter yellow */
+  --teal:       #2E6FBA;
+  --rule:       #1A3328;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.55;
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: 900; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes wiggle {
+  0%,100% { transform: rotate(-1deg); }
+  50%     { transform: rotate(1deg); }
+}
+
+/* ── Masthead bar ── */
+.masthead {
+  border-top: 5px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 0.7rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.masthead-left { display: flex; gap: 1.5rem; }
+.masthead-left strong { color: var(--vermillion); font-weight: 700; }
+.masthead-right { display: flex; gap: 1.5rem; color: var(--forest-70); }
+
+/* ── Top title bar: "THE STUDIO B DISPATCH" ── */
+.title-bar {
+  text-align: center;
+  padding: 1.3rem 2.5rem 0.8rem;
+  border-bottom: 1px solid var(--forest-12);
+}
+.title-bar h1 {
+  font-family: 'Newsreader', serif;
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2.3vw, 1.9rem);
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.title-bar h1 em { font-style: italic; color: var(--vermillion); }
+.title-bar .sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--forest-40);
+  margin-top: 0.4rem;
+}
+
+/* ── Nav (thin) ── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 0.8rem 2.5rem 1rem;
+  border-bottom: 3px double var(--ink);
+}
+nav a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--vermillion); }
+nav .cta {
+  background: var(--vermillion);
+  color: var(--paper);
+  padding: 0.4rem 1rem;
+  transition: background 0.2s;
+}
+nav .cta:hover { background: var(--ink); color: var(--mustard-hi); }
+
+/* ── Hero ── */
+.hero {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 4rem 3rem 3rem;
+  position: relative;
+}
+
+/* Running folio at top of hero */
+.folio-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--forest-40);
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--forest-12);
+}
+.folio-row .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--vermillion);
+  margin: 0 0.8rem;
+  vertical-align: middle;
+}
+
+/* The MASSIVE headline */
+.hero-h1 {
+  font-family: 'Newsreader', serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: clamp(3.5rem, 9vw, 9.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  position: relative;
+  animation: rise 1s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+}
+.hero-h1 .break { display: block; }
+.hero-h1 .italic { font-style: italic; color: var(--vermillion); }
+
+/* Yellow highlighter behind RUN OURSELVES */
+.hi {
+  position: relative;
+  display: inline;
+}
+.hi::before {
+  content: '';
+  position: absolute;
+  left: -0.1em;
+  right: -0.1em;
+  bottom: 0.08em;
+  top: 0.22em;
+  background: var(--mustard-hi);
+  z-index: -1;
+  transform: skew(-3deg, -0.5deg);
+  opacity: 0.85;
+}
+
+/* Hand-drawn circle around a word */
+.circled {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.2em;
+}
+.circled svg {
+  position: absolute;
+  inset: -0.15em -0.3em -0.15em -0.3em;
+  width: calc(100% + 0.6em);
+  height: calc(100% + 0.3em);
+  pointer-events: none;
+  stroke: var(--vermillion);
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Margin annotation (handwritten) */
+.margin-note {
+  position: absolute;
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 1.55rem;
+  line-height: 1.15;
+  color: var(--vermillion);
+  max-width: 260px;
+  animation: rise 1s cubic-bezier(0.16,1,0.3,1) 0.9s both;
+  transform: rotate(-3deg);
+}
+.margin-note .arrow {
+  width: 110px;
+  height: 60px;
+  display: block;
+  color: var(--vermillion);
+}
+
+/* Standfirst under hero */
+.standfirst-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 4rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--forest-12);
+}
+
+.standfirst {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: 1.35rem;
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: 640px;
+  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s both;
+}
+.standfirst .drop {
+  font-family: 'Newsreader', serif;
+  font-weight: 800;
+  font-size: 4.5rem;
+  line-height: 0.85;
+  float: left;
+  margin: 0.15rem 0.6rem -0.1rem 0;
+  color: var(--vermillion);
+}
+.standfirst strong { font-weight: 700; color: var(--forest); }
+
+/* Right sidebar: signature + stats */
+.hero-sidebar {
+  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.55s both;
+}
+.stats-box {
+  border: 2px solid var(--ink);
+  background: var(--mustard-hi);
+  padding: 1.2rem 1.3rem;
+  transform: rotate(-0.8deg);
+  margin-bottom: 2rem;
+}
+.stats-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+.stats-list {
+  list-style: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.95;
+  color: var(--ink);
+}
+.stats-list li { display: flex; justify-content: space-between; }
+.stats-list strong { font-weight: 700; }
+
+.sig-block {
+  padding-left: 1rem;
+  border-left: 3px solid var(--vermillion);
+}
+.sig-who {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--forest-40);
+  margin-bottom: 0.3rem;
+}
+.sig {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--vermillion);
+  margin-bottom: 0.2rem;
+  transform: rotate(-2deg);
+  transform-origin: left center;
+  display: inline-block;
+}
+.sig-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--forest);
+  margin-top: 0.5rem;
+}
+
+/* ── Heavy rule ── */
+.heavy-rule {
+  max-width: 1320px;
+  margin: 2rem auto 0;
+  padding: 0 3rem;
+}
+.heavy-rule .bar {
+  height: 5px;
+  background: var(--ink);
+  position: relative;
+}
+.heavy-rule .bar::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 100%; margin-top: 3px;
+  width: 100%;
+  height: 1px;
+  background: var(--ink);
+}
+
+/* ── Manifesto section — 4 products as numbered entries ── */
+.manifesto {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 4.5rem 3rem 4rem;
+}
+
+.manifesto-head {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+.manifesto-head .ch-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  background: var(--mustard-hi);
+  border: 2px solid var(--ink);
+  flex-shrink: 0;
+}
+.manifesto-head h2 {
+  font-family: 'Newsreader', serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.manifesto-head h2 em { font-style: italic; color: var(--vermillion); }
+
+/* The products — numbered entries, each with hand-drawn annotations */
+.product-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 260px;
+  gap: 2.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--forest-12);
+  position: relative;
+  text-decoration: none;
+  color: var(--ink);
+  align-items: start;
+  transition: background 0.2s;
+}
+.product-row:last-child { border-bottom: 1px solid var(--forest-12); }
+.product-row:hover { background: var(--paper-dark); }
+
+.roman {
+  font-family: 'Newsreader', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--vermillion);
+  letter-spacing: -0.03em;
+}
+
+.p-body {}
+.p-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+.p-name {
+  font-family: 'Newsreader', serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.p-type {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--forest-40);
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--forest-40);
+  border-radius: 0;
+}
+
+.p-desc {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--forest);
+  max-width: 640px;
+  margin-top: 0.8rem;
+}
+.p-desc strong { font-weight: 600; color: var(--ink); }
+
+/* highlighter variants per product */
+.hi-mustard { background: linear-gradient(transparent 60%, var(--mustard-hi) 60%); padding: 0 0.1em; }
+.hi-teal    { background: linear-gradient(transparent 60%, #A9D1FF 60%); padding: 0 0.1em; }
+
+.p-meta {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+}
+.p-price {
+  font-size: 0.8rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.p-price strong {
+  display: block;
+  font-family: 'Newsreader', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+  color: var(--vermillion);
+  margin-bottom: 0.1rem;
+}
+.p-link {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--forest-40);
+  transition: color 0.2s;
+}
+.product-row:hover .p-link { color: var(--vermillion); }
+
+/* Handwritten note floating at the end */
+.product-row .handnote {
+  position: absolute;
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--teal);
+  transform: rotate(-4deg);
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .hero { padding: 3rem 1.8rem; }
+  .standfirst-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .product-row { grid-template-columns: 60px 1fr; }
+  .p-meta { grid-column: 2; text-align: left; margin-top: 0.8rem; }
+  .margin-note { position: static; margin-top: 1rem; transform: none; max-width: none; }
+  .margin-note .arrow { display: none; }
+}
+@media (max-width: 600px) {
+  .masthead { flex-direction: column; gap: 0.4rem; padding: 0.6rem 1.5rem; }
+  .masthead-right { display: none; }
+  nav { flex-wrap: wrap; gap: 1.2rem; padding: 0.8rem 1.5rem; }
+  .hero { padding: 2.5rem 1.5rem; }
+  .manifesto { padding: 3rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Newspaper masthead -->
+<div class="masthead">
+  <div class="masthead-left">
+    <span><strong>VOL. 01</strong></span>
+    <span>ISSUE No. 04</span>
+    <span>TWO CENTS</span>
+  </div>
+  <div class="masthead-right">
+    <span>FOUNDED 2024</span>
+    <span>KEVIN BIBELHAUSEN, EDITOR</span>
+  </div>
+</div>
+
+<div class="title-bar">
+  <h1>The Studio B <em>Dispatch</em></h1>
+  <div class="sub">A principal-led technology studio · Published from the operations floor</div>
+</div>
+
+<nav>
+  <a href="#products">Products</a>
+  <a href="#services">Services</a>
+  <a href="#proof">Proof</a>
+  <a href="#about">About</a>
+  <a href="#contact" class="cta">Get in Touch →</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="folio-row">
+    <span>§ 01 &nbsp;·&nbsp; The manifesto</span>
+    <span>April 2026 <span class="dot"></span> Est. Chicago + Boston</span>
+    <span>Page 01 of 04</span>
+  </div>
+
+  <h1 class="hero-h1">
+    <span class="break">We don't sell</span>
+    <span class="break">software we wouldn't</span>
+    <span class="break"><span class="hi italic">run ourselves.</span></span>
+  </h1>
+
+  <!-- Handwritten margin annotation -->
+  <div class="margin-note" style="right: 3rem; top: 14rem;">
+    this is the whole thing →
+    <svg class="arrow" viewBox="0 0 120 70" fill="none">
+      <path d="M 5 55 Q 40 15, 85 30 T 115 35" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 5"/>
+      <path d="M 105 28 L 115 35 L 107 42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="standfirst-grid">
+    <p class="standfirst">
+      <span class="drop">O</span>ur software runs <strong>our own portfolio</strong>. The same engineers who ship features on a Tuesday are dealing with real inventory, real orders, and real deadlines on Wednesday. When you hire us, you get the people who <em>live with the consequences</em> — not a vendor who handed off the keys.
+    </p>
+
+    <aside class="hero-sidebar">
+      <div class="stats-box">
+        <div class="stats-label">The receipts —</div>
+        <ul class="stats-list">
+          <li><span>Companies owned</span> <strong>7</strong></li>
+          <li><span>Products shipping</span> <strong>4</strong></li>
+          <li><span>Production deploys</span> <strong>daily</strong></li>
+          <li><span>Demo environments</span> <strong>none</strong></li>
+          <li><span>Vendors we blame</span> <strong>zero</strong></li>
+        </ul>
+      </div>
+
+      <div class="sig-block">
+        <div class="sig-who">Signed, the principal —</div>
+        <div class="sig">Kevin B.</div>
+        <div class="sig-name">Kevin Bibelhausen · Founder &amp; Principal</div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- Heavy triple rule between sections -->
+<div class="heavy-rule"><div class="bar"></div></div>
+
+<!-- Manifesto: products as numbered chapters -->
+<section class="manifesto" id="products">
+  <div class="manifesto-head">
+    <span class="ch-label">§ 02 · The products</span>
+    <h2>Four things <em>we had to build</em> because nobody else would build them right.</h2>
+  </div>
+
+  <a class="product-row" href="https://bolt.b.studio">
+    <div class="roman">i.</div>
+    <div class="p-body">
+      <div class="p-name-row">
+        <span class="p-name">Bolt</span>
+        <span class="p-type">Continuous Goods WMS</span>
+      </div>
+      <p class="p-desc">Standard warehouse systems count boxes. <span class="hi-mustard">Your inventory is measured in yards.</span> Bolt handles receiving, cut-to-length, put-away, pick, pack, and ship for goods sold by the yard, foot, or meter — with direct-carrier LTL rate shopping, parcel labels, cloud printing, and full ERP write-back.</p>
+    </div>
+    <div class="p-meta">
+      <div class="p-price"><strong>$800/mo</strong>3 tiers · starts here</div>
+      <div class="p-link">bolt.b.studio →</div>
+    </div>
+  </a>
+
+  <a class="product-row" href="https://acuops.com">
+    <div class="roman">ii.</div>
+    <div class="p-body">
+      <div class="p-name-row">
+        <span class="p-name">AcuOps</span>
+        <span class="p-type">Acumatica DevOps Platform</span>
+      </div>
+      <p class="p-desc">Twelve health probes, a post-publish test suite, and a CI/CD pipeline that pushes customizations through the Acumatica Customization API. <span class="hi-teal">VAR-facing, read-only, session-gated.</span> The DevOps layer Acumatica doesn't ship.</p>
+    </div>
+    <div class="p-meta">
+      <div class="p-price"><strong>$300/mo</strong>per instance · flat</div>
+      <div class="p-link">acuops.com →</div>
+    </div>
+  </a>
+
+  <a class="product-row" href="https://amplify.b.studio">
+    <div class="roman">iii.</div>
+    <div class="p-body">
+      <div class="p-name-row">
+        <span class="p-name">Amplify</span>
+        <span class="p-type">LinkedIn Marketing Engine</span>
+      </div>
+      <p class="p-desc">LinkedIn engagement signals, scored for intent, drafted in your calibrated voice, and routed through Slack for approval before anything publishes. <span class="hi-mustard">Built for agencies managing multiple brands</span> and operators who want the full outbound loop without the guesswork.</p>
+    </div>
+    <div class="p-meta">
+      <div class="p-price"><strong>$1,200/seat</strong>per month · beta</div>
+      <div class="p-link">amplify.b.studio →</div>
+    </div>
+  </a>
+
+  <a class="product-row" href="https://relay.b.studio">
+    <div class="roman">iv.</div>
+    <div class="p-body">
+      <div class="p-name-row">
+        <span class="p-name">Relay</span>
+        <span class="p-type">Unified Messaging Bridge</span>
+      </div>
+      <p class="p-desc">Slack, Teams, Zoom Chat, and Google Chat — <span class="hi-teal">one bridge, bidirectional.</span> Route messages across platforms without copy-paste. Relay keeps every conversation connected regardless of which side of the deal is on which tool.</p>
+    </div>
+    <div class="p-meta">
+      <div class="p-price"><strong>Early access</strong>request an invite</div>
+      <div class="p-link">relay.b.studio →</div>
+    </div>
+  </a>
+</section>
+
+</body>
+</html>

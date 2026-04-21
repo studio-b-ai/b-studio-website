@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio B — Concept B: The Pricing Wall</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════
+   CONCEPT B — THE PRICING WALL
+   Basecamp.com/pricing energy.
+   Massive opinionated declarations. Side-by-side
+   comparisons. Prices in HUGE type. Green checks,
+   red X's. Opinionated FAQ. "Most tools X. We Y."
+   No vagueness. No hedging. Loud money talk.
+   ══════════════════════════════════════════════════ */
+
+:root {
+  --paper:      #F4F1EB;
+  --ink:        #0D0D0D;
+  --ink-80:     rgba(13,13,13,0.80);
+  --ink-50:     rgba(13,13,13,0.50);
+  --ink-20:     rgba(13,13,13,0.20);
+  --ink-08:     rgba(13,13,13,0.08);
+  --vermillion: #D94425;
+  --emerald:    #15803D;
+  --emerald-bg: #DCFCE7;
+  --crimson-bg: #FEE2E2;
+  --mustard-hi: #FFD666;
+  --rule:       #0D0D0D;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Thick black top strip ── */
+.topstrip {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.6rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.topstrip .led {
+  width: 8px; height: 8px; background: var(--vermillion); display: inline-block;
+}
+.topstrip em { color: var(--mustard-hi); font-style: normal; font-weight: 700; }
+
+/* ── Nav ── */
+nav {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 1.4rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--ink);
+}
+.brand {
+  display: flex; align-items: center; gap: 0.7rem;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 40px; height: 40px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  letter-spacing: -0.06em;
+}
+.brand-mark .dot { color: var(--vermillion); }
+.brand-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+.nav-right { display: flex; gap: 2rem; align-items: center; }
+.nav-right a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-right a:hover { color: var(--vermillion); }
+.nav-right .cta {
+  background: var(--vermillion);
+  color: #fff !important;
+  padding: 0.55rem 1.2rem;
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.nav-right .cta:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* ── HERO: one massive declaration ── */
+.hero {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem 3rem;
+  position: relative;
+}
+
+.hero-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  animation: rise 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+}
+.hero-kicker::before {
+  content: '';
+  width: 32px; height: 3px; background: var(--vermillion);
+}
+
+.hero-h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3.2rem, 9vw, 9.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  animation: rise 1s cubic-bezier(0.16,1,0.3,1) 0.2s both;
+}
+.hero-h1 .u {
+  position: relative;
+  display: inline;
+}
+.hero-h1 .u::after {
+  content: '';
+  position: absolute;
+  left: -0.02em; right: -0.02em;
+  bottom: 0.08em;
+  height: 0.18em;
+  background: var(--vermillion);
+  z-index: -1;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--vermillion);
+}
+
+.hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: var(--ink-80);
+  max-width: 780px;
+  margin-top: 2.5rem;
+  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.35s both;
+}
+
+/* ── "MOST X. WE Y." comparison block ── */
+.vs-section {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  margin-top: 3rem;
+  background: var(--paper);
+}
+
+.vs-head {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.vs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 3px solid var(--ink);
+  background: var(--ink);
+}
+.vs-col {
+  padding: 2.5rem 2.5rem 3rem;
+}
+.vs-col.them {
+  background: var(--crimson-bg);
+  border-right: 1.5px solid var(--ink);
+}
+.vs-col.us {
+  background: var(--emerald-bg);
+  border-left: 1.5px solid var(--ink);
+}
+
+.vs-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.vs-col.them .vs-label { color: #9F1239; }
+.vs-col.us   .vs-label { color: var(--emerald); }
+
+.vs-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 1.8rem;
+  color: var(--ink);
+}
+
+.vs-list { list-style: none; }
+.vs-list li {
+  padding: 0.8rem 0;
+  border-top: 1.5px solid var(--ink);
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.vs-list li:first-child { border-top: 2.5px solid var(--ink); }
+.vs-icon {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin-top: 0.05em;
+}
+.vs-col.them .vs-icon { color: #B91C1C; }
+.vs-col.us   .vs-icon { color: var(--emerald); }
+
+/* ── Pricing wall — 4 big cards ── */
+.pricing {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem 4rem;
+}
+
+.pricing-head {
+  text-align: left;
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 2rem;
+}
+.pricing-head .h-left {}
+.pricing-h-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+.pricing-h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--ink);
+}
+.pricing-h2 em { font-style: italic; color: var(--vermillion); }
+.pricing-note {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--vermillion);
+  transform: rotate(-4deg);
+  align-self: center;
+  text-align: right;
+  line-height: 1.2;
+  max-width: 230px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 3px solid var(--ink);
+  background: var(--ink);
+}
+.pcard {
+  background: var(--paper);
+  padding: 2rem 1.6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--ink);
+  position: relative;
+  transition: background 0.2s;
+  border-right: 1.5px solid var(--ink);
+}
+.pcard:last-child { border-right: none; }
+.pcard:hover { background: var(--mustard-hi); }
+
+.pcard-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.pcard-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 2.4rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.pcard-sub {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--ink-80);
+  margin-bottom: 1.5rem;
+}
+.pcard-price {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.045em;
+  margin-bottom: 0.3rem;
+}
+.pcard-price .currency {
+  font-size: 1.8rem;
+  vertical-align: top;
+  line-height: 1.3;
+  margin-right: 0.1em;
+  color: var(--vermillion);
+}
+.pcard-price .per {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-50);
+  letter-spacing: 0;
+  margin-left: 0.3em;
+}
+.pcard-price.early {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--vermillion);
+  letter-spacing: -0.03em;
+}
+.pcard-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  color: var(--ink-80);
+  line-height: 1.5;
+  margin-bottom: 1.8rem;
+  flex: 1;
+}
+.pcard-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.62;
+  color: var(--ink-80);
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+.pcard-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 0.7rem 1rem;
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  text-align: center;
+  transition: background 0.15s, color 0.15s;
+}
+.pcard:hover .pcard-btn {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ── Opinionated FAQ ── */
+.faq {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem 6rem;
+  border-top: 3px solid var(--ink);
+}
+.faq-head {
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.faq-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  font-weight: 700;
+}
+.faq-h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+.faq-list {}
+.faq-item {
+  padding: 1.8rem 0;
+  border-top: 1.5px solid var(--ink);
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.faq-item:last-child { border-bottom: 1.5px solid var(--ink); }
+.faq-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--vermillion);
+  letter-spacing: 0.1em;
+}
+.faq-q {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.015em;
+}
+.faq-a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.98rem;
+  color: var(--ink-80);
+  line-height: 1.62;
+}
+.faq-a strong { color: var(--ink); font-weight: 700; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero { padding: 3.5rem 1.5rem 2rem; }
+  .vs-grid { grid-template-columns: 1fr; }
+  .vs-col.them, .vs-col.us { border-right: none; border-left: none; }
+  .vs-col.us { border-top: 3px solid var(--ink); }
+  .pricing-grid { grid-template-columns: 1fr 1fr; }
+  .pcard:nth-child(2) { border-right: none; }
+  .pcard:nth-child(1), .pcard:nth-child(2) { border-bottom: 1.5px solid var(--ink); }
+  .pricing-head { grid-template-columns: 1fr; }
+  .pricing-note { text-align: left; }
+}
+@media (max-width: 600px) {
+  .topstrip { flex-wrap: wrap; gap: 0.8rem; font-size: 0.55rem; padding: 0.6rem 1.2rem; }
+  nav { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
+  .nav-right { gap: 1rem; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .pcard { border-right: none; border-bottom: 1.5px solid var(--ink); }
+  .faq-item { grid-template-columns: 1fr; gap: 0.4rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="topstrip">
+  <span class="led"></span>
+  <span>LIVE — 7 PORTFOLIO COS · 4 PRODUCTS SHIPPING · <em>DAILY DEPLOYS</em></span>
+  <span class="led"></span>
+</div>
+
+<nav>
+  <a class="brand" href="/">
+    <div class="brand-mark">b<span class="dot">.</span></div>
+    <span class="brand-name">Studio B</span>
+  </a>
+  <div class="nav-right">
+    <a href="#products">Products</a>
+    <a href="#vs">Vs. Everyone</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="cta">Get in Touch →</a>
+  </div>
+</nav>
+
+<!-- HERO — one enormous statement -->
+<section class="hero">
+  <div class="hero-kicker">Studio B — Technology Studio, est. 2024</div>
+  <h1 class="hero-h1">We don't sell software we wouldn't <em>run ourselves.</em></h1>
+  <p class="hero-sub">Our software runs our own portfolio of seven companies. The same engineers shipping features on Tuesday are running inventory, orders, and deadlines on Wednesday. When you hire us, you get the people who live with the consequences — not a vendor who handed off the keys.</p>
+</section>
+
+<!-- VS section — "Most X. We Y." -->
+<section class="vs-section" id="vs">
+  <div class="vs-head">§ The difference, stated plainly —</div>
+
+  <div class="vs-grid">
+    <div class="vs-col them">
+      <div class="vs-label">MOST CONSULTANCIES —</div>
+      <div class="vs-title">Ship the deck.<br>Disappear.</div>
+      <ul class="vs-list">
+        <li><span class="vs-icon">✕</span> PowerPoint first, code maybe, never.</li>
+        <li><span class="vs-icon">✕</span> Three-month statements of work.</li>
+        <li><span class="vs-icon">✕</span> Junior talent on-site. Partners on calls.</li>
+        <li><span class="vs-icon">✕</span> "Future state architecture" that never ships.</li>
+        <li><span class="vs-icon">✕</span> When prod breaks, you're on hold with support.</li>
+      </ul>
+    </div>
+
+    <div class="vs-col us">
+      <div class="vs-label">STUDIO B —</div>
+      <div class="vs-title">Ship the code.<br>Run it daily.</div>
+      <ul class="vs-list">
+        <li><span class="vs-icon">✓</span> Code first, deck if you insist.</li>
+        <li><span class="vs-icon">✓</span> Two-week cycles, in production.</li>
+        <li><span class="vs-icon">✓</span> You talk to the principal. Always.</li>
+        <li><span class="vs-icon">✓</span> The architecture is the software that's already running.</li>
+        <li><span class="vs-icon">✓</span> When prod breaks, we already woke up for it on our own portfolio.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING WALL -->
+<section class="pricing" id="pricing">
+  <div class="pricing-head">
+    <div class="h-left">
+      <div class="pricing-h-kicker">§ 02 · Our products</div>
+      <h2 class="pricing-h2">Four products. <em>Priced like we mean it.</em></h2>
+    </div>
+    <div class="pricing-note">← no "call sales"<br>no "contact us"<br>no nonsense.</div>
+  </div>
+
+  <div class="pricing-grid">
+    <a class="pcard" href="https://bolt.b.studio">
+      <div class="pcard-tag">Bolt · WMS</div>
+      <div class="pcard-name">Bolt</div>
+      <div class="pcard-sub">Continuous Goods WMS</div>
+      <div class="pcard-price"><span class="currency">$</span>800<span class="per">/mo</span></div>
+      <p class="pcard-note">Core tier. Goods by yard, foot, meter. LTL rate-shop, parcel labels, cloud printing, ERP write-back. Pro $1,200. Enterprise $1,800.</p>
+      <div class="pcard-btn">bolt.b.studio →</div>
+    </a>
+
+    <a class="pcard" href="https://acuops.com">
+      <div class="pcard-tag">AcuOps · DevOps</div>
+      <div class="pcard-name">AcuOps</div>
+      <div class="pcard-sub">Acumatica DevOps Platform</div>
+      <div class="pcard-price"><span class="currency">$</span>300<span class="per">/mo</span></div>
+      <p class="pcard-note">Flat. Per Acumatica instance. 12 health probes, post-publish test suite, CI/CD through the Customization API. No tiers, no seats, no games.</p>
+      <div class="pcard-btn">acuops.com →</div>
+    </a>
+
+    <a class="pcard" href="https://amplify.b.studio">
+      <div class="pcard-tag">Amplify · LinkedIn</div>
+      <div class="pcard-name">Amplify</div>
+      <div class="pcard-sub">LinkedIn Marketing Engine</div>
+      <div class="pcard-price"><span class="currency">$</span>1,200<span class="per">/seat/mo</span></div>
+      <p class="pcard-note">Beta. LinkedIn signals scored for intent, drafted in your calibrated voice, Slack-approved before anything publishes. Multi-brand ready.</p>
+      <div class="pcard-btn">amplify.b.studio →</div>
+    </a>
+
+    <a class="pcard" href="https://relay.b.studio">
+      <div class="pcard-tag">Relay · Messaging</div>
+      <div class="pcard-name">Relay</div>
+      <div class="pcard-sub">Unified Messaging Bridge</div>
+      <div class="pcard-price early">Early access</div>
+      <p class="pcard-note">Slack, Teams, Zoom Chat, Google Chat — one bridge, bidirectional. Route messages across platforms without copy-paste. Request an invite.</p>
+      <div class="pcard-btn">relay.b.studio →</div>
+    </a>
+  </div>
+</section>
+
+<!-- FAQ — opinionated -->
+<section class="faq" id="faq">
+  <div class="faq-head">
+    <span class="faq-kicker">§ 03 · Objections, handled</span>
+    <h2 class="faq-h2">The questions you're actually going to ask.</h2>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-num">Q-01</div>
+      <div>
+        <div class="faq-q">Why should I hire a technology studio that runs a textile company?</div>
+        <p class="faq-a">Because <strong>the textile company is the qualification.</strong> We built Bolt to run Heritage Fabrics. We built AcuOps because our own Acumatica instance kept breaking. If our software doesn't survive our operations, it doesn't ship. That filter is what you're buying.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-num">Q-02</div>
+      <div>
+        <div class="faq-q">Will I get a deck or will I get code?</div>
+        <p class="faq-a">Code. We don't pitch. The first engagement artifact is a working integration, a configured pipeline, or a running service — not a PowerPoint. If your procurement process requires a deck, we'll write one after we've shipped the thing.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-num">Q-03</div>
+      <div>
+        <div class="faq-q">What stack do you work in?</div>
+        <p class="faq-a">Acumatica, HubSpot, Shopify, Railway, Orderful, TypeScript, Python, Postgres, BullMQ. If you're on NetSuite, Sage Intacct, Microsoft Dynamics 365 BC, or Infor CloudSuite, we can talk. We don't pretend to be ERP-agnostic — we pretend about nothing.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-num">Q-04</div>
+      <div>
+        <div class="faq-q">Can I see a demo environment?</div>
+        <p class="faq-a"><strong>We don't have one.</strong> Bolt runs Heritage Fabrics' warehouse. AcuOps runs our own CI/CD. Amplify runs our own outbound. If you want to see the software work, we'll show you the production instance it runs on. That's the demo.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-num">Q-05</div>
+      <div>
+        <div class="faq-q">Who actually does the work?</div>
+        <p class="faq-a">Kevin Bibelhausen, Principal. And the rest of the five-person team. No junior-partner handoffs. No offshore bench. You'll hear from the person who's going to write the code.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

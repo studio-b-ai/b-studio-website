@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio B — Concept D: The Field Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════
+   CONCEPT D — THE FIELD MANUAL
+   Engineer's notebook. Graph paper. Technical drawings.
+   Stamps. Exhibit labels. Blueprint discipline.
+   Wes Anderson meets an ops engineer's field log.
+   The "studio" as a working room, photographed.
+   ══════════════════════════════════════════════════ */
+
+:root {
+  --paper:      #EFE9D5;          /* aged field manual cream */
+  --paper-dk:   #E3DCC0;
+  --grid-ink:   rgba(26, 51, 40, 0.11);
+  --grid-strong:rgba(26, 51, 40, 0.18);
+  --ink:        #12221B;
+  --ink-70:     rgba(18, 34, 27, 0.72);
+  --ink-40:     rgba(18, 34, 27, 0.42);
+  --forest:     #1A3328;
+  --vermillion: #D94425;
+  --stamp-red:  #B8271C;
+  --ink-blue:   #1E3A5F;           /* pen blue for handwritten */
+  --rust:       #8B3A0E;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.55;
+  /* Graph paper: two scales of grid lines */
+  background-image:
+    linear-gradient(var(--grid-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-strong) 1px, transparent 1px),
+    linear-gradient(var(--grid-ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-ink) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes stampIn {
+  0%   { opacity: 0; transform: rotate(-15deg) scale(2); }
+  70%  { opacity: 1; transform: rotate(-8deg) scale(1); }
+  100% { opacity: 1; transform: rotate(-8deg) scale(1); }
+}
+
+/* ── Top ribbon ── */
+.ribbon {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.55rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.ribbon-left { display: flex; align-items: center; gap: 1.2rem; }
+.ribbon-led {
+  width: 7px; height: 7px; background: var(--vermillion); display: inline-block;
+}
+.ribbon em { color: #FFD666; font-style: normal; }
+
+/* ── Nav ── */
+nav {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 1.4rem 2.5rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--ink);
+}
+.brand {
+  display: flex; align-items: baseline; gap: 0.8rem;
+  text-decoration: none;
+}
+.brand-mark {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--ink);
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+.brand-mark .dot { color: var(--vermillion); }
+.brand-stamp {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-70);
+  font-weight: 500;
+  border: 1.5px solid var(--ink-40);
+  padding: 0.15rem 0.55rem;
+}
+.nav-right { display: flex; gap: 1.8rem; align-items: center; }
+.nav-right a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-right a:hover { color: var(--vermillion); }
+.nav-right .cta {
+  background: var(--ink);
+  color: var(--paper) !important;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--ink);
+  transition: background 0.15s;
+}
+.nav-right .cta:hover { background: var(--vermillion); }
+
+/* ── HERO ── "Exhibit A" style ── */
+.hero {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 3.5rem 2.5rem 3rem;
+  position: relative;
+}
+
+/* Document header bar */
+.doc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 4px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.8rem 0.2rem;
+  margin-bottom: 2.5rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.doc-head .doc-label {
+  background: var(--ink); color: var(--paper);
+  padding: 0.25rem 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+.doc-head .doc-meta { color: var(--ink-70); }
+.doc-head .doc-meta strong { color: var(--ink); font-weight: 600; }
+
+/* Hero layout: left column = specimen, right column = notes */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 3.5rem;
+  align-items: start;
+  position: relative;
+}
+
+.specimen {
+  position: relative;
+  border: 2px solid var(--ink);
+  padding: 2.5rem 2.5rem 3rem;
+  background: rgba(255, 253, 240, 0.55);
+}
+
+/* Exhibit label tab hanging off top */
+.specimen::before {
+  content: 'EXHIBIT A';
+  position: absolute;
+  top: -1.1rem;
+  left: 1.5rem;
+  background: var(--vermillion);
+  color: var(--paper);
+  padding: 0.3rem 0.8rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  border: 2px solid var(--ink);
+}
+
+.specimen::after {
+  content: 'fig. 1 — the premise';
+  position: absolute;
+  bottom: 0.4rem;
+  right: 1rem;
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink-blue);
+}
+
+.spec-kicker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.spec-kicker::before {
+  content: '§ 01.00';
+  color: var(--ink-70);
+  font-weight: 500;
+  padding-right: 0.6rem;
+  border-right: 1px solid var(--ink-40);
+}
+
+.hero-h1 {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  animation: rise 1s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--vermillion);
+  font-weight: 900;
+}
+
+/* callout tags scattered around the hero */
+.callout {
+  position: absolute;
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--ink-blue);
+  max-width: 220px;
+  line-height: 1.2;
+  pointer-events: none;
+}
+.callout svg {
+  display: block;
+  width: 80px; height: 40px;
+  color: var(--ink-blue);
+  margin-bottom: 0.2rem;
+}
+.callout.c1 {
+  top: -1rem; right: -280px;
+  transform: rotate(-3deg);
+}
+.callout.c1 svg { transform: rotate(150deg) translate(-20px, -10px); }
+
+.spec-body {
+  margin-top: 2rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 580px;
+  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s both;
+}
+.spec-body strong { font-weight: 700; color: var(--ink); background: linear-gradient(transparent 60%, #FFE066 60%); padding: 0 0.1em; }
+
+/* Right column: specimen log */
+.log-panel {
+  background: var(--paper-dk);
+  border: 2px solid var(--ink);
+  position: relative;
+  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s both;
+}
+.log-panel::before {
+  content: '— SPECIMEN LOG —';
+  display: block;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-align: center;
+  padding: 0.5rem 0;
+  font-weight: 600;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+}
+.log-table td {
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--ink-40);
+  color: var(--ink);
+}
+.log-table td:first-child {
+  color: var(--ink-70);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: 45%;
+}
+.log-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+  color: var(--ink);
+}
+.log-table tr:last-child td { border-bottom: none; }
+.log-table .val-verm { color: var(--vermillion) !important; }
+.log-table .val-ink  { font-family: 'Caveat', cursive; font-size: 1.1rem; color: var(--ink-blue); font-weight: 700; }
+
+/* Stamp — "APPROVED BY THE PRINCIPAL" */
+.stamp {
+  position: absolute;
+  bottom: -2.8rem; right: -1.5rem;
+  border: 3px solid var(--stamp-red);
+  color: var(--stamp-red);
+  padding: 0.6rem 0.8rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 700;
+  transform: rotate(-8deg);
+  background: transparent;
+  animation: stampIn 0.6s cubic-bezier(0.16,1,0.3,1) 1.1s both;
+  z-index: 2;
+}
+.stamp strong {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+  margin: 0.15rem 0;
+}
+
+/* ── Horizontal double rule between sections ── */
+.db-rule {
+  max-width: 1320px;
+  margin: 2rem auto 0;
+  padding: 0 2.5rem;
+}
+.db-rule .bar {
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.6rem 0;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+}
+.db-rule .bar span { padding: 0 1rem; color: var(--vermillion); font-weight: 700; }
+
+/* ── PRODUCTS — "INVENTORY" / "MANIFEST" aesthetic ── */
+.inventory {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem 4.5rem;
+}
+
+.inv-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 2rem;
+}
+.inv-h-left {}
+.inv-kicker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+.inv-kicker::before {
+  content: '§ 02.00 · ';
+  color: var(--ink-70);
+  font-weight: 500;
+}
+.inv-h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  color: var(--ink);
+  max-width: 740px;
+}
+.inv-h2 em { font-style: italic; color: var(--vermillion); }
+
+.inv-filed {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--ink-blue);
+  text-align: right;
+  transform: rotate(-2deg);
+  line-height: 1.3;
+}
+
+/* Manifest header row */
+.manifest-head {
+  display: grid;
+  grid-template-columns: 70px 1.1fr 2fr 160px 150px;
+  gap: 1.5rem;
+  padding: 0.8rem 1rem;
+  border-top: 2.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink);
+  background: rgba(18, 34, 27, 0.06);
+}
+
+/* Manifest row — each product */
+.manifest-row {
+  display: grid;
+  grid-template-columns: 70px 1.1fr 2fr 160px 150px;
+  gap: 1.5rem;
+  padding: 1.4rem 1rem;
+  border-bottom: 1.5px dashed var(--ink-40);
+  text-decoration: none;
+  color: var(--ink);
+  align-items: center;
+  transition: background 0.2s;
+  position: relative;
+}
+.manifest-row:last-child { border-bottom: 2.5px solid var(--ink); }
+.manifest-row:hover { background: rgba(255, 225, 120, 0.4); }
+
+.mr-id {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--vermillion);
+}
+.mr-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+.mr-name .sub {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ink-70);
+  margin-top: 0.3rem;
+}
+.mr-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-70);
+}
+.mr-price {
+  text-align: right;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.mr-price .perm {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ink-70);
+  margin-top: 0.2rem;
+}
+.mr-status {
+  text-align: center;
+}
+.mr-badge {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.35rem 0.7rem;
+  border: 2px solid currentColor;
+}
+.mr-badge.live    { color: var(--forest); background: rgba(21, 128, 61, 0.12); }
+.mr-badge.beta    { color: var(--rust); background: rgba(139, 58, 14, 0.10); }
+.mr-badge.early   { color: var(--ink-blue); background: rgba(30, 58, 95, 0.10); }
+
+/* Field signature block at bottom */
+.field-sig {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--ink);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: end;
+}
+.fs-left {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-70);
+  line-height: 1.7;
+}
+.fs-left strong { color: var(--ink); font-weight: 700; }
+.fs-sig {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 2.8rem;
+  color: var(--ink-blue);
+  line-height: 1;
+  transform: rotate(-3deg);
+  transform-origin: right center;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .stamp { bottom: -1rem; right: 0.5rem; }
+  .manifest-head,
+  .manifest-row {
+    grid-template-columns: 60px 1fr;
+    gap: 0.8rem;
+  }
+  .manifest-head { display: none; }
+  .manifest-row { padding: 1.2rem 0.8rem; }
+  .mr-desc, .mr-price, .mr-status { grid-column: 2; }
+  .mr-desc { margin-top: 0.4rem; }
+  .mr-price { text-align: left; margin-top: 0.6rem; }
+  .mr-status { text-align: left; margin-top: 0.4rem; }
+  .callout { display: none; }
+}
+@media (max-width: 600px) {
+  .ribbon { flex-direction: column; gap: 0.3rem; padding: 0.6rem 1.5rem; }
+  nav { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 0.8rem; }
+  .nav-right { gap: 1rem; flex-wrap: wrap; }
+  .doc-head { flex-wrap: wrap; gap: 0.4rem; font-size: 0.5rem; }
+  .specimen { padding: 2rem 1.5rem 2.5rem; }
+  .hero { padding: 2.5rem 1.5rem; }
+  .inventory { padding: 3rem 1.5rem; }
+  .inv-head { grid-template-columns: 1fr; }
+  .inv-filed { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon">
+  <div class="ribbon-left">
+    <span class="ribbon-led"></span>
+    <span>Studio B Field Manual &nbsp;·&nbsp; Folio 01</span>
+  </div>
+  <div>
+    <span>Operating manual <em>in force</em> · April 2026</span>
+  </div>
+</div>
+
+<nav>
+  <a class="brand" href="/">
+    <span class="brand-mark">b<span class="dot">.</span></span>
+    <span class="brand-stamp">Studio B · Folio 01</span>
+  </a>
+  <div class="nav-right">
+    <a href="#inventory">§ Products</a>
+    <a href="#services">§ Services</a>
+    <a href="#proof">§ Proof</a>
+    <a href="#about">§ About</a>
+    <a href="#contact" class="cta">Request audience →</a>
+  </div>
+</nav>
+
+<!-- HERO: Exhibit A -->
+<section class="hero">
+  <div class="doc-head">
+    <span class="doc-label">§ 01 · The Premise</span>
+    <span class="doc-meta">FILED BY: <strong>K. Bibelhausen</strong> &nbsp; | &nbsp; DATE: <strong>26 Apr 2026</strong> &nbsp; | &nbsp; REV: <strong>14</strong></span>
+    <span class="doc-meta">Page <strong>01</strong> / 04</span>
+  </div>
+
+  <div class="hero-grid">
+    <div class="specimen">
+      <div class="spec-kicker">Studio B — Technology Studio</div>
+      <h1 class="hero-h1">We don't sell software we wouldn't <em>run ourselves.</em></h1>
+      <p class="spec-body">Our software runs <strong>our own portfolio</strong>. The same engineers who ship features on a Tuesday are dealing with real inventory, real orders, and real deadlines on Wednesday. When you hire us, you get the people who live with the consequences — not a vendor who handed off the keys.</p>
+
+      <!-- Stamp -->
+      <div class="stamp">
+        Verified<br>
+        <strong>In Production</strong>
+        Seven Companies<br>
+        April '26
+      </div>
+    </div>
+
+    <!-- Right: the specimen log -->
+    <aside class="log-panel">
+      <table class="log-table">
+        <tr><td>Firm</td><td>Studio B AI, LLC</td></tr>
+        <tr><td>Principal</td><td>K. Bibelhausen</td></tr>
+        <tr><td>Headcount</td><td>5</td></tr>
+        <tr><td>Portfolio cos.</td><td class="val-verm">7</td></tr>
+        <tr><td>Products shipping</td><td class="val-verm">4</td></tr>
+        <tr><td>Deploy cadence</td><td>Daily</td></tr>
+        <tr><td>Demo env.</td><td class="val-ink">none.</td></tr>
+        <tr><td>Stack</td><td>Acumatica · HubSpot · Shopify</td></tr>
+        <tr><td>Hosting</td><td>Railway (2 projects)</td></tr>
+        <tr><td>Orchestration</td><td>BullMQ / cron</td></tr>
+      </table>
+    </aside>
+  </div>
+</section>
+
+<div class="db-rule"><div class="bar"><span>— § 02 · INVENTORY OF WORK —</span></div></div>
+
+<!-- PRODUCTS as a MANIFEST -->
+<section class="inventory" id="inventory">
+  <div class="inv-head">
+    <div class="inv-h-left">
+      <div class="inv-kicker">The products — filed under "built because we needed them"</div>
+      <h2 class="inv-h2">Four items on the manifest. <em>All in production.</em></h2>
+    </div>
+    <div class="inv-filed">
+      filed from the<br>operations floor —
+    </div>
+  </div>
+
+  <!-- Manifest / ledger -->
+  <div class="manifest-head">
+    <div>Item #</div>
+    <div>Product</div>
+    <div>Description</div>
+    <div>Rate</div>
+    <div>Status</div>
+  </div>
+
+  <a class="manifest-row" href="https://bolt.b.studio">
+    <div class="mr-id">SB-01 &nbsp;→</div>
+    <div>
+      <div class="mr-name">Bolt<span class="sub">Continuous Goods WMS</span></div>
+    </div>
+    <div class="mr-desc">Standard WMS counts boxes. Yours counts yards. Bolt: receive, cut-to-length, put-away, pick, pack, ship — with direct-carrier LTL rate shopping, parcel labels, cloud printing, ERP write-back.</div>
+    <div class="mr-price">$800<span class="perm">per month · 3 tiers</span></div>
+    <div class="mr-status"><span class="mr-badge live">Live</span></div>
+  </a>
+
+  <a class="manifest-row" href="https://acuops.com">
+    <div class="mr-id">SB-02 &nbsp;→</div>
+    <div>
+      <div class="mr-name">AcuOps<span class="sub">Acumatica DevOps</span></div>
+    </div>
+    <div class="mr-desc">Twelve health probes, post-publish test suite, CI/CD pipeline through the Acumatica Customization API. VAR-facing, read-only, session-gated. The DevOps layer Acumatica doesn't ship.</div>
+    <div class="mr-price">$300<span class="perm">per instance · flat</span></div>
+    <div class="mr-status"><span class="mr-badge live">Live</span></div>
+  </a>
+
+  <a class="manifest-row" href="https://amplify.b.studio">
+    <div class="mr-id">SB-03 &nbsp;→</div>
+    <div>
+      <div class="mr-name">Amplify<span class="sub">LinkedIn Engine</span></div>
+    </div>
+    <div class="mr-desc">LinkedIn engagement signals, scored for intent, drafted in your calibrated voice, routed through Slack for approval before anything publishes. Multi-brand ready.</div>
+    <div class="mr-price">$1,200<span class="perm">per seat · month</span></div>
+    <div class="mr-status"><span class="mr-badge beta">Beta</span></div>
+  </a>
+
+  <a class="manifest-row" href="https://relay.b.studio">
+    <div class="mr-id">SB-04 &nbsp;→</div>
+    <div>
+      <div class="mr-name">Relay<span class="sub">Messaging Bridge</span></div>
+    </div>
+    <div class="mr-desc">Slack, Teams, Zoom Chat, Google Chat — one bridge, bidirectional. Route messages across platforms without copy-paste. Conversation continuity across every tool.</div>
+    <div class="mr-price">TBD<span class="perm">waitlist open</span></div>
+    <div class="mr-status"><span class="mr-badge early">Early</span></div>
+  </a>
+
+  <!-- Signature -->
+  <div class="field-sig">
+    <div class="fs-left">
+      Filed by &nbsp;<strong>K. Bibelhausen</strong>, Principal<br>
+      Countersigned &nbsp;<strong>Studio B AI, LLC</strong> · April 2026
+    </div>
+    <div class="fs-sig">Kevin B.</div>
+  </div>
+</section>
+
+</body>
+</html>
