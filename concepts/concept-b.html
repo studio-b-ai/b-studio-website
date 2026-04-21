@@ -3,510 +3,667 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio B — Concept B: Broadsheet Reimagined</title>
+<title>Studio B — Concept B: The Pricing Wall</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════════════
-   CONCEPT B — Broadsheet Reimagined
-   Keep warm paper bg. Strong typographic grid.
-   Giant section numbers behind text.
-   Newsreader serif as display (as the design system
-   actually specifies — not Inter).
-   Less boutique, more ops desk.
+   CONCEPT B — THE PRICING WALL
+   Basecamp.com/pricing energy.
+   Massive opinionated declarations. Side-by-side
+   comparisons. Prices in HUGE type. Green checks,
+   red X's. Opinionated FAQ. "Most tools X. We Y."
+   No vagueness. No hedging. Loud money talk.
    ══════════════════════════════════════════════════ */
 
 :root {
-  --bg:          #F4F1EB;
-  --surface:     #FFFFFF;
-  --forest:      #1A3328;
-  --forest-70:   rgba(26,51,40,0.70);
-  --forest-40:   rgba(26,51,40,0.40);
-  --forest-12:   rgba(26,51,40,0.12);
-  --forest-06:   rgba(26,51,40,0.06);
-  --vermillion:  #D94425;
-  --border:      #D6D0C4;
-  --border-light:#E8E3D9;
+  --paper:      #F4F1EB;
+  --ink:        #0D0D0D;
+  --ink-80:     rgba(13,13,13,0.80);
+  --ink-50:     rgba(13,13,13,0.50);
+  --ink-20:     rgba(13,13,13,0.20);
+  --ink-08:     rgba(13,13,13,0.08);
+  --vermillion: #D94425;
+  --emerald:    #15803D;
+  --emerald-bg: #DCFCE7;
+  --crimson-bg: #FEE2E2;
+  --mustard-hi: #FFD666;
+  --rule:       #0D0D0D;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
-  color: var(--forest);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-@keyframes drawLine {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
 @keyframes rise {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Top rule ── */
-.top-rule {
-  background: var(--forest);
-  height: 4px;
-  width: 100%;
+/* ── Thick black top strip ── */
+.topstrip {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.6rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
+.topstrip .led {
+  width: 8px; height: 8px; background: var(--vermillion); display: inline-block;
+}
+.topstrip em { color: var(--mustard-hi); font-style: normal; font-weight: 700; }
 
 /* ── Nav ── */
 nav {
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 1.5rem 2.5rem;
+  padding: 1.4rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 3px solid var(--ink);
 }
-
-/* Mark: b. full stop — the period is vermillion */
-.nav-brand {
+.brand {
+  display: flex; align-items: center; gap: 0.7rem;
   text-decoration: none;
-  display: flex;
-  align-items: baseline;
-  gap: 0;
 }
-.nav-brand .wordmark {
-  font-family: 'Newsreader', serif;
-  font-optical-sizing: auto;
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: var(--forest);
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-.nav-brand .wordmark-dot {
-  color: var(--vermillion);
-}
-
-/* Tagline next to brand */
-.nav-tagline {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.5rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--forest-40);
-  margin-left: 1.2rem;
-  padding-left: 1.2rem;
-  border-left: 1px solid var(--border);
-  align-self: center;
-}
-
-.nav-links { display: flex; gap: 2rem; align-items: center; }
-.nav-links a {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--forest-70);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--forest); }
-.nav-cta {
-  color: var(--bg) !important;
-  background: var(--forest) !important;
-  padding: 0.45rem 1.2rem;
-  font-weight: 600 !important;
-  transition: background 0.2s !important;
-}
-.nav-cta:hover { background: var(--vermillion) !important; }
-
-/* ── Hero ── */
-.hero {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Big section counter behind everything */
-.hero-counter {
-  position: absolute;
-  top: -1.5rem;
-  left: 1.5rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(12rem, 22vw, 18rem);
-  font-weight: 600;
-  color: var(--forest-06);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
+.brand-mark {
+  width: 40px; height: 40px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 1.3rem;
   letter-spacing: -0.06em;
 }
+.brand-mark .dot { color: var(--vermillion); }
+.brand-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+.nav-right { display: flex; gap: 2rem; align-items: center; }
+.nav-right a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-right a:hover { color: var(--vermillion); }
+.nav-right .cta {
+  background: var(--vermillion);
+  color: #fff !important;
+  padding: 0.55rem 1.2rem;
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.nav-right .cta:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
 
-/* Thick horizontal rules divide the hero */
-.hero-top-bar {
-  padding: 1.5rem 0 1.5rem;
-  border-bottom: 3px solid var(--forest);
+/* ── HERO: one massive declaration ── */
+.hero {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem 3rem;
+  position: relative;
+}
+
+.hero-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 1.5rem;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
   animation: rise 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s both;
 }
-.hero-date {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--forest-40);
-}
-.hero-edition {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--forest-40);
+.hero-kicker::before {
+  content: '';
+  width: 32px; height: 3px; background: var(--vermillion);
 }
 
-/* The headline grid: left column headline, right column standfirst */
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 3rem;
-  padding: 3.5rem 0 4rem;
-  border-bottom: 1px solid var(--border);
+.hero-h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3.2rem, 9vw, 9.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  animation: rise 1s cubic-bezier(0.16,1,0.3,1) 0.2s both;
+}
+.hero-h1 .u {
   position: relative;
-  z-index: 1;
+  display: inline;
 }
-
-.hero-headline {
-  font-family: 'Newsreader', serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-size: clamp(2.8rem, 5.5vw, 5.2rem);
-  line-height: 1.04;
-  letter-spacing: -0.025em;
-  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both;
+.hero-h1 .u::after {
+  content: '';
+  position: absolute;
+  left: -0.02em; right: -0.02em;
+  bottom: 0.08em;
+  height: 0.18em;
+  background: var(--vermillion);
+  z-index: -1;
 }
-.hero-headline em {
+.hero-h1 em {
   font-style: italic;
   color: var(--vermillion);
 }
 
-.hero-right {}
-
-.hero-rule-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--vermillion);
-  margin-bottom: 1.2rem;
-  padding-bottom: 0.8rem;
-  border-bottom: 1px solid var(--border);
-  animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) 0.3s both;
-}
-
-.hero-standfirst {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 400;
-  line-height: 1.78;
-  color: var(--forest-70);
+.hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: var(--ink-80);
+  max-width: 780px;
+  margin-top: 2.5rem;
   animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.35s both;
 }
 
-/* ── Thick rule between sections ── */
-.thick-rule {
-  max-width: 1200px;
+/* ── "MOST X. WE Y." comparison block ── */
+.vs-section {
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 2.5rem;
-}
-.thick-rule hr {
-  border: none;
-  height: 3px;
-  background: var(--forest);
-}
-.thin-rule {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-}
-.thin-rule hr {
-  border: none;
-  height: 1px;
-  background: var(--border);
+  padding: 4rem 2.5rem;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  margin-top: 3rem;
+  background: var(--paper);
 }
 
-/* ── Products section ── */
-.products {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4.5rem 2.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Giant section counter, this time "02" */
-.section-counter {
-  position: absolute;
-  top: -2rem;
-  right: 1.5rem;
+.vs-head {
   font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(10rem, 18vw, 16rem);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 2rem;
   font-weight: 600;
-  color: var(--forest-06);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-  letter-spacing: -0.06em;
 }
 
-.products-header {
+.vs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 3px solid var(--ink);
+  background: var(--ink);
+}
+.vs-col {
+  padding: 2.5rem 2.5rem 3rem;
+}
+.vs-col.them {
+  background: var(--crimson-bg);
+  border-right: 1.5px solid var(--ink);
+}
+.vs-col.us {
+  background: var(--emerald-bg);
+  border-left: 1.5px solid var(--ink);
+}
+
+.vs-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.vs-col.them .vs-label { color: #9F1239; }
+.vs-col.us   .vs-label { color: var(--emerald); }
+
+.vs-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 1.8rem;
+  color: var(--ink);
+}
+
+.vs-list { list-style: none; }
+.vs-list li {
+  padding: 0.8rem 0;
+  border-top: 1.5px solid var(--ink);
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.vs-list li:first-child { border-top: 2.5px solid var(--ink); }
+.vs-icon {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin-top: 0.05em;
+}
+.vs-col.them .vs-icon { color: #B91C1C; }
+.vs-col.us   .vs-icon { color: var(--emerald); }
+
+/* ── Pricing wall — 4 big cards ── */
+.pricing {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem 4rem;
+}
+
+.pricing-head {
+  text-align: left;
   margin-bottom: 3rem;
-  position: relative;
-  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 2rem;
+}
+.pricing-head .h-left {}
+.pricing-h-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+.pricing-h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--ink);
+}
+.pricing-h2 em { font-style: italic; color: var(--vermillion); }
+.pricing-note {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--vermillion);
+  transform: rotate(-4deg);
+  align-self: center;
+  text-align: right;
+  line-height: 1.2;
+  max-width: 230px;
 }
 
-.section-eyebrow {
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 3px solid var(--ink);
+  background: var(--ink);
+}
+.pcard {
+  background: var(--paper);
+  padding: 2rem 1.6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--ink);
+  position: relative;
+  transition: background 0.2s;
+  border-right: 1.5px solid var(--ink);
+}
+.pcard:last-child { border-right: none; }
+.pcard:hover { background: var(--mustard-hi); }
+
+.pcard-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.55rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--vermillion);
-  margin-bottom: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
-
-.section-title {
-  font-family: 'Newsreader', serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-size: clamp(2rem, 3.2vw, 2.8rem);
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-}
-.section-title em { font-style: italic; color: var(--vermillion); }
-
-/* Editorial two-column product list — not cards, more like broadsheet entries */
-.products-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  position: relative;
-  z-index: 1;
-}
-
-.prod-entry {
-  padding: 2.4rem 2.4rem 2.4rem 0;
-  border-bottom: 1px solid var(--border);
-  text-decoration: none;
-  color: var(--forest);
-  display: block;
-  transition: background 0.2s;
-}
-.prod-entry:nth-child(odd) {
-  border-right: 1px solid var(--border);
-  padding-right: 2.4rem;
-}
-.prod-entry:nth-child(even) {
-  padding-left: 2.4rem;
-  padding-right: 0;
-}
-/* Last two: no bottom border */
-.prod-entry:nth-last-child(-n+2) {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-.prod-entry:nth-last-child(-n+2):first-child {
-  padding-bottom: 0;
-}
-
-.entry-top {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 0.6rem;
-}
-.entry-name {
-  font-family: 'Newsreader', serif;
-  font-optical-sizing: auto;
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
+.pcard-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 2.4rem;
+  letter-spacing: -0.04em;
   line-height: 1;
-  transition: color 0.2s;
+  margin-bottom: 0.4rem;
 }
-.prod-entry:hover .entry-name { color: var(--vermillion); }
-
-.entry-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.52rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--forest-40);
+.pcard-sub {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--ink-80);
+  margin-bottom: 1.5rem;
+}
+.pcard-price {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.045em;
+  margin-bottom: 0.3rem;
+}
+.pcard-price .currency {
+  font-size: 1.8rem;
+  vertical-align: top;
+  line-height: 1.3;
+  margin-right: 0.1em;
+  color: var(--vermillion);
+}
+.pcard-price .per {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-50);
+  letter-spacing: 0;
+  margin-left: 0.3em;
+}
+.pcard-price.early {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--vermillion);
+  letter-spacing: -0.03em;
+}
+.pcard-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  color: var(--ink-80);
+  line-height: 1.5;
+  margin-bottom: 1.8rem;
+  flex: 1;
+}
+.pcard-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.62;
+  color: var(--ink-80);
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+.pcard-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 0.7rem 1rem;
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  text-align: center;
+  transition: background 0.15s, color 0.15s;
+}
+.pcard:hover .pcard-btn {
+  background: var(--ink);
+  color: var(--paper);
 }
 
-.entry-rule {
-  height: 2px;
-  background: var(--vermillion);
-  width: 0;
-  margin-bottom: 1.2rem;
-  transition: width 0.45s cubic-bezier(0.16,1,0.3,1);
+/* ── Opinionated FAQ ── */
+.faq {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem 6rem;
+  border-top: 3px solid var(--ink);
 }
-.prod-entry:hover .entry-rule { width: 100%; }
-
-.entry-desc {
-  font-size: 0.88rem;
-  color: var(--forest-70);
-  line-height: 1.78;
-  margin-bottom: 1.2rem;
-}
-
-.entry-footer {
+.faq-head {
+  margin-bottom: 2.5rem;
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
-.entry-price {
+.faq-kicker {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.62rem;
-  color: var(--forest-40);
-}
-.entry-price strong { color: var(--forest); font-weight: 600; }
-.entry-visit {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.58rem;
-  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--forest-40);
-  transition: color 0.2s;
+  color: var(--vermillion);
+  font-weight: 700;
 }
-.prod-entry:hover .entry-visit { color: var(--vermillion); }
+.faq-h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+.faq-list {}
+.faq-item {
+  padding: 1.8rem 0;
+  border-top: 1.5px solid var(--ink);
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.faq-item:last-child { border-bottom: 1.5px solid var(--ink); }
+.faq-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--vermillion);
+  letter-spacing: 0.1em;
+}
+.faq-q {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.015em;
+}
+.faq-a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.98rem;
+  color: var(--ink-80);
+  line-height: 1.62;
+}
+.faq-a strong { color: var(--ink); font-weight: 700; }
 
+/* ── Responsive ── */
 @media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-counter { display: none; }
-  .section-counter { display: none; }
-  .products-list { grid-template-columns: 1fr; }
-  .prod-entry:nth-child(odd) { border-right: none; padding-right: 0; }
-  .prod-entry:nth-child(even) { padding-left: 0; }
-  .prod-entry:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); padding-bottom: 2.4rem; }
-  .prod-entry:last-child { border-bottom: none; }
+  .hero { padding: 3.5rem 1.5rem 2rem; }
+  .vs-grid { grid-template-columns: 1fr; }
+  .vs-col.them, .vs-col.us { border-right: none; border-left: none; }
+  .vs-col.us { border-top: 3px solid var(--ink); }
+  .pricing-grid { grid-template-columns: 1fr 1fr; }
+  .pcard:nth-child(2) { border-right: none; }
+  .pcard:nth-child(1), .pcard:nth-child(2) { border-bottom: 1.5px solid var(--ink); }
+  .pricing-head { grid-template-columns: 1fr; }
+  .pricing-note { text-align: left; }
 }
 @media (max-width: 600px) {
-  nav { padding: 1.2rem 1.5rem; }
-  .nav-tagline { display: none; }
-  .nav-links { display: none; }
-  .hero { padding: 0 1.5rem; }
-  .products { padding: 3rem 1.5rem; }
-  .thick-rule, .thin-rule { padding: 0 1.5rem; }
+  .topstrip { flex-wrap: wrap; gap: 0.8rem; font-size: 0.55rem; padding: 0.6rem 1.2rem; }
+  nav { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
+  .nav-right { gap: 1rem; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .pcard { border-right: none; border-bottom: 1.5px solid var(--ink); }
+  .faq-item { grid-template-columns: 1fr; gap: 0.4rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- Heavy top rule — broadsheet opener -->
-<div class="top-rule"></div>
+<div class="topstrip">
+  <span class="led"></span>
+  <span>LIVE — 7 PORTFOLIO COS · 4 PRODUCTS SHIPPING · <em>DAILY DEPLOYS</em></span>
+  <span class="led"></span>
+</div>
 
 <nav>
-  <div style="display:flex; align-items:center;">
-    <a class="nav-brand" href="/">
-      <span class="wordmark">Studio B<span class="wordmark-dot">.</span></span>
-    </a>
-    <span class="nav-tagline">Principal-Led Technology Studio</span>
-  </div>
-  <div class="nav-links">
+  <a class="brand" href="/">
+    <div class="brand-mark">b<span class="dot">.</span></div>
+    <span class="brand-name">Studio B</span>
+  </a>
+  <div class="nav-right">
     <a href="#products">Products</a>
-    <a href="#services">Services</a>
-    <a href="#proof">Proof</a>
-    <a href="#about">About</a>
-    <a href="#contact" class="nav-cta">Get in Touch</a>
+    <a href="#vs">Vs. Everyone</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="cta">Get in Touch →</a>
   </div>
 </nav>
 
-<div class="hero">
-  <!-- Giant ghost number -->
-  <div class="hero-counter" aria-hidden="true">01</div>
+<!-- HERO — one enormous statement -->
+<section class="hero">
+  <div class="hero-kicker">Studio B — Technology Studio, est. 2024</div>
+  <h1 class="hero-h1">We don't sell software we wouldn't <em>run ourselves.</em></h1>
+  <p class="hero-sub">Our software runs our own portfolio of seven companies. The same engineers shipping features on Tuesday are running inventory, orders, and deadlines on Wednesday. When you hire us, you get the people who live with the consequences — not a vendor who handed off the keys.</p>
+</section>
 
-  <div class="hero-top-bar">
-    <span class="hero-date">Est. 2024 · Studio B AI, LLC</span>
-    <span class="hero-edition">Technology · Operations · Software</span>
-  </div>
+<!-- VS section — "Most X. We Y." -->
+<section class="vs-section" id="vs">
+  <div class="vs-head">§ The difference, stated plainly —</div>
 
-  <div class="hero-grid">
-    <h1 class="hero-headline">We don't sell software we wouldn't <em>run ourselves.</em></h1>
+  <div class="vs-grid">
+    <div class="vs-col them">
+      <div class="vs-label">MOST CONSULTANCIES —</div>
+      <div class="vs-title">Ship the deck.<br>Disappear.</div>
+      <ul class="vs-list">
+        <li><span class="vs-icon">✕</span> PowerPoint first, code maybe, never.</li>
+        <li><span class="vs-icon">✕</span> Three-month statements of work.</li>
+        <li><span class="vs-icon">✕</span> Junior talent on-site. Partners on calls.</li>
+        <li><span class="vs-icon">✕</span> "Future state architecture" that never ships.</li>
+        <li><span class="vs-icon">✕</span> When prod breaks, you're on hold with support.</li>
+      </ul>
+    </div>
 
-    <div class="hero-right">
-      <div class="hero-rule-label">Principal's note</div>
-      <p class="hero-standfirst">Our software runs our own portfolio. The same engineers who ship features on a Tuesday are dealing with real inventory, real orders, and real deadlines on Wednesday. When you hire us, you get the people who live with the consequences — not a vendor who handed off the keys.</p>
+    <div class="vs-col us">
+      <div class="vs-label">STUDIO B —</div>
+      <div class="vs-title">Ship the code.<br>Run it daily.</div>
+      <ul class="vs-list">
+        <li><span class="vs-icon">✓</span> Code first, deck if you insist.</li>
+        <li><span class="vs-icon">✓</span> Two-week cycles, in production.</li>
+        <li><span class="vs-icon">✓</span> You talk to the principal. Always.</li>
+        <li><span class="vs-icon">✓</span> The architecture is the software that's already running.</li>
+        <li><span class="vs-icon">✓</span> When prod breaks, we already woke up for it on our own portfolio.</li>
+      </ul>
     </div>
   </div>
-</div>
+</section>
 
-<div class="thick-rule"><hr></div>
-
-<section class="products" id="products">
-  <!-- Ghost section counter -->
-  <div class="section-counter" aria-hidden="true">02</div>
-
-  <div class="products-header">
-    <div class="section-eyebrow">Products</div>
-    <div class="section-title">Four products. Each one built because <em>we needed it.</em></div>
+<!-- PRICING WALL -->
+<section class="pricing" id="pricing">
+  <div class="pricing-head">
+    <div class="h-left">
+      <div class="pricing-h-kicker">§ 02 · Our products</div>
+      <h2 class="pricing-h2">Four products. <em>Priced like we mean it.</em></h2>
+    </div>
+    <div class="pricing-note">← no "call sales"<br>no "contact us"<br>no nonsense.</div>
   </div>
 
-  <div class="products-list">
-    <a class="prod-entry" href="https://bolt.b.studio">
-      <div class="entry-top">
-        <span class="entry-name">Bolt</span>
-        <span class="entry-tag">WMS</span>
-      </div>
-      <div class="entry-rule"></div>
-      <p class="entry-desc">Standard warehouse systems count boxes. Your inventory is measured in yards. Bolt handles receiving, cut-to-length, put-away, pick, pack, and ship for goods sold by the yard, foot, or meter — with direct-carrier LTL rate shopping, parcel labels, cloud printing, and full ERP write-back.</p>
-      <div class="entry-footer">
-        <span class="entry-price">From <strong>$800</strong>/month · 3 tiers</span>
-        <span class="entry-visit">bolt.b.studio →</span>
-      </div>
+  <div class="pricing-grid">
+    <a class="pcard" href="https://bolt.b.studio">
+      <div class="pcard-tag">Bolt · WMS</div>
+      <div class="pcard-name">Bolt</div>
+      <div class="pcard-sub">Continuous Goods WMS</div>
+      <div class="pcard-price"><span class="currency">$</span>800<span class="per">/mo</span></div>
+      <p class="pcard-note">Core tier. Goods by yard, foot, meter. LTL rate-shop, parcel labels, cloud printing, ERP write-back. Pro $1,200. Enterprise $1,800.</p>
+      <div class="pcard-btn">bolt.b.studio →</div>
     </a>
 
-    <a class="prod-entry" href="https://acuops.com">
-      <div class="entry-top">
-        <span class="entry-name">AcuOps</span>
-        <span class="entry-tag">DevOps</span>
-      </div>
-      <div class="entry-rule"></div>
-      <p class="entry-desc">Twelve health probes, a post-publish test suite, and a CI/CD pipeline that pushes customizations through the Acumatica Customization API. VAR-facing, read-only, session-gated — the DevOps layer Acumatica doesn't ship.</p>
-      <div class="entry-footer">
-        <span class="entry-price"><strong>$300</strong>/month per instance · flat</span>
-        <span class="entry-visit">acuops.com →</span>
-      </div>
+    <a class="pcard" href="https://acuops.com">
+      <div class="pcard-tag">AcuOps · DevOps</div>
+      <div class="pcard-name">AcuOps</div>
+      <div class="pcard-sub">Acumatica DevOps Platform</div>
+      <div class="pcard-price"><span class="currency">$</span>300<span class="per">/mo</span></div>
+      <p class="pcard-note">Flat. Per Acumatica instance. 12 health probes, post-publish test suite, CI/CD through the Customization API. No tiers, no seats, no games.</p>
+      <div class="pcard-btn">acuops.com →</div>
     </a>
 
-    <a class="prod-entry" href="https://amplify.b.studio">
-      <div class="entry-top">
-        <span class="entry-name">Amplify</span>
-        <span class="entry-tag">LinkedIn</span>
-      </div>
-      <div class="entry-rule"></div>
-      <p class="entry-desc">LinkedIn engagement signals, scored for intent, drafted in your calibrated voice, and routed through Slack for approval before anything publishes. Built for agencies managing multiple brands and operators who want the full outbound loop without the guesswork.</p>
-      <div class="entry-footer">
-        <span class="entry-price">From <strong>$1,200</strong>/seat/month · beta</span>
-        <span class="entry-visit">amplify.b.studio →</span>
-      </div>
+    <a class="pcard" href="https://amplify.b.studio">
+      <div class="pcard-tag">Amplify · LinkedIn</div>
+      <div class="pcard-name">Amplify</div>
+      <div class="pcard-sub">LinkedIn Marketing Engine</div>
+      <div class="pcard-price"><span class="currency">$</span>1,200<span class="per">/seat/mo</span></div>
+      <p class="pcard-note">Beta. LinkedIn signals scored for intent, drafted in your calibrated voice, Slack-approved before anything publishes. Multi-brand ready.</p>
+      <div class="pcard-btn">amplify.b.studio →</div>
     </a>
 
-    <a class="prod-entry" href="https://relay.b.studio">
-      <div class="entry-top">
-        <span class="entry-name">Relay</span>
-        <span class="entry-tag">Messaging</span>
-      </div>
-      <div class="entry-rule"></div>
-      <p class="entry-desc">Slack, Teams, Zoom Chat, and Google Chat — one bridge, bidirectional. Route messages across platforms without copy-paste. Relay keeps every conversation connected regardless of which side of the deal is on which tool.</p>
-      <div class="entry-footer">
-        <span class="entry-price"><strong>Early access</strong> · relay.b.studio</span>
-        <span class="entry-visit">relay.b.studio →</span>
-      </div>
+    <a class="pcard" href="https://relay.b.studio">
+      <div class="pcard-tag">Relay · Messaging</div>
+      <div class="pcard-name">Relay</div>
+      <div class="pcard-sub">Unified Messaging Bridge</div>
+      <div class="pcard-price early">Early access</div>
+      <p class="pcard-note">Slack, Teams, Zoom Chat, Google Chat — one bridge, bidirectional. Route messages across platforms without copy-paste. Request an invite.</p>
+      <div class="pcard-btn">relay.b.studio →</div>
     </a>
+  </div>
+</section>
+
+<!-- FAQ — opinionated -->
+<section class="faq" id="faq">
+  <div class="faq-head">
+    <span class="faq-kicker">§ 03 · Objections, handled</span>
+    <h2 class="faq-h2">The questions you're actually going to ask.</h2>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-num">Q-01</div>
+      <div>
+        <div class="faq-q">Why should I hire a technology studio that runs a textile company?</div>
+        <p class="faq-a">Because <strong>the textile company is the qualification.</strong> We built Bolt to run Heritage Fabrics. We built AcuOps because our own Acumatica instance kept breaking. If our software doesn't survive our operations, it doesn't ship. That filter is what you're buying.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-num">Q-02</div>
+      <div>
+        <div class="faq-q">Will I get a deck or will I get code?</div>
+        <p class="faq-a">Code. We don't pitch. The first engagement artifact is a working integration, a configured pipeline, or a running service — not a PowerPoint. If your procurement process requires a deck, we'll write one after we've shipped the thing.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-num">Q-03</div>
+      <div>
+        <div class="faq-q">What stack do you work in?</div>
+        <p class="faq-a">Acumatica, HubSpot, Shopify, Railway, Orderful, TypeScript, Python, Postgres, BullMQ. If you're on NetSuite, Sage Intacct, Microsoft Dynamics 365 BC, or Infor CloudSuite, we can talk. We don't pretend to be ERP-agnostic — we pretend about nothing.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-num">Q-04</div>
+      <div>
+        <div class="faq-q">Can I see a demo environment?</div>
+        <p class="faq-a"><strong>We don't have one.</strong> Bolt runs Heritage Fabrics' warehouse. AcuOps runs our own CI/CD. Amplify runs our own outbound. If you want to see the software work, we'll show you the production instance it runs on. That's the demo.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-num">Q-05</div>
+      <div>
+        <div class="faq-q">Who actually does the work?</div>
+        <p class="faq-a">Kevin Bibelhausen, Principal. And the rest of the five-person team. No junior-partner handoffs. No offshore bench. You'll hear from the person who's going to write the code.</p>
+      </div>
+    </div>
   </div>
 </section>
 

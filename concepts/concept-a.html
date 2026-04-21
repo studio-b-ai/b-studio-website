@@ -3,548 +3,643 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio B — Concept A: Dark Ops</title>
+<title>Studio B — Concept A: The Manifesto</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,600;1,6..72,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════════════
-   CONCEPT A — Dark Ops / Terminal Product
-   Forest as background. Warm paper as text.
-   Vermillion as the only signal.
-   Idea: product dashboard energy. We ship, we operate,
-   we measure. This is what it looks like inside.
+   CONCEPT A — THE MANIFESTO
+   Shape Up pamphlet energy. Editorial maximalism.
+   Yellow highlighter. Hand-drawn arrows. Margin notes.
+   Multi-color: forest + vermillion + mustard + teal.
+   Kevin's signature at the bottom. 37signals book cover,
+   printed on warm paper, annotated by the author.
    ══════════════════════════════════════════════════ */
 
 :root {
-  --bg:          #1A3328;
-  --surface:     #152B21;
-  --surface-2:   #0F2019;
-  --paper:       #F4F1EB;
-  --paper-80:    rgba(244,241,235,0.80);
-  --paper-50:    rgba(244,241,235,0.50);
-  --paper-25:    rgba(244,241,235,0.25);
-  --paper-10:    rgba(244,241,235,0.10);
-  --paper-05:    rgba(244,241,235,0.05);
-  --vermillion:  #D94425;
-  --verm-bright: #F05030;
-  --border:      rgba(244,241,235,0.12);
-  --border-med:  rgba(244,241,235,0.20);
+  --paper:      #F4F1EB;
+  --paper-dark: #EAE4D4;
+  --ink:        #121A17;
+  --forest:     #1A3328;
+  --forest-70:  rgba(26,51,40,0.70);
+  --forest-40:  rgba(26,51,40,0.40);
+  --forest-12:  rgba(26,51,40,0.12);
+  --vermillion: #D94425;
+  --mustard:    #E8A838;
+  --mustard-hi: #FFD666;   /* highlighter yellow */
+  --teal:       #2E6FBA;
+  --rule:       #1A3328;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
-  color: var(--paper);
-  font-family: 'Inter', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
-/* ── Animations ── */
 @keyframes drawLine {
-  from { transform: scaleX(0); transform-origin: left; }
-  to   { transform: scaleX(1); transform-origin: left; }
+  from { stroke-dashoffset: 900; }
+  to   { stroke-dashoffset: 0; }
 }
 @keyframes rise {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}
-@keyframes ledPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 4px var(--vermillion); }
-  50%       { opacity: 0.4; box-shadow: none; }
+@keyframes wiggle {
+  0%,100% { transform: rotate(-1deg); }
+  50%     { transform: rotate(1deg); }
 }
 
-/* ── Top dispatch strip ── */
-.dispatch {
-  background: var(--surface-2);
-  border-bottom: 1px solid var(--border);
-  padding: 0.55rem 2.5rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  overflow: hidden;
-}
-.dispatch-led {
-  width: 7px;
-  height: 7px;
-  background: var(--vermillion);
-  flex-shrink: 0;
-  animation: ledPulse 2.2s ease-in-out infinite;
-}
-.dispatch-item {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.55rem;
-  color: var(--paper-50);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.dispatch-item strong {
-  color: var(--paper);
-  font-weight: 600;
-}
-.dispatch-item.accent strong { color: var(--vermillion); }
-.dispatch-divider {
-  width: 1px;
-  height: 12px;
-  background: var(--border);
-  flex-shrink: 0;
-}
-
-/* ── Nav ── */
-nav {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.5rem 2.5rem;
+/* ── Masthead bar ── */
+.masthead {
+  border-top: 5px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 0.7rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-}
-nav::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 2.5rem; right: 2.5rem;
-  height: 1px;
-  background: var(--border-med);
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: drawLine 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both;
-}
-
-/* Mark: vermillion filled square with b. */
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-.brand-box {
-  width: 30px;
-  height: 30px;
-  background: var(--vermillion);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.brand-box span {
-  font-family: 'Inter', sans-serif;
-  font-weight: 900;
-  font-size: 0.9rem;
-  color: #fff;
-  letter-spacing: -0.05em;
-  line-height: 1;
-}
-.brand-name {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--paper);
-  letter-spacing: -0.02em;
-}
-
-.nav-links { display: flex; gap: 2rem; align-items: center; }
-.nav-links a {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--paper-50);
-  text-decoration: none;
-  letter-spacing: 0.01em;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--paper); }
-.nav-cta {
-  background: var(--paper) !important;
-  color: var(--bg) !important;
-  padding: 0.5rem 1.3rem;
-  font-weight: 600 !important;
-  transition: background 0.2s, color 0.2s !important;
-}
-.nav-cta:hover {
-  background: var(--vermillion) !important;
-  color: #fff !important;
-}
-
-/* ── Hero ── */
-.hero {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 5.5rem 2.5rem 5rem;
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 4rem;
-  align-items: center;
-}
-
-.hero-eyebrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.55rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--vermillion);
-  margin-bottom: 2rem;
+  color: var(--ink);
+}
+.masthead-left { display: flex; gap: 1.5rem; }
+.masthead-left strong { color: var(--vermillion); font-weight: 700; }
+.masthead-right { display: flex; gap: 1.5rem; color: var(--forest-70); }
+
+/* ── Top title bar: "THE STUDIO B DISPATCH" ── */
+.title-bar {
+  text-align: center;
+  padding: 1.3rem 2.5rem 0.8rem;
+  border-bottom: 1px solid var(--forest-12);
+}
+.title-bar h1 {
+  font-family: 'Newsreader', serif;
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2.3vw, 1.9rem);
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.title-bar h1 em { font-style: italic; color: var(--vermillion); }
+.title-bar .sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--forest-40);
+  margin-top: 0.4rem;
+}
+
+/* ── Nav (thin) ── */
+nav {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 0.8rem 2.5rem 1rem;
+  border-bottom: 3px double var(--ink);
 }
-.hero-eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 2px;
+nav a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--vermillion); }
+nav .cta {
   background: var(--vermillion);
+  color: var(--paper);
+  padding: 0.4rem 1rem;
+  transition: background 0.2s;
+}
+nav .cta:hover { background: var(--ink); color: var(--mustard-hi); }
+
+/* ── Hero ── */
+.hero {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 4rem 3rem 3rem;
+  position: relative;
 }
 
-.hero h1 {
-  font-weight: 900;
-  font-size: clamp(2.8rem, 5.5vw, 5rem);
-  line-height: 1.0;
-  letter-spacing: -0.04em;
-  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s both;
-}
-.hero h1 em {
-  font-style: normal;
-  color: var(--vermillion);
-}
-
-.hero-body {
-  font-size: 1rem;
-  line-height: 1.82;
-  color: var(--paper-80);
-  margin-top: 2rem;
-  max-width: 560px;
-  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.45s both;
-}
-
-/* Right: ops dashboard panel */
-.ops-panel {
-  background: var(--surface-2);
-  border: 1px solid var(--border-med);
-  animation: rise 1s cubic-bezier(0.16,1,0.3,1) 0.5s both;
-}
-.ops-panel-head {
-  padding: 1rem 1.4rem;
-  border-bottom: 1px solid var(--border);
+/* Running folio at top of hero */
+.folio-row {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--forest-40);
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--forest-12);
 }
-.ops-panel-head-led {
+.folio-row .dot {
+  display: inline-block;
   width: 6px;
   height: 6px;
   background: var(--vermillion);
-  flex-shrink: 0;
-  animation: ledPulse 2s ease-in-out infinite;
-}
-.ops-panel-head-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.5rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--paper-50);
-}
-
-.ops-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.85rem 1.4rem;
-  border-bottom: 1px solid var(--paper-05);
-}
-.ops-row:last-child { border-bottom: none; }
-.ops-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.55rem;
-  color: var(--paper-50);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-.ops-value {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  color: var(--paper);
-  font-weight: 600;
-  text-align: right;
-}
-.ops-value.verm { color: var(--vermillion); }
-.ops-value.dim  { color: var(--paper-50); font-weight: 400; }
-
-/* Cursor blink in ops panel */
-.cursor {
-  display: inline-block;
-  width: 6px;
-  height: 0.75em;
-  background: var(--vermillion);
-  margin-left: 2px;
+  margin: 0 0.8rem;
   vertical-align: middle;
-  animation: blink 1.1s step-end infinite;
 }
 
-/* ── Section rule ── */
-.s-rule {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-}
-.s-rule hr {
-  border: none;
-  height: 1px;
-  background: var(--border);
-}
-
-/* ── Products ── */
-.products {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 5rem 2.5rem;
-}
-
-.products-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-}
-
-.prod-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--vermillion);
-  margin-bottom: 0.8rem;
-}
-
-.prod-title {
-  font-weight: 800;
-  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+/* The MASSIVE headline */
+.hero-h1 {
+  font-family: 'Newsreader', serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: clamp(3.5rem, 9vw, 9.5rem);
+  line-height: 0.92;
   letter-spacing: -0.035em;
-  line-height: 1.1;
-}
-.prod-title em { font-style: normal; color: var(--vermillion); }
-
-/* Seamless grid: products separated by 1px gaps */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--border-med); /* the gap color */
-  border: 1px solid var(--border-med);
-  margin-top: 2.5rem;
-}
-
-.prod-card {
-  background: var(--surface);
-  padding: 2rem 1.6rem 1.8rem;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: var(--paper);
+  color: var(--ink);
   position: relative;
-  overflow: hidden;
-  transition: background 0.25s;
+  animation: rise 1s cubic-bezier(0.16,1,0.3,1) 0.1s both;
 }
-.prod-card:hover { background: var(--surface-2); }
+.hero-h1 .break { display: block; }
+.hero-h1 .italic { font-style: italic; color: var(--vermillion); }
 
-/* Top bar animates in on hover */
-.prod-card::before {
+/* Yellow highlighter behind RUN OURSELVES */
+.hi {
+  position: relative;
+  display: inline;
+}
+.hi::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--vermillion);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  left: -0.1em;
+  right: -0.1em;
+  bottom: 0.08em;
+  top: 0.22em;
+  background: var(--mustard-hi);
+  z-index: -1;
+  transform: skew(-3deg, -0.5deg);
+  opacity: 0.85;
 }
-.prod-card:hover::before { transform: scaleX(1); }
 
-.card-tag {
+/* Hand-drawn circle around a word */
+.circled {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.2em;
+}
+.circled svg {
+  position: absolute;
+  inset: -0.15em -0.3em -0.15em -0.3em;
+  width: calc(100% + 0.6em);
+  height: calc(100% + 0.3em);
+  pointer-events: none;
+  stroke: var(--vermillion);
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Margin annotation (handwritten) */
+.margin-note {
+  position: absolute;
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 1.55rem;
+  line-height: 1.15;
+  color: var(--vermillion);
+  max-width: 260px;
+  animation: rise 1s cubic-bezier(0.16,1,0.3,1) 0.9s both;
+  transform: rotate(-3deg);
+}
+.margin-note .arrow {
+  width: 110px;
+  height: 60px;
+  display: block;
+  color: var(--vermillion);
+}
+
+/* Standfirst under hero */
+.standfirst-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 4rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--forest-12);
+}
+
+.standfirst {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: 1.35rem;
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: 640px;
+  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s both;
+}
+.standfirst .drop {
+  font-family: 'Newsreader', serif;
+  font-weight: 800;
+  font-size: 4.5rem;
+  line-height: 0.85;
+  float: left;
+  margin: 0.15rem 0.6rem -0.1rem 0;
+  color: var(--vermillion);
+}
+.standfirst strong { font-weight: 700; color: var(--forest); }
+
+/* Right sidebar: signature + stats */
+.hero-sidebar {
+  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.55s both;
+}
+.stats-box {
+  border: 2px solid var(--ink);
+  background: var(--mustard-hi);
+  padding: 1.2rem 1.3rem;
+  transform: rotate(-0.8deg);
+  margin-bottom: 2rem;
+}
+.stats-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.5rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+.stats-list {
+  list-style: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.95;
+  color: var(--ink);
+}
+.stats-list li { display: flex; justify-content: space-between; }
+.stats-list strong { font-weight: 700; }
+
+.sig-block {
+  padding-left: 1rem;
+  border-left: 3px solid var(--vermillion);
+}
+.sig-who {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--paper-25);
-  margin-bottom: 1rem;
+  color: var(--forest-40);
+  margin-bottom: 0.3rem;
 }
-.card-name {
-  font-weight: 800;
-  font-size: 1.5rem;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.9rem;
+.sig {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--vermillion);
+  margin-bottom: 0.2rem;
+  transform: rotate(-2deg);
+  transform-origin: left center;
+  display: inline-block;
 }
-.card-desc {
-  font-size: 0.82rem;
-  color: var(--paper-80);
-  line-height: 1.75;
-  flex: 1;
+.sig-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--forest);
+  margin-top: 0.5rem;
 }
-.card-meta {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--paper-05);
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-.card-price {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  color: var(--paper-50);
-}
-.card-price strong { color: var(--paper); }
-.card-link {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--paper-25);
-  transition: color 0.25s;
-}
-.prod-card:hover .card-link { color: var(--vermillion); }
 
+/* ── Heavy rule ── */
+.heavy-rule {
+  max-width: 1320px;
+  margin: 2rem auto 0;
+  padding: 0 3rem;
+}
+.heavy-rule .bar {
+  height: 5px;
+  background: var(--ink);
+  position: relative;
+}
+.heavy-rule .bar::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 100%; margin-top: 3px;
+  width: 100%;
+  height: 1px;
+  background: var(--ink);
+}
+
+/* ── Manifesto section — 4 products as numbered entries ── */
+.manifesto {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 4.5rem 3rem 4rem;
+}
+
+.manifesto-head {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+.manifesto-head .ch-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  background: var(--mustard-hi);
+  border: 2px solid var(--ink);
+  flex-shrink: 0;
+}
+.manifesto-head h2 {
+  font-family: 'Newsreader', serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.manifesto-head h2 em { font-style: italic; color: var(--vermillion); }
+
+/* The products — numbered entries, each with hand-drawn annotations */
+.product-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 260px;
+  gap: 2.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--forest-12);
+  position: relative;
+  text-decoration: none;
+  color: var(--ink);
+  align-items: start;
+  transition: background 0.2s;
+}
+.product-row:last-child { border-bottom: 1px solid var(--forest-12); }
+.product-row:hover { background: var(--paper-dark); }
+
+.roman {
+  font-family: 'Newsreader', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--vermillion);
+  letter-spacing: -0.03em;
+}
+
+.p-body {}
+.p-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+.p-name {
+  font-family: 'Newsreader', serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.p-type {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--forest-40);
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--forest-40);
+  border-radius: 0;
+}
+
+.p-desc {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--forest);
+  max-width: 640px;
+  margin-top: 0.8rem;
+}
+.p-desc strong { font-weight: 600; color: var(--ink); }
+
+/* highlighter variants per product */
+.hi-mustard { background: linear-gradient(transparent 60%, var(--mustard-hi) 60%); padding: 0 0.1em; }
+.hi-teal    { background: linear-gradient(transparent 60%, #A9D1FF 60%); padding: 0 0.1em; }
+
+.p-meta {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+}
+.p-price {
+  font-size: 0.8rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.p-price strong {
+  display: block;
+  font-family: 'Newsreader', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+  color: var(--vermillion);
+  margin-bottom: 0.1rem;
+}
+.p-link {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--forest-40);
+  transition: color 0.2s;
+}
+.product-row:hover .p-link { color: var(--vermillion); }
+
+/* Handwritten note floating at the end */
+.product-row .handnote {
+  position: absolute;
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--teal);
+  transform: rotate(-4deg);
+  pointer-events: none;
+}
+
+/* Responsive */
 @media (max-width: 1000px) {
-  .hero { grid-template-columns: 1fr; }
-  .ops-panel { display: none; }
-  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: 3rem 1.8rem; }
+  .standfirst-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .product-row { grid-template-columns: 60px 1fr; }
+  .p-meta { grid-column: 2; text-align: left; margin-top: 0.8rem; }
+  .margin-note { position: static; margin-top: 1rem; transform: none; max-width: none; }
+  .margin-note .arrow { display: none; }
 }
 @media (max-width: 600px) {
-  .dispatch { display: none; }
-  .products-grid { grid-template-columns: 1fr; }
-  .hero { padding: 4rem 1.5rem; }
-  nav { padding: 1.2rem 1.5rem; }
-  nav::after { left: 1.5rem; right: 1.5rem; }
-  .nav-links { display: none; }
+  .masthead { flex-direction: column; gap: 0.4rem; padding: 0.6rem 1.5rem; }
+  .masthead-right { display: none; }
+  nav { flex-wrap: wrap; gap: 1.2rem; padding: 0.8rem 1.5rem; }
+  .hero { padding: 2.5rem 1.5rem; }
+  .manifesto { padding: 3rem 1.5rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- Dispatch strip — "this is a live system" -->
-<div class="dispatch">
-  <div class="dispatch-led"></div>
-  <div class="dispatch-item accent"><strong>Live</strong></div>
-  <div class="dispatch-divider"></div>
-  <div class="dispatch-item">Portfolio companies: <strong>7</strong></div>
-  <div class="dispatch-divider"></div>
-  <div class="dispatch-item">Products shipping: <strong>4</strong></div>
-  <div class="dispatch-divider"></div>
-  <div class="dispatch-item">Orders processed: <strong>Daily</strong></div>
-  <div class="dispatch-divider"></div>
-  <div class="dispatch-item accent">Consequences: <strong>Real</strong></div>
+<!-- Newspaper masthead -->
+<div class="masthead">
+  <div class="masthead-left">
+    <span><strong>VOL. 01</strong></span>
+    <span>ISSUE No. 04</span>
+    <span>TWO CENTS</span>
+  </div>
+  <div class="masthead-right">
+    <span>FOUNDED 2024</span>
+    <span>KEVIN BIBELHAUSEN, EDITOR</span>
+  </div>
+</div>
+
+<div class="title-bar">
+  <h1>The Studio B <em>Dispatch</em></h1>
+  <div class="sub">A principal-led technology studio · Published from the operations floor</div>
 </div>
 
 <nav>
-  <a class="nav-brand" href="/">
-    <div class="brand-box"><span>b.</span></div>
-    <span class="brand-name">Studio B</span>
-  </a>
-  <div class="nav-links">
-    <a href="#products">Products</a>
-    <a href="#services">Services</a>
-    <a href="#proof">Proof</a>
-    <a href="#about">About</a>
-    <a href="#contact" class="nav-cta">Get in Touch</a>
-  </div>
+  <a href="#products">Products</a>
+  <a href="#services">Services</a>
+  <a href="#proof">Proof</a>
+  <a href="#about">About</a>
+  <a href="#contact" class="cta">Get in Touch →</a>
 </nav>
 
+<!-- Hero -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">Studio B — Technology Studio</div>
-    <h1>We don't sell software we wouldn't <em>run ourselves.</em></h1>
-    <p class="hero-body">Our software runs our own portfolio. The same engineers who ship features on a Tuesday are dealing with real inventory, real orders, and real deadlines on Wednesday. When you hire us, you get the people who live with the consequences — not a vendor who handed off the keys.</p>
+  <div class="folio-row">
+    <span>§ 01 &nbsp;·&nbsp; The manifesto</span>
+    <span>April 2026 <span class="dot"></span> Est. Chicago + Boston</span>
+    <span>Page 01 of 04</span>
   </div>
 
-  <!-- Live ops panel: signals "we are operators" -->
-  <div class="ops-panel">
-    <div class="ops-panel-head">
-      <div class="ops-panel-head-led"></div>
-      <div class="ops-panel-head-label">Portfolio — live status</div>
-    </div>
-    <div class="ops-row">
-      <span class="ops-label">Companies</span>
-      <span class="ops-value">7</span>
-    </div>
-    <div class="ops-row">
-      <span class="ops-label">ERP</span>
-      <span class="ops-value dim">Acumatica</span>
-    </div>
-    <div class="ops-row">
-      <span class="ops-label">CRM</span>
-      <span class="ops-value dim">HubSpot</span>
-    </div>
-    <div class="ops-row">
-      <span class="ops-label">Deploy cadence</span>
-      <span class="ops-value verm">Daily</span>
-    </div>
-    <div class="ops-row">
-      <span class="ops-label">Prod deploys today</span>
-      <span class="ops-value">3<span class="cursor"></span></span>
-    </div>
-    <div class="ops-row">
-      <span class="ops-label">Mode</span>
-      <span class="ops-value verm">Production</span>
-    </div>
-    <div class="ops-row">
-      <span class="ops-label">Demo environment</span>
-      <span class="ops-value dim">None</span>
-    </div>
+  <h1 class="hero-h1">
+    <span class="break">We don't sell</span>
+    <span class="break">software we wouldn't</span>
+    <span class="break"><span class="hi italic">run ourselves.</span></span>
+  </h1>
+
+  <!-- Handwritten margin annotation -->
+  <div class="margin-note" style="right: 3rem; top: 14rem;">
+    this is the whole thing →
+    <svg class="arrow" viewBox="0 0 120 70" fill="none">
+      <path d="M 5 55 Q 40 15, 85 30 T 115 35" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 5"/>
+      <path d="M 105 28 L 115 35 L 107 42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="standfirst-grid">
+    <p class="standfirst">
+      <span class="drop">O</span>ur software runs <strong>our own portfolio</strong>. The same engineers who ship features on a Tuesday are dealing with real inventory, real orders, and real deadlines on Wednesday. When you hire us, you get the people who <em>live with the consequences</em> — not a vendor who handed off the keys.
+    </p>
+
+    <aside class="hero-sidebar">
+      <div class="stats-box">
+        <div class="stats-label">The receipts —</div>
+        <ul class="stats-list">
+          <li><span>Companies owned</span> <strong>7</strong></li>
+          <li><span>Products shipping</span> <strong>4</strong></li>
+          <li><span>Production deploys</span> <strong>daily</strong></li>
+          <li><span>Demo environments</span> <strong>none</strong></li>
+          <li><span>Vendors we blame</span> <strong>zero</strong></li>
+        </ul>
+      </div>
+
+      <div class="sig-block">
+        <div class="sig-who">Signed, the principal —</div>
+        <div class="sig">Kevin B.</div>
+        <div class="sig-name">Kevin Bibelhausen · Founder &amp; Principal</div>
+      </div>
+    </aside>
   </div>
 </section>
 
-<div class="s-rule"><hr></div>
+<!-- Heavy triple rule between sections -->
+<div class="heavy-rule"><div class="bar"></div></div>
 
-<section class="products" id="products">
-  <div class="prod-eyebrow">Products</div>
-  <div class="prod-title">Four products. Each one built because <em>we needed it.</em></div>
-
-  <div class="products-grid">
-    <a class="prod-card" href="https://bolt.b.studio">
-      <div class="card-tag">Continuous Goods WMS</div>
-      <div class="card-name">Bolt</div>
-      <p class="card-desc">Standard warehouse systems count boxes. Your inventory is measured in yards. Bolt handles receiving, cut-to-length, put-away, pick, pack, and ship for goods sold by the yard, foot, or meter — with direct-carrier LTL rate shopping, parcel labels, cloud printing, and full ERP write-back.</p>
-      <div class="card-meta">
-        <span class="card-price">From <strong>$800</strong>/mo</span>
-        <span class="card-link">bolt.b.studio →</span>
-      </div>
-    </a>
-    <a class="prod-card" href="https://acuops.com">
-      <div class="card-tag">Acumatica DevOps Platform</div>
-      <div class="card-name">AcuOps</div>
-      <p class="card-desc">Twelve health probes, a post-publish test suite, and a CI/CD pipeline that pushes customizations through the Acumatica Customization API. VAR-facing, read-only, session-gated — the DevOps layer Acumatica doesn't ship.</p>
-      <div class="card-meta">
-        <span class="card-price"><strong>$300</strong>/mo per instance</span>
-        <span class="card-link">acuops.com →</span>
-      </div>
-    </a>
-    <a class="prod-card" href="https://amplify.b.studio">
-      <div class="card-tag">LinkedIn Marketing Engine</div>
-      <div class="card-name">Amplify</div>
-      <p class="card-desc">LinkedIn engagement signals, scored for intent, drafted in your calibrated voice, and routed through Slack for approval before anything publishes. Built for agencies managing multiple brands and operators who want the full outbound loop without the guesswork.</p>
-      <div class="card-meta">
-        <span class="card-price">From <strong>$1,200</strong>/seat/mo</span>
-        <span class="card-link">amplify.b.studio →</span>
-      </div>
-    </a>
-    <a class="prod-card" href="https://relay.b.studio">
-      <div class="card-tag">Unified Messaging Bridge</div>
-      <div class="card-name">Relay</div>
-      <p class="card-desc">Slack, Teams, Zoom Chat, and Google Chat — one bridge, bidirectional. Route messages across platforms without copy-paste. Relay keeps every conversation connected regardless of which side of the deal is on which tool.</p>
-      <div class="card-meta">
-        <span class="card-price"><strong>Early access</strong></span>
-        <span class="card-link">relay.b.studio →</span>
-      </div>
-    </a>
+<!-- Manifesto: products as numbered chapters -->
+<section class="manifesto" id="products">
+  <div class="manifesto-head">
+    <span class="ch-label">§ 02 · The products</span>
+    <h2>Four things <em>we had to build</em> because nobody else would build them right.</h2>
   </div>
+
+  <a class="product-row" href="https://bolt.b.studio">
+    <div class="roman">i.</div>
+    <div class="p-body">
+      <div class="p-name-row">
+        <span class="p-name">Bolt</span>
+        <span class="p-type">Continuous Goods WMS</span>
+      </div>
+      <p class="p-desc">Standard warehouse systems count boxes. <span class="hi-mustard">Your inventory is measured in yards.</span> Bolt handles receiving, cut-to-length, put-away, pick, pack, and ship for goods sold by the yard, foot, or meter — with direct-carrier LTL rate shopping, parcel labels, cloud printing, and full ERP write-back.</p>
+    </div>
+    <div class="p-meta">
+      <div class="p-price"><strong>$800/mo</strong>3 tiers · starts here</div>
+      <div class="p-link">bolt.b.studio →</div>
+    </div>
+  </a>
+
+  <a class="product-row" href="https://acuops.com">
+    <div class="roman">ii.</div>
+    <div class="p-body">
+      <div class="p-name-row">
+        <span class="p-name">AcuOps</span>
+        <span class="p-type">Acumatica DevOps Platform</span>
+      </div>
+      <p class="p-desc">Twelve health probes, a post-publish test suite, and a CI/CD pipeline that pushes customizations through the Acumatica Customization API. <span class="hi-teal">VAR-facing, read-only, session-gated.</span> The DevOps layer Acumatica doesn't ship.</p>
+    </div>
+    <div class="p-meta">
+      <div class="p-price"><strong>$300/mo</strong>per instance · flat</div>
+      <div class="p-link">acuops.com →</div>
+    </div>
+  </a>
+
+  <a class="product-row" href="https://amplify.b.studio">
+    <div class="roman">iii.</div>
+    <div class="p-body">
+      <div class="p-name-row">
+        <span class="p-name">Amplify</span>
+        <span class="p-type">LinkedIn Marketing Engine</span>
+      </div>
+      <p class="p-desc">LinkedIn engagement signals, scored for intent, drafted in your calibrated voice, and routed through Slack for approval before anything publishes. <span class="hi-mustard">Built for agencies managing multiple brands</span> and operators who want the full outbound loop without the guesswork.</p>
+    </div>
+    <div class="p-meta">
+      <div class="p-price"><strong>$1,200/seat</strong>per month · beta</div>
+      <div class="p-link">amplify.b.studio →</div>
+    </div>
+  </a>
+
+  <a class="product-row" href="https://relay.b.studio">
+    <div class="roman">iv.</div>
+    <div class="p-body">
+      <div class="p-name-row">
+        <span class="p-name">Relay</span>
+        <span class="p-type">Unified Messaging Bridge</span>
+      </div>
+      <p class="p-desc">Slack, Teams, Zoom Chat, and Google Chat — <span class="hi-teal">one bridge, bidirectional.</span> Route messages across platforms without copy-paste. Relay keeps every conversation connected regardless of which side of the deal is on which tool.</p>
+    </div>
+    <div class="p-meta">
+      <div class="p-price"><strong>Early access</strong>request an invite</div>
+      <div class="p-link">relay.b.studio →</div>
+    </div>
+  </a>
 </section>
 
 </body>
