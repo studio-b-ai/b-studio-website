@@ -35,7 +35,7 @@ So the pattern I'm describing isn't a duplicate of any of these. It borrows from
 
 ## The four ideas
 
-The skill is internally called Rigby. The name doesn't matter; the four ideas do. The full source is [in my dotfiles](https://github.com/studio-b-ai) — what's worth taking is the shape, not the implementation.
+The skill is internally called Rigby. The name doesn't matter; the four ideas do. A generic version of the scaffold is published at [studio-b-ai/tiered-close-out](https://github.com/studio-b-ai/tiered-close-out) — what's worth taking is the shape, not the implementation.
 
 ### 1. Three outputs, three stores, three gates
 
@@ -104,6 +104,8 @@ What the others do *better* than rigby, fairly:
 The differentiation isn't *better*. It's *shape*. Rigby is for someone running production systems where some classes of mistake are expensive enough to justify a tripwire at every wrap-up.
 
 ## How to adapt it to your stack
+
+> **Skill scaffold.** A generic, drop-in version of this pattern lives at [studio-b-ai/tiered-close-out](https://github.com/studio-b-ai/tiered-close-out). Clone it into `~/.claude/skills/tiered-close-out/` and follow the README's three-TODO walkthrough — example fills are provided for CLAUDE.md + claude-mem, CLAUDE.md + qmd-sessions, and AGENTS.md + tagged-markdown stacks.
 
 Skip the Acumatica part. Skip Qdrant if you don't have it. Keep the structure.
 
