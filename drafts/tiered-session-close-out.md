@@ -35,7 +35,7 @@ So the pattern I'm describing isn't a duplicate of any of these. It borrows from
 
 ## The four ideas
 
-The skill is internally called Rigby. The name doesn't matter; the four ideas do. A generic version of the scaffold is published at [studio-b-ai/tiered-close-out](https://github.com/studio-b-ai/tiered-close-out) — what's worth taking is the shape, not the implementation.
+I called the skill **Rigby**, after the [Silicon Valley S3E1 gag](https://www.youtube.com/watch?v=pF8o3UrwksU) where Gilfoyle compresses "**R**ichard **i**s **g**reat, **b**ut..." into a single syllable — the universal preamble to a softened complaint. Every session is great, *but* — and the buts are where the next outage lives. A close-out skill that doesn't surface them is a victory lap. A generic version of the scaffold is published at [studio-b-ai/tiered-close-out](https://github.com/studio-b-ai/tiered-close-out); what's worth taking is the shape, not my implementation.
 
 ### 1. Three outputs, three stores, three gates
 
@@ -99,15 +99,15 @@ What the others do *better* than rigby, fairly:
 - **claude-mem's progressive-disclosure retrieval** is more sophisticated than rigby's flat Qdrant query. If you're optimizing for token cost on read, look there.
 - **qmd-sessions' BM25 + vector + LLM-rerank** is a stronger search stack than rigby's vector-only.
 - **dream-skill's autonomous trigger** is genuinely nicer UX than typing "rigby" — but it trades off the deliberate review window I want.
-- **gstack's `AskUserQuestion`-gated phases** are a cleaner approval primitive than rigby's "approve [Y/n]" prompt at the end. If I rewrote rigby today I'd steal that.
+- **gstack's `AskUserQuestion`-gated phases** were what convinced me to ditch rigby's earlier `[Y/n]` prompt for per-tier `AskUserQuestion` gates. Borrowed straight from office-hours and integrated; the pattern travels.
 
 The differentiation isn't *better*. It's *shape*. Rigby is for someone running production systems where some classes of mistake are expensive enough to justify a tripwire at every wrap-up.
 
 ## How to adapt it to your stack
 
-> **Skill scaffold.** A generic, drop-in version of this pattern lives at [studio-b-ai/tiered-close-out](https://github.com/studio-b-ai/tiered-close-out). Clone it into `~/.claude/skills/tiered-close-out/` and follow the README's three-TODO walkthrough — example fills are provided for CLAUDE.md + claude-mem, CLAUDE.md + qmd-sessions, and AGENTS.md + tagged-markdown stacks.
+Clone [studio-b-ai/tiered-close-out](https://github.com/studio-b-ai/tiered-close-out) into `~/.claude/skills/tiered-close-out/`. The SKILL.md boots with three `TODO:` markers and one example domain guard; the README walks the fills for three common stacks (CLAUDE.md + claude-mem, CLAUDE.md + qmd-sessions, AGENTS.md + tagged-markdown). On the cold install I timed it at 5–7 minutes end to end.
 
-Skip the Acumatica part. Skip Qdrant if you don't have it. Keep the structure.
+The five things to be deliberate about while filling it in:
 
 1. **Pick your three tiers.** Behavioral rules → wherever your agent loads them on startup (CLAUDE.md, `.cursorrules`, AGENTS.md). Operational knowledge → whatever you can cheaply search later (a tagged folder of markdown files works fine; you don't need a vector store on day one). Handoff → display-only, no persistence.
 
@@ -123,4 +123,4 @@ The shortest version of all of this: most session-wrap skills are written as if 
 
 ---
 
-*Kevin Bibelhausen runs [Studio B](https://b.studio), a small consultancy that builds and runs Acumatica-adjacent products including [Bolt WMS](https://bolt.b.studio) and [AcuOps](https://acuops.com). The Rigby skill is part of his personal setup; the pattern is free to copy.*
+*Kevin Bibelhausen runs [Studio B](https://b.studio), a small consultancy that builds and runs Acumatica-adjacent products including [Bolt WMS](https://bolt.b.studio) and [AcuOps](https://acuops.com). The Rigby skill is part of his personal setup; the [scaffold](https://github.com/studio-b-ai/tiered-close-out) is free to copy.*
