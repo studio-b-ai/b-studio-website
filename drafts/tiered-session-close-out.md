@@ -77,7 +77,7 @@ None of the surveyed skills have this concept. dream-skill, qmd-sessions, and cl
 
 When a session ends with uncommitted work in a feature branch or worktree, Rigby doesn't try to handle the merge/PR/keep/abandon decision itself. Section 5 hands off to [`superpowers:finishing-a-development-branch`](https://github.com/obra/superpowers), which already knows that decision tree.
 
-This is small but it matters. The temptation when writing a "comprehensive" skill is to inline everything so the user only invokes one thing. The cost is that you end up reimplementing — and slowly diverging from — primitives someone else maintains better than you. Rigby's composition is explicit: when the conversation hits a branch-disposition decision, jump to the skill that owns that decision, then come back.
+This is small but it matters. The temptation when writing a session-close skill is to inline everything so the user only invokes one thing. The cost is that you end up reimplementing — and slowly diverging from — primitives someone else maintains better than you. Rigby's composition is explicit: when the conversation hits a branch-disposition decision, jump to the skill that owns that decision, then come back.
 
 claudekit and gstack both compose internally across their own suites; rigby's contribution is composing *across* skill packages. The implication for your own version: write the close-out as a router, not a monolith. Section 1 promotes rules. Section 2 ingests knowledge. Section 5 invokes whoever owns branch state in your stack. Section 7 runs your domain guard. Each section can be replaced independently.
 
