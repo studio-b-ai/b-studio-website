@@ -128,9 +128,15 @@ LP clicks "Book a call"
 
 ### Page Structure
 
-1. **Hero** — paper ground, headline + body + CTA
-2. **Email capture form** — name, email, firm → HubSpot contact, enrolled per above
+1. **Hero** — paper ground, headline + body
+2. **Two-tier CTA strip** — side by side:
+   - Free: "Get early access" → email capture → SDLI Brief enrollment
+   - Premium (unnamed): "Join the institutional waitlist" → name, email, firm → HubSpot, flagged for premium outreach
 3. **Footer** — links to Consulting, Capital, b.studio
+
+### SDLI Tier Signal
+
+Naming and pricing TBD at M9. Landing page signals both tiers exist now — reframes Benchmarks as a data business, not just a publishing operation. Supports capital raise narrative.
 
 ### Repo + DNS
 
