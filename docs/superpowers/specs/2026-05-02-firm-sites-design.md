@@ -40,32 +40,36 @@ Three separate GitHub Pages sites, each a single landing page for one Studio B f
 
 **Body:** The businesses we back have been in our network for years — advised, measured, and run alongside. We're not introduced to the opportunity. We're already trusted by the operator.
 
-**CTA:** LP Inquiry
+**CTA:** Book a call
 
 **Tag:** Investment firm · $100M target · lower middle market · capital.b.studio
 
+### Newsletter
+
+- **Auto-enrolled:** SDLI Brief + Dispatch
+- **Note:** Dispatch opt-in should be a visible checkbox (LP audience may not want operator newsletter as they broaden)
+
 ### Page Structure
 
-1. **Hero** — full-viewport, forest ground, headline + body + scroll-to-form CTA
-2. **LP Inquiry form** — name, email, firm, message (optional). On submit: creates HubSpot contact with `lp_stage = prospect`, triggers HubSpot workflow that emails Docsend data room link
-3. **Newsletter strip** — Beehiiv embed, SDLI Brief ("Ground-level intelligence on lower middle market operators. Monthly.")
-4. **Footer** — links to Consulting, Benchmarks, b.studio
+1. **Hero** — full-viewport, forest ground, headline + body + CTA
+2. **HubSpot booking tool** — inline embed, collects LP info on booking
+3. **Footer** — links to Consulting, Benchmarks, b.studio
 
 ### Lead Flow
 
 ```
-LP clicks "LP Inquiry"
-→ scrolls to form
-→ submits (name, email, firm, note)
-→ HubSpot contact created: lp_stage=prospect, newsletter_source=capital-site
-→ HubSpot workflow fires: sends Docsend data room link via email
-→ LP enters sales funnel
+LP clicks "Book a call"
+→ HubSpot booking tool (collects name, email, firm, note)
+→ booking confirmed
+→ Docsend data room link sent via email
+→ enrolled: SDLI Brief (auto) + Dispatch (checkbox)
+→ lp_stage = prospect
 ```
 
 **Dependencies before go-live:**
 - Docsend data room must exist
-- HubSpot workflow must be built (form → Docsend email)
-- HubSpot form embed code or API endpoint
+- HubSpot booking page configured + Docsend workflow built
+- HubSpot meeting link
 
 ### Repo + DNS
 
@@ -77,20 +81,25 @@ LP clicks "LP Inquiry"
 
 ## Consulting — consulting.b.studio (Priority 2)
 
-### Copy (draft — pending copy review)
+### Copy
 
-**Headline:** We build for operators who can't justify a senior team *full time.*
+**Headline:** We don't consult. We embed.
 
-**Body:** Studio B Consulting embeds directly into your operation — strategy, systems, and execution without the overhead of a full-time hire. We work with lower middle market companies running on complexity.
+**Body:** Operators don't need more advice. They need someone in the room. Built on AI and scar tissue. We don't send decks — we show up.
 
-**CTA:** Start a conversation
+**CTA:** Book a call
 
 **Tag:** Services firm · consulting.b.studio
 
+### Newsletter
+
+- **Auto-enrolled:** Dispatch
+- **Opt-in:** SDLI Brief (checkbox)
+
 ### Page Structure
 
-1. **Hero** — yolk ground, headline + body + CTA (mailto or Calendly)
-2. **Services strip** — three brief columns: Strategy / Systems / Execution (no pricing)
+1. **Hero** — yolk ground, headline + body + CTA
+2. **HubSpot booking tool** — inline embed
 3. **Footer** — links to Capital, Benchmarks, b.studio
 
 ### Repo + DNS
@@ -102,20 +111,25 @@ LP clicks "LP Inquiry"
 
 ## Benchmarks — benchmarks.b.studio (Priority 3)
 
-### Copy (draft — pending copy review)
+### Copy
 
 **Headline:** Ground truth for the lower *middle market.*
 
-**Body:** Studio B Benchmarks measures what operators actually want to know — performance, throughput, and unit economics across the lower middle market. Not survey data. Not proxies. Observed signal from real operations.
+**Body:** The lower middle market has benchmarks. Getting them costs a seat at the institutional table. We're building the open alternative: SDLI, a direct lending index constructed from observed deal data — not surveys, not self-reporting. Ground truth, democratized.
 
 **CTA:** Get early access
 
 **Tag:** Measurement firm · benchmarks.b.studio
 
+### Newsletter
+
+- **Auto-enrolled:** SDLI Brief
+- **Opt-in:** Dispatch (checkbox)
+
 ### Page Structure
 
-1. **Hero** — paper ground, headline + body + CTA (email capture)
-2. **What we measure** — brief signal list (3–4 items)
+1. **Hero** — paper ground, headline + body + CTA
+2. **Email capture form** — name, email, firm → HubSpot contact, enrolled per above
 3. **Footer** — links to Consulting, Capital, b.studio
 
 ### Repo + DNS
@@ -139,7 +153,5 @@ LP clicks "LP Inquiry"
 
 ## Open Decisions
 
-- Consulting CTA destination: mailto vs. Calendly embed
-- Benchmarks CTA destination: email capture (Beehiiv?) or static mailto
-- Analytics provider
-- Consulting + Benchmarks copy needs a review pass (Capital copy is locked)
+- Analytics provider (Fathom / Plausible / none)
+- Whether SDLI gets a freemium + premium tier (affects Benchmarks page structure)
