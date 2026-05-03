@@ -439,70 +439,29 @@ nav {
 .p-block.acuops .pb-sticker  { background: var(--yolk); color: var(--ink); border-color: var(--ink); }
 .p-block.amplify .pb-sticker { background: var(--yolk); color: var(--ink); border-color: var(--ink); }
 
-/* ── SERVICES band ── */
-.services {
-  background: var(--yolk);
-  padding: 5rem 2.5rem;
-  border-bottom: 4px solid var(--ink);
+/* ── Entity lanes ── */
+.entity-lanes { border-bottom: 3px solid var(--ink); }
+.el-head { padding: 3rem 4rem 2rem; display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 3px solid var(--ink); gap: 2rem; flex-wrap: wrap; }
+.el-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(13,13,13,0.35); white-space: pre-line; }
+.el-h2 { font-family: 'Fraunces', serif; font-weight: 900; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); }
+.el-h2 em { font-style: italic; color: var(--vermillion); }
+.el-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.el-card { padding: 3rem; border-right: 3px solid var(--ink); }
+.el-card:last-child { border-right: none; }
+.el-num { font-family: 'JetBrains Mono', monospace; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.2em; color: rgba(13,13,13,0.3); margin-bottom: 1rem; }
+.el-name { font-family: 'Fraunces', serif; font-weight: 900; font-style: italic; font-size: 1.3rem; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 0.75rem; }
+.el-desc { font-size: 0.85rem; line-height: 1.65; color: rgba(13,13,13,0.62); margin-bottom: 1.75rem; }
+.el-ctas { display: flex; flex-direction: column; gap: 0.75rem; }
+.el-primary { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: opacity 0.12s; }
+.el-primary:hover { opacity: 0.6; }
+.el-newsletter { font-family: 'JetBrains Mono', monospace; font-size: 0.52rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(13,13,13,0.4); text-decoration: none; transition: color 0.12s; }
+.el-newsletter:hover { color: var(--ink); }
+@media (max-width: 768px) {
+  .el-head { padding: 2rem 1.5rem; }
+  .el-grid { grid-template-columns: 1fr; }
+  .el-card { border-right: none; border-bottom: 3px solid var(--ink); padding: 2rem 1.5rem; }
+  .el-card:last-child { border-bottom: none; }
 }
-.services-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 4rem;
-  align-items: start;
-}
-.svc-kicker {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--vermillion);
-  font-weight: 700;
-  border-left: 4px solid var(--vermillion);
-  padding-left: 1rem;
-  line-height: 1.7;
-}
-.svc-body h3 {
-  font-family: 'Fraunces', serif;
-  font-weight: 900;
-  font-size: clamp(2rem, 4vw, 3.4rem);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-  color: var(--ink);
-  margin-bottom: 1.2rem;
-}
-.svc-body h3 em { font-style: italic; color: var(--vermillion); }
-.svc-body p {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--ink-80);
-  max-width: 640px;
-  margin-bottom: 2rem;
-}
-.svc-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.95rem 1.8rem;
-  background: var(--ink);
-  color: var(--yolk);
-  text-decoration: none;
-  font-family: 'Inter', sans-serif;
-  font-weight: 800;
-  font-size: 0.95rem;
-  border: 3px solid var(--ink);
-  box-shadow: 6px 6px 0 var(--vermillion);
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-.svc-cta:hover {
-  transform: translate(3px, 3px);
-  box-shadow: 3px 3px 0 var(--vermillion);
-}
-.svc-cta svg { transition: transform 0.15s; }
-.svc-cta:hover svg { transform: translateX(3px); }
 
 /* ── PROOF band — forest green ── */
 .proof {
@@ -923,7 +882,7 @@ footer {
   </button>
   <div class="nav-right">
     <a href="#products">Products</a>
-    <a href="#services">Services</a>
+    <a href="#entities">Entities</a>
     <a href="#proof">Proof</a>
     <a href="#about">About</a>
     <a href="#contact" class="cta">Get in Touch</a>
@@ -955,7 +914,7 @@ footer {
 
   <div class="badges">
     <span class="badge"><span class="bdot"></span>7 portfolio companies</span>
-    <span class="badge">4 products shipping</span>
+    <span class="badge">3 products in production</span>
     <span class="badge ink"><span class="bdot"></span>Production, every day</span>
     <span class="badge rot">0 demo environments</span>
     <span class="badge">Principal-led · 5 people</span>
@@ -967,7 +926,7 @@ footer {
 <!-- PRODUCTS -->
 <section class="products" id="products">
   <div class="products-head">
-    <div class="ph-left">§ 02<br>— THE PRODUCTS —<br>FOUR IN PRODUCTION</div>
+    <div class="ph-left">§ 02<br>— THE PRODUCTS —<br>THREE IN PRODUCTION</div>
     <h2 class="ph-h2">Each one built because <em>we needed it.</em></h2>
   </div>
 
@@ -1004,7 +963,7 @@ footer {
       <div>
         <div class="pb-number">03</div>
         <div class="pb-name">Amplify</div>
-        <div class="pb-tag">LinkedIn Engine</div>
+        <div class="pb-tag">Outbound Intelligence Engine</div>
       </div>
       <p class="pb-desc">LinkedIn engagement signals scored for intent, drafted in your calibrated voice, routed through Slack for approval before anything publishes. For agencies managing multiple brands and operators who want the full outbound loop.</p>
       <div class="pb-foot">
@@ -1015,18 +974,44 @@ footer {
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="services-inner">
-    <div class="svc-kicker">§ 03<br>— WORK WITH US —<br>SMB &amp; LMM</div>
-    <div class="svc-body">
-      <h3>We take a small number of engagements <em>each year.</em></h3>
-      <p>AI digital transformation for SMBs and LMM PE-backed companies. We ran this playbook on our own portfolio first — ERP, WMS, CRM, outbound intelligence, CI/CD — end to end, in production. If you're a PE sponsor or portco looking to do the same, start a conversation.</p>
-      <a href="#contact" class="svc-cta">
-        Start a conversation
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
+<!-- ENTITY LANES -->
+<section class="entity-lanes" id="entities">
+  <div class="el-head">
+    <div class="el-kicker">§ 03<br>— ENTITIES —<br>THREE WAYS IN</div>
+    <h2 class="el-h2">Three ways to <em>work with us.</em></h2>
+  </div>
+  <div class="el-grid">
+
+    <div class="el-card consulting">
+      <div class="el-num">01</div>
+      <div class="el-name">Consulting, by Studio B</div>
+      <p class="el-desc">We embed. We don't advise. AI transformation for operators and PE-backed companies — end to end, in production.</p>
+      <div class="el-ctas">
+        <a href="https://consulting.b.studio" class="el-primary">consulting.b.studio →</a>
+        <a href="https://dispatch.b.studio/subscribe" class="el-newsletter">Read Dispatch, by Studio B →</a>
+      </div>
     </div>
+
+    <div class="el-card capital">
+      <div class="el-num">02</div>
+      <div class="el-name">Capital, by Studio B</div>
+      <p class="el-desc">Non-bank lender for the global lower middle market. We built the lending index because the benchmarks didn't exist.</p>
+      <div class="el-ctas">
+        <a href="https://capital.b.studio" class="el-primary">capital.b.studio →</a>
+        <a href="https://dli.b.studio/subscribe" class="el-newsletter">Read DLI, by Studio B →</a>
+      </div>
+    </div>
+
+    <div class="el-card build">
+      <div class="el-num">03</div>
+      <div class="el-name">Build, by Studio B</div>
+      <p class="el-desc">We ship on our own stack and publish the build. Bolt, AcuOps, and Amplify run real operations before they reach any client.</p>
+      <div class="el-ctas">
+        <a href="https://build.b.studio" class="el-primary">build.b.studio →</a>
+        <a href="https://markdown.b.studio/subscribe" class="el-newsletter">Read Markdown, by Studio B →</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1040,7 +1025,7 @@ footer {
     <p class="proof-context">Wholesale distribution, DTC, manufacturing, SaaS, professional services, financial services, and other highly regulated industries. Different fulfillment models, different customer bases, different compliance requirements — Studio B built and runs the technology layer across all of it.</p>
     <div class="proof-stats">
       <div class="ps-item"><div class="ps-n">7</div><div class="ps-l">Companies owned &amp; operated</div></div>
-      <div class="ps-item"><div class="ps-n">4</div><div class="ps-l">Products in production</div></div>
+      <div class="ps-item"><div class="ps-n">3</div><div class="ps-l">Products in production</div></div>
       <div class="ps-item"><div class="ps-n">Daily</div><div class="ps-l">Real orders, real deadlines</div></div>
       <div class="ps-item"><div class="ps-n">0</div><div class="ps-l">Demo environments</div></div>
     </div>
@@ -1061,7 +1046,6 @@ footer {
       <div class="bio-contact"><a href="mailto:kevin@b.studio">kevin@b.studio</a> · Principal, Studio B</div>
     </div>
     <aside class="bio-sig-box">
-      <div class="bsb-label">— signed, the principal —</div>
       <div class="bsb-sig">Kevin B.</div>
       <div class="bsb-name">Kevin Bibelhausen<br>Founder &amp; Principal, Studio B</div>
     </aside>
@@ -1101,10 +1085,10 @@ footer {
 
 <footer>
   <div class="footer-inner">
-    <div class="f-copy">© 2026 Studio B AI, LLC</div>
+    <div class="f-copy">© 2026 Studio B Consulting, LLC</div>
     <div class="f-links">
       <a href="#products">Products</a>
-      <a href="#services">Services</a>
+      <a href="#entities">Entities</a>
       <a href="#about">About</a>
       <a href="/privacy">Privacy</a>
     </div>
