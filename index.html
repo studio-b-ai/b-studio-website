@@ -659,6 +659,17 @@ footer {
         <div class="pc-title">The Non-Bank Advantage in Lower Middle Market Credit</div>
         <div class="pc-meta">Loading latest issue…</div>
         <div class="pc-excerpt">The deepest structural gap in LMM credit isn't where banks won't lend — it's where they can't move fast enough or stay long enough.</div>
+        <div class="lmmi-strip" id="b-lmmi-strip">
+          <span class="lmmi-strip-label">LMMI</span>
+          <span class="lmmi-strip-sep">·</span>
+          <span id="b-lmmi-period">Q1 2025</span>
+          <span class="lmmi-strip-sep">·</span>
+          <span class="lmmi-strip-val" id="b-lmmi-spread">625 bps</span>
+          <span class="lmmi-strip-label">&nbsp;US spread</span>
+          <span class="lmmi-strip-sep">·</span>
+          <span class="lmmi-strip-val" id="b-lmmi-recovery">78%</span>
+          <span class="lmmi-strip-label">&nbsp;UK recovery</span>
+        </div>
         <div class="pc-footer">
           <span class="pc-read">Read issue →</span>
           <a class="pc-subscribe" href="https://lmmi.b.studio/subscribe" onclick="event.stopPropagation()">Subscribe to LMMI →</a>
@@ -794,6 +805,30 @@ footer {
     }
   } catch (_) {
     // silently keep placeholder content
+  }
+})();
+</script>
+
+<script>
+// Live LMMI ticker — fetches /api/dli/latest and hydrates the strip inside the LMMI post-card.
+// Renders with hardcoded fallback values first so the strip is never empty.
+(function () {
+  var DLI_API = 'https://studiob-api-production-2df4.up.railway.app/api/dli/latest';
+  function hydrate(d) {
+    var p = document.getElementById('b-lmmi-period');
+    var s = document.getElementById('b-lmmi-spread');
+    var r = document.getElementById('b-lmmi-recovery');
+    if (p) p.textContent = d.period;
+    if (s) s.textContent = d.us_spread_bps + ' bps';
+    if (r) r.textContent = d.uk_recovery_pct + '%';
+  }
+  if (typeof fetch !== 'undefined') {
+    var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var t = ctrl ? setTimeout(function () { ctrl.abort(); }, 3000) : null;
+    fetch(DLI_API, ctrl ? { signal: ctrl.signal } : {})
+      .then(function (r) { if (r.ok) return r.json(); throw new Error('non-ok'); })
+      .then(function (d) { clearTimeout(t); hydrate(d); })
+      .catch(function () { clearTimeout(t); });
   }
 })();
 </script>
