@@ -31,6 +31,9 @@
   --forest:     #1A3328;
   --process-blue: #3A7CA5;
   --snow:       #FFFFFF;
+  /* JetBrains Mono label scale tokens */
+  --mono-sm:    0.62rem;   /* was 0.45rem — all small uppercase labels */
+  --mono-md:    0.68rem;   /* was 0.5rem  — medium labels, nav, buttons */
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -69,7 +72,7 @@ body {
 .masthead-dot { color: var(--vermillion); }
 .masthead-name {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.5rem;
+  font-size: var(--mono-md);
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -78,7 +81,7 @@ body {
 }
 .masthead-center {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.45rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -97,7 +100,7 @@ body {
 }
 .masthead-nav a {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.5rem;
+  font-size: var(--mono-md);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -108,7 +111,7 @@ body {
 .masthead-nav a:hover { color: var(--ink); }
 .btn-lp {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.5rem;
+  font-size: var(--mono-md);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -149,7 +152,7 @@ body {
 
 .fold-kicker {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.5rem;
+  font-size: var(--mono-md);
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -205,7 +208,7 @@ body {
 }
 .stat-l {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.45rem;
+  font-size: var(--mono-sm);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -229,7 +232,7 @@ body {
 }
 .stream-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.5rem;
+  font-size: var(--mono-md);
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -261,7 +264,7 @@ body {
   align-items: center;
   gap: 0.4rem;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.45rem;
+  font-size: var(--mono-sm);
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -290,7 +293,7 @@ body {
 }
 .pc-meta {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.45rem;
+  font-size: var(--mono-sm);
   font-weight: 500;
   color: var(--ink-30);
   letter-spacing: 0.1em;
@@ -310,7 +313,7 @@ body {
 }
 .pc-read {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.45rem;
+  font-size: var(--mono-sm);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -332,6 +335,26 @@ body {
   transition: color 0.12s;
 }
 .pc-subscribe:hover { color: var(--ink); }
+
+/* ── LMMI live data strip (inside capital post-card) ── */
+.lmmi-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  margin-bottom: 0.85rem;
+  background: var(--forest);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex-wrap: wrap;
+}
+.lmmi-strip-label { opacity: 0.55; font-weight: 500; }
+.lmmi-strip-sep { opacity: 0.3; margin: 0 0.15rem; }
+.lmmi-strip-val { color: var(--yolk); }
 
 /* ── Loading state ── */
 .post-card.loading .pc-title { background: var(--paper-dk); color: transparent; border-radius: 2px; width: 80%; }
@@ -376,7 +399,7 @@ body {
 }
 .pb-l {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.48rem;
+  font-size: var(--mono-sm);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -413,7 +436,7 @@ body {
 
 .ed-num {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.45rem;
+  font-size: var(--mono-sm);
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -429,7 +452,7 @@ body {
 }
 .ed-audience {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.48rem;
+  font-size: var(--mono-sm);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -447,7 +470,7 @@ body {
 }
 .ed-link {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.48rem;
+  font-size: var(--mono-sm);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -477,7 +500,7 @@ body {
 }
 .cta-kicker {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.48rem;
+  font-size: var(--mono-sm);
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -503,7 +526,7 @@ body {
 .btn-primary {
   display: inline-block;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.52rem;
+  font-size: var(--mono-md);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -517,7 +540,7 @@ body {
 .btn-secondary {
   display: inline-block;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.52rem;
+  font-size: var(--mono-md);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -542,7 +565,7 @@ footer {
 }
 .footer-mark {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.45rem;
+  font-size: var(--mono-sm);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -554,7 +577,7 @@ footer {
 }
 .footer-links a {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.45rem;
+  font-size: var(--mono-sm);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -599,7 +622,7 @@ footer {
       <a href="https://lmmi.b.studio">LMMI</a>
       <a href="https://invest.b.studio">Invest</a>
     </nav>
-    <a href="#lp" class="btn-lp">LP Inquiry →</a>
+    <a href="https://invest.b.studio/" class="btn-lp">Invest with us →</a>
   </div>
 </header>
 
@@ -618,20 +641,6 @@ footer {
       Studio b. is an operator-owned holding company. We run a seven-company portfolio on the same code we sell, back, and deploy for clients — because software that has to survive real deadlines is different from software that only has to look good in a demo.
     </p>
 
-    <div class="fold-stats">
-      <div class="stat-cell">
-        <div class="stat-n">7</div>
-        <div class="stat-l">Companies owned &amp; operated</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-n">3</div>
-        <div class="stat-l">Products in production</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-n">0</div>
-        <div class="stat-l">Demo environments</div>
-      </div>
-    </div>
   </div>
 
   <!-- RIGHT: Content stream -->
@@ -650,6 +659,17 @@ footer {
         <div class="pc-title">The Non-Bank Advantage in Lower Middle Market Credit</div>
         <div class="pc-meta">Loading latest issue…</div>
         <div class="pc-excerpt">The deepest structural gap in LMM credit isn't where banks won't lend — it's where they can't move fast enough or stay long enough.</div>
+        <div class="lmmi-strip" id="b-lmmi-strip">
+          <span class="lmmi-strip-label">LMMI</span>
+          <span class="lmmi-strip-sep">·</span>
+          <span id="b-lmmi-period">Q1 2025</span>
+          <span class="lmmi-strip-sep">·</span>
+          <span class="lmmi-strip-val" id="b-lmmi-spread">625 bps</span>
+          <span class="lmmi-strip-label">&nbsp;US spread</span>
+          <span class="lmmi-strip-sep">·</span>
+          <span class="lmmi-strip-val" id="b-lmmi-recovery">78%</span>
+          <span class="lmmi-strip-label">&nbsp;UK recovery</span>
+        </div>
         <div class="pc-footer">
           <span class="pc-read">Read issue →</span>
           <a class="pc-subscribe" href="https://lmmi.b.studio/subscribe" onclick="event.stopPropagation()">Subscribe to LMMI →</a>
@@ -698,7 +718,7 @@ footer {
 
 <div class="stripe forest"></div>
 
-<!-- ENTITY DIRECTORY -->
+<!-- CANONICAL SURFACES -->
 <section class="entity-dir" id="entities">
 
   <div class="ed-item ed-build">
@@ -714,46 +734,15 @@ footer {
     <div class="ed-name">Studio b. LMMI</div>
     <div class="ed-audience">For LPs, allocators, family offices</div>
     <p class="ed-desc">The Studio b. Lower Middle Market Direct Lending Index — the open benchmark Cliffwater's CDLI doesn't reach. Quarterly spread, structure, and recovery data sourced from SBA 7(a), Companies House workouts, and the LMM-eligible universe.</p>
-    <a href="https://lmmi.b.studio" class="ed-link">dli.b.studio →</a>
+    <a href="https://lmmi.b.studio" class="ed-link">lmmi.b.studio →</a>
   </div>
 
   <div class="ed-item ed-invest">
     <div class="ed-num">03</div>
-    <div class="ed-name">Capital, by Studio b. — Fund I</div>
-    <div class="ed-audience">For accredited investors</div>
-    <p class="ed-desc">Non-bank lender for the global lower middle market. Fund I offered under Rule 506(c) — public solicitation permitted, subscription requires verified accredited status. BVI master + Delaware feeder, 7-year closed-end.</p>
-    <a href="https://invest.b.studio" class="ed-link">invest.b.studio →</a>
-  </div>
-
-</section>
-
-<div class="stripe"></div>
-
-<!-- WHAT WE SHIP -->
-<section class="entity-dir" id="ships">
-
-  <div class="ed-item">
-    <div class="ed-num">04</div>
-    <div class="ed-name">Bolt, by Studio b.</div>
-    <div class="ed-audience">For continuous-goods distributors</div>
-    <p class="ed-desc">The things generic WMS counts wrong: container tracking, partial-cut inventory, DRP, ATP. Built for distributors who sell by the foot, yard, or kilogram. Running at Heritage Fabrics in production.</p>
-    <a href="https://bolt.b.studio" class="ed-link">bolt.b.studio →</a>
-  </div>
-
-  <div class="ed-item">
-    <div class="ed-num">05</div>
-    <div class="ed-name">AcuOps, by Studio b.</div>
-    <div class="ed-audience">For Acumatica VARs &amp; admins</div>
-    <p class="ed-desc">The infrastructure layer Acumatica doesn't ship. Health probes, post-publish test suite, CI/CD through the Customization API.</p>
-    <a href="https://acuops.com" class="ed-link">acuops.com →</a>
-  </div>
-
-  <div class="ed-item">
-    <div class="ed-num">06</div>
-    <div class="ed-name">Amplify, by Studio b.</div>
-    <div class="ed-audience">For founders + marketing teams</div>
-    <p class="ed-desc">We built this to run our own marketing. Now we sell it. Detects signals from X, LinkedIn, and GitHub. Drafts newsletter issues and social content in a calibrated voice. Routes through Slack for approval before anything publishes.</p>
-    <a href="https://amplify.b.studio" class="ed-link">amplify.b.studio →</a>
+    <div class="ed-name">Invest with us.</div>
+    <div class="ed-audience">Rule 506(c) · Verified accredited only</div>
+    <p class="ed-desc">Studio b. LMM Bridge Fund I is the vehicle that invests against the LMMI universe. Offered under Rule 506(c) — public solicitation permitted, subscription requires verified accredited status. We don't send a deck. We share the backtester.</p>
+    <a href="https://invest.b.studio/" class="ed-link">invest.b.studio →</a>
   </div>
 
 </section>
@@ -816,6 +805,30 @@ footer {
     }
   } catch (_) {
     // silently keep placeholder content
+  }
+})();
+</script>
+
+<script>
+// Live LMMI ticker — fetches /api/dli/latest and hydrates the strip inside the LMMI post-card.
+// Renders with hardcoded fallback values first so the strip is never empty.
+(function () {
+  var DLI_API = 'https://studiob-api-production-2df4.up.railway.app/api/dli/latest';
+  function hydrate(d) {
+    var p = document.getElementById('b-lmmi-period');
+    var s = document.getElementById('b-lmmi-spread');
+    var r = document.getElementById('b-lmmi-recovery');
+    if (p) p.textContent = d.period;
+    if (s) s.textContent = d.us_spread_bps + ' bps';
+    if (r) r.textContent = d.uk_recovery_pct + '%';
+  }
+  if (typeof fetch !== 'undefined') {
+    var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var t = ctrl ? setTimeout(function () { ctrl.abort(); }, 3000) : null;
+    fetch(DLI_API, ctrl ? { signal: ctrl.signal } : {})
+      .then(function (r) { if (r.ok) return r.json(); throw new Error('non-ok'); })
+      .then(function (d) { clearTimeout(t); hydrate(d); })
+      .catch(function () { clearTimeout(t); });
   }
 })();
 </script>
