@@ -5,3 +5,12 @@ dist/
 !.env.example
 *.log
 .DS_Store
+
+# Claude Code state
+.claude/
+
+# Superpowers skill cache
+.superpowers/
+
+# Brainstorm/exploration artifacts (use docs/design-mockups/ for archived versions)
+variant-*.html
