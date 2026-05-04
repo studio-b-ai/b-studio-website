@@ -407,6 +407,9 @@ body {
 .ed-consulting::before { background: var(--yolk); }
 .ed-capital::before   { background: var(--forest); }
 .ed-build::before     { background: var(--process-blue); }
+.ed-invest::before    { background: var(--vermillion); }
+.ed-invest .ed-audience { color: var(--vermillion); }
+.ed-invest .ed-link:hover { color: var(--vermillion); border-color: var(--vermillion); }
 
 .ed-num {
   font-family: 'JetBrains Mono', monospace;
@@ -592,9 +595,9 @@ footer {
   <div class="masthead-center">Operators · Builders · Investors — Since 2024</div>
   <div class="masthead-right">
     <nav class="masthead-nav">
-      <a href="https://consulting.b.studio">Consulting</a>
-      <a href="https://capital.b.studio">Capital</a>
-      <a href="https://build.b.studio">Build</a>
+      <a href="https://markdown.b.studio">Markdown</a>
+      <a href="https://dli.b.studio">DLI</a>
+      <a href="https://invest.b.studio">Invest</a>
     </nav>
     <a href="#lp" class="btn-lp">LP Inquiry →</a>
   </div>
@@ -642,35 +645,21 @@ footer {
       <a class="post-card card-capital" href="https://dli.b.studio" id="card-capital">
         <div class="pc-register">
           <span class="pc-dot"></span>
-          DLI Brief · Capital
+          DLI · For investors
         </div>
         <div class="pc-title">The Non-Bank Advantage in Lower Middle Market Credit</div>
         <div class="pc-meta">Loading latest issue…</div>
         <div class="pc-excerpt">The deepest structural gap in LMM credit isn't where banks won't lend — it's where they can't move fast enough or stay long enough.</div>
         <div class="pc-footer">
           <span class="pc-read">Read issue →</span>
-          <a class="pc-subscribe" href="https://dli.b.studio/subscribe" onclick="event.stopPropagation()">Subscribe to DLI Brief →</a>
-        </div>
-      </a>
-
-      <a class="post-card card-consulting" href="https://dispatch.b.studio" id="card-consulting">
-        <div class="pc-register">
-          <span class="pc-dot"></span>
-          Dispatch · Consulting
-        </div>
-        <div class="pc-title">Why Operators Don't Need More Advice — They Need More Reps</div>
-        <div class="pc-meta">Loading latest issue…</div>
-        <div class="pc-excerpt">Consulting that sends decks is consulting that doesn't have skin in the game. We embed. We ship. The advice comes later.</div>
-        <div class="pc-footer">
-          <span class="pc-read">Read issue →</span>
-          <a class="pc-subscribe" href="https://dispatch.b.studio/subscribe" onclick="event.stopPropagation()">Subscribe to Dispatch →</a>
+          <a class="pc-subscribe" href="https://dli.b.studio/subscribe" onclick="event.stopPropagation()">Subscribe to DLI →</a>
         </div>
       </a>
 
       <a class="post-card card-build" href="https://markdown.b.studio" id="card-build">
         <div class="pc-register">
           <span class="pc-dot"></span>
-          Markdown · Build
+          Markdown · For operators
         </div>
         <div class="pc-title">We Don't Sell Software We Wouldn't Run Ourselves</div>
         <div class="pc-meta">Loading latest issue…</div>
@@ -698,8 +687,8 @@ footer {
     <div class="pb-l">Products in production<br>daily</div>
   </div>
   <div class="pb-item">
-    <div class="pb-n">3</div>
-    <div class="pb-l">Newsletters — published<br>twice monthly</div>
+    <div class="pb-n">2</div>
+    <div class="pb-l">Newsletters — issued when<br>there's something to say</div>
   </div>
   <div class="pb-item">
     <div class="pb-n">0</div>
@@ -712,28 +701,59 @@ footer {
 <!-- ENTITY DIRECTORY -->
 <section class="entity-dir" id="entities">
 
-  <div class="ed-item ed-consulting">
+  <div class="ed-item ed-build">
     <div class="ed-num">01</div>
-    <div class="ed-name">Consulting, by Studio b.</div>
-    <div class="ed-audience">For operators</div>
-    <p class="ed-desc">Who run something real and need someone embedded, not advising. We show up, we ship, we leave the system better than we found it.</p>
-    <a href="https://consulting.b.studio" class="ed-link">consulting.b.studio →</a>
+    <div class="ed-name">Markdown, by Studio b.</div>
+    <div class="ed-audience">For operators &amp; technical founders</div>
+    <p class="ed-desc">War stories from inside the work — both the client engagements and the products we ship. Bolt, AcuOps, and Amplify run real operations at Studio b.'s portfolio companies. The newsletter is downstream of that work.</p>
+    <a href="https://markdown.b.studio" class="ed-link">markdown.b.studio →</a>
   </div>
 
   <div class="ed-item ed-capital">
     <div class="ed-num">02</div>
-    <div class="ed-name">Capital, by Studio b.</div>
-    <div class="ed-audience">For investors</div>
-    <p class="ed-desc">Accredited, LP-grade. Bootstrapped operators-as-GPs with verified skin in the game. The deepest structural gap in LMM credit.</p>
-    <a href="https://capital.b.studio" class="ed-link">capital.b.studio →</a>
+    <div class="ed-name">DLI, by Studio b.</div>
+    <div class="ed-audience">For LPs, allocators, family offices</div>
+    <p class="ed-desc">The only open index for lower middle market direct lending. Quarterly spread, structure, and recovery data. We publish it because the benchmarks didn't exist — and LPs deserve the data before they commit capital.</p>
+    <a href="https://dli.b.studio" class="ed-link">dli.b.studio →</a>
   </div>
 
-  <div class="ed-item ed-build">
+  <div class="ed-item ed-invest">
     <div class="ed-num">03</div>
-    <div class="ed-name">Build, by Studio b.</div>
-    <div class="ed-audience">For builders</div>
-    <p class="ed-desc">Technical founders following the live build. Bolt, AcuOps, and Amplify run real operations at Studio b.'s portfolio companies.</p>
-    <a href="https://build.b.studio" class="ed-link">build.b.studio →</a>
+    <div class="ed-name">Capital, by Studio b. — Fund I</div>
+    <div class="ed-audience">For accredited investors</div>
+    <p class="ed-desc">Non-bank lender for the global lower middle market. Fund I offered under Rule 506(c) — public solicitation permitted, subscription requires verified accredited status. BVI master + Delaware feeder, 7-year closed-end.</p>
+    <a href="https://invest.b.studio" class="ed-link">invest.b.studio →</a>
+  </div>
+
+</section>
+
+<div class="stripe"></div>
+
+<!-- WHAT WE SHIP -->
+<section class="entity-dir" id="ships">
+
+  <div class="ed-item">
+    <div class="ed-num">04</div>
+    <div class="ed-name">Bolt, by Studio b.</div>
+    <div class="ed-audience">For continuous-goods distributors</div>
+    <p class="ed-desc">The things generic WMS counts wrong: container tracking, partial-cut inventory, DRP, ATP. Built for distributors who sell by the foot, yard, or kilogram. Running at Heritage Fabrics in production.</p>
+    <a href="https://bolt.b.studio" class="ed-link">bolt.b.studio →</a>
+  </div>
+
+  <div class="ed-item">
+    <div class="ed-num">05</div>
+    <div class="ed-name">AcuOps, by Studio b.</div>
+    <div class="ed-audience">For Acumatica VARs &amp; admins</div>
+    <p class="ed-desc">The infrastructure layer Acumatica doesn't ship. Health probes, post-publish test suite, CI/CD through the Customization API.</p>
+    <a href="https://acuops.com" class="ed-link">acuops.com →</a>
+  </div>
+
+  <div class="ed-item">
+    <div class="ed-num">06</div>
+    <div class="ed-name">Amplify, by Studio b.</div>
+    <div class="ed-audience">For founders + marketing teams</div>
+    <p class="ed-desc">We built this to run our own marketing. Now we sell it. Detects signals from X, LinkedIn, and GitHub. Drafts newsletter issues and social content in a calibrated voice. Routes through Slack for approval before anything publishes.</p>
+    <a href="https://amplify.b.studio" class="ed-link">amplify.b.studio →</a>
   </div>
 
 </section>
@@ -744,8 +764,8 @@ footer {
   <div class="cta-col">
     <div class="cta-kicker">For LPs &amp; Investors</div>
     <div class="cta-headline">LP-grade, operator-owned.</div>
-    <p class="cta-body">Capital, by Studio b. is a non-bank lender for the lower middle market. The GP runs real businesses — which means every credit decision is made by someone who knows what it costs to miss a payroll. If you're accredited and looking for operational depth behind the underwriting, start here.</p>
-    <a href="https://capital.b.studio" class="btn-primary">Review the fund →</a>
+    <p class="cta-body">Capital, by Studio b. is a non-bank lender for the lower middle market. The GP runs real businesses — which means every credit decision is made by someone who knows what it costs to miss a payroll. Fund I is offered under Rule 506(c) to verified accredited investors. Start with the deck.</p>
+    <a href="https://invest.b.studio" class="btn-primary">Request the Fund I deck →</a>
   </div>
 
   <div class="cta-col">
@@ -761,12 +781,13 @@ footer {
 <footer>
   <div class="footer-mark">Studio b. · b.studio · Est. 2024</div>
   <div class="footer-links">
-    <a href="https://consulting.b.studio">Consulting</a>
-    <a href="https://capital.b.studio">Capital</a>
-    <a href="https://build.b.studio">Build</a>
-    <a href="https://dli.b.studio/subscribe">DLI Brief</a>
-    <a href="https://dispatch.b.studio/subscribe">Dispatch</a>
-    <a href="https://markdown.b.studio/subscribe">Markdown</a>
+    <a href="https://markdown.b.studio">Markdown</a>
+    <a href="https://dli.b.studio">DLI</a>
+    <a href="https://invest.b.studio">Invest</a>
+    <a href="https://bolt.b.studio">Bolt</a>
+    <a href="https://acuops.com">AcuOps</a>
+    <a href="https://amplify.b.studio">Amplify</a>
+    <a href="mailto:hello@b.studio">hello@b.studio</a>
   </div>
 </footer>
 
@@ -780,9 +801,8 @@ footer {
     const feed = await res.json();
 
     const map = {
-      capital:    { id: 'card-capital',    data: feed.capital },
-      consulting: { id: 'card-consulting', data: feed.consulting },
-      build:      { id: 'card-build',      data: feed.build },
+      capital:  { id: 'card-capital', data: feed.capital || feed.dli },
+      build:    { id: 'card-build',   data: feed.build || feed.markdown },
     };
 
     for (const [key, { id, data }] of Object.entries(map)) {
