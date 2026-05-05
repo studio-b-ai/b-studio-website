@@ -28,6 +28,8 @@
   --ink-10:     rgba(13,13,13,0.10);
   --vermillion: #D94425;
   --yolk:       #F7D344;
+  --yolk-08:    rgba(247,211,68,0.18); /* highlighter wash */
+  --yolk-45:    rgba(247,211,68,0.45);
   --forest:     #1A3328;
   --snow:       #FFFFFF;
   /* JetBrains Mono label scale tokens */
@@ -164,19 +166,25 @@ body {
 .fold-statement {
   font-family: 'Fraunces', serif;
   font-weight: 900;
-  font-style: italic;
-  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  color: var(--ink);
+  font-style: normal;
+  font-size: clamp(3.5rem, 6.5vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: var(--forest);
   margin-bottom: 2.5rem;
+  font-variation-settings: "opsz" 144;
   flex: 1;
   display: flex;
   align-items: center;
 }
 .fold-statement em {
-  font-style: normal;
-  color: var(--vermillion);
+  font-style: italic;
+  font-weight: 700;
+  background: var(--yolk-08);
+  color: var(--forest);
+  padding: 0 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
   display: inline;
 }
 

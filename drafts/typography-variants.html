@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>b.studio typography variants — pick one</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,700;1,9..144,900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:      #F4F1EB;
+  --paper-dk:   #EAE4D4;
+  --ink:        #0D0D0D;
+  --ink-60:     rgba(13,13,13,0.60);
+  --ink-30:     rgba(13,13,13,0.30);
+  --ink-10:     rgba(13,13,13,0.10);
+  --vermillion: #D94425;
+  --yolk:       #F7D344;
+  --yolk-08:    rgba(247,211,68,0.18);
+  --yolk-45:    rgba(247,211,68,0.45);
+  --forest:     #1A3328;
+  --stripe-height: 10px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 6rem;
+}
+
+.caution-stripe {
+  height: var(--stripe-height);
+  background: repeating-linear-gradient(-45deg,
+    var(--yolk) 0, var(--yolk) 9px,
+    var(--forest) 9px, var(--forest) 18px);
+}
+
+.page-header {
+  padding: 2.5rem 3rem 1.25rem;
+  border-bottom: 1px solid var(--ink-10);
+}
+.page-header .title {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 0.5rem;
+}
+.page-header h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--forest);
+  font-variation-settings: "opsz" 144;
+}
+.page-header .lede {
+  font-family: 'Source Serif 4', serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink-60);
+  margin-top: 0.85rem;
+  max-width: 60ch;
+}
+
+.variant {
+  border-bottom: 1px solid var(--ink-10);
+  padding: 4rem 3rem 5rem;
+}
+.variant-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 0.5rem;
+}
+.variant-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-60);
+  margin-bottom: 2.5rem;
+}
+.variant-name strong { color: var(--ink); }
+
+/* shared hero scaffold for each variant */
+.hero {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.hero-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 2rem;
+}
+.hero-body {
+  font-family: 'Source Serif 4', serif;
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: var(--ink);
+  margin-top: 2rem;
+  max-width: 56ch;
+}
+.hero-side {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-60);
+  line-height: 1.7;
+  border-left: 2px solid var(--vermillion);
+  padding-left: 1rem;
+}
+.hero-side strong { color: var(--ink); display: block; margin-bottom: 0.4rem; font-weight: 700; }
+
+/* =============================================== */
+/* VARIANT A — Editorial maximalism (Fraunces 7rem) */
+/* =============================================== */
+.va .statement {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(3.5rem, 6.5vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: var(--forest);
+  font-variation-settings: "opsz" 144;
+}
+.va .statement em {
+  font-style: italic;
+  font-weight: 700;
+  background: var(--yolk-08);
+  color: var(--forest);
+  padding: 0 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ================================================== */
+/* VARIANT B — Sans display (Inter 800, no serif)     */
+/* ================================================== */
+.vb .statement {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 5.8vw, 5.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--forest);
+}
+.vb .statement em {
+  font-style: normal;
+  font-weight: 800;
+  background: var(--yolk-08);
+  color: var(--forest);
+  padding: 0 0.2em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.vb .statement em::before { content: "— "; color: var(--vermillion); font-weight: 500; }
+
+/* ============================================================ */
+/* VARIANT C — Mono-as-display (JetBrains Mono 700, mark.b style) */
+/* ============================================================ */
+.vc .statement {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--forest);
+  text-transform: uppercase;
+}
+.vc .statement em {
+  font-style: normal;
+  font-weight: 700;
+  background: var(--yolk-45);
+  color: var(--forest);
+  padding: 0.05em 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* sample legend */
+.legend {
+  margin: 0 3rem 2.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--paper-dk);
+  border: 1px solid var(--ink-10);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-60);
+  line-height: 1.65;
+}
+.legend strong { color: var(--ink); font-weight: 700; }
+.legend kbd {
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--paper);
+  border: 1px solid var(--ink-30);
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 2rem; }
+  .variant { padding: 2.5rem 1.5rem 3rem; }
+  .page-header { padding: 2rem 1.5rem 1rem; }
+  .legend { margin: 0 1.5rem 2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="caution-stripe"></div>
+
+<header class="page-header">
+  <div class="title">b.studio · Typography variants</div>
+  <h1>Pick a hero treatment.</h1>
+  <p class="lede">Three options for the b.studio fold statement, all on the same paper / forest / vermillion / yolk palette as Markdown, LMMI, and invest. Same copy, same composition, different display type. Scroll through, then tell me A, B, or C.</p>
+</header>
+
+<div class="legend">
+  <strong>What's shared across all three:</strong> paper background, forest text, vermillion eyebrow, yolk highlighter wash on the italic phrase (matches Markdown's H1 highlight). Right column is the same body + sidebar in all three so you're judging type, not layout.
+</div>
+
+<!-- VARIANT A -->
+<section class="variant va">
+  <div class="variant-label">Variant A · Editorial maximalism</div>
+  <div class="variant-name"><strong>Fraunces 900</strong> · clamp(3.5rem, 6.5vw, 6rem) · italic accent · same family Markdown uses</div>
+  <div class="hero">
+    <div class="fold-left">
+      <div class="hero-kicker">§01 · Operators · Builders · Investors</div>
+      <div class="statement">We run it before we build it, back it, <em>or sell it.</em></div>
+      <p class="hero-body">Studio b. is an operator-owned holding company. We run a seven-company portfolio on the same code we sell, back, and deploy for clients — because software that has to survive real deadlines is different from software that only has to look good in a demo.</p>
+    </div>
+    <div class="fold-right">
+      <div class="hero-side">
+        <strong>What's recently published</strong>
+        LMMI · The Non-Bank Advantage in Lower Middle Market Credit<br>
+        Markdown · We Don't Sell Software We Wouldn't Run Ourselves
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VARIANT B -->
+<section class="variant vb">
+  <div class="variant-label">Variant B · Sans display</div>
+  <div class="variant-name"><strong>Inter 800</strong> · clamp(3rem, 5.8vw, 5.4rem) · vermillion em-dash lead-in · cleaner / techier register</div>
+  <div class="hero">
+    <div class="fold-left">
+      <div class="hero-kicker">§01 · Operators · Builders · Investors</div>
+      <div class="statement">We run it before we build it, back it, <em>or sell it.</em></div>
+      <p class="hero-body">Studio b. is an operator-owned holding company. We run a seven-company portfolio on the same code we sell, back, and deploy for clients — because software that has to survive real deadlines is different from software that only has to look good in a demo.</p>
+    </div>
+    <div class="fold-right">
+      <div class="hero-side">
+        <strong>What's recently published</strong>
+        LMMI · The Non-Bank Advantage in Lower Middle Market Credit<br>
+        Markdown · We Don't Sell Software We Wouldn't Run Ourselves
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VARIANT C -->
+<section class="variant vc">
+  <div class="variant-label">Variant C · Mono-as-display</div>
+  <div class="variant-name"><strong>JetBrains Mono 700 uppercase</strong> · clamp(2.4rem, 4.8vw, 4.4rem) · yolk-45 highlighter on accent · rhymes with Markdown wordmark</div>
+  <div class="hero">
+    <div class="fold-left">
+      <div class="hero-kicker">§01 · Operators · Builders · Investors</div>
+      <div class="statement">We run it before we build it, back it, <em>or sell it.</em></div>
+      <p class="hero-body">Studio b. is an operator-owned holding company. We run a seven-company portfolio on the same code we sell, back, and deploy for clients — because software that has to survive real deadlines is different from software that only has to look good in a demo.</p>
+    </div>
+    <div class="fold-right">
+      <div class="hero-side">
+        <strong>What's recently published</strong>
+        LMMI · The Non-Bank Advantage in Lower Middle Market Credit<br>
+        Markdown · We Don't Sell Software We Wouldn't Run Ourselves
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
