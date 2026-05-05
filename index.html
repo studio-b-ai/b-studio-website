@@ -88,7 +88,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ink-30);
+  color: var(--vermillion);
   text-align: center;
 }
 .masthead-right {
@@ -623,7 +623,7 @@ footer {
   <a href="/" class="masthead-brand">
     <span class="masthead-b">b<span class="masthead-dot">.</span></span>
   </a>
-  <div class="masthead-center">Operators · Builders · Investors · Since 2024</div>
+  <div class="masthead-center">Operators · Builders · Investors · Since 2018</div>
   <div class="masthead-right">
     <nav class="masthead-nav">
       <a href="https://markdown.b.studio">Markdown</a>
@@ -789,31 +789,31 @@ footer {
 </footer>
 
 <script>
-// Fetch latest posts from /data/newsletter-feed.json (populated by GH Actions)
-// Falls back to placeholder content already rendered in the DOM
+// Fetch latest posts directly from each publication's data/latest.json
+// Each pub owns its own manifest; b.studio is just the viewer.
+// GitHub Pages serves with access-control-allow-origin: * so cross-origin works.
 (async () => {
-  try {
-    const res = await fetch('/data/newsletter-feed.json');
-    if (!res.ok) return; // keep placeholder content
-    const feed = await res.json();
+  const sources = [
+    { id: 'card-lmmi',     url: 'https://lmmi.b.studio/data/latest.json' },
+    { id: 'card-markdown', url: 'https://markdown.b.studio/data/latest.json' },
+  ];
 
-    const map = {
-      lmmi:     { id: 'card-lmmi',     data: feed.lmmi || feed.capital || feed.dli },
-      markdown: { id: 'card-markdown', data: feed.markdown || feed.build },
-    };
-
-    for (const [key, { id, data }] of Object.entries(map)) {
-      if (!data) continue;
+  await Promise.allSettled(sources.map(async ({ id, url }) => {
+    try {
+      const res = await fetch(url, { cache: 'no-cache' });
+      if (!res.ok) return;
+      const data = await res.json();
       const card = document.getElementById(id);
-      if (!card) continue;
-      card.href = data.url;
-      card.querySelector('.pc-title').textContent   = data.title;
-      card.querySelector('.pc-meta').textContent    = data.date + (data.issue ? ' · Issue #' + data.issue : '');
-      card.querySelector('.pc-excerpt').textContent = data.excerpt;
-    }
-  } catch (_) {
-    // silently keep placeholder content
-  }
+      if (!card || !data) return;
+      if (data.url) card.href = data.url;
+      const titleEl = card.querySelector('.pc-title');
+      const metaEl = card.querySelector('.pc-meta');
+      const excerptEl = card.querySelector('.pc-excerpt');
+      if (titleEl && data.title) titleEl.textContent = data.title;
+      if (metaEl && data.date) metaEl.textContent = data.date + (data.issue ? ' · Issue #' + data.issue : '');
+      if (excerptEl && data.excerpt) excerptEl.textContent = data.excerpt;
+    } catch (_) { /* keep placeholder */ }
+  }));
 })();
 </script>
 
