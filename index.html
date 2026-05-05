@@ -29,11 +29,12 @@
   --vermillion: #D94425;
   --yolk:       #F7D344;
   --forest:     #1A3328;
-  --process-blue: #3A7CA5;
   --snow:       #FFFFFF;
   /* JetBrains Mono label scale tokens */
-  --mono-sm:    0.62rem;   /* was 0.45rem — all small uppercase labels */
-  --mono-md:    0.68rem;   /* was 0.5rem  — medium labels, nav, buttons */
+  --mono-sm:    0.62rem;
+  --mono-md:    0.68rem;
+  /* Family-wide caution-stripe height */
+  --stripe-height: 10px;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -276,12 +277,10 @@ body {
   border-radius: 50%;
   flex-shrink: 0;
 }
-.card-capital .pc-dot { background: var(--forest); }
-.card-capital .pc-register { color: var(--forest); }
-.card-consulting .pc-dot { background: #C49B10; }
-.card-consulting .pc-register { color: #8B6E00; }
-.card-build .pc-dot { background: var(--process-blue); }
-.card-build .pc-register { color: var(--process-blue); }
+.card-lmmi .pc-dot { background: var(--forest); }
+.card-lmmi .pc-register { color: var(--forest); }
+.card-markdown .pc-dot { background: var(--ink); }
+.card-markdown .pc-register { color: var(--ink); }
 
 .pc-title {
   font-size: 1.0rem;
@@ -357,24 +356,25 @@ body {
 .lmmi-strip-val { color: var(--yolk); }
 
 /* ── Loading state ── */
-.post-card.loading .pc-title { background: var(--paper-dk); color: transparent; border-radius: 2px; width: 80%; }
-.post-card.loading .pc-excerpt { background: var(--paper-dk); color: transparent; border-radius: 2px; }
-.post-card.loading .pc-meta { background: var(--paper-dk); color: transparent; border-radius: 2px; width: 40%; }
+.post-card.loading .pc-title { background: var(--paper-dk); color: transparent; width: 80%; }
+.post-card.loading .pc-excerpt { background: var(--paper-dk); color: transparent; }
+.post-card.loading .pc-meta { background: var(--paper-dk); color: transparent; width: 40%; }
 
-/* ── Stripe divider ── */
+/* ── Stripe divider (family-wide --stripe-height) ── */
 .stripe {
-  height: 5px;
+  height: var(--stripe-height);
   background: repeating-linear-gradient(
     -45deg,
-    var(--ink) 0px, var(--ink) 8px,
-    var(--paper) 8px, var(--paper) 16px
+    var(--ink) 0px, var(--ink) 9px,
+    var(--paper) 9px, var(--paper) 18px
   );
 }
+.stripe.thin { height: 6px; }
 .stripe.forest {
   background: repeating-linear-gradient(
     -45deg,
-    var(--forest) 0px, var(--forest) 8px,
-    var(--paper) 8px, var(--paper) 16px
+    var(--forest) 0px, var(--forest) 9px,
+    var(--paper) 9px, var(--paper) 18px
   );
 }
 
@@ -427,10 +427,9 @@ body {
   left: 0; top: 0; bottom: 0;
   width: 4px;
 }
-.ed-consulting::before { background: var(--yolk); }
-.ed-capital::before   { background: var(--forest); }
-.ed-build::before     { background: var(--process-blue); }
-.ed-invest::before    { background: var(--vermillion); }
+.ed-markdown::before { background: var(--ink); }
+.ed-lmmi::before     { background: var(--forest); }
+.ed-invest::before   { background: var(--vermillion); }
 .ed-invest .ed-audience { color: var(--vermillion); }
 .ed-invest .ed-link:hover { color: var(--vermillion); border-color: var(--vermillion); }
 
@@ -458,9 +457,8 @@ body {
   text-transform: uppercase;
   margin-bottom: 0.75rem;
 }
-.ed-consulting .ed-audience { color: #8B6E00; }
-.ed-capital .ed-audience { color: var(--forest); }
-.ed-build .ed-audience { color: var(--process-blue); }
+.ed-markdown .ed-audience { color: var(--ink-60); }
+.ed-lmmi .ed-audience { color: var(--forest); }
 
 .ed-desc {
   font-size: 0.82rem;
@@ -480,9 +478,8 @@ body {
   padding-bottom: 1px;
   transition: color 0.12s, border-color 0.12s;
 }
-.ed-consulting .ed-link:hover { color: #8B6E00; border-color: var(--yolk); }
-.ed-capital .ed-link:hover { color: var(--forest); border-color: var(--forest); }
-.ed-build .ed-link:hover { color: var(--process-blue); border-color: var(--process-blue); }
+.ed-markdown .ed-link:hover { color: var(--ink); border-color: var(--ink); }
+.ed-lmmi .ed-link:hover { color: var(--forest); border-color: var(--forest); }
 
 /* ── LP / CTA section ── */
 .cta-section {
@@ -536,7 +533,7 @@ body {
   padding: 0.75rem 1.5rem;
   transition: background 0.12s;
 }
-.btn-primary:hover { background: var(--paper); color: var(--ink); }
+.btn-primary:hover { background: var(--ink); }
 .btn-secondary {
   display: inline-block;
   font-family: 'JetBrains Mono', monospace;
@@ -610,12 +607,15 @@ footer {
 </head>
 <body>
 
+<!-- TOP CAUTION STRIPE — family signature applied at top of every surface -->
+<div class="stripe thin"></div>
+
 <!-- MASTHEAD -->
 <header class="masthead">
   <a href="/" class="masthead-brand">
     <span class="masthead-b">b<span class="masthead-dot">.</span></span>
   </a>
-  <div class="masthead-center">Operators · Builders · Investors — Since 2024</div>
+  <div class="masthead-center">Operators · Builders · Investors · Since 2024</div>
   <div class="masthead-right">
     <nav class="masthead-nav">
       <a href="https://markdown.b.studio">Markdown</a>
@@ -631,7 +631,7 @@ footer {
 
   <!-- LEFT: Thesis + stats -->
   <div class="fold-left">
-    <div class="fold-kicker">§ 01</div>
+    <div class="fold-kicker">§01</div>
 
     <div class="fold-statement">
       <span>We run it before we build it, back it, <em>or sell it.</em></span>
@@ -651,7 +651,7 @@ footer {
 
     <div class="post-cards" id="post-cards">
       <!-- Cards injected by JS; fallback below is shown if fetch fails -->
-      <a class="post-card card-capital" href="https://lmmi.b.studio" id="card-capital">
+      <a class="post-card card-lmmi" href="https://lmmi.b.studio" id="card-lmmi">
         <div class="pc-register">
           <span class="pc-dot"></span>
           LMMI · For investors
@@ -676,7 +676,7 @@ footer {
         </div>
       </a>
 
-      <a class="post-card card-build" href="https://markdown.b.studio" id="card-build">
+      <a class="post-card card-markdown" href="https://markdown.b.studio" id="card-markdown">
         <div class="pc-register">
           <span class="pc-dot"></span>
           Markdown · For operators
@@ -721,7 +721,7 @@ footer {
 <!-- CANONICAL SURFACES -->
 <section class="entity-dir" id="entities">
 
-  <div class="ed-item ed-build">
+  <div class="ed-item ed-markdown">
     <div class="ed-num">01</div>
     <div class="ed-name">Markdown, by Studio b.</div>
     <div class="ed-audience">For operators &amp; technical founders</div>
@@ -729,7 +729,7 @@ footer {
     <a href="https://markdown.b.studio" class="ed-link">markdown.b.studio →</a>
   </div>
 
-  <div class="ed-item ed-capital">
+  <div class="ed-item ed-lmmi">
     <div class="ed-num">02</div>
     <div class="ed-name">Studio b. LMMI</div>
     <div class="ed-audience">For LPs, allocators, family offices</div>
@@ -790,8 +790,8 @@ footer {
     const feed = await res.json();
 
     const map = {
-      capital:  { id: 'card-capital', data: feed.capital || feed.dli },
-      build:    { id: 'card-build',   data: feed.build || feed.markdown },
+      lmmi:     { id: 'card-lmmi',     data: feed.lmmi || feed.capital || feed.dli },
+      markdown: { id: 'card-markdown', data: feed.markdown || feed.build },
     };
 
     for (const [key, { id, data }] of Object.entries(map)) {
