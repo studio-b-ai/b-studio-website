@@ -25,6 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/header.css">
 
 <style>
   :root {
@@ -47,16 +48,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  .stripe {
-    height: 10px;
-    background: repeating-linear-gradient(
-      -45deg,
-      var(--forest) 0, var(--forest) 9px,
-      var(--paper)  9px, var(--paper)  18px
-    );
-    border-top:    1px solid rgba(13, 13, 13, 0.60);
-    border-bottom: 1px solid rgba(13, 13, 13, 0.60);
-  }
+  /* Masthead stripe: see /assets/header.css (family binary-accent system, structural variant) */
 
   main {
     flex: 1;
@@ -134,7 +126,7 @@
 </head>
 <body>
 
-<div class="stripe"></div>
+<div class="stripe thin"></div>
 
 <main>
   <div class="card">
