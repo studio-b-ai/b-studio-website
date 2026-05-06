@@ -1,831 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AcuOps — Acumatica DevOps Platform | Studio B</title>
-<meta name="description" content="AcuOps gives Acumatica VARs health monitoring, schema drift detection, CI/CD for customizations, and post-publish validation. $300/mo per Acumatica instance, flat.">
-<meta property="og:title" content="AcuOps — Acumatica DevOps Platform | Studio B">
-<meta property="og:description" content="AcuOps gives Acumatica VARs health monitoring, schema drift detection, CI/CD for customizations, and post-publish validation. $300/mo per instance, flat.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AcuOps — Acumatica DevOps Platform</title>
+
+<!-- This URL is retired; the canonical AcuOps surface lives at acuops.com.
+     Three redirect mechanisms in priority order: meta-refresh (most clients
+     honor it), JavaScript replace (no history entry), visible link fallback. -->
+
+<meta http-equiv="refresh" content="0; url=https://acuops.com/">
+<link rel="canonical" href="https://acuops.com/">
+
+<meta name="description" content="AcuOps has moved to acuops.com — the Acumatica DevOps platform from Studio b. Continuous monitoring, CI/CD for customizations, post-publish validation. $300/mo per Acumatica instance, flat.">
+<meta name="robots" content="noindex, follow">
+
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://b.studio/acuops">
+<meta property="og:site_name" content="AcuOps">
+<meta property="og:title" content="AcuOps — Acumatica DevOps Platform">
+<meta property="og:description" content="The Acumatica DevOps platform from Studio b. Continuous monitoring, CI/CD for customizations, post-publish validation.">
+<meta property="og:url" content="https://acuops.com/">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-
-<!-- HubSpot Tracking Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49070660.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-  /* ── Nav active state ── */
-  .nav-links a[href="acuops.html"] {
-    color: var(--accent) !important;
+  :root {
+    --paper: #F4F1EB;
+    --ink: #0D0D0D;
+    --ink-60: rgba(13, 13, 13, 0.60);
+    --forest: #1A3328;
+    --vermillion: #D94425;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* ── Problem Section ── */
-  .problem {
-    padding: 6rem 2rem;
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
+  .stripe {
+    height: 10px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--forest) 0, var(--forest) 9px,
+      var(--paper)  9px, var(--paper)  18px
+    );
+    border-top:    1px solid rgba(13, 13, 13, 0.60);
+    border-bottom: 1px solid rgba(13, 13, 13, 0.60);
   }
 
-  .problem h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    line-height: 1.2;
-    margin-bottom: 1.4rem;
-  }
-
-  .problem p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    line-height: 1.8;
-  }
-
-  /* ── Features Grid ── */
-  .features {
-    padding: 6rem 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.4rem;
-  }
-
-  .feature-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2.2rem 1.8rem;
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  }
-
-  .feature-card:hover {
-    border-color: rgba(34, 211, 238, 0.25);
-    transform: translateY(-3px);
-    box-shadow: 0 0 30px var(--accent-glow);
-  }
-
-  .feature-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--accent-glow-strong);
-    border-radius: 10px;
+  main {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.4rem;
+    padding: 4rem 2rem;
   }
 
-  .feature-card h3 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500;
-    font-size: 1.05rem;
-    margin-bottom: 0.8rem;
-    color: var(--text);
-  }
-
-  .feature-card p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.65;
-  }
-
-  /* ── How It Works ── */
-  .how-it-works {
-    padding: 6rem 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 0.5rem;
-  }
-
-  .step {
+  .card {
+    max-width: 640px;
     text-align: center;
-    padding: 2rem 1.5rem;
   }
-
-  .step-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 3rem;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-
-  .step h3 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500;
-    font-size: 1.1rem;
-    margin-bottom: 0.7rem;
-    color: var(--text);
-  }
-
-  .step p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.65;
-  }
-
-  /* ── Slack Integration ── */
-  .slack-integration {
-    padding: 6rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .slack-panels {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.4rem;
-    margin-top: 0.5rem;
-  }
-
-  .slack-panel {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2.2rem 1.8rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-
-  .slack-panel:hover {
-    border-color: rgba(34, 211, 238, 0.2);
-    box-shadow: 0 0 30px var(--accent-glow);
-  }
-
-  .slack-panel-label {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500;
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
-    letter-spacing: 0.15em;
+    font-weight: 700;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.8rem;
+    letter-spacing: 0.22em;
+    color: var(--vermillion);
+    margin-bottom: 1.5rem;
   }
-
-  .slack-panel h3 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500;
-    font-size: 1.15rem;
-    color: var(--text);
-    margin-bottom: 1rem;
+  h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
   }
-
-  .slack-panel p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-    margin-bottom: 1rem;
-  }
-
-  .slack-channel {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.6rem 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .slack-channel:last-child {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .slack-channel-icon {
-    color: var(--accent);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    font-weight: 500;
-    flex-shrink: 0;
-  }
-
-  .slack-channel-name {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--text);
-  }
-
-  .slack-channel-desc {
-    font-size: 0.75rem;
-    color: var(--text-dim);
-    margin-left: auto;
-  }
-
-  .slack-onboard-steps {
-    margin-top: 1.5rem;
-  }
-
-  .slack-onboard-step {
-    display: flex;
-    align-items: baseline;
-    gap: 0.7rem;
-    padding: 0.5rem 0;
-  }
-
-  .slack-onboard-step-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: var(--accent);
-    flex-shrink: 0;
-    line-height: 1;
-  }
-
-  .slack-onboard-step p {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin-bottom: 0;
-  }
-
-  @media (max-width: 900px) {
-    .slack-panels {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* ── Pricing Table ── */
-  .pricing {
-    padding: 6rem 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .pricing-table {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.4rem;
-    margin-top: 0.5rem;
-  }
-
-  .pricing-col {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2.5rem 2rem;
-    position: relative;
-  }
-
-  .pricing-col.recommended {
-    border-color: rgba(34, 211, 238, 0.35);
-    box-shadow: 0 0 40px var(--accent-glow);
-  }
-
-  .pricing-badge {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--accent);
-    color: var(--bg);
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.3rem 1rem;
-    border-radius: 20px;
-    white-space: nowrap;
-  }
-
-  .pricing-tier {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 0.5rem;
-  }
-
-  .pricing-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 2.8rem;
-    color: var(--text);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-
-  .pricing-price span {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 300;
-    font-size: 0.9rem;
-    color: var(--text-dim);
-  }
-
-  .pricing-unit {
-    font-size: 0.8rem;
-    color: var(--text-dim);
+  h1 b { color: var(--forest); }
+  p {
+    font-size: 1.05rem;
+    color: var(--ink-60);
     margin-bottom: 2rem;
+    max-width: 52ch;
+    margin-left: auto;
+    margin-right: auto;
   }
-
-  .pricing-features {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .pricing-features li {
-    font-size: 0.85rem;
-    padding: 0.6rem 0;
-    border-top: 1px solid var(--border);
-    display: flex;
+  .cta {
+    display: inline-flex;
     align-items: center;
     gap: 0.7rem;
+    background: var(--forest);
+    color: var(--paper);
+    padding: 0.95rem 1.6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    transition: background 0.12s, color 0.12s;
   }
+  .cta:hover { background: var(--vermillion); color: #fff; }
+  .cta .arrow { font-family: 'JetBrains Mono', monospace; }
 
-  .pricing-features li:last-child {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .check {
-    color: var(--accent);
-    font-weight: 500;
-    font-size: 0.95rem;
-  }
-
-  .dash {
-    color: var(--text-dim);
-    font-weight: 300;
-    font-size: 0.95rem;
-  }
-
-  .pricing-features li .feature-label {
-    color: var(--text-muted);
-  }
-
-  .pricing-features li .feature-label.disabled {
-    color: var(--text-dim);
-  }
-
-  .pricing-volume {
+  footer {
     text-align: center;
-    margin-top: 2rem;
-    font-size: 0.82rem;
-    color: var(--text-dim);
+    padding: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-60);
+    border-top: 1px solid rgba(13, 13, 13, 0.10);
   }
-
-  /* ── CTA Section ── */
-  .cta-section {
-    padding: 6rem 2rem;
-    text-align: center;
-    position: relative;
-  }
-
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    bottom: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 400px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .cta-section > * { position: relative; z-index: 1; }
-
-  .cta-section h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-    margin-bottom: 1rem;
-  }
-
-  .cta-section p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    max-width: 520px;
-    margin: 0 auto 2rem;
-  }
-
-  .cta-form {
-    max-width: 540px;
-    margin: 0 auto;
-    min-height: 400px;
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 900px) {
-    .features-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .steps {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .pricing-table {
-      grid-template-columns: 1fr;
-    }
+  footer a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--vermillion);
   }
 </style>
 </head>
 <body>
 
-<!-- ── Nav ── -->
-<nav>
-  <a href="/" class="nav-logo">
-    <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
-      <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
-    </svg>
-    <div class="wordmark">
-      <span class="s">Studio</span>
-      <span class="b">B</span>
-    </div>
-  </a>
-  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links">
-    <a href="/">Studio&nbsp;B</a>
-    <a href="https://bolt.b.studio">Bolt</a>
-    <a href="acuops.html">AcuOps</a>
-    <a href="partners.html">Partners</a>
-    <a href="#demo" class="nav-cta">Request Demo</a>
-  </div>
-</nav>
+<div class="stripe"></div>
 
-<!-- ── Hero ── -->
-<section class="hero">
-  <div class="section-label" style="animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;">ACUOPS</div>
-  <h1>Your client's Acumatica breaks in production. You hear about it from <em>them.</em></h1>
-  <p class="hero-sub">AcuOps is an Acumatica DevOps platform for VARs. Health probes, schema-drift detection, CI/CD for customizations, post-publish validation. <strong>$300/mo per Acumatica instance. Flat. Everything included.</strong> No tiers, no per-user fees, no "talk to sales."</p>
-  <div class="hero-actions">
-    <a href="#demo" class="btn-primary">
-      Request a Demo
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+<main>
+  <div class="card">
+    <div class="eyebrow">AcuOps · Studio b.</div>
+    <h1>AcuOps now lives at <b>acuops.com</b>.</h1>
+    <p>You're being redirected automatically. If your browser doesn't move, the link is below.</p>
+    <a class="cta" href="https://acuops.com/">
+      Continue to acuops.com <span class="arrow">→</span>
     </a>
-    <a href="#pricing" class="btn-secondary">See Pricing</a>
   </div>
-</section>
+</main>
 
-<div class="divider"></div>
-
-<!-- ── Problem ── -->
-<section class="problem fade-in">
-  <h2>Upgrades break customizations. You find out last.</h2>
-  <p>A schema change slips in on Friday. A customization publish fails silently on Saturday. On Monday the client&apos;s AR team can&apos;t cut invoices. By Tuesday you&apos;ve cleared your week for damage control. You bill the recovery hours, hopefully. Nobody&apos;s thrilled about it.</p>
-  <p>AcuOps watches the environment so you don&apos;t have to. Health probes flag drift before it breaks a screen. The CI/CD pipeline won&apos;t publish a customization that fails its post-publish tests. You find out first. The client doesn&apos;t find out at all.</p>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── Features ── -->
-<section class="features fade-in">
-  <div class="section-label">Capabilities</div>
-  <h2 class="section-heading">Six things AcuOps does that your hand-rolled scripts don't.</h2>
-  <p class="section-sub">Every VAR we talk to has the beginnings of this — a couple of cron jobs, a Slack webhook, a spreadsheet of client environments. AcuOps is what those scripts become after three years of production use.</p>
-
-  <div class="features-grid">
-
-    <div class="feature-card">
-      <div class="feature-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-        </svg>
-      </div>
-      <h3>12 health probes, running always</h3>
-      <p>Acumatica API, session gate, HubSpot sync, MCP servers, database connections, webhook queues. We already ran the inventory of what breaks. You get the list.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16v16H4z"/>
-          <path d="M4 10h16"/>
-          <path d="M10 4v16"/>
-          <path d="M14 14l2 2"/>
-          <circle cx="17" cy="17" r="3"/>
-        </svg>
-      </div>
-      <h3>Schema drift detection</h3>
-      <p>Somebody adds a custom field in Acumatica, or a Salesforce/HubSpot admin renames a property. AcuOps notices. You get a Slack alert before a sync job tries to write to it and fails.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M8 12l2 2 4-4"/>
-        </svg>
-      </div>
-      <h3>CI/CD for customizations</h3>
-      <p>Push to GitHub, AcuOps imports the project into the target tenant, runs publishBegin/publishEnd through the Customization API, co-publishes dependencies, and posts the log to Slack. No manual ZIP uploads. No forgetting which tenant is which.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <path d="M9 12l2 2 4-4"/>
-        </svg>
-      </div>
-      <h3>Post-publish validation</h3>
-      <p>A Playwright test suite runs against the live tenant every time a customization publishes. Schema checks. Custom-field assertions. Pipeline and GI validations. If the page broke, AcuOps opens a ticket before your client opens their laptop.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
-          <line x1="4" y1="22" x2="4" y2="15"/>
-        </svg>
-      </div>
-      <h3>Pre-upgrade testing</h3>
-      <p>Acumatica 2024&nbsp;R2 drops. You run the same AcuOps test suite against the upgrade candidate a week before the client's go-live. Whatever breaks, breaks in a staging tenant on a Tuesday afternoon, not in production on a Monday morning.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 18l6-6-6-6"/>
-          <path d="M8 6l-6 6 6 6"/>
-          <path d="M14.5 4l-5 16"/>
-        </svg>
-      </div>
-      <h3>Config-as-code</h3>
-      <p>Every customization project, every sync config, every deploy parameter lives in a GitHub repo. Branch protection. PR review. Audit trail on every change. The answer to "who edited that screen?" is in the git log, not in everyone's memory.</p>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── How It Works ── -->
-<section class="how-it-works fade-in">
-  <div class="section-label">How It Works</div>
-  <h2 class="section-heading">Point it at the client. Wait for it to tell you something.</h2>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-number">1</div>
-      <h3>Connect</h3>
-      <p>A dedicated <code>api-bot</code> user on your client&apos;s Acumatica. Session-gated, read-only where it can be. Ten minutes, not a week.</p>
-    </div>
-    <div class="step">
-      <div class="step-number">2</div>
-      <h3>Observe</h3>
-      <p>Health probes run continuously. CI/CD publishes customizations. Post-publish tests run against the live tenant. The dashboard shows you every client side by side.</p>
-    </div>
-    <div class="step">
-      <div class="step-number">3</div>
-      <h3>Hear about it first</h3>
-      <p>Slack notifications into a channel you already read. If something broke, you know before your client calls. If nothing broke, the dashboard is quiet.</p>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── Slack Integration ── -->
-<section class="slack-integration fade-in">
-  <div class="section-label">Slack Integration</div>
-  <h2 class="section-heading">Your workspace. Your alerts.</h2>
-  <p class="section-sub">AcuOps installs directly into your client's Slack workspace. They see their alerts. You see everyone's.</p>
-
-  <div class="slack-panels">
-
-    <div class="slack-panel">
-      <div class="slack-panel-label">Your Client Sees</div>
-      <h3>Their own workspace</h3>
-      <p>AcuOps drops into your client's existing Slack. No shared channels, no cross-workspace noise. Just two dedicated channels:</p>
-      <div class="slack-channel">
-        <span class="slack-channel-icon">#</span>
-        <span class="slack-channel-name">acuops-alerts</span>
-        <span class="slack-channel-desc">Deploy results, health warnings, sync errors</span>
-      </div>
-      <div class="slack-channel">
-        <span class="slack-channel-icon">#</span>
-        <span class="slack-channel-name">acuops-intake</span>
-        <span class="slack-channel-desc">Submit requests that route to HubSpot tickets</span>
-      </div>
-      <p style="margin-top: 1.2rem; font-size: 0.8rem; color: var(--text-dim);">Each client's data stays in their workspace. They never see your other clients or internal channels.</p>
-    </div>
-
-    <div class="slack-panel">
-      <div class="slack-panel-label">You See</div>
-      <h3>All clients, one view</h3>
-      <p>Every AcuOps notification also posts to your operator workspace. All clients, all alerts, one place:</p>
-      <div class="slack-channel">
-        <span class="slack-channel-icon">#</span>
-        <span class="slack-channel-name">deployments</span>
-        <span class="slack-channel-desc">All deploy results across all clients</span>
-      </div>
-      <div class="slack-channel">
-        <span class="slack-channel-icon">#</span>
-        <span class="slack-channel-name">system-health</span>
-        <span class="slack-channel-desc">Health probe alerts across all clients</span>
-      </div>
-      <div class="slack-channel">
-        <span class="slack-channel-icon">#</span>
-        <span class="slack-channel-name">integration-issues</span>
-        <span class="slack-channel-desc">Sync and integration failures</span>
-      </div>
-      <p style="margin-top: 1.2rem; font-size: 0.8rem; color: var(--text-dim);">One event, two audiences. Zero manual forwarding.</p>
-    </div>
-
-  </div>
-
-  <div class="slack-onboard-steps" style="max-width: 600px; margin: 2.5rem auto 0;">
-    <div class="section-label" style="margin-bottom: 1rem;">Setup</div>
-    <div class="slack-onboard-step">
-      <span class="slack-onboard-step-num">1</span>
-      <p>We send your client a one-click install link during onboarding.</p>
-    </div>
-    <div class="slack-onboard-step">
-      <span class="slack-onboard-step-num">2</span>
-      <p>They approve AcuOps in their Slack workspace. Takes 10 seconds.</p>
-    </div>
-    <div class="slack-onboard-step">
-      <span class="slack-onboard-step-num">3</span>
-      <p>Channels are created automatically. Alerts start flowing immediately.</p>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── Pricing ── -->
-<section class="pricing fade-in" id="pricing">
-  <div class="section-label">Pricing</div>
-  <h2 class="section-heading">$300 per Acumatica instance. Flat.</h2>
-  <p class="section-sub">No tiers. No per-user fees. No quote-to-close negotiation. Every AcuOps-covered tenant gets every capability on this page, and every new capability we ship to it. One instance, one price.</p>
-
-  <div class="pricing-table" style="grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto;">
-
-    <div class="pricing-col recommended">
-      <div class="pricing-badge">Flat Rate</div>
-      <div class="pricing-tier">AcuOps</div>
-      <div class="pricing-price">$300 <span>/mo</span></div>
-      <div class="pricing-unit">per Acumatica instance</div>
-      <ul class="pricing-features">
-        <li><span class="check">&#10003;</span> <span class="feature-label">Health monitoring</span></li>
-        <li><span class="check">&#10003;</span> <span class="feature-label">Schema drift detection</span></li>
-        <li><span class="check">&#10003;</span> <span class="feature-label">Slack alerting (your workspace + client's)</span></li>
-        <li><span class="check">&#10003;</span> <span class="feature-label">CI/CD deploy pipeline</span></li>
-        <li><span class="check">&#10003;</span> <span class="feature-label">Post-publish validation</span></li>
-        <li><span class="check">&#10003;</span> <span class="feature-label">Pre-upgrade testing</span></li>
-        <li><span class="check">&#10003;</span> <span class="feature-label">Config-as-code (GitHub)</span></li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── CTA / Demo Form ── -->
-<section class="cta-section fade-in" id="demo">
-  <h2>See AcuOps against a real tenant.</h2>
-  <p>Thirty minutes. No slides. We'll connect AcuOps to the Heritage Fabrics production tenant and walk through whatever's on the dashboard that morning &mdash; the good, the drifting, and the broken.</p>
-  <div class="cta-form">
-    <div id="demo-form"></div>
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-    <script>
-      hbspt.forms.create({
-        region: "na1",
-        portalId: "49070660",
-        formId: "ea2c2f4a-4e71-4dd5-8747-814c87634f5c",
-        target: "#demo-form",
-        css: "",
-        cssClass: "hs-form-dark"
-      });
-    </script>
-    <style>
-      .hs-form-dark .hs-input {
-        background: var(--surface) !important;
-        border: 1px solid var(--border) !important;
-        border-radius: 8px !important;
-        color: var(--text) !important;
-        font-family: 'Outfit', sans-serif !important;
-        font-size: 0.9rem !important;
-        font-weight: 300 !important;
-        padding: 0.85rem 1.2rem !important;
-        width: 100% !important;
-      }
-      .hs-form-dark .hs-input:focus {
-        border-color: var(--accent-deep) !important;
-        outline: none !important;
-      }
-      .hs-form-dark .hs-input::placeholder {
-        color: var(--text-dim) !important;
-      }
-      .hs-form-dark label {
-        color: var(--text-muted) !important;
-        font-family: 'Outfit', sans-serif !important;
-        font-size: 0.82rem !important;
-        font-weight: 400 !important;
-        margin-bottom: 0.3rem !important;
-      }
-      .hs-form-dark .hs-button {
-        background: var(--accent) !important;
-        color: var(--bg) !important;
-        border: none !important;
-        border-radius: 8px !important;
-        font-family: 'Outfit', sans-serif !important;
-        font-size: 0.95rem !important;
-        font-weight: 500 !important;
-        padding: 0.85rem 2rem !important;
-        cursor: pointer !important;
-        transition: all 0.3s !important;
-        width: 100% !important;
-        margin-top: 0.5rem !important;
-      }
-      .hs-form-dark .hs-button:hover {
-        background: #06b6d4 !important;
-        transform: translateY(-1px) !important;
-      }
-      .hs-form-dark .hs-form-field {
-        margin-bottom: 1rem !important;
-      }
-      .hs-form-dark .hs-error-msg {
-        color: #ef4444 !important;
-        font-size: 0.78rem !important;
-      }
-      .hs-form-dark select.hs-input {
-        appearance: none !important;
-        -webkit-appearance: none !important;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A95A5' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
-        background-repeat: no-repeat !important;
-        background-position: right 1rem center !important;
-      }
-      .hs-form-dark textarea.hs-input {
-        min-height: 100px !important;
-        resize: vertical !important;
-      }
-    </style>
-  </div>
-</section>
-
-<!-- ── Footer ── -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="/" class="nav-logo">
-        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
-          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
-        </svg>
-        <div class="wordmark">
-          <span class="s">Studio</span>
-          <span class="b">B</span>
-        </div>
-      </a>
-      <p>Two products. Both running in production. Both built by the team that uses them.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Products</h4>
-      <a href="https://bolt.b.studio">Bolt</a>
-      <a href="acuops.html">AcuOps</a>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="/">Studio&nbsp;B</a>
-      <a href="partners.html">Partners</a>
-      <a href="https://docs.b.studio" target="_blank" rel="noopener">Documentation</a>
-      <a href="/privacy">Privacy</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copyright">&copy; 2026 Studio B</div>
-  </div>
+  <a href="https://b.studio/">← b.studio</a>
 </footer>
 
-<!-- ── Scroll Fade-In ── -->
 <script>
-(function() {
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.fade-in').forEach(function(el) {
-    observer.observe(el);
-  });
-})();
+  // JS belt-and-braces: replace() so back button doesn't bounce users
+  // back here from acuops.com.
+  if (window.location.hostname !== 'acuops.com') {
+    window.location.replace('https://acuops.com/');
+  }
 </script>
 
 </body>
