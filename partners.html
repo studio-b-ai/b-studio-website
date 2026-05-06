@@ -1,796 +1,750 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Partner Program — Studio B for Acumatica VARs</title>
-<meta name="description" content="Studio B Partner Program for Acumatica VARs. AcuOps at $300/mo per instance, flat. Plus Bolt resale for your continuous-goods distributor clients.">
-<meta property="og:title" content="Partner Program — Studio B for Acumatica VARs">
-<meta property="og:description" content="AcuOps at $300/mo per Acumatica instance, flat. Plus Bolt resale for your continuous-goods clients.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Partners — Studio b. for Acumatica VARs</title>
+<meta name="description" content="Studio b. partner program for Acumatica VARs. AcuOps at $300/mo per Acumatica instance, flat. Bolt resale for continuous-goods clients. Plain pricing, no upsell ladder.">
+<meta name="robots" content="index, follow">
+
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://b.studio/partners">
+<meta property="og:site_name" content="Studio b.">
+<meta property="og:title" content="Partners — Studio b. for Acumatica VARs">
+<meta property="og:description" content="AcuOps at $300/mo per Acumatica instance, flat. Bolt resale for continuous-goods clients. Plain pricing, no upsell ladder.">
+<meta property="og:url" content="https://b.studio/partners.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Partners — Studio b. for Acumatica VARs">
+<meta name="twitter:description" content="AcuOps at $300/mo per Acumatica instance, flat. Bolt resale for continuous-goods clients.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-
-<!-- HubSpot Tracking Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49070660.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,900;1,9..144,700;1,9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/header.css">
 
 <style>
-  /* ── Nav active state ── */
-  .nav-links a[href="partners.html"] {
-    color: var(--accent) !important;
-  }
+:root {
+  --paper:      #F4F1EB;
+  --paper-dk:   #EAE4D4;
+  --ink:        #0D0D0D;
+  --ink-60:     rgba(13,13,13,0.60);
+  --ink-30:     rgba(13,13,13,0.30);
+  --ink-10:     rgba(13,13,13,0.10);
+  --vermillion: #D94425;
+  --yolk:       #F7D344;
+  --yolk-08:    rgba(247,211,68,0.18);
+  --forest:     #1A3328;
+  --snow:       #FFFFFF;
+  --mono-sm:    0.62rem;
+  --mono-md:    0.68rem;
+}
 
-  /* ── Before/After Comparison ── */
-  .comparison {
-    padding: 6rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
 
-  .comparison-table {
-    display: grid;
-    grid-template-columns: 200px 1fr 1fr;
-    gap: 0;
-    margin-top: 0.5rem;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
+/* ── Masthead ── */
+.masthead {
+  border-bottom: 3px solid var(--ink);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 1rem 2.5rem;
+}
+.masthead-brand { display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none; color: var(--ink); }
+.masthead-b {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.masthead-dot { color: var(--vermillion); }
+.masthead-center {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  text-align: center;
+}
+.masthead-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+.masthead-nav { display: flex; gap: 1.5rem; }
+.masthead-nav a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  text-decoration: none;
+  transition: color 0.12s;
+}
+.masthead-nav a:hover { color: var(--ink); }
+.btn-lp {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--vermillion);
+  color: var(--snow);
+  text-decoration: none;
+  padding: 0.55rem 1.1rem;
+  transition: background 0.12s;
+  white-space: nowrap;
+}
+.btn-lp:hover { background: var(--ink); }
 
-  .comp-header {
-    background: var(--surface-2);
-    padding: 1.2rem 1.5rem;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--border);
-  }
+/* ── Hero ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  border-bottom: 3px solid var(--ink);
+}
+.hero-left {
+  padding: 4rem 3rem 4rem 2.5rem;
+  border-right: 1px solid var(--ink-10);
+}
+.hero-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 1.5rem;
+}
+.hero-h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: var(--forest);
+  font-variation-settings: "opsz" 144;
+  margin-bottom: 1.5rem;
+}
+.hero-h1 em {
+  font-style: italic;
+  font-weight: 700;
+  background: var(--yolk-08);
+  padding: 0 0.18em;
+  display: inline;
+}
+.hero-sub {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 50ch;
+  margin-bottom: 2rem;
+}
+.hero-sub strong { font-weight: 700; }
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--forest);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.6rem;
+  text-decoration: none;
+  transition: background 0.12s;
+}
+.hero-cta:hover { background: var(--vermillion); }
 
-  .comp-header:nth-child(2) {
-    color: var(--text-dim);
-    border-left: 1px solid var(--border);
-  }
+.hero-right {
+  padding: 4rem 2.5rem 4rem 3rem;
+  background: var(--paper-dk);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-right-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  margin-bottom: 1rem;
+}
+.hero-quote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--forest);
+  margin-bottom: 1.5rem;
+}
+.hero-quote-attribution {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+}
 
-  .comp-header:nth-child(3) {
-    color: var(--accent);
-    border-left: 1px solid var(--border);
-    background: rgba(34, 211, 238, 0.04);
-  }
+/* ── Generic section ── */
+.section {
+  padding: 5rem 2.5rem;
+  border-bottom: 1px solid var(--ink-10);
+}
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 1rem;
+}
+.section h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--forest);
+  font-variation-settings: "opsz" 144;
+  margin-bottom: 1.2rem;
+}
+.section h2 em {
+  font-style: italic;
+  font-weight: 700;
+  background: var(--yolk-08);
+  padding: 0 0.16em;
+  display: inline;
+}
+.section-sub {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 60ch;
+  margin-bottom: 2.5rem;
+}
 
-  .comp-row-label {
-    padding: 1.2rem 1.5rem;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 400;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-  }
+/* ── Comparison table ── */
+.comp-table {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink-10);
+}
+.comp-cell {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--ink-10);
+  border-right: 1px solid var(--ink-10);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.comp-head {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+}
+.comp-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+}
+.comp-before { color: var(--ink-60); }
+.comp-after { color: var(--ink); font-weight: 500; }
+.comp-after strong { color: var(--vermillion); font-weight: 700; }
+.comp-table .total {
+  background: var(--paper-dk);
+  font-weight: 700;
+}
+.comp-table .total .comp-after { color: var(--vermillion); font-weight: 700; }
 
-  .comp-cell {
-    padding: 1.2rem 1.5rem;
-    font-size: 0.88rem;
-    line-height: 1.5;
-    border-bottom: 1px solid var(--border);
-    border-left: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-  }
+/* ── Pricing cards ── */
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.price-card {
+  background: var(--snow);
+  border: 1px solid var(--ink);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.price-card h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--forest);
+  margin-bottom: 0.4rem;
+}
+.price-amount {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--vermillion);
+  font-variation-settings: "opsz" 144;
+  margin-bottom: 0.4rem;
+}
+.price-unit {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--ink-10);
+}
+.price-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  flex: 1;
+}
+.price-card li {
+  padding: 0.4rem 0 0.4rem 1.4rem;
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.price-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  width: 8px;
+  height: 2px;
+  background: var(--vermillion);
+}
+.price-req {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  padding-top: 1rem;
+  border-top: 1px solid var(--ink-10);
+}
+.price-req a { color: var(--vermillion); text-decoration: none; }
+.price-req a:hover { background: var(--yolk-08); }
 
-  .comp-cell.before {
-    color: var(--text-dim);
-    background: var(--bg);
-  }
+/* ── Math table ── */
+.math-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.math-table th, .math-table td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--ink-10);
+  font-size: 0.95rem;
+}
+.math-table th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+}
+.math-table td:nth-child(2),
+.math-table td:nth-child(3),
+.math-table th:nth-child(2),
+.math-table th:nth-child(3) {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+.math-table tr.total td {
+  font-weight: 700;
+  background: var(--paper-dk);
+  color: var(--vermillion);
+  border-bottom: none;
+}
+.math-kicker {
+  margin-top: 2rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 60ch;
+}
+.math-kicker em {
+  font-style: italic;
+  font-weight: 700;
+  background: var(--yolk-08);
+  padding: 0 0.16em;
+}
 
-  .comp-cell.after {
-    color: var(--text);
-    background: rgba(34, 211, 238, 0.02);
-  }
+/* ── Steps ── */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.step {
+  border: 1px solid var(--ink);
+  background: var(--snow);
+  padding: 2rem;
+}
+.step-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--vermillion);
+  font-variation-settings: "opsz" 144;
+  margin-bottom: 0.6rem;
+}
+.step h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--forest);
+  margin-bottom: 0.6rem;
+}
+.step p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
 
-  .comp-cell.after strong {
-    color: var(--accent);
-    font-weight: 500;
-  }
+/* ── Form ── */
+.form-section {
+  padding: 5rem 2.5rem;
+  background: var(--paper-dk);
+  border-bottom: 1px solid var(--ink-10);
+}
+.form-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.form-inner h2 { text-align: left; }
+.form-host {
+  background: var(--snow);
+  border: 1px solid var(--ink);
+  padding: 2.5rem;
+  margin-top: 2rem;
+}
 
-  .comp-row-label.highlight,
-  .comp-cell.highlight {
-    border-bottom: none;
-    background: var(--surface);
-  }
+/* HubSpot form styling — Billboard register */
+.hs-form-bstudio .hs-input {
+  background: var(--paper) !important;
+  border: 1px solid var(--ink-10) !important;
+  border-radius: 0 !important;
+  color: var(--ink) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  padding: 0.85rem 1rem !important;
+  width: 100% !important;
+}
+.hs-form-bstudio .hs-input:focus {
+  border-color: var(--ink) !important;
+  outline: none !important;
+}
+.hs-form-bstudio label {
+  color: var(--ink-60) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: var(--mono-sm) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 0.4rem !important;
+  display: block !important;
+}
+.hs-form-bstudio .hs-button {
+  background: var(--forest) !important;
+  color: var(--paper) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: var(--mono-md) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  padding: 1rem 2rem !important;
+  cursor: pointer !important;
+  transition: background 0.12s !important;
+  width: 100% !important;
+  margin-top: 0.8rem !important;
+}
+.hs-form-bstudio .hs-button:hover { background: var(--vermillion) !important; }
+.hs-form-bstudio .hs-form-field { margin-bottom: 1rem !important; }
+.hs-form-bstudio textarea.hs-input { min-height: 120px !important; resize: vertical !important; }
+.hs-form-bstudio select.hs-input {
+  appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230D0D0D' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 1rem center !important;
+}
 
-  .comp-cell.highlight.before {
-    color: var(--text-dim);
-    font-weight: 400;
-    font-style: italic;
-    background: var(--surface);
-  }
+/* ── Footer ── */
+footer {
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-top: 1px solid var(--ink-10);
+}
+.footer-mark {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-30);
+}
+.footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+.footer-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-30);
+  text-decoration: none;
+  transition: color 0.12s;
+}
+.footer-links a:hover { color: var(--ink); }
 
-  .comp-cell.highlight.after {
-    color: var(--accent);
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 1.3rem;
-    background: rgba(34, 211, 238, 0.06);
-  }
-
-  .comp-row-label.highlight {
-    font-weight: 500;
-    color: var(--text);
-  }
-
-  /* ── Pricing Cards ── */
-  .pricing {
-    padding: 6rem 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-    margin-top: 0.5rem;
-  }
-
-  .pricing-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2.2rem 1.8rem;
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .pricing-card:hover {
-    border-color: rgba(34, 211, 238, 0.25);
-    transform: translateY(-3px);
-    box-shadow: 0 0 30px var(--accent-glow);
-  }
-
-  .pricing-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: var(--text);
-    margin-bottom: 0.3rem;
-  }
-
-  .pricing-amount {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 2.4rem;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 0.2rem;
-  }
-
-  .pricing-unit {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.78rem;
-    color: var(--text-dim);
-    margin-bottom: 1.5rem;
-  }
-
-  .pricing-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex: 1;
-  }
-
-  .pricing-card ul li {
-    font-size: 0.84rem;
-    color: var(--text-muted);
-    padding: 0.5rem 0;
-    border-top: 1px solid var(--border);
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    line-height: 1.5;
-  }
-
-  .pricing-card ul li:last-child {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .pricing-card ul li .check {
-    color: var(--accent);
-    font-weight: 500;
-    font-size: 0.9rem;
-    flex-shrink: 0;
-    margin-top: 0.1rem;
-  }
-
-  .pricing-req {
-    font-size: 0.75rem;
-    color: var(--text-dim);
-    font-style: italic;
-    margin-top: 1rem;
-  }
-
-  .volume-banner {
-    text-align: center;
-    margin-top: 2.5rem;
-    padding: 1.2rem 2rem;
-    background: var(--surface);
-    border: 1px solid rgba(34, 211, 238, 0.2);
-    border-radius: 10px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 400;
-    color: var(--text);
-    letter-spacing: 0.01em;
-  }
-
-  .volume-banner strong {
-    color: var(--accent);
-    font-weight: 600;
-  }
-
-  /* ── Full Stack Example ── */
-  .stack-example {
-    padding: 6rem 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .stack-box {
-    background: var(--surface);
-    border: 1px solid rgba(34, 211, 238, 0.25);
-    border-radius: 12px;
-    padding: 2.5rem;
-    box-shadow: 0 0 50px var(--accent-glow);
-  }
-
-  .stack-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  .stack-table th {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    text-align: left;
-    padding: 0 0 1rem 0;
-  }
-
-  .stack-table th:nth-child(2),
-  .stack-table th:nth-child(3) {
-    text-align: right;
-  }
-
-  .stack-table td {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    padding: 0.8rem 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .stack-table td:nth-child(2),
-  .stack-table td:nth-child(3) {
-    text-align: right;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-  }
-
-  .stack-table tr.total td {
-    color: var(--text);
-    font-weight: 500;
-    border-top: 2px solid var(--accent);
-    padding-top: 1rem;
-    font-size: 1rem;
-  }
-
-  .stack-table tr.total td:nth-child(2),
-  .stack-table tr.total td:nth-child(3) {
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 1rem;
-  }
-
-  .stack-kicker {
-    margin-top: 2rem;
-    text-align: center;
-    font-size: 0.92rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-  }
-
-  .stack-kicker em {
-    color: var(--text);
-    font-style: italic;
-  }
-
-  /* ── Onboarding Steps ── */
-  .onboarding {
-    padding: 6rem 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .onboarding-steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 0.5rem;
-  }
-
-  .ob-step {
-    text-align: center;
-    padding: 2rem 1.5rem;
-  }
-
-  .ob-step-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 3rem;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-
-  .ob-step h3 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500;
-    font-size: 1.1rem;
-    margin-bottom: 0.7rem;
-    color: var(--text);
-  }
-
-  .ob-step p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.65;
-  }
-
-  /* ── CTA Section ── */
-  .cta-section {
-    padding: 6rem 2rem;
-    text-align: center;
-    position: relative;
-  }
-
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    bottom: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 400px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .cta-section > * { position: relative; z-index: 1; }
-
-  .cta-section h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-    margin-bottom: 1rem;
-  }
-
-  .cta-section p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    max-width: 520px;
-    margin: 0 auto 2rem;
-  }
-
-  .cta-form {
-    max-width: 540px;
-    margin: 0 auto;
-    min-height: 400px;
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 900px) {
-    .comparison-table {
-      grid-template-columns: 1fr;
-    }
-
-    .comp-header:nth-child(1) { display: none; }
-    .comp-row-label { display: none; }
-
-    .comp-cell {
-      border-left: none;
-      padding: 1rem 1.5rem;
-    }
-
-    .comp-cell::before {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    .comp-cell.before::before {
-      content: "Before Studio B";
-      color: var(--text-dim);
-    }
-
-    .comp-cell.after::before {
-      content: "With Studio B";
-      color: var(--accent);
-    }
-
-    .comp-cell {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .pricing-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .onboarding-steps {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .pricing-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .stack-table th:nth-child(2),
-    .stack-table td:nth-child(2) {
-      display: none;
-    }
-  }
+@media (max-width: 900px) {
+  .masthead { grid-template-columns: 1fr auto; padding: 1rem 1.5rem; }
+  .masthead-center { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 3rem 1.5rem; border-right: none; border-bottom: 1px solid var(--ink-10); }
+  .hero-right { padding: 3rem 1.5rem; }
+  .section { padding: 3.5rem 1.5rem; }
+  .comp-table { grid-template-columns: 1fr; }
+  .comp-cell:nth-child(3n+1) { background: var(--paper-dk); }
+  .price-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .form-section { padding: 3rem 1.5rem; }
+  .form-host { padding: 1.5rem; }
+}
 </style>
 </head>
 <body>
 
-<!-- ── Nav ── -->
-<nav>
-  <a href="/" class="nav-logo">
-    <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
-      <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
-    </svg>
-    <div class="wordmark">
-      <span class="s">Studio</span>
-      <span class="b">B</span>
-    </div>
+<div class="stripe thin"></div>
+
+<header class="masthead">
+  <a href="/" class="masthead-brand">
+    <span class="masthead-b">b<span class="masthead-dot">.</span></span>
   </a>
-  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links">
-    <a href="/">Studio&nbsp;B</a>
-    <a href="https://bolt.b.studio">Bolt</a>
-    <a href="acuops.html">AcuOps</a>
-    <a href="partners.html">Partners</a>
-    <a href="#partner-form" class="nav-cta">Become a Partner</a>
+  <div class="masthead-center">Operators · Builders · Investors · Since 2018</div>
+  <div class="masthead-right">
+    <nav class="masthead-nav">
+      <a href="https://markdown.b.studio">Markdown</a>
+      <a href="https://lmmi.b.studio">LMMI</a>
+      <a href="https://invest.b.studio">Invest</a>
+    </nav>
+    <a href="#partner-form" class="btn-lp">Become a partner →</a>
   </div>
-</nav>
+</header>
 
-<!-- ── Hero ── -->
 <section class="hero">
-  <div class="section-label" style="animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;">PARTNER PROGRAM</div>
-  <h1>Add recurring revenue without adding <em>headcount.</em></h1>
-  <p class="hero-sub">Studio B ships two products Acumatica VARs can put into their practice on day one: <strong>AcuOps</strong>, our Acumatica DevOps platform, and <strong>Bolt</strong>, our continuous-goods WMS. AcuOps runs on every Acumatica tenant you manage. Bolt resells to your distributor clients. You keep the relationship. We keep the software running.</p>
-  <div class="hero-actions">
-    <a href="#partner-form" class="btn-primary">
-      Become a Partner
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-    <a href="#pricing" class="btn-secondary">See Pricing</a>
+  <div class="hero-left">
+    <div class="hero-kicker">Studio b. · Partner Program</div>
+    <h1 class="hero-h1">Add recurring revenue without adding <em>headcount.</em></h1>
+    <p class="hero-sub">Studio b. ships two products Acumatica VARs can put into their practice on day one. <strong>AcuOps</strong> — our Acumatica DevOps platform — runs on every Acumatica tenant you manage. <strong>Bolt</strong> — our continuous-goods WMS — resells to your distributor clients. You keep the relationship. We keep the software running.</p>
+    <a href="#partner-form" class="hero-cta">Become a partner →</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-label">From the team that built it</div>
+    <div class="hero-quote">"We don't sell software we wouldn't run ourselves. Bolt and AcuOps are how we run our own portfolio. The partner program is what we open up to other VARs who want to put it to work."</div>
+    <div class="hero-quote-attribution">Kevin · Studio b. principal</div>
   </div>
 </section>
 
-<div class="divider"></div>
+<section class="section">
+  <div class="section-inner">
+    <div class="section-num">§01 — The Shift</div>
+    <h2>Your practice, <em>before and after.</em></h2>
+    <div class="comp-table">
+      <div class="comp-cell comp-head">&nbsp;</div>
+      <div class="comp-cell comp-head">Before</div>
+      <div class="comp-cell comp-head">With Studio b.</div>
 
-<!-- ── Before/After Comparison ── -->
-<section class="comparison fade-in">
-  <div class="section-label">The Shift</div>
-  <h2 class="section-heading">Your practice, before and after.</h2>
+      <div class="comp-cell comp-label">Environment monitoring</div>
+      <div class="comp-cell comp-before">Reactive — the client calls, then you look</div>
+      <div class="comp-cell comp-after">AcuOps watches every tenant 24/7</div>
 
-  <div class="comparison-table">
-    <!-- Header row -->
-    <div class="comp-header">&nbsp;</div>
-    <div class="comp-header">Before</div>
-    <div class="comp-header">With Studio&nbsp;B</div>
+      <div class="comp-cell comp-label">Customization delivery</div>
+      <div class="comp-cell comp-before">ZIP uploads, manual publish, "test in prod"</div>
+      <div class="comp-cell comp-after">CI/CD pipeline with post-publish validation</div>
 
-    <!-- Row 1: Environment monitoring -->
-    <div class="comp-row-label">Environment monitoring</div>
-    <div class="comp-cell before">Reactive &mdash; the client calls, then you look</div>
-    <div class="comp-cell after">AcuOps watches every tenant 24/7</div>
+      <div class="comp-cell comp-label">Acumatica upgrades</div>
+      <div class="comp-cell comp-before">Hope nothing broke. Bill the recovery.</div>
+      <div class="comp-cell comp-after">Test suite runs against the upgrade candidate first</div>
 
-    <!-- Row 2: Customization delivery -->
-    <div class="comp-row-label">Customization delivery</div>
-    <div class="comp-cell before">ZIP uploads, manual publish, "test in prod"</div>
-    <div class="comp-cell after">CI/CD pipeline with post-publish validation</div>
+      <div class="comp-cell comp-label">Continuous-goods clients</div>
+      <div class="comp-cell comp-before">No WMS fits. They kludge it in Excel.</div>
+      <div class="comp-cell comp-after">Resell Bolt. They pay you for it.</div>
 
-    <!-- Row 3: Upgrades -->
-    <div class="comp-row-label">Acumatica upgrades</div>
-    <div class="comp-cell before">Hope nothing broke. Bill the recovery.</div>
-    <div class="comp-cell after">Test suite runs against the upgrade candidate first</div>
-
-    <!-- Row 4: Continuous-goods clients -->
-    <div class="comp-row-label">Continuous-goods clients</div>
-    <div class="comp-cell before">No WMS fits. They kludge it in Excel.</div>
-    <div class="comp-cell after">Resell Bolt. They pay you for it.</div>
-
-    <!-- Row 5: Revenue -->
-    <div class="comp-row-label highlight">Per-tenant recurring revenue</div>
-    <div class="comp-cell before highlight">Hours, billed after the fact</div>
-    <div class="comp-cell after highlight">$300/mo&nbsp;AcuOps + Bolt resale</div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── Pricing ── -->
-<section class="pricing fade-in" id="pricing">
-  <div class="section-label">Products</div>
-  <h2 class="section-heading">Two products. Plain pricing.</h2>
-  <p class="section-sub">Everything in the Studio B practice ships as one of these. No upsell ladder, no "starter editions" we hope you outgrow.</p>
-
-  <div class="pricing-grid" style="grid-template-columns: 1fr 1fr; max-width: 900px; margin-left: auto; margin-right: auto;">
-
-    <!-- AcuOps -->
-    <div class="pricing-card">
-      <h3>AcuOps</h3>
-      <div class="pricing-amount">$300</div>
-      <div class="pricing-unit">per Acumatica instance / month &middot; flat</div>
-      <ul>
-        <li><span class="check">&#10003;</span> 12 health probes, Slack-alerted</li>
-        <li><span class="check">&#10003;</span> Schema drift detection</li>
-        <li><span class="check">&#10003;</span> CI/CD for customizations</li>
-        <li><span class="check">&#10003;</span> Post-publish validation</li>
-        <li><span class="check">&#10003;</span> Pre-upgrade testing</li>
-        <li><span class="check">&#10003;</span> Config-as-code in GitHub</li>
-        <li><span class="check">&#10003;</span> Every capability, every instance</li>
-      </ul>
-      <div class="pricing-req">For every Acumatica tenant you manage</div>
+      <div class="comp-cell comp-label total">Per-tenant recurring revenue</div>
+      <div class="comp-cell comp-before total">Hours, billed after the fact</div>
+      <div class="comp-cell comp-after total"><strong>$300/mo AcuOps + Bolt resale</strong></div>
     </div>
-
-    <!-- Bolt -->
-    <div class="pricing-card">
-      <h3>Bolt</h3>
-      <div class="pricing-amount">$800&ndash;$1,800</div>
-      <div class="pricing-unit">per tenant / month &middot; 3 tiers</div>
-      <ul>
-        <li><span class="check">&#10003;</span> Continuous-goods WMS</li>
-        <li><span class="check">&#10003;</span> Cut-to-order + remainders</li>
-        <li><span class="check">&#10003;</span> Lot traceability, LTL, offline mobile</li>
-        <li><span class="check">&#10003;</span> Bidirectional Acumatica sync</li>
-        <li><span class="check">&#10003;</span> Unlimited warehouses, unlimited users</li>
-        <li><span class="check">&#10003;</span> White-label add-on for partners ($500&ndash;1,000/mo)</li>
-        <li><span class="check">&#10003;</span> Referral commissions on resale</li>
-      </ul>
-      <div class="pricing-req">For your distributor clients selling wire, carpet, hose, paper, vinyl, textile &mdash; <a href="https://bolt.b.studio" style="color: var(--accent);">bolt.b.studio</a></div>
-    </div>
-
   </div>
 </section>
 
-<div class="divider"></div>
+<section class="section" id="pricing">
+  <div class="section-inner">
+    <div class="section-num">§02 — Products</div>
+    <h2>Two products. <em>Plain pricing.</em></h2>
+    <p class="section-sub">Everything in the Studio b. practice ships as one of these. No upsell ladder. No "starter editions" we hope you outgrow.</p>
 
-<!-- ── Full Stack Example ── -->
-<section class="stack-example fade-in">
-  <div class="section-label">The Math</div>
-  <h2 class="section-heading">Ten clients, honest numbers.</h2>
-  <p class="section-sub">Imagine a VAR practice with ten Acumatica clients, three of whom sell continuous goods. Here's what Studio B adds to that practice, at our pricing, before you mark it up.</p>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3>AcuOps</h3>
+        <div class="price-amount">$300</div>
+        <div class="price-unit">per Acumatica instance / month · flat</div>
+        <ul>
+          <li>Health probes with Slack alerts</li>
+          <li>Schema drift detection</li>
+          <li>CI/CD for customizations</li>
+          <li>Post-publish validation</li>
+          <li>Pre-upgrade testing</li>
+          <li>Config-as-code in GitHub</li>
+          <li>Every capability, every instance</li>
+        </ul>
+        <div class="price-req">For every Acumatica tenant you manage · <a href="https://acuops.com">acuops.com →</a></div>
+      </div>
 
-  <div class="stack-box">
-    <table class="stack-table">
+      <div class="price-card">
+        <h3>Bolt</h3>
+        <div class="price-amount">$800–$1,800</div>
+        <div class="price-unit">per Acumatica instance / month · 3 tiers</div>
+        <ul>
+          <li>Continuous-goods WMS</li>
+          <li>Cut-to-order with remainders</li>
+          <li>Lot traceability, LTL, offline mobile</li>
+          <li>Bidirectional Acumatica sync</li>
+          <li>Unlimited warehouses, unlimited users</li>
+          <li>White-label add-on for partners</li>
+          <li>Referral commissions on resale</li>
+        </ul>
+        <div class="price-req">For your distributor clients selling wire, carpet, hose, paper, vinyl, textile · <a href="https://bolt.b.studio">bolt.b.studio →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-num">§03 — The Math</div>
+    <h2>Ten clients, <em>honest numbers.</em></h2>
+    <p class="section-sub">Imagine a VAR practice with ten Acumatica clients, three of whom sell continuous goods. Here's what Studio b. adds, at our pricing, before you mark it up.</p>
+
+    <table class="math-table">
       <thead>
-        <tr>
-          <th>Line item</th>
-          <th>Unit price</th>
-          <th>Monthly</th>
-        </tr>
+        <tr><th>Line item</th><th>Unit price</th><th>Monthly</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td>AcuOps on ten Acumatica tenants</td>
-          <td>$300</td>
-          <td>$3,000</td>
-        </tr>
-        <tr>
-          <td>Bolt resale &mdash; three continuous-goods clients on Pro</td>
-          <td>$1,200</td>
-          <td>$3,600</td>
-        </tr>
-        <tr>
-          <td>White-label add-on across the three Bolt tenants</td>
-          <td>$500</td>
-          <td>$1,500</td>
-        </tr>
-        <tr class="total">
-          <td>Recurring software you're delivering</td>
-          <td>&mdash;</td>
-          <td>$8,100/mo</td>
-        </tr>
+        <tr><td>AcuOps on ten Acumatica tenants</td><td>$300</td><td>$3,000</td></tr>
+        <tr><td>Bolt resale — three continuous-goods clients on Pro</td><td>$1,200</td><td>$3,600</td></tr>
+        <tr><td>White-label add-on across the three Bolt tenants</td><td>$500</td><td>$1,500</td></tr>
+        <tr class="total"><td>Recurring software you're delivering</td><td>—</td><td>$8,100/mo</td></tr>
       </tbody>
     </table>
-  </div>
 
-  <p class="stack-kicker">Mark it up the way you mark up any other recurring SaaS in your practice. <em>That margin is yours.</em> Studio B isn't in the seat between you and your client &mdash; we ship the software, you own the relationship.</p>
+    <p class="math-kicker">Mark it up the way you mark up any other recurring software in your practice. <em>That margin is yours.</em> Studio b. isn't in the seat between you and your client — we ship the software, you own the relationship.</p>
+  </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ── Onboarding ── -->
-<section class="onboarding fade-in">
-  <div class="section-label">Get Started</div>
-  <h2 class="section-heading">Three steps. No dance.</h2>
-
-  <div class="onboarding-steps">
-    <div class="ob-step">
-      <div class="ob-step-number">1</div>
-      <h3>Book a demo</h3>
-      <p>Thirty minutes against a real tenant. You ask hard questions. Kevin answers them directly.</p>
-    </div>
-    <div class="ob-step">
-      <div class="ob-step-number">2</div>
-      <h3>Connect your first client</h3>
-      <p>We onboard one Acumatica tenant into AcuOps, together, on a screenshare. You see every step. If it's for a continuous-goods distributor, we walk through Bolt the same way.</p>
-    </div>
-    <div class="ob-step">
-      <div class="ob-step-number">3</div>
-      <h3>Start billing</h3>
-      <p>AcuOps is watching. Bolt is running. You invoice your client for managed Acumatica plus WMS on the next cycle.</p>
+<section class="section">
+  <div class="section-inner">
+    <div class="section-num">§04 — Get Started</div>
+    <h2>Three steps. <em>No dance.</em></h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Book a demo</h3>
+        <p>Thirty minutes against a real tenant. You ask hard questions. Kevin answers them directly.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Connect your first client</h3>
+        <p>We onboard one Acumatica tenant into AcuOps, together, on a screenshare. You see every step. If it's a continuous-goods distributor, we walk through Bolt the same way.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Start billing</h3>
+        <p>AcuOps is watching. Bolt is running. You invoice your client for managed Acumatica plus WMS on the next cycle.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ── CTA / Partner Form ── -->
-<section class="cta-section fade-in" id="partner-form">
-  <h2>Become a partner.</h2>
-  <p>Tell us about your practice. Kevin replies within 48 hours &mdash; no SDR, no "pipeline enrichment," no scripted first call.</p>
-  <div class="cta-form">
-    <div id="partner-form-container"></div>
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-    <script>
-      hbspt.forms.create({
-        region: "na1",
-        portalId: "49070660",
-        formId: "f8b81a68-65b6-435d-8ef7-aa52e0d61ade",
-        target: "#partner-form-container",
-        css: "",
-        cssClass: "hs-form-dark"
-      });
-    </script>
-    <style>
-      .hs-form-dark .hs-input {
-        background: var(--surface) !important;
-        border: 1px solid var(--border) !important;
-        border-radius: 8px !important;
-        color: var(--text) !important;
-        font-family: 'Outfit', sans-serif !important;
-        font-size: 0.9rem !important;
-        font-weight: 300 !important;
-        padding: 0.85rem 1.2rem !important;
-        width: 100% !important;
-      }
-      .hs-form-dark .hs-input:focus {
-        border-color: var(--accent-deep) !important;
-        outline: none !important;
-      }
-      .hs-form-dark .hs-input::placeholder {
-        color: var(--text-dim) !important;
-      }
-      .hs-form-dark label {
-        color: var(--text-muted) !important;
-        font-family: 'Outfit', sans-serif !important;
-        font-size: 0.82rem !important;
-        font-weight: 400 !important;
-        margin-bottom: 0.3rem !important;
-      }
-      .hs-form-dark .hs-button {
-        background: var(--accent) !important;
-        color: var(--bg) !important;
-        border: none !important;
-        border-radius: 8px !important;
-        font-family: 'Outfit', sans-serif !important;
-        font-size: 0.95rem !important;
-        font-weight: 500 !important;
-        padding: 0.85rem 2rem !important;
-        cursor: pointer !important;
-        transition: all 0.3s !important;
-        width: 100% !important;
-        margin-top: 0.5rem !important;
-      }
-      .hs-form-dark .hs-button:hover {
-        background: #06b6d4 !important;
-        transform: translateY(-1px) !important;
-      }
-      .hs-form-dark .hs-form-field {
-        margin-bottom: 1rem !important;
-      }
-      .hs-form-dark .hs-error-msg {
-        color: #ef4444 !important;
-        font-size: 0.78rem !important;
-      }
-      .hs-form-dark select.hs-input {
-        appearance: none !important;
-        -webkit-appearance: none !important;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A95A5' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
-        background-repeat: no-repeat !important;
-        background-position: right 1rem center !important;
-      }
-      .hs-form-dark textarea.hs-input {
-        min-height: 100px !important;
-        resize: vertical !important;
-      }
-    </style>
+<section class="form-section" id="partner-form">
+  <div class="form-inner">
+    <div class="section-num">§05 — Apply</div>
+    <h2>Become a <em>partner.</em></h2>
+    <p class="section-sub">Tell us about your practice. Kevin replies within 48 hours — no SDR, no "pipeline enrichment," no scripted first call.</p>
+    <div class="form-host">
+      <div id="partner-form-container"></div>
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+      <script>
+        hbspt.forms.create({
+          region: "na1",
+          portalId: "49070660",
+          formId: "f8b81a68-65b6-435d-8ef7-aa52e0d61ade",
+          target: "#partner-form-container",
+          cssClass: "hs-form-bstudio"
+        });
+      </script>
+    </div>
   </div>
 </section>
 
-<!-- ── Footer ── -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="/" class="nav-logo">
-        <svg viewBox="0 0 58 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M3 0C1.34 0 0 1.34 0 3V30H28C37.5 30 42 24 42 15C42 6 37.5 0 28 0H3Z M14 9H25C30.5 9 33 12.5 33 16C33 19.5 30.5 23 25 23H14V9Z" fill="#E8ECF1"/>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 34V61C0 62.66 1.34 64 3 64H30C41 64 48 57 48 49C48 41 41 34 30 34H0Z M14 42V58H27C33.5 58 38 54 38 50C38 46 33.5 42 27 42H14Z" fill="#E8ECF1"/>
-          <circle cx="54" cy="61" r="3.5" fill="#22D3EE"/>
-        </svg>
-        <div class="wordmark">
-          <span class="s">Studio</span>
-          <span class="b">B</span>
-        </div>
-      </a>
-      <p>Two products. Both running in production. Both built by the team that uses them.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Products</h4>
-      <a href="https://bolt.b.studio">Bolt</a>
-      <a href="acuops.html">AcuOps</a>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="/">Studio&nbsp;B</a>
-      <a href="partners.html">Partners</a>
-      <a href="https://docs.b.studio" target="_blank" rel="noopener">Documentation</a>
-      <a href="/privacy">Privacy</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copyright">&copy; 2026 Studio B</div>
+  <div class="footer-mark">Studio b. · b.studio · Est. 2024</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="https://markdown.b.studio">Markdown</a>
+    <a href="https://lmmi.b.studio">LMMI</a>
+    <a href="https://invest.b.studio">Invest</a>
+    <a href="https://bolt.b.studio">Bolt</a>
+    <a href="https://acuops.com">AcuOps</a>
+    <a href="/privacy.html">Privacy</a>
   </div>
 </footer>
-
-<!-- ── Scroll Fade-In ── -->
-<script>
-(function() {
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.fade-in').forEach(function(el) {
-    observer.observe(el);
-  });
-})();
-</script>
 
 </body>
 </html>
