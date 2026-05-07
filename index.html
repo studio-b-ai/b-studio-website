@@ -369,16 +369,19 @@ body {
 .post-card.loading .pc-excerpt { background: var(--paper-dk); color: transparent; }
 .post-card.loading .pc-meta { background: var(--paper-dk); color: transparent; width: 40%; }
 
-/* ── Stripe divider (family-wide --stripe-height) ── */
+/* ── Stripe divider (family-wide --stripe-height) ──
+   Matches .stripe.thin (masthead) format: forest diagonals + ink@60 outlines.
+   .stripe.thin itself is styled via /assets/header.css. */
 .stripe {
   height: var(--stripe-height);
   background: repeating-linear-gradient(
     -45deg,
-    var(--ink) 0px, var(--ink) 9px,
+    var(--forest) 0px, var(--forest) 9px,
     var(--paper) 9px, var(--paper) 18px
   );
+  border-top:    1px solid rgba(13, 13, 13, 0.60);
+  border-bottom: 1px solid rgba(13, 13, 13, 0.60);
 }
-/* .stripe.thin (masthead-top) styled via /assets/header.css — family binary-accent system */
 .stripe.forest {
   background: repeating-linear-gradient(
     -45deg,
@@ -436,11 +439,11 @@ body {
   left: 0; top: 0; bottom: 0;
   width: 4px;
 }
-.ed-markdown::before { background: var(--ink); }
-.ed-lmmi::before     { background: var(--forest); }
-.ed-invest::before   { background: var(--vermillion); }
-.ed-invest .ed-audience { color: var(--vermillion); }
-.ed-invest .ed-link:hover { color: var(--vermillion); border-color: var(--vermillion); }
+.ed-markdown::before { background: var(--yolk); }
+.ed-lmmi::before     { background: var(--vermillion); }
+.ed-invest::before   { background: var(--forest); }
+.ed-invest .ed-audience { color: var(--forest); }
+.ed-invest .ed-link:hover { color: var(--forest); border-color: var(--forest); }
 
 .ed-num {
   font-family: 'JetBrains Mono', monospace;
@@ -467,7 +470,7 @@ body {
   margin-bottom: 0.75rem;
 }
 .ed-markdown .ed-audience { color: var(--ink-60); }
-.ed-lmmi .ed-audience { color: var(--forest); }
+.ed-lmmi .ed-audience { color: var(--vermillion); }
 
 .ed-desc {
   font-size: 0.82rem;
@@ -488,7 +491,7 @@ body {
   transition: color 0.12s, border-color 0.12s;
 }
 .ed-markdown .ed-link:hover { color: var(--ink); border-color: var(--ink); }
-.ed-lmmi .ed-link:hover { color: var(--forest); border-color: var(--forest); }
+.ed-lmmi .ed-link:hover { color: var(--vermillion); border-color: var(--vermillion); }
 
 /* ── LP / CTA section ── */
 .cta-section {
