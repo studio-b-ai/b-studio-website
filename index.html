@@ -407,11 +407,17 @@ body {
     var(--paper) 9px, var(--paper) 18px
   );
   border-top:    1px solid rgba(13, 13, 13, 0.60);
-  /* 3px accent rule along the bottom — three equal segments mapping
-     the family palette and the entity-dir card rotation
-     (markdown=yolk, lmmi=vermillion, invest=forest). border-bottom
-     fallback paints solid ink for browsers without border-image. */
   border-bottom: 3px solid var(--ink);
+}
+/* Lower stripe (above entity-dir): bottom rule splits into three accent
+   segments matching the cards directly below
+   (markdown=yolk, lmmi=vermillion, invest=forest). */
+.stripe.forest {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--forest) 0px, var(--forest) 9px,
+    var(--paper) 9px, var(--paper) 18px
+  );
   border-image-source: linear-gradient(
     to right,
     var(--yolk)       0       33.333%,
@@ -420,13 +426,6 @@ body {
   );
   border-image-slice: 0 0 1 0;
   border-image-width: 0 0 3px 0;
-}
-.stripe.forest {
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--forest) 0px, var(--forest) 9px,
-    var(--paper) 9px, var(--paper) 18px
-  );
 }
 
 /* ── Proof band ──
