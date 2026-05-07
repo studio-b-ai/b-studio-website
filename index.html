@@ -407,7 +407,19 @@ body {
     var(--paper) 9px, var(--paper) 18px
   );
   border-top:    1px solid rgba(13, 13, 13, 0.60);
+  /* 3px accent rule along the bottom — three equal segments mapping
+     the family palette and the entity-dir card rotation
+     (markdown=yolk, lmmi=vermillion, invest=forest). border-bottom
+     fallback paints solid ink for browsers without border-image. */
   border-bottom: 3px solid var(--ink);
+  border-image-source: linear-gradient(
+    to right,
+    var(--yolk)       0       33.333%,
+    var(--vermillion) 33.333% 66.667%,
+    var(--forest)     66.667% 100%
+  );
+  border-image-slice: 0 0 1 0;
+  border-image-width: 0 0 3px 0;
 }
 .stripe.forest {
   background: repeating-linear-gradient(
