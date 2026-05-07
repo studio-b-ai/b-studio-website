@@ -394,8 +394,10 @@ body {
 .post-card.loading .pc-meta { background: var(--paper-dk); color: transparent; width: 40%; }
 
 /* ── Stripe divider (family-wide --stripe-height) ──
-   Matches .stripe.thin (masthead) format: forest diagonals + ink@60 outlines.
-   .stripe.thin itself is styled via /assets/header.css. */
+   Forest diagonals matching the masthead .stripe.thin pattern (defined in
+   /assets/header.css). No outlines here — the adjacent section borders
+   (proof-band, entity-dir) already supply the ink rule, so adding
+   stripe outlines stacks and reads as a thick band. */
 .stripe {
   height: var(--stripe-height);
   background: repeating-linear-gradient(
@@ -403,8 +405,6 @@ body {
     var(--forest) 0px, var(--forest) 9px,
     var(--paper) 9px, var(--paper) 18px
   );
-  border-top:    1px solid rgba(13, 13, 13, 0.60);
-  border-bottom: 1px solid rgba(13, 13, 13, 0.60);
 }
 .stripe.forest {
   background: repeating-linear-gradient(
