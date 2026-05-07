@@ -354,6 +354,7 @@ footer {
     <ul>
       <li><span class="tag">Product</span><strong>AcuOps</strong> — Acumatica DevOps platform at <a href="https://acuops.com">acuops.com</a>. Continuous monitoring, CI/CD for customizations, post-publish validation.</li>
       <li><span class="tag">Product</span><strong>Bolt</strong> — Continuous-goods WMS at <a href="https://bolt.b.studio">bolt.b.studio</a>. Order processing, inventory, and warehouse operations on top of Acumatica.</li>
+      <li><span class="tag">Product</span><strong>Amplify</strong> — Engagement platform at <a href="https://amplify.b.studio">amplify.b.studio</a>. Scores LinkedIn intent, drafts content in your calibrated voice, and routes every action through a Slack approval before publishing — with an HMAC-chained audit ledger of every step.</li>
       <li><span class="tag">Portal</span><strong>Enhancement Portal</strong> — Customer-facing portal for change requests and training documentation.</li>
       <li><span class="tag">Newsletter</span><strong>Markdown, by Studio b.</strong> — Operator-facing newsletter at <a href="https://markdown.b.studio">markdown.b.studio</a>.</li>
       <li><span class="tag">Newsletter</span><strong>Studio b. LMMI</strong> — LP-facing publication at <a href="https://lmmi.b.studio">lmmi.b.studio</a>, including the open Lower Middle Market Direct Lending Index.</li>
@@ -376,7 +377,15 @@ footer {
   </div>
 
   <div class="section">
-    <div class="section-num">§04 — Newsletters</div>
+    <div class="section-num">§04 — Amplify</div>
+    <h2>Engagement intelligence with an approval gate.</h2>
+    <p>Amplify is a horizontal LinkedIn engagement engine sold to agencies and individual operators. The full loop is: discover public engagement signals on LinkedIn (and other platforms as they're added), score them for intent, draft a response in the operator's calibrated voice, and route every draft through a Slack approval before anything publishes. Nothing publishes without an explicit approve action; every step is recorded on an HMAC-chained, append-only audit ledger.</p>
+    <p>Discovery runs on <strong>public</strong> platform content via Bright Data residential infrastructure plus Playwright — never the operator's logged-in session, never private content. Publish actions, when they're enabled, run through official platform APIs (LinkedIn Community Management API, etc.) as the operator's authenticated identity.</p>
+    <p>Amplify persists, per tenant: the calibrated voice and brand profile, the discovered signal records, the per-signal intent scores, the drafts (approved and rejected) with the model used, the approval transcript (who approved, when, in which Slack channel), and the audit ledger. Tenants are scoped per brand; one tenant's signals, drafts, and approvals are not visible to another.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">§05 — Newsletters</div>
     <h2>Markdown and LMMI.</h2>
     <p>Both newsletters are hosted on beehiiv. When you subscribe, we collect:</p>
     <ul>
@@ -388,7 +397,7 @@ footer {
   </div>
 
   <div class="section">
-    <div class="section-num">§05 — Invest with us</div>
+    <div class="section-num">§06 — Invest with us</div>
     <h2>Accreditation and LP intake.</h2>
     <p>The Invest surface at invest.b.studio is the entry point for prospective limited partners in Studio b. LMM Bridge Fund I. Fund I is offered under SEC Rule 506(c), which permits public solicitation but requires verified accredited status before subscription.</p>
     <p>If you submit the LP inquiry form, we collect the information you provide (name, email, accreditation status, ticket interest, and any notes you share) into our customer-relationship system, which is HubSpot. This information is used only to evaluate fit and progress an inquiry to the appropriate next step, which may include accreditation verification by a third-party verifier and review of subscription documents.</p>
@@ -396,14 +405,14 @@ footer {
   </div>
 
   <div class="section">
-    <div class="section-num">§06 — Enhancement Portal</div>
+    <div class="section-num">§07 — Enhancement Portal</div>
     <h2>Customer change requests.</h2>
     <p>The Enhancement Portal collects change requests, training questions, and feedback from authenticated users at customer organizations. Authentication is via single sign-on through the customer's identity provider (Microsoft Entra ID for current customers).</p>
     <p>The portal stores: the request body, attachments you provide, the requesting user's identity (name, email, role within the customer organization), and the lifecycle state of the request. Requests are scoped per customer; users at one customer cannot see requests from another.</p>
   </div>
 
   <div class="section">
-    <div class="section-num">§07 — How we store and protect data</div>
+    <div class="section-num">§08 — How we store and protect data</div>
     <h2>Storage and security.</h2>
     <ul>
       <li>All data is transmitted over HTTPS / TLS-encrypted connections.</li>
@@ -415,7 +424,7 @@ footer {
   </div>
 
   <div class="section">
-    <div class="section-num">§08 — Third-party processors</div>
+    <div class="section-num">§09 — Third-party processors</div>
     <h2>Who processes data on our behalf.</h2>
     <p>The following third parties process data on our behalf to deliver Studio b. surfaces. We do not sell, rent, or trade data to third parties; data shared with the processors below is used only to deliver the listed function.</p>
     <table class="data-table">
@@ -425,9 +434,11 @@ footer {
       <tbody>
         <tr><td>Railway</td><td>Application hosting</td><td>Application logs, metrics, and the operational data each surface persists</td></tr>
         <tr><td>Anthropic (Claude)</td><td>AI capabilities inside Studio b. products</td><td>Task-scoped inputs (prompts, document fragments, code) — never persisted at Anthropic for training</td></tr>
-        <tr><td>HubSpot</td><td>Customer-relationship management for AcuOps, Bolt, and Invest inquiries</td><td>Contact details, interaction history, deal/ticket records</td></tr>
+        <tr><td>HubSpot</td><td>Customer-relationship management for AcuOps, Bolt, and Invest inquiries; lead routing for Amplify</td><td>Contact details, interaction history, deal/ticket records, Amplify signal/score upserts</td></tr>
         <tr><td>beehiiv</td><td>Newsletter delivery (Markdown, LMMI)</td><td>Subscriber email, name (optional), engagement events</td></tr>
-        <tr><td>Slack</td><td>Internal notifications and customer-facing channels</td><td>Operational notifications and messages you send to a Studio b. channel</td></tr>
+        <tr><td>Slack</td><td>Internal notifications, customer-facing channels, and Amplify approval routing</td><td>Operational notifications, messages you send to a Studio b. channel, Amplify approval transcripts</td></tr>
+        <tr><td>Bright Data</td><td>Residential infrastructure for Amplify discovery on public platform content</td><td>Outbound requests to public LinkedIn (and other platform) URLs — no Studio b. credentials shared</td></tr>
+        <tr><td>LinkedIn (CMAPI)</td><td>Publishing reactions, comments, and posts on behalf of Amplify operators</td><td>The drafted, operator-approved content and the operator's LinkedIn auth (held by LinkedIn, not by us)</td></tr>
         <tr><td>Microsoft Entra ID</td><td>Single sign-on for the Enhancement Portal and internal surfaces</td><td>User identity attributes (email, name, group membership)</td></tr>
         <tr><td>Google Workspace</td><td>Email correspondence with Studio b. staff</td><td>Email content addressed to or from Studio b. addresses</td></tr>
       </tbody>
@@ -435,10 +446,11 @@ footer {
   </div>
 
   <div class="section">
-    <div class="section-num">§09 — Retention</div>
+    <div class="section-num">§10 — Retention</div>
     <h2>How long we keep things.</h2>
     <ul>
       <li>Operational records inside AcuOps and Bolt are retained for the duration of the customer engagement and for the period required to meet contractual and legal obligations after engagement ends.</li>
+      <li>Amplify signal records, scores, drafts, and approval transcripts are retained for the duration of the customer engagement. The HMAC-chained audit ledger is append-only and retained for the contractual audit window agreed at signup.</li>
       <li>Newsletter subscriber records are retained until you unsubscribe, after which the active send record is removed and only suppression metadata is kept (so we don't accidentally email you again).</li>
       <li>HubSpot CRM records are retained for the lifetime of the relationship and pruned per our internal retention schedule.</li>
       <li>Application logs are retained for 30 days unless required longer for incident review.</li>
@@ -447,7 +459,7 @@ footer {
   </div>
 
   <div class="section">
-    <div class="section-num">§10 — Your rights</div>
+    <div class="section-num">§11 — Your rights</div>
     <h2>Access, deletion, portability.</h2>
     <p>You have the right to:</p>
     <ul>
@@ -460,7 +472,7 @@ footer {
   </div>
 
   <div class="section">
-    <div class="section-num">§11 — Changes to this policy</div>
+    <div class="section-num">§12 — Changes to this policy</div>
     <h2>How we update.</h2>
     <p>We may update this policy. Material changes will be communicated via the affected surface (in-app notice for product surfaces, or a footer notice on b.studio) before they take effect. The Effective date at the top of this page reflects the most recent revision.</p>
     <p>Questions: <a href="mailto:hello@b.studio">hello@b.studio</a>.</p>
@@ -479,6 +491,7 @@ footer {
     <a href="https://invest.b.studio">Invest</a>
     <a href="https://bolt.b.studio">Bolt</a>
     <a href="https://acuops.com">AcuOps</a>
+    <a href="https://amplify.b.studio">Amplify</a>
     <a href="mailto:hello@b.studio">hello@b.studio</a>
   </div>
 </footer>
