@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Bolt by Studio B</title>
+<meta name="description" content="Three tiers: Core $800, Pro $1,200, Enterprise $1,800 per tenant per month. Unlimited warehouses. No per-user fees. No per-transaction fees. VAR white-label available.">
+<meta property="og:title" content="Pricing — Bolt by Studio B">
+<meta property="og:description" content="Per tenant, unlimited warehouses. From $800/mo. No per-user fees. No per-transaction fees.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bolt.b.studio/pricing">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   Bolt — Pricing (shares Cut Sheet design language with index)
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  --navy: #1B2B4A;
+  --navy-08: rgba(27, 43, 74, 0.08);
+  --navy-15: rgba(27, 43, 74, 0.15);
+  --signal: #2E6FBA;
+  --signal-hover: #245791;
+  --signal-06: rgba(46, 111, 186, 0.06);
+  --yellow: #E8A838;
+  --yellow-hover: #D49925;
+  --steel: #4A5568;
+  --steel-dim: #6B7280;
+  --concrete: #F7F8FA;
+  --dock-gray: #E2E8F0;
+  --hairline: #D4DAE3;
+  --midnight: #0F1A2E;
+  --white: #FFFFFF;
+  --f-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--f-sans);
+  font-weight: 400;
+  line-height: 1.55;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--yellow); color: var(--navy); }
+.mono { font-family: var(--f-mono); font-feature-settings: "ss01" on, "cv11" on; }
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--hairline);
+}
+nav .nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--navy);
+}
+.brand-mark { width: 22px; height: 22px; display: block; }
+.brand-word {
+  font-family: var(--f-sans);
+  font-weight: 900;
+  font-size: 1.05rem;
+  letter-spacing: 0.28em;
+  color: var(--navy);
+}
+.brand-sub {
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--steel-dim);
+  margin-left: 0.4rem;
+  transform: translateY(-1px);
+}
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--steel);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-links a.active { color: var(--navy); }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--navy);
+  color: var(--white) !important;
+  padding: 0.6rem 1.1rem !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  transition: background 0.2s !important;
+  border-radius: 2px;
+}
+.nav-cta:hover { background: var(--signal); color: var(--white) !important; }
+.nav-toggle { display: none; background: none; border: none; padding: 0.4rem; cursor: pointer; }
+.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 4px 0; }
+
+/* HERO — short and direct */
+.pricing-hero {
+  position: relative;
+  padding: 5rem 0 4rem;
+  background: var(--white);
+  overflow: hidden;
+}
+.pricing-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--navy-08) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--navy-08) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.4;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at top left, rgba(0,0,0,0.6), transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse at top left, rgba(0,0,0,0.6), transparent 65%);
+}
+.pricing-hero-inner {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.pricing-hero-meta {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel-dim);
+  margin-bottom: 2rem;
+}
+.pricing-hero-meta span.s { color: var(--signal); font-weight: 500; }
+.pricing-hero h1 {
+  font-weight: 900;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--navy);
+  max-width: 20ch;
+  margin-bottom: 1.8rem;
+}
+.pricing-hero h1 em {
+  font-style: normal;
+  background: var(--yellow);
+  padding: 0 0.15em;
+  margin: 0 -0.05em;
+}
+.pricing-hero-lead {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--steel);
+  max-width: 62ch;
+  margin-bottom: 2.5rem;
+}
+.pricing-hero-lead strong { color: var(--navy); font-weight: 600; }
+
+/* Pricing cards */
+.pricing-grid-section {
+  padding: 0 0 4rem;
+}
+.pricing-grid-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+.tier-card {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  padding: 2.5rem 2rem 2.25rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.tier-card.featured {
+  background: var(--concrete);
+  border-color: var(--signal);
+  box-shadow: 0 0 0 1px var(--signal), 0 12px 32px rgba(27, 43, 74, 0.06);
+}
+.tier-card.enterprise {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.tier-card .ribbon {
+  position: absolute;
+  top: -0.8rem;
+  left: 2rem;
+  background: var(--signal);
+  color: var(--white);
+  font-family: var(--f-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+}
+.tier-card.enterprise .ribbon {
+  background: var(--yellow);
+  color: var(--navy);
+}
+
+.tier-name {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--signal);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.tier-card.enterprise .tier-name { color: var(--yellow); }
+.tier-for {
+  font-size: 0.95rem;
+  color: var(--steel);
+  line-height: 1.5;
+  margin-bottom: 1.8rem;
+  max-width: 32ch;
+}
+.tier-card.enterprise .tier-for { color: rgba(255,255,255,0.65); }
+
+.tier-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+.tier-price .price-n {
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+.tier-card.enterprise .tier-price .price-n { color: var(--white); }
+.tier-price .price-unit {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  color: var(--steel);
+}
+.tier-card.enterprise .tier-price .price-unit { color: rgba(255,255,255,0.5); }
+.tier-sub {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  color: var(--steel-dim);
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--hairline);
+}
+.tier-card.enterprise .tier-sub { color: rgba(255,255,255,0.5); border-bottom-color: rgba(255,255,255,0.15); }
+
+.tier-features {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+.tier-features li {
+  font-size: 0.92rem;
+  color: var(--steel);
+  padding: 0.5rem 0;
+  display: grid;
+  grid-template-columns: 1.2rem 1fr;
+  gap: 0.6rem;
+  align-items: baseline;
+  line-height: 1.45;
+}
+.tier-card.enterprise .tier-features li { color: rgba(255,255,255,0.82); }
+.tier-features li::before {
+  content: '+';
+  color: var(--signal);
+  font-family: var(--f-mono);
+  font-weight: 700;
+}
+.tier-card.enterprise .tier-features li::before { color: var(--yellow); }
+.tier-features li strong { color: var(--navy); font-weight: 600; }
+.tier-card.enterprise .tier-features li strong { color: var(--white); }
+
+.tier-cta {
+  margin-top: auto;
+  display: block;
+  text-align: center;
+  padding: 0.9rem 1.4rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid var(--navy);
+  color: var(--navy);
+  background: var(--white);
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+.tier-cta:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+.tier-card.featured .tier-cta {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.tier-card.featured .tier-cta:hover {
+  background: var(--signal);
+  border-color: var(--signal);
+}
+.tier-card.enterprise .tier-cta {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--navy);
+}
+.tier-card.enterprise .tier-cta:hover {
+  background: var(--yellow-hover);
+  border-color: var(--yellow-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--white);
+}
+
+/* RULES section — what's included at every tier */
+.rules {
+  padding: 5rem 0;
+  background: var(--concrete);
+}
+.rules-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.rules-head {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+  align-items: end;
+}
+@media (max-width: 820px) { .rules-head { grid-template-columns: 1fr; gap: 1.5rem; } }
+.rules-head h2 {
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  color: var(--navy);
+}
+.rules-head .intro {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--steel);
+  max-width: 56ch;
+}
+
+.rules-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--hairline);
+  border-left: 1px solid var(--hairline);
+  background: var(--white);
+}
+@media (max-width: 720px) { .rules-list { grid-template-columns: 1fr; } }
+.rule {
+  padding: 1.75rem 1.75rem;
+  border-right: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+.rule-id {
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--signal);
+  font-weight: 500;
+  margin-bottom: 0.7rem;
+}
+.rule h3 {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.rule p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--steel);
+}
+
+/* Reasoning section — Basecamp's opinionated pricing explanation */
+.reasoning {
+  padding: 6rem 0;
+  background: var(--white);
+}
+.reasoning-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.reasoning h2 {
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  color: var(--navy);
+  max-width: 22ch;
+  margin-bottom: 1.2rem;
+}
+.reasoning .eyebrow {
+  display: block;
+  margin-bottom: 1rem;
+}
+.reasoning-intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--steel);
+  max-width: 62ch;
+  margin-bottom: 4rem;
+}
+.reasoning-intro strong { color: var(--navy); font-weight: 600; }
+
+.reason-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 960px;
+}
+.reason {
+  padding: 2rem 2.25rem 2rem;
+  border-left: 3px solid var(--signal);
+  background: var(--concrete);
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 720px) { .reason { grid-template-columns: 1fr; gap: 0.6rem; } }
+.reason-tag {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal);
+  font-weight: 500;
+  padding-top: 0.3rem;
+}
+.reason-body h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.7rem;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+.reason-body p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--steel);
+  margin-bottom: 0.7rem;
+}
+.reason-body p:last-child { margin-bottom: 0; }
+.reason-body strong { color: var(--navy); font-weight: 600; }
+.reason-body .data {
+  font-family: var(--f-mono);
+  font-size: 0.9em;
+  color: var(--navy);
+  background: var(--white);
+  padding: 0.08em 0.4em;
+}
+
+/* VAR section — warehouse yellow banner */
+.var-section {
+  padding: 5rem 0;
+  background: var(--navy);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.var-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 3px,
+    rgba(255,255,255,0.03) 3px,
+    rgba(255,255,255,0.03) 4px
+  );
+  pointer-events: none;
+}
+.var-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+}
+@media (max-width: 820px) { .var-inner { grid-template-columns: 1fr; gap: 2.5rem; } }
+.var-inner .eyebrow { color: var(--yellow); display: block; margin-bottom: 1rem; }
+.var-inner h2 {
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.028em;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  max-width: 18ch;
+}
+.var-inner p {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 1rem;
+  max-width: 54ch;
+}
+.var-inner p strong { color: var(--white); font-weight: 600; }
+
+.var-panel {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 1.75rem 1.8rem;
+}
+.var-panel h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.01em;
+}
+.var-panel .var-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.var-panel .var-price {
+  font-family: var(--f-mono);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+.var-panel .var-unit {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+}
+.var-panel ul {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+.var-panel li {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.78);
+  padding: 0.42rem 0;
+  display: grid;
+  grid-template-columns: 1.1rem 1fr;
+  gap: 0.6rem;
+  align-items: baseline;
+  line-height: 1.5;
+}
+.var-panel li::before {
+  content: '+';
+  color: var(--yellow);
+  font-family: var(--f-mono);
+  font-weight: 700;
+}
+.var-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--yellow);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+.var-cta:hover { border-bottom-color: var(--yellow); }
+.var-cta::after { content: ' →'; transition: transform 0.2s; display: inline-block; }
+.var-cta:hover::after { transform: translateX(3px); }
+
+/* API metering section */
+.api-meter {
+  padding: 5.5rem 0;
+  background: var(--white);
+}
+.api-meter-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 4rem;
+  align-items: center;
+}
+@media (max-width: 900px) { .api-meter-inner { grid-template-columns: 1fr; gap: 2.5rem; } }
+.api-meter h2 {
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+  max-width: 18ch;
+}
+.api-meter .eyebrow { display: block; margin-bottom: 1rem; color: var(--yellow-hover); }
+.api-meter p {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--steel);
+  margin-bottom: 1rem;
+  max-width: 56ch;
+}
+.api-meter p strong { color: var(--navy); font-weight: 600; }
+
+.meter-examples {
+  background: var(--concrete);
+  border: 1px solid var(--hairline);
+  padding: 1.75rem 1.75rem 1.25rem;
+}
+.meter-examples h4 {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--hairline);
+  font-weight: 500;
+}
+.meter-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1.25rem;
+  padding: 0.65rem 0;
+  border-top: 1px dashed var(--hairline);
+  align-items: baseline;
+  font-family: var(--f-mono);
+}
+.meter-row:first-of-type { border-top: none; padding-top: 0.2rem; }
+.meter-row .meter-label {
+  font-size: 0.85rem;
+  color: var(--navy);
+  font-family: var(--f-sans);
+  font-weight: 500;
+}
+.meter-row .meter-reqs {
+  font-size: 0.82rem;
+  color: var(--steel);
+}
+.meter-row .meter-cost {
+  font-size: 0.9rem;
+  color: var(--navy);
+  font-weight: 600;
+}
+.meter-row.overage .meter-cost { color: var(--yellow-hover); }
+.meter-note {
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  color: var(--steel-dim);
+  line-height: 1.6;
+}
+
+/* FAQ */
+.faq {
+  padding: 6rem 0 5rem;
+  background: var(--concrete);
+}
+.faq-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.faq-head {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--navy);
+}
+.faq-head .eyebrow { display: block; margin-bottom: 1rem; }
+.faq-head h2 {
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  color: var(--navy);
+  max-width: 24ch;
+}
+
+.faq-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--hairline);
+  padding: 1.8rem 0;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+}
+@media (max-width: 600px) { .faq-item { grid-template-columns: 1fr; gap: 0.3rem; } }
+.faq-num {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--signal);
+  letter-spacing: 0.06em;
+  padding-top: 0.3rem;
+}
+.faq-body h3 {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+.faq-body p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--steel);
+  margin-bottom: 0.75rem;
+}
+.faq-body p:last-child { margin-bottom: 0; }
+.faq-body strong { color: var(--navy); font-weight: 600; }
+.faq-body a {
+  color: var(--signal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46, 111, 186, 0.2);
+  transition: border-color 0.2s;
+}
+.faq-body a:hover { border-bottom-color: var(--signal); }
+
+/* CLOSING */
+.closing {
+  padding: 6rem 0 7rem;
+  background: var(--white);
+}
+.closing-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.closing h2 {
+  font-weight: 900;
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+  max-width: 18ch;
+}
+.closing h2 em { font-style: normal; background: var(--yellow); padding: 0 0.15em; margin: 0 -0.05em; }
+.closing-body {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--steel);
+  max-width: 58ch;
+  margin-bottom: 2rem;
+}
+.closing-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  font-family: var(--f-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+.btn-yellow { background: var(--yellow); color: var(--navy); font-weight: 700; }
+.btn-yellow:hover {
+  background: var(--yellow-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--navy);
+}
+.btn-ghost { background: transparent; color: var(--navy); border: 1px solid var(--navy); }
+.btn-ghost:hover { background: var(--navy); color: var(--white); }
+.btn-arrow { transition: transform 0.2s; display: inline-block; }
+.btn:hover .btn-arrow { transform: translateX(3px); }
+
+/* FOOTER */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.65);
+  padding: 3.5rem 0 2rem;
+}
+.footer-inner { max-width: 1240px; margin: 0 auto; padding: 0 2rem; }
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+@media (max-width: 820px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+@media (max-width: 500px) { .footer-top { grid-template-columns: 1fr; } }
+.footer-brand .brand { color: var(--white); }
+.footer-brand .brand-word { color: var(--white); }
+.footer-brand .brand-sub { color: rgba(255,255,255,0.5); }
+.footer-brand p {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  max-width: 28ch;
+  color: rgba(255,255,255,0.6);
+}
+.footer-col h4 {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 1rem;
+}
+.footer-col a {
+  display: block;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  padding: 0.3rem 0;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.4);
+}
+.footer-bottom a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+.footer-bottom a:hover { color: var(--yellow); }
+.footer-bottom .footer-powered a { color: var(--yellow); border-bottom: 1px solid rgba(232,168,56,0.3); padding-bottom: 1px; }
+
+/* FADE IN */
+.fade-in {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 680px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--white);
+    padding: 1rem 2rem 1.5rem;
+    border-bottom: 1px solid var(--hairline);
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+  .nav-links.open a { padding: 0.75rem 0; border-bottom: 1px solid var(--hairline); }
+  .nav-links.open .nav-cta { text-align: center; margin-top: 0.5rem; }
+  .nav-toggle { display: block; }
+  .pricing-hero { padding: 3rem 0 3rem; }
+  .pricing-hero-inner, .pricing-grid-inner, .rules-inner, .reasoning-inner,
+  .var-inner, .api-meter-inner, .faq-inner, .closing-inner, .footer-inner {
+    padding-left: 1.5rem; padding-right: 1.5rem;
+  }
+  .tier-price .price-n { font-size: 2.4rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="brand" aria-label="Bolt by Studio B">
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M14 2L4 13h7l-3 9 12-14h-8l2-6z" fill="#2E6FBA" stroke="#1B2B4A" stroke-width="1.2" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-word">B O L T</span>
+      <span class="brand-sub">by Studio&nbsp;B</span>
+    </a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="/#modules">Modules</a>
+      <a href="/pricing.html" class="active">Pricing</a>
+      <a href="/customers/heritage.html">Customers</a>
+      <a href="https://b.studio" target="_blank" rel="noopener">Studio&nbsp;B</a>
+      <a href="mailto:kevin@b.studio?subject=Bolt%20demo%20request" class="nav-cta">Request demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="pricing-hero">
+  <div class="pricing-hero-inner">
+    <div class="pricing-hero-meta">
+      <span class="s">BOLT&nbsp;·&nbsp;PRICING</span> &nbsp;&middot;&nbsp; v24.10 &nbsp;&middot;&nbsp; Effective 2026-04-16
+    </div>
+    <h1>Three tiers.<br>One of them <em>fits</em>.</h1>
+    <p class="pricing-hero-lead">
+      <strong>Per tenant. Unlimited warehouses. No per-user fees. No per-transaction fees.</strong> Cancel monthly if it's not working. We'd rather you stay because Bolt's earning its keep than because you signed a three-year paper lock-in.
+    </p>
+  </div>
+</section>
+
+<!-- PRICING CARDS -->
+<section class="pricing-grid-section">
+  <div class="pricing-grid-inner">
+    <div class="pricing-grid">
+
+      <div class="tier-card">
+        <div class="tier-name">Core</div>
+        <p class="tier-for">For distributors who need the warehouse running. Receiving through shipping, with full lot integrity.</p>
+        <div class="tier-price">
+          <span class="price-n">$800</span>
+          <span class="price-unit">/&nbsp;tenant&nbsp;/&nbsp;month</span>
+        </div>
+        <div class="tier-sub">Unlimited warehouses. Unlimited users.</div>
+        <ul class="tier-features">
+          <li><strong>Receiving &amp; putaway.</strong> PO matching, barcode scan, zone assignment.</li>
+          <li><strong>Cut-to-order</strong> with automatic remainder tracking.</li>
+          <li><strong>Pick, pack, ship.</strong> Standard workflow, mobile or desktop.</li>
+          <li><strong>Lot traceability</strong> through every subdivision.</li>
+          <li><strong>Offline mobile app.</strong> Keyence scanners, EN/ES.</li>
+          <li><strong>Acumatica + HubSpot sync.</strong> Bidirectional, no middleware.</li>
+          <li><strong>Cycle counting</strong> with variance reporting.</li>
+          <li><strong>Standard support.</strong> Business-hours email.</li>
+        </ul>
+        <a href="mailto:kevin@b.studio?subject=Bolt%20Core%20%E2%80%94%20demo%20request" class="tier-cta">Request a demo →</a>
+      </div>
+
+      <div class="tier-card featured">
+        <div class="ribbon">Most distributors pick this</div>
+        <div class="tier-name">Pro</div>
+        <p class="tier-for">Core, plus everything an active floor needs — LTL shipping, quality workflows, returns accountability.</p>
+        <div class="tier-price">
+          <span class="price-n">$1,200</span>
+          <span class="price-unit">/&nbsp;tenant&nbsp;/&nbsp;month</span>
+        </div>
+        <div class="tier-sub">Everything in Core, plus:</div>
+        <ul class="tier-features">
+          <li><strong>Quality inspection &amp; quarantine zones.</strong></li>
+          <li><strong>Returns &amp; RMA</strong> with multi-reason disposition.</li>
+          <li><strong>Vendor scorecards.</strong> Who sends you problems.</li>
+          <li><strong>Eight LTL carriers + parcel.</strong> Live rate shopping.</li>
+          <li><strong>BOL generation</strong> with freight class calculation.</li>
+          <li><strong>Order entry portal</strong> for CS agents.</li>
+          <li><strong>Priority support.</strong> Same day, business hours.</li>
+        </ul>
+        <a href="mailto:kevin@b.studio?subject=Bolt%20Pro%20%E2%80%94%20demo%20request" class="tier-cta">Request a demo →</a>
+      </div>
+
+      <div class="tier-card enterprise">
+        <div class="ribbon">For enterprise-facing distributors</div>
+        <div class="tier-name">Enterprise</div>
+        <p class="tier-for">Pro, plus the intelligence layer and the API that lets your enterprise customers query your stock programmatically.</p>
+        <div class="tier-price">
+          <span class="price-n">$1,800</span>
+          <span class="price-unit">/&nbsp;tenant&nbsp;/&nbsp;month</span>
+        </div>
+        <div class="tier-sub">Everything in Pro, plus:</div>
+        <ul class="tier-features">
+          <li><strong>AI demand planning.</strong> ABC, lead-time learning, seasonality.</li>
+          <li><strong>Safety-stock optimization</strong> with reorder signals.</li>
+          <li><strong>Customer Stock API.</strong> 10M requests/mo included.</li>
+          <li><strong>Full REST API access.</strong> Build on top of Bolt.</li>
+          <li><strong>Dedicated success manager.</strong></li>
+          <li><strong>Quarterly architecture review</strong> with Studio B.</li>
+          <li><strong>24/7 critical-path support.</strong></li>
+        </ul>
+        <a href="mailto:kevin@b.studio?subject=Bolt%20Enterprise%20%E2%80%94%20demo%20request" class="tier-cta">Request a demo →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RULES: what's included at every tier -->
+<section class="rules fade-in">
+  <div class="rules-inner">
+    <div class="rules-head">
+      <h2>Eight things every tier includes.</h2>
+      <p class="intro">These aren't upsells. They aren't "Enterprise-only." They aren't behind a separate add-on SKU. If you're paying for Bolt, you get these.</p>
+    </div>
+    <div class="rules-list">
+      <div class="rule">
+        <div class="rule-id">R-01 &middot; DATA</div>
+        <h3>Your data is yours.</h3>
+        <p>Export CSV, JSON, or raw database dumps any time. No export fees. No 30-day waiting period. Cancel and we send you a full dump within 48 hours.</p>
+      </div>
+      <div class="rule">
+        <div class="rule-id">R-02 &middot; CONTRACT</div>
+        <h3>Month-to-month, no lock-in.</h3>
+        <p>Cancel any time. No retention specialists. No three-month early-termination dance. Annual billing available if your AP team prefers it — same price.</p>
+      </div>
+      <div class="rule">
+        <div class="rule-id">R-03 &middot; ONBOARDING</div>
+        <h3>Onboarding included.</h3>
+        <p>We do the Acumatica connection. We load the initial data. We configure the warehouse. We run the training sessions. No $40K "implementation package."</p>
+      </div>
+      <div class="rule">
+        <div class="rule-id">R-04 &middot; USERS</div>
+        <h3>Unlimited users, no per-seat tax.</h3>
+        <p>Twelve users or two hundred — same price. We charge per tenant, not per headcount. Seasonal hires don't cost you anything extra.</p>
+      </div>
+      <div class="rule">
+        <div class="rule-id">R-05 &middot; WAREHOUSES</div>
+        <h3>Unlimited warehouses.</h3>
+        <p>One warehouse or six — same tenant price. Adding a new distribution center doesn't trigger a contract renegotiation.</p>
+      </div>
+      <div class="rule">
+        <div class="rule-id">R-06 &middot; UPDATES</div>
+        <h3>Every update, every tier.</h3>
+        <p>New features, UI improvements, integration upgrades — shipped to every tenant on every tier. No "premium edition" paywall on the features we build next year.</p>
+      </div>
+      <div class="rule">
+        <div class="rule-id">R-07 &middot; INTEGRATIONS</div>
+        <h3>Acumatica + HubSpot, always.</h3>
+        <p>The Acumatica sync and HubSpot CRM sync are not add-ons. They're how Bolt works. Every tier, every tenant, from day one.</p>
+      </div>
+      <div class="rule">
+        <div class="rule-id">R-08 &middot; DEVICES</div>
+        <h3>Bring your own hardware.</h3>
+        <p>Keyence BT-A700 is what Heritage runs. We'll tell you what works and what doesn't, but we don't charge a per-device license. Your hardware budget goes to hardware.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REASONING: the Basecamp-style "why we charge what we charge" -->
+<section class="reasoning fade-in">
+  <div class="reasoning-inner">
+    <span class="eyebrow">§ &nbsp;·&nbsp; Why we charge what we charge</span>
+    <h2>Pricing that explains itself.</h2>
+    <p class="reasoning-intro">
+      Most WMS pricing is deliberately illegible. Quote-to-close, per-user discounts, per-transaction meters, minimum-commit tiers, implementation packages priced at two-to-four times the software. We priced Bolt so you can decide on a demo call, not after six weeks of negotiation.
+    </p>
+
+    <div class="reason-list">
+      <div class="reason">
+        <div class="reason-tag">§01</div>
+        <div class="reason-body">
+          <h3>Per tenant, because a tenant is a warehouse operation.</h3>
+          <p>A per-user license punishes you for hiring. A per-transaction fee punishes you for selling. A per-warehouse tariff punishes you for growing. None of those are things we want Bolt to punish you for.</p>
+          <p>A tenant — one Acumatica instance, one warehouse operation, one data boundary — is the natural unit. <strong>It's what you're actually buying.</strong> The price doesn't move when you hire twelve more pickers, add a second DC, or have a record December.</p>
+        </div>
+      </div>
+
+      <div class="reason">
+        <div class="reason-tag">§02</div>
+        <div class="reason-body">
+          <h3>$800 is what the floor costs.</h3>
+          <p>Core isn't a "starter tier" we're hoping you'll outgrow. It's the complete warehouse — receiving, cut-to-order, lot tracking, mobile, Acumatica sync — at a price that works for a single-DC mid-market distributor doing <span class="data">$10M–$30M</span> in revenue.</p>
+          <p>If the only thing you need is the floor running, <strong>you pay for the floor running</strong>. You don't pay for a demand-planning ML model you're not going to use.</p>
+        </div>
+      </div>
+
+      <div class="reason">
+        <div class="reason-tag">§03</div>
+        <div class="reason-body">
+          <h3>Pro is for active floors.</h3>
+          <p>The jump from $800 to $1,200 buys you the things a busy distributor actually uses: LTL rate shopping (one optimized carrier selection pays for the tier), quality inspection with vendor accountability, and the order entry portal for customer service agents.</p>
+          <p>If you're shipping LTL every day and handling returns on an active catalog, <strong>Pro usually pays for itself in the first month of rate shopping alone</strong>.</p>
+        </div>
+      </div>
+
+      <div class="reason">
+        <div class="reason-tag">§04</div>
+        <div class="reason-body">
+          <h3>Enterprise is for distributors with enterprise customers.</h3>
+          <p>If your customers are Home Depot, a Fortune 500 GC, or any organization with a procurement API team, the Customer Stock API is the reason you'd pick Enterprise. <span class="data">Ten million requests per month</span> is included — that's roughly 250 lookups per second, 24/7.</p>
+          <p>If you don't sell into enterprise accounts with API-driven procurement, don't buy Enterprise. <strong>Pro is probably the right answer.</strong> We'll tell you that on the demo call.</p>
+        </div>
+      </div>
+
+      <div class="reason">
+        <div class="reason-tag">§05</div>
+        <div class="reason-body">
+          <h3>No per-transaction metering, except for the API.</h3>
+          <p>We don't charge per scan, per pick, per shipment, or per line item. Those meters penalize high-throughput operations, which is exactly the customer WMS is for.</p>
+          <p>The one place we do meter — the Customer Stock API — is the one place where <strong>your customers' traffic volume is outside your control</strong>. Ten million requests is included; the overage at $0.50 per thousand is cheap enough that even the worst month won't surprise you. See the math below.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- API METERING -->
+<section class="api-meter fade-in">
+  <div class="api-meter-inner">
+    <div>
+      <span class="eyebrow">§ &nbsp;·&nbsp; Customer Stock API &mdash; what the meter looks like</span>
+      <h2>Usage metering that doesn&apos;t surprise you.</h2>
+      <p>Enterprise includes <strong>10 million requests per tenant per month</strong>. That's enough for most distributors with a handful of enterprise-account customers pulling stock every few seconds.</p>
+      <p>If you blow past it — say, a customer ramps up their integration and suddenly runs <span class="mono">15M</span> requests — the overage is <span class="mono">$0.50 per 1,000 requests</span>. No tier-jumps, no forced upgrades, no retroactive "you should have been on a higher tier" invoice.</p>
+      <p>Here's what real usage bills look like:</p>
+    </div>
+
+    <div class="meter-examples">
+      <h4>Monthly API bills — real volumes</h4>
+      <div class="meter-row">
+        <div class="meter-label">Baseline distributor</div>
+        <div class="meter-reqs">3.2M req</div>
+        <div class="meter-cost">$0.00</div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-label">Mid-volume enterprise customer</div>
+        <div class="meter-reqs">7.8M req</div>
+        <div class="meter-cost">$0.00</div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-label">At included limit</div>
+        <div class="meter-reqs">10.0M req</div>
+        <div class="meter-cost">$0.00</div>
+      </div>
+      <div class="meter-row overage">
+        <div class="meter-label">Burst month (15M)</div>
+        <div class="meter-reqs">+5M over</div>
+        <div class="meter-cost">+$2,500</div>
+      </div>
+      <div class="meter-row overage">
+        <div class="meter-label">Integration goes heavy (30M)</div>
+        <div class="meter-reqs">+20M over</div>
+        <div class="meter-cost">+$10,000</div>
+      </div>
+      <div class="meter-note">Soft caps, email alerts at 80% and 100% of included volume. You will not be surprised by a bill.</div>
+    </div>
+  </div>
+</section>
+
+<!-- VAR WHITE-LABEL -->
+<section class="var-section fade-in">
+  <div class="var-inner">
+    <div>
+      <span class="eyebrow">§ &nbsp;·&nbsp; For Acumatica VARs</span>
+      <h2>VARs resell Bolt to continuous-goods distributors.</h2>
+      <p>If you're an Acumatica VAR serving wire &amp; cable, carpet, hose, paper, or film distributors, Bolt is the WMS your clients have been trying to cobble together from spreadsheets and legacy desktop systems for years. You already sell them Acumatica. Sell them the WMS that was built to sit on top of it.</p>
+      <p>The <strong>VAR Partner program</strong> includes referral commissions, a co-branded deployment option, partner demo environment, and priority feature requests for partner-sourced customers.</p>
+    </div>
+
+    <div class="var-panel">
+      <h3>VAR White-Label Add-On</h3>
+      <div class="var-price-row">
+        <div class="var-price">+$400</div>
+        <div class="var-unit">/&nbsp;tenant&nbsp;/&nbsp;month</div>
+      </div>
+      <ul>
+        <li>Custom wordmark, logo, and color palette on tenant UI</li>
+        <li>Partner subdomain: <span class="mono" style="color: rgba(255,255,255,0.85);">{tenant}.yourbrand.com</span></li>
+        <li>Custom login, emails, and mobile-app splash</li>
+        <li>&ldquo;Powered by Studio B&rdquo; in footer only</li>
+        <li>Per-tenant branding overrides via <span class="mono" style="color: rgba(255,255,255,0.85);">tenant_metadata</span></li>
+      </ul>
+      <a href="mailto:kevin@b.studio?subject=Bolt%20VAR%20Partner%20program%20inquiry" class="var-cta">Start the VAR conversation</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq fade-in">
+  <div class="faq-inner">
+    <div class="faq-head">
+      <span class="eyebrow">§ &nbsp;·&nbsp; FAQ</span>
+      <h2>Questions we hear on every demo call.</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-num">01</div>
+        <div class="faq-body">
+          <h3>What counts as a "tenant"?</h3>
+          <p>One warehouse operation. One Acumatica instance. One data boundary. If you run three independent distributorships under one parent company, each with its own Acumatica instance, that's three tenants. If you run one Acumatica instance with six warehouses and a hundred users, that's one tenant.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-num">02</div>
+        <div class="faq-body">
+          <h3>Do you really not charge per user?</h3>
+          <p>We really don't. Hire twelve seasonal pickers in Q4, add three CS agents in January, give read-only access to your auditors — the price doesn't move. We're not going to penalize you for adopting the software.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-num">03</div>
+        <div class="faq-body">
+          <h3>What does onboarding actually involve?</h3>
+          <p>We connect Bolt to your Acumatica instance, load your existing product catalog and customer list, configure your warehouse layout and zones, set up your carrier accounts, and run two training sessions with your warehouse team. Typical onboarding completes in <strong>two to four weeks</strong>, not six months. No separate $40K "professional services" package.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-num">04</div>
+        <div class="faq-body">
+          <h3>What if I need to cancel?</h3>
+          <p>Send an email. No retention calls. No waiting periods. We turn off billing at the end of your current month and send you a full data export (CSV, JSON, or raw SQL) within 48 hours. Your data is yours.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-num">05</div>
+        <div class="faq-body">
+          <h3>What about Acumatica customization deploys?</h3>
+          <p>The Acumatica DAC extensions Bolt needs are delivered as Customization Projects through <a href="https://b.studio" target="_blank" rel="noopener">AcuOps</a>, our Acumatica DevOps platform. If your VAR runs AcuOps, they handle the publish. If they don't, Studio B publishes the customization on your behalf during onboarding.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-num">06</div>
+        <div class="faq-body">
+          <h3>Can I try Bolt without signing up?</h3>
+          <p>We don't offer a self-serve trial, because Bolt isn't useful without your product catalog, your warehouse layout, and your Acumatica connection. <strong>The thirty-minute demo is how you evaluate.</strong> We load a demo environment with your data and show you the product answering your actual questions.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-num">07</div>
+        <div class="faq-body">
+          <h3>Are there volume discounts?</h3>
+          <p>Yes — for multi-tenant deployments (three or more tenants) and for VAR partners deploying across a client book. The pricing above is the single-tenant direct price. Talk to us if you're going to be <span class="mono">N &gt; 3</span>.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-num">08</div>
+        <div class="faq-body">
+          <h3>What about NetSuite, Sage, or Epicor?</h3>
+          <p>Bolt is built Acumatica-first, and it's in the Acumatica Marketplace. The sync layer is ERP-agnostic by architecture — a NetSuite adapter is on the roadmap — but <strong>if you're not on Acumatica today, Bolt is probably not your best option today</strong>. We'll be honest about that on the demo call.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-num">09</div>
+        <div class="faq-body">
+          <h3>Who's going to answer the phone if something breaks?</h3>
+          <p>Kevin Bibelhausen, Principal at Studio B. And the rest of the five-person Studio B team. Bolt doesn't have a Level 1 / Level 2 / Level 3 support hierarchy because we don't have enough people to pretend we do. You'll hear from the team that built it.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-num">10</div>
+        <div class="faq-body">
+          <h3>How is this different from an add-on module for my existing WMS?</h3>
+          <p>An add-on module bolts continuous-goods tracking onto software architecturally built for boxes. Bolt is the opposite: continuous goods is the core data model, and standard-unit SKUs are the edge case. The difference shows up in every screen, every workflow, and every API response. <strong>You can feel it in five minutes on a demo.</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing fade-in">
+  <div class="closing-inner">
+    <h2>See Bolt with <em>your</em> inventory.</h2>
+    <p class="closing-body">Thirty minutes. No slides. We&apos;ll load a demo environment with your products, your measurement units, and your typical order patterns. Pick a tier after, or pick no tier. No sales follow-ups.</p>
+    <div class="closing-actions">
+      <a href="mailto:kevin@b.studio?subject=Bolt%20demo%20request&amp;body=Hi%20Kevin%20%E2%80%94%20I%27d%20like%20to%20see%20a%20Bolt%20demo.%20My%20vertical%20is%20___%20and%20we%20currently%20run%20___." class="btn btn-yellow">Request a demo <span class="btn-arrow">→</span></a>
+      <a href="/" class="btn btn-ghost">Back to product</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="brand">
+          <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M14 2L4 13h7l-3 9 12-14h-8l2-6z" fill="#E8A838" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+          <span class="brand-word">B O L T</span>
+          <span class="brand-sub">by Studio&nbsp;B</span>
+        </a>
+        <p>Continuous goods WMS. Built by Studio B. In production at Heritage Fabrics.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="/#modules">Modules</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/customers/heritage.html">Heritage case study</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="https://b.studio" target="_blank" rel="noopener">Studio&nbsp;B</a>
+        <a href="mailto:kevin@b.studio">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <a href="mailto:kevin@b.studio?subject=Bolt%20VAR%20partner%20inquiry">VAR program</a>
+        <a href="mailto:kevin@b.studio?subject=Bolt%20Acumatica%20Marketplace">Marketplace</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Studio B AI. All rights reserved.</div>
+      <div class="footer-powered">Powered by <a href="https://b.studio" target="_blank" rel="noopener">Studio&nbsp;B</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+</body>
+</html>
