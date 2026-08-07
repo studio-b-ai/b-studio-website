@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio b. — We run it before we build it, back it, or sell it.</title>
-<meta name="description" content="Operator-owned. LP-grade. We run a seven-company portfolio on the same code we sell. Consulting, Capital, and Build — from Studio b.">
+<title>Studio b. — the operating system for the lower middle market</title>
+<meta name="description" content="An operator-owned holding company that runs a portfolio of real businesses on its own operating system — the same software and services it sells to other operators.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Studio b.">
-<meta property="og:title" content="Studio b. — We run it before we build it, back it, or sell it.">
-<meta property="og:description" content="Operator-owned. LP-grade. Consulting, Capital, and Build from Studio b.">
+<meta property="og:title" content="Studio b. — the operating system for the lower middle market">
+<meta property="og:description" content="An operator-owned holding company that runs its portfolio on the same software and services it sells to other operators. We run it before we sell it.">
 <meta property="og:url" content="https://b.studio">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Studio b. — We run it before we build it, back it, or sell it.">
-<meta name="twitter:description" content="Operator-owned. LP-grade. Consulting, Capital, and Build from Studio b.">
+<meta name="twitter:title" content="Studio b. — the operating system for the lower middle market">
+<meta name="twitter:description" content="An operator-owned holding company that runs its portfolio on the same software and services it sells to other operators.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,7 +100,7 @@ body {
 }
 .masthead-nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.1rem;
 }
 .masthead-nav a {
   font-family: 'JetBrains Mono', monospace;
@@ -138,10 +138,10 @@ body {
   background: var(--ink-10);
 }
 
-/* ── Above-fold: Editorial grid ── */
+/* ── Above-fold: hero + the fork ── */
 .above-fold {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.15fr 1fr;
   min-height: calc(100vh - 74px);
 }
 
@@ -167,8 +167,8 @@ body {
   font-family: 'Fraunces', serif;
   font-weight: 900;
   font-style: normal;
-  font-size: clamp(3.5rem, 6.5vw, 6rem);
-  line-height: 0.95;
+  font-size: clamp(3.1rem, 5.8vw, 5.4rem);
+  line-height: 0.98;
   letter-spacing: -0.025em;
   color: var(--forest);
   margin-bottom: 2.5rem;
@@ -195,6 +195,7 @@ body {
   max-width: 460px;
   margin-bottom: 3rem;
 }
+.fold-body strong { color: var(--ink); }
 
 .fold-stats {
   display: grid;
@@ -225,7 +226,7 @@ body {
   line-height: 1.4;
 }
 
-/* ── Right column: content stream ── */
+/* ── Right column: the fork ── */
 .fold-right {
   display: flex;
   flex-direction: column;
@@ -248,26 +249,441 @@ body {
   color: var(--ink-30);
 }
 
-.post-cards {
+.fork-cards {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
-
-.post-card {
+.fork-card {
   display: flex;
   flex-direction: column;
-  padding: 2rem 2.5rem;
+  padding: 2.5rem 2.5rem;
   border-bottom: 1px solid var(--ink-10);
   text-decoration: none;
   color: inherit;
   transition: background 0.1s;
   flex: 1;
   position: relative;
+  justify-content: center;
+}
+.fork-card:hover { background: var(--paper-dk); }
+.fc-register {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+.fc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.fork-diy .fc-dot { background: var(--yolk); }
+.fork-diy .fc-register { color: var(--ink); }
+.fork-dfy .fc-dot { background: var(--vermillion); }
+.fork-dfy .fc-register { color: var(--forest); }
+.fc-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.9rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.fc-body {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--ink-60);
+  margin-bottom: 1.25rem;
+  max-width: 420px;
+}
+.fc-read {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 1px;
+  transition: color 0.1s, border-color 0.1s;
+  align-self: flex-start;
+}
+.fork-card:hover .fc-read { color: var(--vermillion); border-color: var(--vermillion); }
+.fork-note {
+  padding: 1.1rem 2.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-30);
+}
+.fork-note a { color: var(--ink-60); text-decoration: none; border-bottom: 1px solid var(--ink-30); }
+.fork-note a:hover { color: var(--ink); border-color: var(--ink); }
+
+/* ── Section shell ── */
+.band {
+  padding: 4.5rem 2.5rem;
+  border-bottom: 3px solid var(--ink);
+}
+.band.no-rule { border-bottom: none; }
+.band-inner { max-width: 1120px; margin: 0 auto; }
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 1.25rem;
+}
+.band-h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--forest);
+  margin-bottom: 1.25rem;
+}
+.band-lede {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-60);
+  max-width: 680px;
+  margin-bottom: 2.5rem;
+}
+.band-lede strong { color: var(--ink); }
+
+/* ── Capability table (the bridge) ── */
+.cap-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--ink);
+  background: var(--snow);
+  margin-bottom: 1.5rem;
+}
+.cap-table th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 3px solid var(--ink);
+  border-right: 1px solid var(--ink-10);
+  color: var(--ink);
+}
+.cap-table th.th-diy { background: var(--yolk-08); }
+.cap-table th.th-dfy { background: var(--paper-dk); }
+.cap-table td {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--ink-10);
+  border-right: 1px solid var(--ink-10);
+  color: var(--ink-60);
+  vertical-align: top;
+}
+.cap-table td:first-child { font-weight: 600; color: var(--ink); }
+.cap-table tr:last-child td { border-bottom: none; }
+.cap-table th:last-child, .cap-table td:last-child { border-right: none; }
+.cap-table td strong { color: var(--ink); }
+.cap-note {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-60);
+}
+.cap-note strong { color: var(--ink); }
+
+/* ── Verticals ── */
+.vert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px solid var(--ink-10);
+  background: var(--ink-10);
+  margin-bottom: 1.5rem;
+}
+.vert-cell { background: var(--paper); padding: 1.75rem 1.5rem; }
+.vert-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.15rem;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.vert-desc { font-size: 0.84rem; line-height: 1.6; color: var(--ink-60); }
+.vert-run {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--forest);
+  border: 1px solid var(--forest);
+  padding: 0.2rem 0.45rem;
+  margin-top: 0.85rem;
+}
+
+/* ── Services / Software lists ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  border: 1px solid var(--ink-10);
+  background: var(--ink-10);
+  margin-bottom: 2.5rem;
+}
+.why-cell { background: var(--paper); padding: 1.5rem; }
+.why-h {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.why-b { font-size: 0.84rem; line-height: 1.6; color: var(--ink-60); }
+
+.svc-list { list-style: none; margin-bottom: 2.5rem; border-top: 1px solid var(--ink-10); }
+.svc-list li {
+  display: grid;
+  grid-template-columns: 240px 1fr auto;
+  gap: 1.5rem;
+  padding: 1rem 0.25rem;
+  border-bottom: 1px solid var(--ink-10);
+  align-items: baseline;
+}
+.svc-name { font-weight: 700; font-size: 0.92rem; color: var(--ink); }
+.svc-desc { font-size: 0.86rem; line-height: 1.6; color: var(--ink-60); }
+.svc-desc strong { color: var(--ink); }
+.svc-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-30);
+  white-space: nowrap;
+}
+.svc-sub {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: -0.015em;
+  color: var(--forest);
+  margin-bottom: 0.75rem;
+}
+
+.sw-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  border: 1px solid var(--ink);
+  background: var(--ink-10);
+  margin-bottom: 1.5rem;
+}
+.sw-card { background: var(--snow); padding: 2rem 1.75rem; position: relative; }
+.sw-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.sw-what {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 0.75rem;
+}
+.sw-desc { font-size: 0.85rem; line-height: 1.65; color: var(--ink-60); margin-bottom: 1rem; }
+.sw-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.sw-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+.sw-runs {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--forest);
+  border: 1px solid var(--forest);
+  padding: 0.2rem 0.45rem;
+}
+.sw-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink-30);
+  padding-bottom: 1px;
+}
+.sw-link:hover { color: var(--vermillion); border-color: var(--vermillion); }
+
+.cross-link {
+  font-size: 0.88rem;
+  color: var(--ink-60);
+}
+.cross-link strong { color: var(--ink); }
+.cross-link a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink-30);
+}
+.cross-link a:hover { color: var(--vermillion); border-color: var(--vermillion); }
+
+/* ── Dark bands (Sell + CTA) ── */
+.dark-band {
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 3px solid var(--ink);
+}
+.dark-band .eyebrow { color: rgba(244,241,235,0.35); }
+.dark-band .band-h2 { color: var(--paper); }
+.dark-band .band-lede { color: rgba(244,241,235,0.65); }
+.dark-band .band-lede strong { color: var(--paper); }
+.btn-primary {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--vermillion);
+  color: var(--snow);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  transition: background 0.12s;
+}
+.btn-primary:hover { background: var(--paper); color: var(--ink); }
+.btn-secondary {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--paper);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(244,241,235,0.3);
+  transition: background 0.12s, border-color 0.12s;
+}
+.btn-secondary:hover { background: rgba(244,241,235,0.1); border-color: var(--paper); }
+
+.cta-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 3px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+.cta-col { padding: 4rem 3rem; }
+.cta-col:first-child { border-right: 1px solid rgba(244,241,235,0.1); }
+.cta-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(244,241,235,0.35);
+  margin-bottom: 1.25rem;
+}
+.cta-headline {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 1.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  margin-bottom: 1rem;
+}
+.cta-body {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: rgba(244,241,235,0.65);
+  margin-bottom: 2rem;
+}
+
+/* ── Proof band ── */
+.proof-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.pb-item {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid var(--ink-10);
+}
+.pb-item:last-child { border-right: none; }
+.pb-n {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.pb-l {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  line-height: 1.5;
+}
+
+/* ── In-the-open cards (Proof) ── */
+.open-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  border: 1px solid var(--ink-10);
+  background: var(--ink-10);
+}
+.post-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem;
+  background: var(--paper);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.1s;
+  position: relative;
 }
 .post-card:hover { background: var(--paper-dk); }
-.post-card:last-child { border-bottom: none; }
-
 .pc-register {
   display: inline-flex;
   align-items: center;
@@ -289,7 +705,6 @@ body {
 .card-lmmi .pc-register { color: var(--forest); }
 .card-markdown .pc-dot { background: var(--yolk); }
 .card-markdown .pc-register { color: var(--ink); }
-
 .pc-title {
   font-size: 1.0rem;
   font-weight: 600;
@@ -343,10 +758,7 @@ body {
 }
 .pc-subscribe:hover { color: var(--ink); }
 
-/* ── LMMI live data strip (inside capital post-card) ──
-   Mirrors the lmmi.b.studio masthead ticker: paper-dk panel,
-   ink hairline outlines, forest values, vermillion LIVE INDEX badge,
-   gloss footnote underneath. Scaled down for post-card context. */
+/* ── LMMI live data strip (inside research post-card) ── */
 .lmmi-strip {
   background: var(--paper-dk);
   border-top: 1px solid var(--ink);
@@ -387,18 +799,26 @@ body {
   padding: 0.2rem 0.5rem;
 }
 
-/* ── Loading state ── */
-.post-card.loading .pc-title { background: var(--paper-dk); color: transparent; width: 80%; }
-.post-card.loading .pc-excerpt { background: var(--paper-dk); color: transparent; }
-.post-card.loading .pc-meta { background: var(--paper-dk); color: transparent; width: 40%; }
+/* ── Portfolio line (Proof) ── */
+.portfolio-line {
+  border: 1px solid var(--ink-10);
+  background: var(--snow);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2.5rem;
+}
+.pl-h {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-30);
+  margin-bottom: 0.6rem;
+}
+.pl-b { font-size: 0.88rem; line-height: 1.7; color: var(--ink-60); }
+.pl-b strong { color: var(--ink); }
 
-/* ── Stripe divider (family-wide --stripe-height) ──
-   Forest diagonals matching the masthead .stripe.thin pattern (defined in
-   /assets/header.css). The 3px ink rule lives at the BOTTOM of the stripe,
-   so the stripe pattern reads as continuous from its preceding section
-   and the ink rule introduces the next section. The sections that
-   precede a stripe (.above-fold, .proof-band) MUST NOT carry their own
-   border-bottom or the rule will stack visibly above the stripe pattern. */
+/* ── Stripe divider (family-wide --stripe-height) ── */
 .stripe {
   height: var(--stripe-height);
   background: repeating-linear-gradient(
@@ -409,201 +829,6 @@ body {
   border-top:    1px solid rgba(13, 13, 13, 0.60);
   border-bottom: 3px solid var(--ink);
 }
-/* Lower stripe (above entity-dir): bottom rule splits into three accent
-   segments matching the cards directly below
-   (markdown=yolk, lmmi=vermillion, invest=forest). The inset box-shadow
-   paints a second 1px ink@60 hairline just above the gradient, so the
-   diagonal pattern is bracketed top + bottom by hairlines and the
-   accent strip hangs below as its own band. */
-.stripe.forest {
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--forest) 0px, var(--forest) 9px,
-    var(--paper) 9px, var(--paper) 18px
-  );
-  border-image-source: linear-gradient(
-    to right,
-    var(--yolk)       0       33.333%,
-    var(--vermillion) 33.333% 66.667%,
-    var(--forest)     66.667% 100%
-  );
-  border-image-slice: 0 0 1 0;
-  border-image-width: 0 0 3px 0;
-  box-shadow: inset 0 -1px 0 rgba(13, 13, 13, 0.60);
-}
-
-/* ── Proof band ──
-   No border-bottom — the .stripe.forest that follows carries the 3px
-   ink rule on its own bottom edge. */
-.proof-band {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-.pb-item {
-  padding: 2.5rem 2rem;
-  border-right: 1px solid var(--ink-10);
-}
-.pb-item:last-child { border-right: none; }
-.pb-n {
-  font-family: 'Fraunces', serif;
-  font-weight: 900;
-  font-size: 3rem;
-  line-height: 1;
-  color: var(--ink);
-  margin-bottom: 0.4rem;
-}
-.pb-l {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: var(--mono-sm);
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--ink-60);
-  line-height: 1.5;
-}
-
-/* ── Entity directory ── */
-.entity-dir {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-bottom: 3px solid var(--ink);
-}
-
-.ed-item {
-  padding: 2.5rem 2rem 2.5rem 2.5rem;
-  border-right: 1px solid var(--ink-10);
-  position: relative;
-  overflow: hidden;
-}
-.ed-item:last-child { border-right: none; }
-.ed-item::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 4px;
-}
-.ed-markdown::before { background: var(--yolk); }
-.ed-lmmi::before     { background: var(--vermillion); }
-.ed-invest::before   { background: var(--forest); }
-.ed-invest .ed-audience { color: var(--forest); }
-.ed-invest .ed-link:hover { color: var(--forest); border-color: var(--forest); }
-
-.ed-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: var(--mono-sm);
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-30);
-  margin-bottom: 0.75rem;
-}
-.ed-name {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.4rem;
-  letter-spacing: -0.02em;
-}
-.ed-audience {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: var(--mono-sm);
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 0.75rem;
-}
-.ed-markdown .ed-audience { color: var(--ink-60); }
-.ed-lmmi .ed-audience { color: var(--vermillion); }
-
-.ed-desc {
-  font-size: 0.82rem;
-  line-height: 1.6;
-  color: var(--ink-60);
-  margin-bottom: 1.5rem;
-}
-.ed-link {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: var(--mono-sm);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: 1px solid var(--ink-30);
-  padding-bottom: 1px;
-  transition: color 0.12s, border-color 0.12s;
-}
-.ed-markdown .ed-link:hover { color: var(--ink); border-color: var(--ink); }
-.ed-lmmi .ed-link:hover { color: var(--vermillion); border-color: var(--vermillion); }
-
-/* ── LP / CTA section ── */
-.cta-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-bottom: 3px solid var(--ink);
-  background: var(--ink);
-  color: var(--paper);
-}
-.cta-col {
-  padding: 4rem 3rem;
-}
-.cta-col:first-child {
-  border-right: 1px solid rgba(244,241,235,0.1);
-}
-.cta-kicker {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: var(--mono-sm);
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(244,241,235,0.35);
-  margin-bottom: 1.25rem;
-}
-.cta-headline {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-weight: 900;
-  font-size: 1.8rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--paper);
-  margin-bottom: 1rem;
-}
-.cta-body {
-  font-size: 0.88rem;
-  line-height: 1.65;
-  color: rgba(244,241,235,0.65);
-  margin-bottom: 2rem;
-}
-.btn-primary {
-  display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: var(--mono-md);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: var(--vermillion);
-  color: var(--snow);
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  transition: background 0.12s;
-}
-.btn-primary:hover { background: var(--ink); }
-.btn-secondary {
-  display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: var(--mono-md);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: transparent;
-  color: var(--paper);
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid rgba(244,241,235,0.3);
-  transition: background 0.12s, border-color 0.12s;
-}
-.btn-secondary:hover { background: rgba(244,241,235,0.1); border-color: var(--paper); }
 
 /* ── Footer ── */
 footer {
@@ -626,6 +851,7 @@ footer {
 .footer-links {
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 .footer-links a {
   font-family: 'JetBrains Mono', monospace;
@@ -639,24 +865,34 @@ footer {
 }
 .footer-links a:hover { color: var(--ink); }
 
+/* ── Masthead center yields to the 5-item nav on narrower desktops ── */
+@media (max-width: 1400px) {
+  .masthead { grid-template-columns: 1fr auto; }
+  .masthead-center { display: none; }
+}
+
 /* ── Mobile ── */
 @media (max-width: 900px) {
-  .masthead { grid-template-columns: 1fr auto; }
+  .masthead { grid-template-columns: 1fr auto; padding: 1rem 1.5rem; }
   .masthead-center { display: none; }
   .above-fold { grid-template-columns: 1fr; min-height: auto; }
   .fold-left { padding: 3rem 1.5rem; border-right: none; border-bottom: 1px solid var(--ink-10); }
-  .post-card { padding: 1.75rem 1.5rem; }
+  .fork-card { padding: 2rem 1.5rem; }
   .stream-header { padding: 1.25rem 1.5rem; }
+  .fork-note { padding: 1rem 1.5rem; }
+  .band { padding: 3rem 1.5rem; }
+  .why-grid { grid-template-columns: 1fr; }
+  .svc-list li { grid-template-columns: 1fr; gap: 0.35rem; }
+  .sw-grid { grid-template-columns: 1fr; }
+  .vert-grid { grid-template-columns: 1fr; }
   .proof-band { grid-template-columns: repeat(2, 1fr); }
   .pb-item:nth-child(2) { border-right: none; }
-  .entity-dir { grid-template-columns: 1fr; }
-  .ed-item { border-right: none; border-bottom: 1px solid var(--ink-10); }
-  .ed-item:last-child { border-bottom: none; }
+  .open-cards { grid-template-columns: 1fr; }
   .cta-section { grid-template-columns: 1fr; }
   .cta-col:first-child { border-right: none; border-bottom: 1px solid rgba(244,241,235,0.1); }
   .cta-col { padding: 3rem 1.5rem; }
   .fold-stats { grid-template-columns: repeat(3, 1fr); }
-  .masthead { padding: 1rem 1.5rem; }
+  .cap-table { display: block; overflow-x: auto; }
 }
 </style>
 </head>
@@ -670,95 +906,327 @@ footer {
   <a href="/" class="masthead-brand">
     <span class="masthead-b">b<span class="masthead-dot">.</span></span>
   </a>
-  <div class="masthead-center">Operators · Builders · Investors · Since 2018</div>
+  <div class="masthead-center">Operators · Builders · Since 2018</div>
   <div class="masthead-right">
     <nav class="masthead-nav">
-      <a href="https://markdown.b.studio">Markdown</a>
-      <a href="https://lmmi.b.studio">LMMI</a>
-      <a href="https://invest.b.studio">Invest</a>
+      <a href="#software">Software</a>
+      <a href="#services">Services</a>
+      <a href="#sell">Sell</a>
+      <a href="#proof">Proof</a>
+      <a href="#about">About</a>
     </nav>
-    <a href="https://invest.b.studio/" class="btn-lp">Invest with us →</a>
+    <a href="mailto:hello@b.studio" class="btn-lp">Talk to us →</a>
   </div>
 </header>
 
-<!-- ABOVE FOLD: Editorial two-column -->
+<!-- ABOVE FOLD: hero + the fork -->
 <section class="above-fold">
 
-  <!-- LEFT: Thesis + stats -->
+  <!-- LEFT: Hero + stats -->
   <div class="fold-left">
-    <div class="fold-kicker">§01</div>
+    <div class="fold-kicker">§01 — The operating system</div>
 
     <div class="fold-statement">
-      <span>We run it before we build it, back it, <em>or sell it.</em></span>
+      <span>The operating system for the <em>lower middle market.</em></span>
     </div>
 
     <p class="fold-body">
-      Studio b. is an operator-owned holding company. We run a seven-company portfolio on the same code we sell, back, and deploy for clients — because software that has to survive real deadlines is different from software that only has to look good in a demo.
+      The businesses too big for off-the-shelf tools, too small for enterprise systems. We run our own companies on it before we sell it to yours — proven across a seven-company portfolio, <strong>0 demo environments.</strong>
     </p>
 
+    <div class="fold-stats">
+      <div class="stat-cell">
+        <div class="stat-n">7</div>
+        <div class="stat-l">Portfolio companies owned &amp; operated</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n">4</div>
+        <div class="stat-l">Products in production daily</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n">0</div>
+        <div class="stat-l">Demo environments. Real orders.</div>
+      </div>
+    </div>
   </div>
 
-  <!-- RIGHT: Content stream -->
+  <!-- RIGHT: The fork — one OS, two ways to run it -->
   <div class="fold-right">
     <div class="stream-header">
-      <span class="stream-label">Recently published</span>
+      <span class="stream-label">One OS · Two ways to run it</span>
     </div>
 
-    <div class="post-cards" id="post-cards">
-      <!-- Cards injected by JS; fallback below is shown if fetch fails -->
-      <a class="post-card card-lmmi" href="https://lmmi.b.studio" id="card-lmmi">
-        <div class="pc-register">
-          <span class="pc-dot"></span>
-          LMMI · For investors
-        </div>
-        <div class="lmmi-strip" id="b-lmmi-strip">
-          <div class="lmmi-strip-row">
-            <span class="lmmi-strip-label">LMMI</span>
-            <span class="lmmi-strip-period" id="b-lmmi-period">Q4 2025</span>
-            <span class="lmmi-strip-sep">·</span>
-            <span><span class="lmmi-strip-metric-label">US LMM Spread</span><span class="lmmi-strip-val" id="b-lmmi-spread">222 bps</span></span>
-            <span class="lmmi-strip-sep">·</span>
-            <span><span class="lmmi-strip-metric-label">UK LMM Recovery</span><span class="lmmi-strip-val" id="b-lmmi-recovery">78%</span></span>
-            <span class="lmmi-strip-badge">Live index</span>
-          </div>
-        </div>
-        <div class="pc-title">The Non-Bank Advantage in Lower Middle Market Credit</div>
-        <div class="pc-meta">Loading latest issue…</div>
-        <div class="pc-excerpt">The deepest structural gap in LMM credit isn't where banks won't lend — it's where they can't move fast enough or stay long enough.</div>
-        <div class="pc-footer">
-          <span class="pc-read">Read issue →</span>
-          <a class="pc-subscribe" href="https://lmmi.b.studio/subscribe" onclick="event.stopPropagation()">Subscribe to LMMI →</a>
-        </div>
+    <div class="fork-cards">
+      <a class="fork-card fork-diy" href="#software">
+        <div class="fc-register"><span class="fc-dot"></span>DIY · Software</div>
+        <div class="fc-title">Run it yourself.</div>
+        <p class="fc-body">Install Bolt, AcuOps, Switchboard, and Amplify on your own tenant — the OS modules, productized and live today.</p>
+        <span class="fc-read">See the software →</span>
       </a>
 
-      <a class="post-card card-markdown" href="https://markdown.b.studio" id="card-markdown">
-        <div class="pc-register">
-          <span class="pc-dot"></span>
-          Markdown · For operators
-        </div>
-        <div class="pc-title">We Don't Sell Software We Wouldn't Run Ourselves</div>
-        <div class="pc-meta">Loading latest issue…</div>
-        <div class="pc-excerpt">Bolt, AcuOps, and Amplify run real operations. When the warehouse stops shipping, we fix it — because we're the warehouse.</div>
-        <div class="pc-footer">
-          <span class="pc-read">Read issue →</span>
-          <a class="pc-subscribe" href="https://markdown.b.studio/subscribe" onclick="event.stopPropagation()">Subscribe to Markdown →</a>
-        </div>
+      <a class="fork-card fork-dfy" href="#services">
+        <div class="fc-register"><span class="fc-dot"></span>DFY · Services</div>
+        <div class="fc-title">We run it for you.</div>
+        <p class="fc-body">We operate your ERP, warehouse, books, marketing, and customer service on the OS — embedded, not advising.</p>
+        <span class="fc-read">See what we run →</span>
       </a>
     </div>
+
+    <div class="fork-note">Same capabilities, your choice of mode — <a href="#bridge">here's how that works ↓</a></div>
   </div>
 
 </section>
 
 <div class="stripe"></div>
 
-<!-- PROOF BAND -->
+<!-- THE BRIDGE: use it yourself, or let us run it -->
+<section class="band" id="bridge">
+  <div class="band-inner">
+    <div class="eyebrow">One capability menu · Two modes</div>
+    <h2 class="band-h2">Use it yourself, or let us run it.</h2>
+    <p class="band-lede">
+      Every capability comes two ways. Run it yourself on our software — or hand it to our team and we'll run it for you, on that same software. Use the free version of <strong>AcuOps</strong>, or let us run your whole Acumatica environment. Install <strong>Switchboard</strong>, or let our team run your customer-service desk. Run your own IT, or hand us the keys. Start do-it-yourself and graduate to done-for-you whenever you're ready — you're never locked into one.
+    </p>
+
+    <table class="cap-table">
+      <thead>
+        <tr>
+          <th>What you need</th>
+          <th class="th-diy">Run it yourself · Software</th>
+          <th class="th-dfy">Or we run it · Services</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Warehouse &amp; inventory</td>
+          <td><strong>Bolt</strong></td>
+          <td>We run your fulfillment — up to full 3PL</td>
+        </tr>
+        <tr>
+          <td>Acumatica — ERP &amp; DevOps</td>
+          <td><strong>AcuOps</strong> <em>(free to start)</em></td>
+          <td>We run your Acumatica environment</td>
+        </tr>
+        <tr>
+          <td>Phones &amp; customer service</td>
+          <td><strong>Switchboard</strong></td>
+          <td>We run your CS desk</td>
+        </tr>
+        <tr>
+          <td>Marketing &amp; outbound</td>
+          <td><strong>Amplify</strong></td>
+          <td>We run your marketing</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="cap-note"><strong>Don't want to touch the software at all?</strong> We also run, fully managed: <strong>IT &amp; security · books &amp; accounting · capital, succession &amp; coverage.</strong></p>
+  </div>
+</section>
+
+<!-- WHERE WE GO DEEPEST -->
+<section class="band">
+  <div class="band-inner">
+    <div class="eyebrow">Built for operators like you</div>
+    <h2 class="band-h2">Where we go deepest.</h2>
+    <p class="band-lede">The OS runs across the lower middle market — but we go deepest in the rooms we already live in:</p>
+
+    <div class="vert-grid">
+      <div class="vert-cell">
+        <div class="vert-name">Continuous-goods distribution</div>
+        <p class="vert-desc">Fabric, wire, roll goods: anything sold by the yard instead of the unit. Bolt was built for it.</p>
+        <span class="vert-run">We run one — Heritage Fabrics</span>
+      </div>
+      <div class="vert-cell">
+        <div class="vert-name">Light manufacturing</div>
+        <p class="vert-desc">Make-to-order and value-added production.</p>
+        <span class="vert-run">We run one — Ferncrest</span>
+      </div>
+      <div class="vert-cell">
+        <div class="vert-name">Automotive transmission repair &amp; service</div>
+        <p class="vert-desc">Multi-location service shops.</p>
+        <span class="vert-run">A vertical we're built for</span>
+      </div>
+    </div>
+
+    <p class="cap-note">The first two we run ourselves — so when it's your operation, we're not learning your business on your dime.</p>
+  </div>
+</section>
+
+<!-- SERVICES — DFY -->
+<section class="band" id="services">
+  <div class="band-inner">
+    <div class="eyebrow">Done for you</div>
+    <h2 class="band-h2">We run it for you.</h2>
+    <p class="band-lede">
+      The same operating system we run our own companies on, pointed at yours — and operated by us. Not a consultant who leaves you a deck. Not a stack of associate hours on a timesheet. We get embedded, the OS does the heavy lifting, and the back office that used to eat your week just runs.
+    </p>
+
+    <div class="why-grid">
+      <div class="why-cell">
+        <div class="why-h">Embedded, not advising.</div>
+        <div class="why-b">We operate inside your systems — we don't hand you a roadmap and leave.</div>
+      </div>
+      <div class="why-cell">
+        <div class="why-h">Run on software, not headcount.</div>
+        <div class="why-b">The OS does the work a labor-leveraged firm bills you twelve associates for.</div>
+      </div>
+      <div class="why-cell">
+        <div class="why-h">One team to call.</div>
+        <div class="why-b">Where a partner delivers a line, they sit <em>behind</em> our OS — you get one accountable team, not a vendor chain.</div>
+      </div>
+      <div class="why-cell">
+        <div class="why-h">We run it on our own companies first.</div>
+        <div class="why-b">If it isn't good enough for Heritage, we don't sell it to you. (That's what <em>0 demo environments</em> means.)</div>
+      </div>
+    </div>
+
+    <div class="svc-sub">What we run — pick what's eating your week:</div>
+    <ul class="svc-list">
+      <li>
+        <span class="svc-name">ERP &amp; integrations</span>
+        <span class="svc-desc">Acumatica, HubSpot, and the systems that never quite talk to each other.</span>
+        <span class="svc-tag">AcuOps</span>
+      </li>
+      <li>
+        <span class="svc-name">Warehouse &amp; inventory</span>
+        <span class="svc-desc">Container tracking, allocation, and a real answer to "what can I promise?" Or go all the way: <strong>3PL</strong> — your goods ship out of our own warehouse, on the same operation that runs Heritage.</span>
+        <span class="svc-tag">Bolt</span>
+      </li>
+      <li>
+        <span class="svc-name">Books &amp; accounting</span>
+        <span class="svc-desc">Bookkeeping and a month-end close you don't dread.</span>
+        <span class="svc-tag">Managed</span>
+      </li>
+      <li>
+        <span class="svc-name">Marketing &amp; outbound</span>
+        <span class="svc-desc">Content and pipeline in your voice; nothing publishes under your name without your 👍.</span>
+        <span class="svc-tag">Amplify</span>
+      </li>
+      <li>
+        <span class="svc-name">Phones &amp; customer service</span>
+        <span class="svc-desc">A phone that already knows the caller's open orders.</span>
+        <span class="svc-tag">Switchboard</span>
+      </li>
+      <li>
+        <span class="svc-name">IT &amp; security</span>
+        <span class="svc-desc">The keep-the-lights-on layer, handled.</span>
+        <span class="svc-tag">Managed</span>
+      </li>
+      <li>
+        <span class="svc-name">Capital, succession &amp; coverage</span>
+        <span class="svc-desc">When you need money, a plan to step back, or the right insurance, the OS already knows your numbers — so we line up the options and the partners. Run on the OS, partner-first.</span>
+        <span class="svc-tag">Managed</span>
+      </li>
+    </ul>
+
+    <div class="svc-sub">We don't just run it — we grow it.</div>
+    <p class="band-lede">The back office is most of what eats your week — but the OS already knows your customers and your catalog, so it can move the top line too:</p>
+    <ul class="svc-list">
+      <li>
+        <span class="svc-name">Your wholesale book, now selling online</span>
+        <span class="svc-desc">Most B2B distributors still take orders by phone, email, and rep. We put your catalog on <strong>Shopify Plus B2B</strong> — your trade pricing, net terms at checkout, your customers self-serving 24/7 — and open channels you couldn't staff before. We did it for Heritage Fabrics: a multi-decade textile distributor now selling its trade catalog online with credit at checkout. Your wholesale business is next.</span>
+        <span class="svc-tag">Channel</span>
+      </li>
+      <li>
+        <span class="svc-name">Demand in your voice</span>
+        <span class="svc-desc">Content and pipeline that publishes under your name — never without your 👍.</span>
+        <span class="svc-tag">Amplify</span>
+      </li>
+      <li>
+        <span class="svc-name">Pricing that defends margin</span>
+        <span class="svc-desc">The same models that run Heritage's tier-and-customer pricing, pointed at your book.</span>
+        <span class="svc-tag">Models</span>
+      </li>
+    </ul>
+
+    <p class="cross-link"><strong>Tell us what's eating your week.</strong> We don't send a deck. We show up. <a href="mailto:hello@b.studio">Talk to us →</a> &nbsp;·&nbsp; <em>Rather run it yourself?</em> <a href="#software">Browse the software →</a></p>
+  </div>
+</section>
+
+<!-- SOFTWARE — DIY -->
+<section class="band" id="software">
+  <div class="band-inner">
+    <div class="eyebrow">Do it yourself</div>
+    <h2 class="band-h2">Run it yourself.</h2>
+    <p class="band-lede">
+      The OS modules, productized — installed on your own tenant, running your operations by next week. The same software we run our own companies on. No demo, no pilot theater: it's in production here today.
+    </p>
+
+    <div class="sw-grid">
+      <div class="sw-card">
+        <div class="sw-name">Bolt</div>
+        <div class="sw-what">Continuous-goods WMS</div>
+        <p class="sw-desc">Container tracking, multi-channel allocation, AI-tuned available-to-promise, deep Acumatica integration.</p>
+        <div class="sw-foot">
+          <span class="sw-price">From $800/mo</span>
+          <span class="sw-runs">Runs Heritage's warehouse</span>
+          <a class="sw-link" href="https://bolt.b.studio">bolt.b.studio →</a>
+        </div>
+      </div>
+      <div class="sw-card">
+        <div class="sw-name">AcuOps</div>
+        <div class="sw-what">Acumatica DevOps</div>
+        <p class="sw-desc">Sandbox gates, AI-assisted PR review, snapshot/rollback, deploy telemetry — years of incident scar tissue, productized. Free linter → free audit → paid.</p>
+        <div class="sw-foot">
+          <span class="sw-price">From $800/mo per instance</span>
+          <span class="sw-runs">Runs our own deploys</span>
+          <a class="sw-link" href="https://acuops.com">acuops.com →</a>
+        </div>
+      </div>
+      <div class="sw-card">
+        <div class="sw-name">Switchboard</div>
+        <div class="sw-what">A phone that reads your ERP</div>
+        <p class="sw-desc">Inbound calls pop the caller's open orders, container ETAs, and backorders — inside HubSpot.</p>
+        <div class="sw-foot">
+          <span class="sw-price">From $200/mo</span>
+          <span class="sw-runs">Runs Heritage's CS line</span>
+        </div>
+      </div>
+      <div class="sw-card">
+        <div class="sw-name">Amplify</div>
+        <div class="sw-what">Multi-brand outbound</div>
+        <p class="sw-desc">Signal → intent → content in your voice → Slack approval before anything publishes.</p>
+        <div class="sw-foot">
+          <span class="sw-price">From $600/mo</span>
+          <span class="sw-runs">Runs our own publications</span>
+          <a class="sw-link" href="https://amplify.b.studio">amplify.b.studio →</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="cross-link">Run an Acumatica practice? <strong>AcuOps is built for VARs</strong> — resell it to your book. &nbsp;·&nbsp; <em>Don't want to run it yourself?</em> <a href="#services">We'll run it for you →</a></p>
+  </div>
+</section>
+
+<!-- SELL / SUCCESSION -->
+<section class="band dark-band" id="sell">
+  <div class="band-inner">
+    <div class="eyebrow">Thinking about what's next?</div>
+    <h2 class="band-h2">Sell it to us — or plan the handoff.</h2>
+    <p class="band-lede">
+      Built something real and wondering what comes next? We're not buying to flip you in five years. We buy operating businesses to <strong>run them — permanently</strong> — on the same OS. You get liquidity and a real home for the team and customers you built; we get a business we'll actually operate. Not ready to sell? We'll help you plan the succession.
+    </p>
+    <a href="mailto:hello@b.studio" class="btn-primary">Start a conversation →</a>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="band no-rule" id="proof">
+  <div class="band-inner">
+    <div class="eyebrow">0 demo environments</div>
+    <h2 class="band-h2">We run it before we sell it.</h2>
+    <p class="band-lede">Every product on this site runs a real business of ours first. If it can't survive our own deadlines, we don't sell it.</p>
+  </div>
+</section>
+
 <div class="proof-band">
   <div class="pb-item">
     <div class="pb-n">7</div>
     <div class="pb-l">Portfolio companies<br>owned &amp; operated</div>
   </div>
   <div class="pb-item">
-    <div class="pb-n">3</div>
+    <div class="pb-n">4</div>
     <div class="pb-l">Products in production<br>daily</div>
   </div>
   <div class="pb-item">
@@ -771,67 +1239,106 @@ footer {
   </div>
 </div>
 
-<div class="stripe forest"></div>
+<div class="stripe"></div>
 
-<!-- CANONICAL SURFACES -->
-<section class="entity-dir" id="entities">
+<section class="band">
+  <div class="band-inner">
+    <div class="portfolio-line">
+      <div class="pl-h">The portfolio we run</div>
+      <p class="pl-b"><strong>Heritage Fabrics</strong> (continuous-goods distribution) · <strong>Ferncrest</strong> (light manufacturing) · <strong>Weathervane Hill</strong> (brand). Real orders, real stakes. <strong>In production daily</strong> — Bolt runs the warehouse, AcuOps ships the deploys, Switchboard takes the calls, Amplify writes the content. Not slideware.</p>
+    </div>
 
-  <div class="ed-item ed-markdown">
-    <div class="ed-num">01</div>
-    <div class="ed-name">Markdown, by Studio b.</div>
-    <div class="ed-audience">For operators &amp; technical founders</div>
-    <p class="ed-desc">War stories from inside the work — both the client engagements and the products we ship. Bolt, AcuOps, and Amplify run real operations at Studio b.'s portfolio companies. The newsletter is downstream of that work.</p>
-    <a href="https://markdown.b.studio" class="ed-link">markdown.b.studio →</a>
+    <div class="portfolio-line" style="margin-bottom: 1.5rem;">
+      <div class="pl-h">What the data teaches us, in the open</div>
+      <p class="pl-b"><strong>LMMI</strong>, our open Lower Middle Market Index (methodology public), and <strong>Markdown</strong>, the operator newsletter. The same models sharpen how we price and run our own businesses.</p>
+    </div>
+
+    <div class="open-cards" id="post-cards">
+      <!-- Cards hydrated by JS; fallback below is shown if fetch fails -->
+      <a class="post-card card-lmmi" href="https://lmmi.b.studio" id="card-lmmi">
+        <div class="pc-register">
+          <span class="pc-dot"></span>
+          LMMI · Open research
+        </div>
+        <div class="lmmi-strip" id="b-lmmi-strip">
+          <div class="lmmi-strip-row">
+            <span class="lmmi-strip-label">LMMI</span>
+            <span class="lmmi-strip-period" id="b-lmmi-period">Q4 2025</span>
+            <span class="lmmi-strip-sep">·</span>
+            <span><span class="lmmi-strip-metric-label">US LMM Spread</span><span class="lmmi-strip-val" id="b-lmmi-spread">222 bps</span></span>
+            <span class="lmmi-strip-sep">·</span>
+            <span><span class="lmmi-strip-metric-label">UK LMM Recovery</span><span class="lmmi-strip-val" id="b-lmmi-recovery">78%</span></span>
+            <span class="lmmi-strip-badge">Live index</span>
+          </div>
+        </div>
+        <div class="pc-title">Inside the lower middle market — quarterly data, methodology public</div>
+        <div class="pc-meta">Loading latest issue…</div>
+        <div class="pc-excerpt">Quarterly spread, structure, and recovery data across the LMM universe — the same models sharpen how we price and run our own businesses.</div>
+        <div class="pc-footer">
+          <span class="pc-read">Read the research →</span>
+          <a class="pc-subscribe" href="https://lmmi.b.studio/subscribe" onclick="event.stopPropagation()">Subscribe to LMMI →</a>
+        </div>
+      </a>
+
+      <a class="post-card card-markdown" href="https://markdown.b.studio" id="card-markdown">
+        <div class="pc-register">
+          <span class="pc-dot"></span>
+          Markdown · For operators
+        </div>
+        <div class="pc-title">We Don't Sell Software We Wouldn't Run Ourselves</div>
+        <div class="pc-meta">Loading latest issue…</div>
+        <div class="pc-excerpt">Bolt, AcuOps, Switchboard, and Amplify run real operations. When the warehouse stops shipping, we fix it — because we're the warehouse.</div>
+        <div class="pc-footer">
+          <span class="pc-read">Read issue →</span>
+          <a class="pc-subscribe" href="https://markdown.b.studio/subscribe" onclick="event.stopPropagation()">Subscribe to Markdown →</a>
+        </div>
+      </a>
+    </div>
   </div>
-
-  <div class="ed-item ed-lmmi">
-    <div class="ed-num">02</div>
-    <div class="ed-name">Studio b. LMMI</div>
-    <div class="ed-audience">For LPs, allocators, family offices</div>
-    <p class="ed-desc">The Studio b. Lower Middle Market Direct Lending Index — the open benchmark Cliffwater's CDLI doesn't reach. Quarterly spread, structure, and recovery data sourced from SBA 7(a), Companies House workouts, and the LMM-eligible universe.</p>
-    <a href="https://lmmi.b.studio" class="ed-link">lmmi.b.studio →</a>
-  </div>
-
-  <div class="ed-item ed-invest">
-    <div class="ed-num">03</div>
-    <div class="ed-name">Invest with us.</div>
-    <div class="ed-audience">Rule 506(c) · Verified accredited only</div>
-    <p class="ed-desc">Studio b. LMM Bridge Fund I is the vehicle that invests against the LMMI universe. Offered under Rule 506(c) — public solicitation permitted, subscription requires verified accredited status. We don't send a deck. We share the backtester.</p>
-    <a href="https://invest.b.studio/" class="ed-link">invest.b.studio →</a>
-  </div>
-
 </section>
 
-<!-- LP / OPERATOR CTA -->
-<section class="cta-section" id="lp">
+<!-- ABOUT -->
+<section class="band" id="about">
+  <div class="band-inner">
+    <div class="eyebrow">Operator-owned</div>
+    <h2 class="band-h2">Operators, not financial engineers.</h2>
+    <p class="band-lede">
+      Most holding companies observe from an ivory tower and "optimize" on a spreadsheet. We run the warehouse, ship the deploys, and take the calls — we own a portfolio of lower-middle-market businesses and actually operate them. We learn from our scars, design the solution, and dogfood in our own portfolio before we consider offering it for external use. <strong>In the trenches since 2018.</strong>
+    </p>
+    <p class="cap-note"><strong>Kevin Bibelhausen</strong> — Principal. Runs Ästhetik (Southeast US textile) and the software products.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
 
   <div class="cta-col">
-    <div class="cta-kicker">For LPs &amp; Investors</div>
-    <div class="cta-headline">LP-grade, operator-owned.</div>
-    <p class="cta-body">Studio b. LMMI is the open Lower Middle Market Direct Lending Index — the segment Cliffwater's CDLI doesn't reach. Studio b. LMM Bridge Fund I is the vehicle that invests against it. Fund I is offered under Rule 506(c) to verified accredited investors. We don't send a deck. We share access to the backtester so you can run your own scenarios against thirty years of LMM default and recovery data.</p>
-    <a href="https://invest.b.studio" class="btn-primary">Request backtester access →</a>
+    <div class="cta-kicker">Done for you</div>
+    <div class="cta-headline">Tell us what's eating your week.</div>
+    <p class="cta-body">If you run something real — a distributor, a manufacturer, a service business — and you need someone embedded, not advising, let's talk. We don't send decks. We show up.</p>
+    <a href="mailto:hello@b.studio" class="btn-primary">hello@b.studio →</a>
   </div>
 
   <div class="cta-col">
-    <div class="cta-kicker">For Operators</div>
-    <div class="cta-headline">We run it before we sell it.</div>
-    <p class="cta-body">If you run something real — a distributor, a manufacturer, a SaaS business — and you need someone embedded, not advising, let's talk. We don't send decks. We show up.</p>
-    <a href="mailto:hello@b.studio" class="btn-secondary">hello@b.studio →</a>
+    <div class="cta-kicker">Do it yourself</div>
+    <div class="cta-headline">Rather run it yourself?</div>
+    <p class="cta-body">Bolt, AcuOps, Switchboard, and Amplify — installed on your own tenant, running your operations by next week. The same software we run our own companies on.</p>
+    <a href="#software" class="btn-secondary">Browse the software →</a>
   </div>
 
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-mark">Studio b. · b.studio · Est. 2024</div>
+  <div class="footer-mark">Studio b. · b.studio · Operating since 2018</div>
   <div class="footer-links">
     <a href="https://markdown.b.studio">Markdown</a>
     <a href="https://lmmi.b.studio">LMMI</a>
-    <a href="https://invest.b.studio">Invest</a>
     <a href="https://bolt.b.studio">Bolt</a>
     <a href="https://acuops.com">AcuOps</a>
     <a href="https://amplify.b.studio">Amplify</a>
     <a href="mailto:hello@b.studio">hello@b.studio</a>
+    <a href="https://invest.b.studio">Invest</a>
   </div>
 </footer>
 
@@ -865,7 +1372,7 @@ footer {
 </script>
 
 <script>
-// Live LMMI ticker — fetches /api/dli/latest and hydrates the strip inside the LMMI post-card.
+// Live LMMI ticker — fetches the latest index datapoint and hydrates the strip inside the research post-card.
 // Renders with hardcoded fallback values first so the strip is never empty.
 (function () {
   var DLI_API = 'https://studiob-api-production-2df4.up.railway.app/api/dli/latest';
