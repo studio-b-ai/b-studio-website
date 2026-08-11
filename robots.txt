@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /docs/
+Disallow: /drafts/
+Disallow: /concepts/
+Disallow: /bolt-strategy/
